@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from hhockey import views as staticViews
 
 urlpatterns = [
+    url(r'^$', staticViews.home, name='home'),
     url(r'^admin/', admin.site.urls),
 ]
