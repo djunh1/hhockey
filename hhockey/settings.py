@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangobower',
     'functional_tests',
-    'staticContent'
+    'staticContent',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -116,8 +117,33 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Bower Config
+
+BOWER_COMPONENTS_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static/bower_components'))
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#TODO Eventually use a static CDN to serve static from another server
+STATIC_ROOT=os.path.abspath(os.path.join(BASE_DIR, '../static'))
+MEDIA_ROOT=os.path.abspath(os.path.join(BASE_DIR, '../media'))
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+STATICFILES_FINDERS = (
+    'djangobower.finders.BowerFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+BOWER_INSTALLED_APPS = (
+    'underscore',
+    "font-awesome#4.3.0",
+    'jquery',
+
+)

@@ -1,8 +1,9 @@
-
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <title>Heritage Hockey</title>
+        {% include 'layout/head.html' %}
+
+        <title>{% block title %}Heritage Hockey{% endblock %}</title>
 
     </head>
     <body>
@@ -10,7 +11,7 @@
 
             <div >
                 <div>
-                  <h1>Heritage Hockey</h1>
+                  <h1 class="test">Heritage Hockey</h1>
                 </div>
 
             </div>
