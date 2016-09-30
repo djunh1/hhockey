@@ -1,0 +1,3831 @@
+/* --------------------------------------------------------------------------
+ * jThemes Studio : Modern 80's-MODE E-Commerce Template
+ *
+ * file           : style.css
+ * Desc           : 80's-MODE Template - Stylesheet
+ * Version        : 
+ * Date           : 
+ * Author         : jThemes Studio
+ * Author URI     : 
+ * Email          : 
+ *
+ * jThemes Studio. Copyright 2016. All Rights Reserved.
+ * -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+ *  80's-MODE Template - Table of Content
+
+  1 - General
+    1.1 - Preloader
+    1.2 - Global properties (body, common classes, structure etc)
+    1.3 - Page section block
+    1.4 - Typography (section title, links, page dividers)
+    1.5 - Buttons 
+    1.6 - Form / Input / Textarea  
+    1.7 - Hover Effects
+    1.8 - Theme Tabs
+    1.9 - Theme Fonts
+    1.10 - Rating Stars
+
+  2 - Home-1 
+    2.1 - Banner-1
+    2.2 - Product Tabs 
+    2.3 - Testimonials   
+    2.4 - Special Promo  
+    2.5 - Bestseller Products
+    2.6 - Subscribe
+    2.7 - Brands
+    2.8 - Home Blog
+    2.9 - Feature
+    2.10 - Responsive
+
+  3 - Home-2 
+    3.1 - Main Slider
+    3.2 - Banner 
+    3.3 - Twitter Feed   
+    3.4 - Counter  
+    3.5 - Promo & Subscribe
+    3.6 - Home Blog
+    3.7 - Newsletter
+    3.8 - Brands & About Us
+    3.9 - Responsive
+
+  4 - Home-3 
+    4.1 - Banner & Slider
+    4.2 - Responsive 
+
+  5 - Home-4 
+    5.1 - Main Slider
+    5.2 - Responsive     
+
+  6 - Home-5 
+
+  7 - Home-6 
+  
+  8 - Categories
+
+  9 - Product Single
+  
+  10 - Shopping Cart
+  
+  11 - Checkout
+  
+  12 - Blog
+  
+  13 - Contact Us
+  
+  14 - About Us
+
+  15 - 404-Error
+    15.1 - 404 Light
+    15.2 - 404 Dark 
+ 
+  16 - Comingsoon
+ 
+  17 - Account Pages
+  
+  18 - Footer
+
+  19 - Popups
+    19.1 - To Top
+    19.2 - Popup Login 
+    19.3 - Popup Subscribe
+    19.4 - Popup Light
+    19.5 - Popup Dark
+
+  20 - Breadcrumbs
+     
+  22 - Responsive
+
+ * -------------------------------------------------------------------------- */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+
+/******************************* 
+    1 - GENERAL CSS STARTS 
+********************************/
+
+/*---------------- 1.1 Preloader Starts ------------------*/
+#loading {  
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 2000;   
+    top: 0px;
+    background: #fff; 
+}
+.loader {
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top: 0; right: 0; left: 0; bottom: 0;
+    margin: auto;
+}
+.loader .image {
+    width: 100px;
+    height: 160px;
+    font-size: 40px;
+    text-align: center;
+    -webkit-transform-origin: bottom center;
+    transform-origin: bottom center;
+    -webkit-animation: 3s rotate infinite;
+    animation: 3s rotate infinite;
+    opacity: 0;
+}
+.loader span {
+    display: block;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+@-webkit-keyframes rotate{
+    0% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    10% {
+        opacity: 0;
+    }
+    35% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+}
+
+@keyframes rotate{
+    0% {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+    10% {
+        opacity: 0;
+    }
+    35% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+}
+/*---------------- 1.1 Preloader Ends ------------------*/
+
+/*---------------- 1.2 Global properties (body, common classes, structure etc) Starts ----------------------*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    background: #fcfcfc;
+    color: #000;
+    font-size: 14px;
+    -webkit-font-kerning: auto;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: visible !important;  
+    overflow-x: hidden; 
+}
+
+.boxed .wrapper {
+    background-color: #ffffff;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.theme-container {
+    padding-left: 0;
+    padding-right: 0;
+}
+.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+}
+.no-margin {
+    margin: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    transition: all 0.4s linear 0s;
+    -webkit-transition: all 0.4s linear 0s;
+}
+.img-effect:hover .img-hover > img {
+    -ms-transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1)
+}
+.owl-carousel .owl-item .carousel-inner > img {
+    max-width: none;
+}
+.owl-carousel .owl-item img {
+    width: auto;
+    margin: auto;
+}
+.panel { background-color: inherit;}
+.light-bg { background-color: #f2f2f2; }
+.light-bg-1 { background-color: #fcfcfc; }
+.white-bg { background-color: #fff; }
+.black-bg { background-color: #000; }
+.rel-div { position: relative; z-index: 1; }
+
+.pattern-bg-1 {
+    background-image: url(../img/banner/pattern-bg.jpg) ;
+    border-bottom: 1px solid #dadada;
+    border-top: 1px solid #dadada;
+}
+.black-mask, .white-mask {
+    position: relative;
+    transition: all 0.4s linear 0s;
+    -webkit-transition: all 0.4s linear 0s;
+}
+.black-mask:before, .white-mask:before {    
+    content: "";
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+
+    transition: all 0.4s linear 0s;
+    -webkit-transition: all 0.4s linear 0s;
+}
+.black-mask:before {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+}
+.white-mask:before {
+    background: rgba(255, 255, 255, 0.5) none repeat scroll 0 0;
+}
+
+.divider-solid {
+    border-color: #000;  
+    border-style: solid;
+}
+.divider-dotted {
+    border-color: #a3a3a3;  
+    border-style: dotted;
+}
+
+/*-- Titles --*/
+.title-wrap {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    text-align: center;
+}
+.section-title, .title-1, .title-2, .prod-title, .blog-title, .widget-title {
+    color: #000;  
+    text-transform: uppercase; 
+}
+
+.section-title.wht {
+    color: #fff;
+}
+.section-title { font-size: 24px; margin: 0; }
+.section-title > span {
+    margin: 0 4px;
+    vertical-align: middle;
+}
+.widget-title {
+    border-bottom: 1px solid #000000;
+    margin: 0 0 25px;
+    padding-bottom: 20px;
+    font-size: 24px;
+}
+.border-title {
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 25px;
+    padding: 25px 0 18px;
+    text-transform: uppercase;
+}
+.title-1 {font-size: 16px; }
+.title-2 { font-size: 18px; font-weight: 700; }
+.sub-detail {
+    color: #000;  
+    text-transform: uppercase;  
+    letter-spacing: 6px;
+    font-size: 21px;
+}
+.sub-detail.wht {
+    color: #fff;
+}
+.white-clr .section-title, .white-clr .sub-detail, .white-clr a {
+    color: #fff;
+}
+.white-clr a:hover {
+    color: #a3a3a3;
+}
+.line {
+    position: relative;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.line:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #d5292c;    
+
+    transition: transform 0.3s ease 0s;
+    -webkit-transition: transform 0.3s ease 0s;
+    -ms-transition: transform 0.3s ease 0s;
+}
+/*-- Titles --*/
+
+.white-clr { color: #fff; }
+.black-clr { color: #000000; }
+.gray-clr { color: #a3a3a3; }
+.gray-light { color: #ccc; }
+.red-clr { color: #d5292c; }
+
+.black-bg { background-color: #000000; }
+.gray-bg { background-color: #999999; }
+.red-bg { background-color: #cc3333; }
+.yellow-bg { background-color: #ffcc66; }
+.green1-bg { background-color: #16c79e; }
+.green2-bg { background-color: #109121; }
+.blue1-bg { background-color: #16a9c7; }
+.blue2-bg { background-color: #185999; }
+.violate-bg { background-color: #461899; }
+.pink-bg { background-color: #c7166f; }
+
+.block-inline {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.list-items li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.list-items { margin-bottom: 0; }
+
+/*-- Arrow Animation --*/
+.black-arrow,a.black-arrow {
+    color: #000 !important;
+}
+.white-arrow, a.white-arrow {
+    color: #fff !important;
+}
+.black-arrow i,.white-arrow i {  
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 15px;
+    line-height: normal;
+
+    transition: transform 0.4s ease 0s;
+    -webkit-transition: transform 0.4s ease 0s;
+    -ms-transition: transform 0.4s ease 0s;    
+
+    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+    -ms-transform: translateX(0px);
+}
+.black-arrow:hover i, .white-arrow:hover i {
+    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    -ms-transform: translateX(10px);
+}
+
+/*-- Tags --*/
+.red-tag > span, .black-tag > span {
+    position: absolute;
+    right: -55px;
+    top: 13px;
+    transform: rotate(49deg);
+    -webkit-transform: rotate(49deg);
+    -ms-transform: rotate(49deg);
+}
+.red-tag, .black-tag {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 60px 60px 0;   
+    color: #ffffff;
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0;
+}
+.red-tag {
+    border-color: transparent #cc0000  transparent transparent;
+}
+.black-tag {
+    border-color: transparent #000 transparent transparent;
+}
+.hot-tag, .hot-tag-left, .black-tag, .black-tag-left {    
+    border-radius: 0px;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 0px 3px;
+    position: relative;
+    z-index: 2;
+}
+.hot-tag, .hot-tag-left {
+    background-color: #d5292c;
+}
+.black-tag, .black-tag-left {
+    background-color: #000;
+}
+.black-tag::after, .black-tag::before {
+    border-left: 6px solid #000;
+}
+.bubble {
+    display: table;   
+    margin: auto;
+    position: absolute;
+    right: -15px;
+    top: 0;
+    width: auto;
+}
+
+.black-tag-left:before {
+    border-color: transparent #000 transparent transparent; 
+}
+/*------------------- 1.2 Global properties (body, common classes, structure etc) Ends -----------------*/
+
+/*---------------------- 1.3 Section Space Starts ----------------------------*/
+.sec-space {
+    padding-bottom: 68px;
+    padding-top: 68px;
+}
+.ptb-15 {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+.pb-15 { padding-bottom: 15px; }
+.pt-15 { padding-top: 15px;}
+.ptb-20 {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.pb-20 {padding-bottom: 20px;}
+.pt-20 {padding-top: 20px;}
+.ptb-25 {
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+.pb-25 { padding-bottom: 25px;}
+.pt-25 {padding-top: 25px;}
+.ptb-30 {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.pb-30 {padding-bottom: 30px;}
+.pt-30 {padding-top: 30px;}
+.ptb-40 {
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+.pb-40 {padding-bottom: 40px;}
+.pt-40 {padding-top: 40px;}
+.ptb-35 {
+    padding-bottom: 35px;
+    padding-top: 35px;
+}
+.pb-35 { padding-bottom: 35px;}
+.pt-35 {padding-top: 35px;}
+.ptb-50 {
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.pb-50 {padding-bottom: 50px;}
+.pt-50 { padding-top: 50px;}
+.ptb-60 {
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+.pb-60 {padding-bottom: 60px;}
+.pt-60 {padding-top: 60px;}
+.ptb-70 {
+    padding-bottom: 70px;
+    padding-top: 70px;
+}
+.pb-70 {padding-bottom: 70px;}
+.pt-70 { padding-top: 70px;}
+
+.mb-10 { margin-bottom: 10px;}
+.mb-30 { margin-bottom: 30px;}
+/*---------------------------- 1.3 Page section block Ends ---------------------------*/
+
+/*--------------------------- 1.4 Typography (section title, links, page dividers) Starts -------------------------- */
+a:hover 
+a:active,
+a:focus,
+.btn:hover, .btn:focus,.btn:active {  
+    text-decoration: none;
+    outline: 0;
+}
+a, .btn {
+    -ms-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    color: #000;
+}
+a:hover,
+a:active,
+a:focus,
+.smooth-trantn {
+    text-decoration: none;
+    -ms-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+a:hover,
+a:active,
+a:focus {
+    color: #a3a3a3;
+}
+p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+}
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 20px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+    padding-left: 20px;
+}
+h2,h3,h4,h5,h6 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*------------------------ 1.4 Typography (section title, links, page dividers) Ends ---------------------- */
+
+/*--------------------------- 1.5 Buttons Starts ---------------------- */
+
+/* Common Button CSS  */
+.theme-btn {
+    cursor: pointer;
+    display: inline-block;
+    border: 2px solid;
+    vertical-align: middle;
+    text-transform: uppercase;   
+    font-weight: 700;
+    font-size: 16px;
+    padding: 0 10px;
+    min-width: 155px;
+    height: 50px;
+    line-height: 45px;
+    text-align: center;
+    outline: none;
+    position: relative;    
+    overflow: hidden;    
+    z-index: 1;
+    background-color: transparent;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.theme-btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 0;
+    top: 50%;
+    left: 50%;   
+    opacity: 0;
+
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.theme-btn:hover:after {
+    height: 230%;
+    opacity: 1;
+}
+.theme-btn:active:after {
+    height: 400%;
+    opacity: 1;
+}
+.small-btn {
+    height: 45px;
+    font-size: 14px;
+    min-width: 165px;
+    line-height: 42px;
+}
+.theme-btn .fa {
+    border-right: 2px solid;
+    float: left;
+    line-height: 43px;  
+    margin-left: -10px;
+    margin-right: 10px;
+    width: 40px;
+}
+/*-- ./ Common Button CSS --*/
+
+/*-- White Button CSS --*/
+.btn-white {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+.btn-white:after {
+    background: #fff;
+}
+.btn-white:hover,
+.btn-white:active {
+    color: #000;
+}
+
+.btn-white-1 {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+}
+.btn-white-1:hover {
+    background-color: transparent;
+    color: #fff;
+}
+/*-- ./ White Button CSS --*/
+
+/*-- Black Button CSS --*/
+.btn-black {
+    border: 2px solid #000;
+    color: #000;
+}
+.btn-black:after {
+    background: #000;
+}
+.btn-black:hover,
+.btn-black:active {
+    color: #fff;
+}
+
+.btn-black-1 {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+.btn-black-1:hover {
+    background-color: transparent;
+    color: #000000;
+}
+/*-- ./ Black Button CSS --*/
+
+label.btn input {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    text-transform: uppercase;
+}
+
+/*------------------------ 1.5 Buttons Ends ---------------------------- */
+
+/*----------------------- 1.6 Form / Input / Textarea Starts --------------------------- */
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-control, .input-group-addon, .bootstrap-select .btn {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #f4f4f4;
+    border-radius: 0;
+    box-shadow: none;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 45px;
+    padding: 10px 20px;
+}
+.form-control.submit-btn {
+    height: auto;
+    line-height: normal;
+}
+.form-alert {
+    margin: 0;
+}
+label {font-weight: normal;}
+/*-- Checkbox/Radiobox Starts --*/
+[type="checkbox"], .form-group [type="radio"] {
+    border: 0 none;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.checkbox-inline, .form-group .radio-inline {
+    margin: 0;
+    padding-left: 0;
+    line-height: 1.2;
+    color: #a3a3a3;
+    vertical-align: -moz-middle-with-baseline;
+}
+
+[type="checkbox"] + span, [type="radio"] + span {
+    border: 1px solid #a3a3a3;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    margin-right: 8px;
+    position: relative;
+    width: 10px;
+}
+[type="checkbox"]:checked + span, .checkbox-inline:hover [type="checkbox"] + span,
+[type="radio"]:checked + span, .radio-inline:hover [type="checkbox"] + span {
+    border-color: #d5292c;
+}
+[type="checkbox"]:checked + span::before, [type="radio"]:checked + span::before {
+    background-color: #d5292c;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 6px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+}
+
+/*-- Checkbox/Radiobox Ends --*/
+
+/*--Bootstrap Select--*/
+.bootstrap-select .btn .filter-option {
+    color: #000000;
+    line-height: 25px;
+}
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+    border: none;
+    margin-top: 0; 
+    right: 30px;
+    top: 12px;
+}
+.bootstrap-select.btn-group .dropdown-toggle .caret:after {
+    content: "\f0d7";
+    font-family: fontawesome;
+    font-size: 13px;
+    color: #000;
+}
+.bootstrap-select .btn-default.active.focus, .bootstrap-select .btn-default.active:focus, .bootstrap-select .btn-default.active:hover, 
+.bootstrap-select .btn-default.focus:active, .bootstrap-select .btn-default:active:focus, .bootstrap-select .btn-default:active:hover, 
+.bootstrap-select > .dropdown-toggle.btn-default.focus, .bootstrap-select > .dropdown-toggle.btn-default:focus, 
+.bootstrap-select > .dropdown-toggle.btn-default:hover {
+    background-color: transparent;
+    border-color: #cccccc;
+}
+.bootstrap-select .dropdown-toggle:focus {
+    outline: 0 none !important;
+    outline-offset: 0;
+}
+
+::-webkit-input-placeholder {
+    color: #a3a3a3 ;
+}
+:-moz-placeholder {
+    color: #a3a3a3;
+}
+::-moz-placeholder {
+    color: #a3a3a3;
+}
+:-ms-input-placeholder {
+    color: #a3a3a3;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #a3a3a3;
+    opacity: 1;
+}
+.form-control::-moz-placeholder {
+    color: #a3a3a3;
+    opacity: 1;
+}
+.form-control::-ms-input-placeholder {
+    color: #a3a3a3;
+    opacity: 1;
+}
+.form-control:focus {
+    background-color: transparent;
+    border-color: #e7e8ec;
+    box-shadow: none;
+    outline: 0 none;
+}
+input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+    outline: 0;
+}
+input:focus::-webkit-input-placeholder {
+    color: transparent !important;
+}
+input:focus:-moz-placeholder {
+    color: transparent !important;
+}
+input:focus::-moz-placeholder {
+    color: transparent !important;
+}
+input:focus:-ms-input-placeholder {
+    color: transparent !important;
+}
+textarea:focus::-webkit-input-placeholder {
+    color: transparent !important;
+}
+textarea:focus:-moz-placeholder {
+    color: transparent !important;
+}
+textarea:focus::-moz-placeholder {
+    color: transparent !important;
+}
+textarea:focus:-ms-input-placeholder {
+    color: transparent !important;
+}
+
+
+/*---------------------------- 1.6 Form / Input / Textarea Ends ------------------------------ */
+
+/*------------------------ 1.7 Hover Effects Starts ---------------------------- */
+.box-hover:hover > img{
+    -ms-transform:scale(1.2);
+    -webkit-transform:scale(1.2);
+    transform:scale(1.2)
+}
+.box-hover:hover .black-mask:before {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+}
+.box-hover h2 {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition: all 0.4s linear 0s;
+    -webkit-transition: all 0.4s linear 0s;
+}
+.box-hover h2::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    content: '';
+    -webkit-transition: -webkit-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+}
+
+.box-hover:hover h2::after {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+.box-hover:hover h2 {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    transition: all 0.4s linear 0s;
+    -webkit-transition: all 0.4s linear 0s;
+}
+
+.hover-effect-1 {
+    position: relative;
+    text-align: center;
+}
+.hover-effect-1::before {
+    background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    z-index: 1;
+
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+}
+.hover-effect-1:hover:before {
+    top: 0;
+}
+/*----------------------- 1.7 Hover Effects Ends --------------------------- */
+
+/*----------------------- 1.8 Theme Tabs Starts --------------------------- */
+.theme-tabs > li {
+    padding: 0px 25px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin: 5px 0;
+}
+.theme-tabs > li + li {
+    border-left: 2px solid #ccc;
+    margin-left: -4px;
+    vertical-align: middle;
+}
+.theme-tabs > li a { 
+    padding: 0px 3px;
+    text-transform: uppercase;
+    color: #ccc;
+    position: relative;
+    display: inline-block;
+}
+.theme-tabs > li a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #d5292c;
+    opacity: 0;
+
+    transition: transform 0.3s ease 0s;
+    -webkit-transition: transform 0.3s ease 0s;
+    -ms-transition: transform 0.3s ease 0s;
+}
+.theme-tabs > li.active a:before {
+    opacity: 1;
+}
+.theme-tabs > li a:hover, .theme-tabs > li a:focus, .theme-tabs > li.active a {
+    background: transparent;
+    color: #000;
+}
+/*----------------------- 1.8 Theme Tabs Ends --------------------------- */
+
+/*-------------------------- 1.9 Theme Fonts Starts ------------------- */
+
+.font-2, .section-title, .title-1, .widget-title { font-family: 'Oswald', sans-serif; }
+.font-1 { font-family: "Roboto",sans-serif; }
+.normal-font { font-weight: normal;}
+.bold-font { font-weight: bold; }
+.italic-font { font-style: italic; }
+.extra-bold-font { font-weight: 800; }
+.light-font { font-weight: 300; }
+.upper-text { text-transform: uppercase; }
+.normal-text { text-transform: none; }
+.capital-text { text-transform: capitalize; }
+
+.fsz-8 { font-size: 8px; }
+.fsz-10 { font-size: 10px; }
+.fsz-12 { font-size: 12px; }
+.fsz-14 { font-size: 14px; }
+.fsz-15 { font-size: 15px; }
+.fsz-16 { font-size: 16px; }
+.fsz-18 { font-size: 18px; }
+.fsz-24 { font-size: 24px; }
+.fsz-36 { font-size: 36px; }
+.fsz-48 { font-size: 48px; }
+.fsz-56 { font-size: 56px; }
+.fsz-86 { font-size: 86px; }
+
+
+.fw-900 { font-weight: 900; }
+.fw-600 { font-weight: 600; }
+.fw-500 { font-weight: 500; }
+.fw-300 { font-weight: 300; }
+
+/*-------------------------1.9 Theme Fonts Ends--------------------- */
+
+/*-------------------------  1.10 - Rating Stars Starts --------------------- */
+
+/*.rating .star {
+    cursor: pointer;     
+}*/
+.rating span.star::before {
+    color: #ccc;
+    font-size: 15px;
+    content: "\f005";    
+    font-family: FontAwesome;
+}
+.rating span.star.active::before {
+    color: #000;
+}
+.rating span.star.half:before {
+    color: #000;
+    content: "\f089";    
+    font-family: FontAwesome;
+}
+
+/*------------------------- 1.10 - Rating Stars Ends --------------------- */
+
+/*--------------------- 1.11 - owl-slider navigation style Starts ------------------------- */
+.owl-theme [class^="prod-tag"] {
+    right: -3px;
+}
+.owl-nav > div {
+    display: inline-block;
+    font-size: 24px;
+    vertical-align: middle;
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+}
+.nav-1 .owl-nav {
+    position: absolute;
+    right: 0;
+    top: -30px;
+}
+.nav-1 .owl-nav .owl-next {
+    margin-left: 10px;
+}
+.nav-2 .owl-nav > div {
+    border: 2px solid #000;   
+    color: #000;
+    font-size: 16px;
+    height: 23px;
+    line-height: 15px;
+    text-align: center; 
+    width: 23px;
+}
+.nav-2 .owl-nav > div:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+.nav-2.wht .owl-nav > div {
+    border: 2px solid #fff;   
+    color: #fff;
+}
+.nav-2.wht .owl-nav > div:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+}
+.nav-2 .owl-nav {
+    position: absolute;
+    right: 0;
+    top: -30px;
+}
+.nav-2 .owl-nav .owl-next {
+    margin-left: 10px;
+}
+
+.owl-theme .owl-dots {
+    text-align: center;
+}
+.owl-theme .owl-dots .owl-dot {
+    background: rgba(0, 0, 0, 0) none repeat scroll center top;  
+    border: 2px solid #000;
+    display: inline-block;
+    vertical-align: middle;
+    height: 14px;
+    margin: 0 5px;
+    position: relative;  
+    width: 14px;
+}
+.owl-theme .owl-dots .owl-dot span {
+    background-color: #000;
+    bottom: 0;
+    height: 6px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    vertical-align: middle;
+    width: 6px;
+    opacity: 0;
+
+    transition: opacity 200ms ease 0s;
+    -webkit-transition: opacity 200ms ease 0s;
+}
+
+.owl-theme.dots-black .owl-dots .owl-dot {
+    border: 2px solid #000;
+}
+.owl-theme.dots-black .owl-dots .owl-dot span {
+    background-color: #000; 
+}
+.owl-theme.dots-white .owl-dots .owl-dot {
+    border: 2px solid #fff;
+}
+.owl-theme.dots-white .owl-dots .owl-dot span {
+    background-color: #fff; 
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    opacity: 1;
+}
+/*--------------------- 1.11 - owl-slider navigation style Ends------------------------- */
+
+
+/******************************* 
+    1 - GENERAL CSS ENDS 
+********************************/
+
+
+/******************************* 
+    2 - HOME-1 CSS STARTS 
+********************************/
+
+/*---------------------- 2.1 - Banner-1 Starts ---------------------------- */
+.tbl-wrp {
+    height: 100%;    
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.tbl-wrp .text-middle {
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.tbl-wrp .tbl-cell {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+    width: 100%;
+}
+.banner-1 {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+}
+.banner-1 .section-title {
+    margin: 0;
+}
+.banner-1 .sub-detail {
+    margin-bottom: 0;
+}
+.banner-1 .banner-content {
+    padding: 0 6%;
+}
+.banner-content .theme-btn {
+    margin-top: 50px;
+}
+/*---------------------- 2.1 - Banner-1 Ends ---------------------------- */
+
+/*---------------------- 2.2 - Product Style Starts ------------------------- */
+.prod-img {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+.img-hover {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.prod-wrap:hover .img-hover > img {
+    -ms-transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    transform:scale(1.1)
+}
+.prod-tag-1, .prod-tag-red {
+    border: 3px solid rgba(0, 0, 0, 0.06);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 900;
+    height: 55px;
+    width: 55px;
+    line-height: 47px;
+    position: absolute;
+    right: -20px;
+    top: -20px;   
+    text-align: center;
+    text-transform: uppercase;     
+}
+.prod-tag-1 > span, .prod-tag-red > span {    
+    border-radius: 50%;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+.prod-tag-1 > span { background-color: #000000; }
+.prod-tag-red > span {
+    background-color: #d5292c;
+}
+.prod-cat {
+    background-color: #000000;
+    bottom: 0;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 600;
+    left: 0;
+    padding: 4px 10px 2px;
+    position: absolute;
+    text-transform: uppercase;
+}
+.prod-title {
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 18px;
+    padding: 17px 0;
+    text-transform: uppercase;
+}
+.blog-title {
+    border-bottom: 1px solid #000000;
+    font-size: 16px;
+    font-weight: 700;  
+    padding-bottom: 17px;
+}
+.prod-content .rating {
+    float: left;
+}
+.prod-content .prod-price {
+    float: right;
+    font-size: 16px;
+}
+.prod-price ins, .prod-price del {
+    text-decoration: none;
+}
+.prod-price del {
+    font-weight: 300;
+    position: relative;
+    color: #a3a3a3;
+    margin-left: 6px;
+    padding: 0 4px;
+}
+.prod-price del::before {
+    background-color: #a3a3a3;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;  
+    width: 100%;
+    transform: rotate(-12deg);
+    -webkit-transform: rotate(-12deg);
+    -ms-transform: rotate(-12deg);
+}
+.prod-meta {
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: 20px;
+    padding-left: 0;
+}
+.prod-meta li {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 7px;
+}
+.prod-meta li:last-child {
+    float: right;
+    padding-right: 0;
+}
+.meta-icon, .prod-meta .theme-btn {
+    border: 2px solid #000000;
+    font-size: 14px;
+    height: 45px;
+    line-height: 43px;
+    text-align: center;
+    width: 45px;
+    vertical-align: middle;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+.prod-meta .theme-btn {
+    min-width: 160px;
+}
+.meta-icon:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/*--------------------- 2.2 - Product Style Ends------------------------- */
+
+/*--------------------- 2.3 - Testimonials Starts ------------------------- */
+.testimonial-sec {
+    background-image: url(../img/testimonials/bg-1.jpg);
+    background-repeat: no-repeat;   
+    background-size: cover;
+}
+.testimonial-wrap {
+    margin: 0 10% 40px;
+}
+.testimonial-img {
+    float: left;
+    margin-right: 35px;
+}
+.testimonial-content b {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/*--------------------- 2.3 - Testimonials Ends------------------------- */
+
+/*--------------------- 2.4 - Special Promo Starts ------------------------- */
+.special-promo-sec {
+    background-image: url('../img/banner/promo-bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+.promo {
+    opacity: 0.5;
+    padding: 12% 30px;
+    border-left: 2px solid #fff;
+}
+.promo:first-child {
+    border-color: transparent;
+}
+.promo:hover {
+    opacity: 1;
+}
+.promo .sub-detail {
+    display: inline-block;
+    margin: 30px 0 0 5px;
+    padding: 15px 0 3px;
+    position: relative;
+    width: 100%;
+}
+.promo .sub-detail::before {
+    background-color: #ffffff;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 65px;
+}
+/*--------------------- 2.4 - Special Promo Ends------------------------- */
+
+/*--------------------- 2.5 - Bestseller Products Starts ------------------------- */
+.best-seller .prod-content {
+    padding-left: 0;
+}
+.left-box {
+    display: inline-block;
+    vertical-align: middle;
+    width: 38%;
+}
+.right-box {
+    display: inline-block;
+    margin-left: 15px;
+    vertical-align: middle;
+    width: 55%;
+}
+.right-box .prod-title {
+    padding-top: 0;
+}
+.right-box .rating, .right-box .prod-price {
+    float: none;
+}
+.right-box .rating {
+    margin-bottom: 10px;
+}
+/*--------------------- 2.5 - Bestseller Products Ends------------------------- */
+
+/*--------------------- 2.6 - Subscribe-1 Starts ------------------------- */
+.subscribe-1 {
+    background-image: url(../img/banner/envolope-bg.png);
+    background-repeat: no-repeat;
+    background-position: center top -8px;
+    border: 10px solid #f4f4f4;
+    padding: 47px 50px 50px;
+
+}
+/*--------------------- 2.6 - Subscribe-1 Ends------------------------- */
+
+/*--------------------- 2.7 - Brands Starts ------------------------- */
+.brand-wrap .item {
+    position: relative; 
+    overflow: hidden;
+    text-align: center;
+}
+.brand-wrap .item a {
+    border: 2px solid transparent;  
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;  
+}
+.brand-slider .item a{  margin-bottom: 40px; }
+.brand-wrap .item a:hover {
+    border-color: #000;
+}
+.brand-wrap .item a:hover img {
+    opacity: 0.1;
+}
+.brand-wrap .item a:hover .line {
+    opacity: 1;
+    transform: translateY(0px);
+    -webkit-transform: translateY(0px);
+}
+.brand-wrap .item .line {
+    opacity: 0;
+    bottom: 0;
+    height: 22px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;    
+    width: 110px;
+
+    transition: all ease-in-out 0.4s ;
+    -webkit-transition: all ease-in-out 0.4s ;
+    transform: translateY(-100px);
+    -webkit-transform: translateY(-100px);
+}
+
+/*--------------------- 2.7 - Brands Ends------------------------- */
+
+/*--------------------- 2.8 - Home Blog Starts ------------------------- */
+
+.blog-wrap {
+    display: inline-block;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.blog-img {
+    margin-bottom: 20px;
+}
+.blog-heading .date > b {
+    font-size: 11px;
+    font-weight: 900;
+    display: block;
+    text-transform: uppercase;
+}
+.blog-heading .date {
+    background-color: #000000;
+    color: #ffffff;
+    display: inline-block;
+    height: 70px;
+    text-align: center;
+    width: 48px;
+    padding-top: 8px;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+.blog-heading .blog-title {
+    display: inline-block;
+    vertical-align: bottom;
+    width: calc(100% - 75px) !important;
+    width: 80%;
+}
+.blog-heading.wht .blog-title {
+    border-bottom: 1px solid #a3a3a3;
+}
+.blog-heading.wht .date {
+    border: 2px solid #fff;
+    padding-top: 6px;
+    background-color: transparent;
+}
+
+.blog-heading.dark .date {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #000000;
+    color: #000000;
+}
+.blog-heading.dark .blog-title{
+    border-bottom: 1px solid #b0b0b0;
+}
+.blog-meta li b {
+    font-size: 12px;
+}
+.blog-slider-1 .owl-nav div {
+    position: absolute;
+    bottom: 0;
+    line-height: 0;
+}
+.blog-slider-1 .owl-prev {
+    left: 40%;
+}
+.blog-slider-1 .owl-next {    
+    right: 40%;
+}
+
+/*--------------------- 2.8 - Home Blog Ends------------------------- */
+
+/*--------------------- 2.9 - Feature Starts ------------------------- */
+.feature-wrap {
+    border: 1px solid #dadada;
+    background-image: url(../img/banner/feature-bg.jpg);
+    text-align: center;
+}
+.feature {
+    padding: 50px 15px 60px;
+}
+.feature + .feature {
+    border-left: 1px solid #dadada;
+}
+/*--------------------- 2.9 - Feature Ends------------------------- */
+
+/*--------------------- 2.10 - Responsive Starts ------------------------- */
+@media (min-width:1200px)and (max-width:1200px) {
+    .col-sm-6 .prod-content .prod-meta .theme-btn {
+        min-width: 153px;
+    }
+}
+@media (min-width:992px)and (max-width:1200px) {
+    .prod-wrap {
+        display: table;
+        margin: auto;
+    }
+    .prod-wrap .block-inline {
+        display: table;
+    }
+
+}
+
+@media (min-width:768px)and (max-width:991px) {
+    .banner-content .theme-btn {
+        margin-top: 15px;
+    }    
+}
+@media (max-width:767px) {
+    .banner-1 {
+        display: table; margin: auto;
+    }
+    .banner-content .theme-btn {
+        margin-top: 15px;
+    }
+    .banner-1 .fsz-86 {
+        font-size: 22px;
+    }
+    .testimonial-img {
+        margin-right: 25px;
+    }
+    .promo {
+        border-top: 2px solid #ffffff;
+        border-left: 0 none;
+    }
+    .promo .sub-detail {
+        margin: 30px 0 0;
+    }
+    .prod-slider-1 {
+        margin-bottom: 40px;
+    }
+    .blog-slider-1 .owl-next {
+        right: 20%;
+    }
+    .blog-slider-1 .owl-prev {
+        left: 20%;
+    }
+    .feature + .feature {
+        border-top: 1px solid #dadada;
+        border-left: 0;
+    }
+    .blog-heading .date {
+        margin-right: 15px;
+        padding-top: 15px;
+    }
+    .blog-detail p {
+        text-align: justify;
+    }
+
+}
+@media (min-width:568px)and (max-width:767px) {
+    .prod-slider-1 .prod-meta .theme-btn,
+    .prod-slider-2 .prod-meta .theme-btn {
+        min-width: 145px;
+    }
+    .blog-heading .blog-title {
+        width: 75%;
+    }
+}
+@media (max-width:479px) {
+    .sec-banner-1 .sub-detail {
+        display: none;
+    }
+    .blog-heading .blog-title {
+        width: 75%;     
+    }
+
+}
+/*--------------------- 2.10 - Responsive Ends------------------------- */
+
+/******************************* 
+        3 - HOME-1 CSS ENDS 
+********************************/
+
+
+/******************************* 
+    3 - HOME-2 CSS STARTS 
+********************************/
+
+/*--------------------- 3.1 - Main Slider Starts ------------------------- */
+.caption-text {
+    max-width: 1140px;
+    margin: auto;
+    z-index: 2;
+}
+.main-slider .white-mask:before {
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0;
+}
+.main-slider .black-mask:before {
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+}
+.carousel-inner  > img {
+    //height: 620px;
+    width: 100%;
+}
+.slider-btn, .main-slider .content {
+    margin: 10% 0 0;
+}
+.text-center .slider-btn {
+    margin: 5% 0 0;
+}
+.main-slider .slider-detail {
+    width: 80%;
+    margin: auto auto 15px;
+}
+.slider-btn > a + a {
+    margin-left: 6px;
+}
+.main-slider .owl-dots {
+    bottom: 0;
+    position: absolute;
+    right: 7%;
+    top: 42%;
+}
+.main-slider .owl-dots .owl-dot {
+    display: block;
+    margin: 10px;
+}
+
+/* Animation delays */
+.caption-text .effect-1 {
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+.caption-text .effect-1 {
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+.caption-text .effect-3 {
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+/*--------------------- 3.1 - Main Slider Ends ------------------------- */
+
+/*--------------------- 3.2 - Banner-1 Starts ------------------------- */
+.home-page2 .sec-banner-1 .banner-content {
+    padding: 0 12%;
+}
+.banner-content .discount {
+    border: 10px solid #ffffff;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 32% 0 0;
+    text-align: center;
+}
+/*--------------------- 3.2 - Banner-1 Ends ------------------------- */
+
+/*--------------------- 3.3 - Twitter Feed Starts ------------------------- */
+.twitter-sec {
+    background-image: url(../img/home-2/banner-2.jpg);
+}
+/*--------------------- 3.3 - Twitter Feed Ends ------------------------- */
+
+/*--------------------- 3.4 - Counter Starts ------------------------- */
+.counter-icon, .counter-content {
+    display: inline-block;
+    vertical-align: middle;
+}
+.counter-icon {margin-right: 20px;}
+.counter-content .title-1 { margin: 0 0 10px; }
+.counter-content p {margin: 0;}
+/*--------------------- 3.4 - Counter Ends ------------------------- */
+
+/*--------------------- 3.5 - Promo & Subscribe Starts ------------------------- */
+.outerwear .section-title {
+    width: 82%;
+}
+.outerwear a {
+    line-height: normal;
+}
+.subscribe-2 {
+    border: 2px solid #f4f4f4;
+    padding: 45px 15px;
+}
+.subscribe-2 > i {
+    margin-bottom: 20px;
+}
+.subscribe-2 + .subscribe-2 {
+    margin-top: 30px;
+}
+
+/*--------------------- 3.5 - Promo & Subscribe Ends ------------------------- */
+
+/*--------------------- 3.6 - Home Blog Starts ------------------------- */
+.blog-sec-2 {
+    border-top: 1px solid #ededed;
+}
+.blog-sec-2 .block-inline > div:first-child {
+    border-right: 1px solid #ededed;
+    padding-left: 14px;
+}
+.blog-sec-2 .blog-heading .blog-title {
+    vertical-align: middle;
+    width: 79%;
+}
+.blog-sec-2 .blog-detail > p {
+    text-indent: 68px;
+}
+/*--------------------- 3.6 - Home Blog Ends ------------------------- */
+
+/*--------------------- 3.7 - Newsletter-1 Starts ------------------------- */
+
+.newsletter-form .form-control {
+    border: 1px solid #e9e9e9;
+}
+.newsletter-1 {
+    margin: auto;
+    width: 50%;
+}
+.newsletter-1 .form-group {margin-bottom: 0;}
+.newsletter-form .theme-btn {
+    min-width: auto;
+    width: 100%;
+}
+
+/*--------------------- 3.7 - Newsletter-1 Ends ------------------------- */
+
+/*--------------------- 3.8 - Brands & About Us Starts ------------------------- */
+
+.brand-about-sec .item:nth-child(-n+3) a {
+    margin-bottom: 50px;
+}
+/*--------------------- 3.8 - Brands & About Us Ends ------------------------- */
+
+
+/*--------------------- 3.9 -  Responsive Starts ------------------------- */
+@media (min-width:768px) and (max-width:991px) {
+
+    /*--- Slider --- */
+    .carousel-inner > img {
+        height: 500px;
+    }
+
+    /*--- Counter --- */
+    .counter-icon {
+        margin: 0 0 20px;
+    }
+    .counter-icon, .counter-content {
+        display: block;       
+        text-align: center;
+    }
+
+    /*--- Subscribe-2 --- */
+    .subscribe-2 {
+        width: 48%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .subscribe-2 + .subscribe-2 {
+        margin: 0 0 0 25px;
+    }
+
+    /*--- Newsletter-1 --- */
+    .newsletter-1 {width: 80%;}
+
+    /*--- Brand --- */
+    .brand-about-sec .item:nth-child(-n+4) a {
+        margin-bottom: 20px;
+    }
+
+}
+@media (max-width:767px) {
+    /*--- Slider --- */
+    .carousel-inner > img {
+        height: 300px;
+    }
+
+    /*--- Counter --- */
+    .counter-icon {
+        margin: 0 0 15px;
+    }
+    .counter-icon, .counter-content {
+        display: block;       
+        text-align: center;
+    }
+    .col-xs-6:nth-child(-n+2) .counter-content {
+        margin-bottom: 25px;
+    }
+
+    /*--- Blog --- */
+    .blog-sec-2 .block-inline > div:last-child {
+        padding-top: 0;
+    }
+
+    /*--- Newsletter-1 --- */
+    .newsletter-1 {width: 100%;}
+
+    /*--- Subscribe-2 --- */
+    .subscribe-2 {
+        display: table;
+        margin: auto;
+        width: 270px;
+    }
+
+    /*--- Brand --- */
+    .brand-about-sec .item:nth-child(-n+6) a {
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:479px) {
+    .slider-btn, .main-slider .content {
+        margin: 0;
+    }
+    .slider-btn > a {
+        margin: 6px 0 0;
+    }
+    .slider-btn > a + a {
+        margin-left: 0;
+    }
+    .main-slider .slider-detail {
+        display: none;
+    }
+    /*--- Blog --- */
+    .blog-sec-2 .blog-heading .blog-title {
+        width: 75%;
+    }
+}
+/*--------------------- 3.9 - Responsive Ends ------------------------- */
+
+/******************************* 
+    3 - HOME-2 CSS ENDS 
+********************************/
+
+/******************************* 
+    4 - HOME-3 CSS STARTS 
+********************************/
+
+/*--------------------- 4.1 - Banner & Slider Starts ------------------------- */
+.home-slide-thumb .owl-nav > div {
+    height: 45px;
+    line-height: 44px;
+    width: 45px;
+}
+.home-slide-thumb {
+    margin-left: 10%;
+    width: 80%;
+}
+.home-slide-thumb .owl-prev {
+    left: -10%;
+}
+.home-slide-thumb .owl-next {
+    right: -10%;
+}
+.home-slide-thumb .item .transparent {
+    /*    height: 134px;
+        width: 134px;*/
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.home-slide-thumb .item .transparent::before {
+    border: 2px solid #000000;
+    bottom: 0;
+    content: "";
+    display: table;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+
+    -ms-transform: scale(0); 
+    -webkit-transform: scale(0); 
+    transform: scale(0);
+}
+.home-slide-thumb .item:hover .transparent:before {
+    opacity: 1;
+    -ms-transform: scale(1); 
+    -webkit-transform: scale(1); 
+    transform: scale(1);
+}
+
+.home-page3 .sec-banner-1 .tbl-cell {
+    vertical-align: bottom;
+    padding-bottom: 60px;
+}
+.home-slide-thumb {
+    bottom: 22px;
+    position: absolute;
+    border: 1px solid #ededed;
+    border-left: 0;
+
+}
+.home-slide-thumb .owl-item {
+    border-left: 1px solid #ededed;    
+    // margin-bottom: 20px;
+}
+.counter-home3 .light-bg {
+    padding: 45px 25px 45px 40px;
+}
+/*--------------------- 4.1 - Banner & Slider Ends ------------------------- */
+
+/*--------------------- 4.2 - Responsive Starts ------------------------- */
+@media (min-width:992px) and (max-width:1199px) {
+    .counter-home3 .light-bg {
+        padding: 45px 15px;
+    }
+    .counter-icon {
+        margin-right: 8px;
+    }
+}
+@media (min-width:768px) and (max-width:991px)  {
+    .home-slide-thumb {bottom: 0;}
+    .counter-home3 .light-bg {
+        padding: 20px 15px;
+    }
+    .subscribe-home3 .subscribe-2 {
+        width: 100%;
+    }
+}
+
+@media (max-width:767px)  {
+    .home-slide-thumb {bottom: 0;}
+    .counter-home3 .light-bg {
+        padding: 25px 25px 0;
+        margin-bottom: 25px;
+    }
+    .subscribe-home3 .subscribe-2 {
+        width: 100%;
+    }
+}
+/*--------------------- 4.2 - Responsive Ends ------------------------- */
+
+/******************************* 
+    4 - HOME-3 CSS ENDS 
+********************************/
+
+
+/******************************* 
+    5 - HOME-4 CSS STARTS 
+********************************/
+
+/*--------------------- 5.1 - Slider Starts ------------------------- */
+.cate-slider .carousel-inner > img {
+    height: 530px;
+    max-width: none;
+}
+.deal-cntdwn {
+    display: inline-block;
+    padding-top: 15px;
+    width: 100%;
+}
+.deal-cntdwn .is-countdown  {
+    border: none;
+    background-color: transparent;
+}
+.deal-cntdwn .countdown-amount {
+    font-size: 18px;
+    color: #000;
+    height: auto;
+    margin-bottom: 5px;
+}
+.deal-cntdwn .countdown-period {
+    color: #999;
+    font-size: 12px;
+}
+.deal-cntdwn .countdown-section {
+    width: 25%;
+    margin: 0;
+}
+/*--------------------- 5.1 - Slider Ends ------------------------- */
+
+/*--------------------- 5.2 - Responsive Starts ------------------------- */
+
+@media (min-width:1024px) and (max-width:1199px) {
+    .cate-slider .content {
+        margin: 0;
+    }
+}
+@media (min-width:768px) and (max-width:1023px) {
+    .cate-slider .content {
+        margin: 0;
+    }
+    .cate-slider .slider-btn .theme-btn {
+        min-width: 135px;
+    }
+}
+@media (max-width:767px) {
+    /*--- Slider --- */
+    .cate-slider .carousel-inner > img {
+        height: 300px;
+    }
+}
+/*--------------------- 5.2 - Responsive Ends ------------------------- */
+
+/******************************* 
+    5 - HOME-4 CSS ENDS 
+********************************/
+
+/******************************* 
+    6 - HOME-5 CSS STARTS 
+********************************/
+
+/*--------------------- 5.2 - Slider Starts ------------------------- */
+#home-5 .main-slider .owl-dots {
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    top: auto;
+}
+#home-5 .main-slider .owl-dots .owl-dot {
+    display: inline-block;
+    margin: 0 5px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    #home-5 .top-right {
+        top: -35px;
+    }
+}
+@media (min-width: 768px) {
+
+    #home-5 header[class^="header-"] {
+        position: absolute;
+        top: 0;
+        z-index: 5;
+    }
+    #home-5 .header-topbar {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    #home-5 .main-header {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    #home-5 .is-sticky.main-header {
+        background-color: rgba(0, 0, 0, 0.8);
+        border: none;
+        padding: 0;
+    }
+    #home-5 .main-header { 
+        padding: 20px 0;
+    }
+    #home-5 .primary-navbar > li > a, #home-5 .top-elements > li > a {
+        color: #fff;
+    }
+
+    #home-5 .main-slider .tbl-cell {
+        padding-top: 15%;
+    }
+
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    #home-5 .main-header {
+        padding: 20px 0 0;
+    }
+    #home-5 .main-slider .content {
+        margin: 20% 0 0;
+    }
+    
+    #home-5 .carousel-inner > img {
+        height: 650px;
+    }
+}
+/*--------------------- 5.2 - Slider Ends ------------------------- */
+
+/******************************* 
+    6 - HOME-5 CSS ENDS 
+********************************/
+
+
+/******************************* 
+   8 - CATEGORIES CSS STARTS 
+********************************/
+/*-- Top Sorter Bar --*/
+.sorter-bar {
+    border-bottom: 1px solid #000;
+    padding-bottom: 15px;
+}
+.view-tabs {
+    border: medium none;
+}
+.view-tabs li:first-child {
+    margin-right: 5px;
+}
+.view-tabs li a {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 2px solid #000000;
+    border-radius: 0;
+    color: #000000;
+    display: inline-block;
+    font-size: 14px;
+    height: 32px;
+    line-height: 30px;
+    margin: 0;
+    text-align: center;
+    width: 32px;
+}
+.view-tabs > li.active > a, .view-tabs > li.active > a:focus, .view-tabs > li.active > a:hover {
+    background: #000000 none repeat scroll 0 0;
+    border: 2px solid #000000;
+    color: #ffffff;
+}
+.view-tabs, .form-sorter, .sorter-bar label, .sorter-bar .search-selectpicker {
+    display: inline-block;
+    vertical-align: middle;
+    color: #a3a3a3;
+    margin: 0;
+}
+.form-sorter {
+    margin-left: 15px;
+}
+.form-sorter > .search-selectpicker {  
+    width: 150px;
+    margin-left: 15px;
+}
+
+.sorter-bar .bootstrap-select .btn {
+    height: 30px;
+    line-height: 30px;
+    padding: 6px 15px;
+    text-transform: capitalize;
+}
+.sorter-bar .bootstrap-select .btn .filter-option {
+    line-height: inherit;
+    /*border-right: 1px solid #f4f4f4;*/
+    width: 92%;
+}
+
+.sorter-bar .bootstrap-select .btn {
+    height: 30px;    
+    padding: 0 12px;   
+}
+.sorter-bar .bootstrap-select .btn .filter-option {  
+    color: #a3a3a3;
+}
+.sorter-bar .bootstrap-select.btn-group .dropdown-toggle .caret {right: 15px; top: 0;}
+.sorter-bar .bootstrap-select.btn-group .dropdown-toggle .caret::after { color: #a3a3a3; }
+
+.show-result {float: right; text-align: right;}
+.show-result .search-selectpicker {
+    margin: 0 10px;
+    width: 60px;
+}
+/*-- ./Top Sorter Bar --*/
+
+/*-- List View --*/
+.listview-wrap .prod-attributes ul {
+    margin-bottom: 0;
+}
+/*-- ./List View --*/
+
+/*-- Pagination --*/
+.pagination-wrap {
+    border-top: 1px solid #000000;
+    margin-top: 40px;
+    padding-top: 30px;
+}
+.pagination-1 {
+    margin: 0;
+}
+.pagination-1 > li {
+    display: inline-block;
+    margin: 0 4px;
+    vertical-align: middle;
+}
+.pagination-1 > li a {
+    border: 2px solid #000000;
+    display: inline-block;
+    font-weight: 600;
+    height: 45px;
+    line-height: 45px;
+    vertical-align: middle;
+    width: 45px;
+}
+.pagination-1 > li a:hover, .pagination-1 > li a:focus, .pagination-1 > li a.active {
+    background-color: #000000;
+    color: #ffffff;
+}
+/*-- ./Pagination --*/
+
+/******************************* 
+    8 - CATEGORIES CSS ENDS 
+********************************/
+
+/******************************* 
+    9 - PRODUCT SINGLE CSS STARTS 
+********************************/
+/* Slider Starts */
+.sync-sliedr .owl-theme .owl-dot {
+    display: none;
+}
+.single-prod-thumb {
+    margin-left: 8%;
+    width: 84%;
+}
+.sync2 .item {
+    cursor: pointer;
+    position: relative;
+    display: table;
+    margin: auto;
+}
+.single-prod-thumb .item .transparent {
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;    
+
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+
+    -ms-transform: scale(0); 
+    -webkit-transform: scale(0); 
+    transform: scale(0);
+}
+.single-prod-thumb .item::before {
+    background-color: rgba(255, 255, 255, 0.9);
+    bottom: 5px;
+    content: "";
+    left: 5px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+    opacity: 0;   
+}
+
+.single-prod-thumb .item:hover .transparent, .single-prod-thumb .item:hover:before, .sync1 .item:hover .caption-link,
+.prod-img:hover .caption-link {
+    opacity: 1;
+    -ms-transform: scale(1); 
+    -webkit-transform: scale(1); 
+    transform: scale(1);
+}
+.caption-link {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    -ms-transform: scale(0); 
+    -webkit-transform: scale(0); 
+    transform: scale(0);
+}
+.caption-link.left {
+    left: -100px;
+}
+.caption-link.right {
+    right: -100px;
+}
+.transparent > img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.sync2.nav-2 .owl-nav {
+    position: static;
+}
+.sync2.nav-2 .owl-nav > div {
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    top: 0;
+}
+.single-prod-thumb.nav-2 .owl-nav > .owl-next {
+    right: -9%;
+}
+.single-prod-thumb.nav-2 .owl-nav > .owl-prev {
+    left: -9%;
+}
+/*Slider Ends*/
+
+/*Details Starts*/
+.prod-details .prod-title {
+    margin: 0 0 25px;
+    padding: 7px 0 17px;
+}
+.prod-details .prod-price ins {
+    font-size: 20px;
+}
+.discriptions > p {
+    margin-bottom: 25px;
+}
+.prod-attributes .title-1 {
+    margin: 0 0 30px;
+}
+.prod-attributes ul {
+    margin-bottom: 33px;
+}
+.choose-clr a, .choose-size a {    
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    width: 30px;
+}
+.prod-attributes .choose-clr a {
+    border: 2px solid transparent;
+}
+.choose-size a {
+    background-color: #f2f2f2;
+    border: 1px solid #cccccc;
+    color: #999999;
+    font-size: 11px;
+}
+
+.border-hover a {
+    position: relative;
+}
+.border-hover a:hover, .border-hover a.active{
+    border: 2px solid #000;
+}
+.border-hover a:hover:after, .border-hover a.active:after {
+    opacity: 1;
+}
+.border-hover a::after {
+    background-color: #000000;
+    bottom: -7px;
+    content: "";
+    height: 1px;
+    left: -2px;
+    position: absolute;
+    width: 30px;
+    opacity: 0;
+    transition: all 0.4s ease-in-out 0s;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+}
+
+.prod-btns.prod-meta li:last-child {
+    float: none;
+}
+.quantity {
+    border: 2px solid #e0e0e0;
+    height: 45px;
+    overflow: hidden;
+    position: relative;
+    width: 110px;
+}
+.quantity .btn {
+    border-radius: 0;
+    bottom: 0;
+    color: #999999;
+    height: 41px;
+    padding: 0;
+    position: absolute;
+    width: 30px;
+    background-color: #e0e0e0;
+}
+.quantity .form-control.qty::-webkit-inner-spin-button, 
+.quantity .form-control.qty::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.quantity .form-control.qty {
+    -moz-appearance: textfield;
+}
+.quantity .btn.plus {
+    right: 0;
+}
+.quantity .form-control.qty {
+    color: #000000;
+    text-align: center;
+}
+.tabs-wrap .tabs {
+    border-bottom: 1px solid #000000;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+.prod-tab-content p {
+    margin-bottom: 25px;
+}
+/* Details Ends */
+
+/******************************* 
+    9 - PRODUCT SINGLE CSS ENDS 
+********************************/
+
+
+/******************************* 
+    10 - SHOPPING CART CSS STARTS 
+********************************/
+table {
+    height: auto;
+    overflow: auto;
+    width: 100%;
+}
+.product-table thead {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    height: 45px;
+}
+.product-table th {
+    text-align: center;
+    border-left: 1px solid #000000;
+}
+.product-table tbody td {
+    border-bottom: 1px solid #dbdbdb;
+    border-left: 1px solid #dbdbdb;
+    padding: 20px;
+    vertical-align: top;
+}
+.product-table tbody td:last-child {
+    border-right: 1px solid #dbdbdb;
+}
+
+.product-table .description {
+    width: 27%;
+}
+.product-table .image {
+    width: 20%;
+    text-align: center;
+}
+.shopping-total {
+    border-color: transparent #dbdbdb #dbdbdb;
+    border-image: none;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+}
+.total-box {
+    border-left: 1px solid #dbdbdb;
+    float: right;
+    text-align: center;
+    width: 15.7%;
+}
+.total-box-2 {
+    border-left: 1px solid #dbdbdb;
+    float: right;
+    width: 25.9%;
+}
+
+.total-list ul {
+    margin: 0;
+}
+.total-list ul li {
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    text-transform: uppercase;
+}
+.total-list ul li:last-child {
+    border: medium none;
+}
+.total-box-2 li {
+    padding-left: 30px;
+}
+
+
+.product-table .edit > a {
+    text-decoration: underline;
+}
+.in-stock {
+    background-color: #5cb85c;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    height: 20px;
+    line-height: 20px;
+    margin: auto;
+    text-align: center;
+    text-transform: uppercase;
+    width: 70px;
+}
+
+.product-table .in-stock {
+    margin-top: 22px;
+}
+.product-table .quantity {
+    margin: 10px auto;
+}
+.continue-shopping {
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    margin: 30px 0;
+    padding: 20px 0;
+    text-align: center;
+}
+.continue-shopping .theme-btn + .theme-btn {
+    margin-left: 5px;
+}
+
+.cart-box {
+    border: 2px solid #000000;
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 0 30px;
+    width: 100%;
+}
+
+/******************************* 
+    10 - SHOPPING CART CSS STARTS 
+********************************/
+
+
+/******************************* 
+    11 - CHECKOUT CSS STARTS
+********************************/
+.chk-panel {margin-bottom: 0;}
+.chk-panel .panel {
+    border: 0 none;
+    box-shadow: none;
+}
+.accordion-heading .title-2 {
+    border: 2px solid #000000;
+    display: inline-block;
+    height: 48px;
+    line-height: 45px;
+    width: 100%;
+}
+.accordion-heading .title-2:hover, .accordion-heading .title-2[aria-expanded="true"] {
+    background-color: #000000;
+    color: #ffffff;
+}
+.accordion-heading .number {
+    background-color: #000000;
+    color: #ffffff;
+    display: inline-block;
+    height: 100%;
+    margin-right: 12px;
+    text-align: center;
+    width: 45px;
+}
+.chk-guest p {
+    margin-bottom: 8px;
+}
+.chk-guest ul {
+    margin-bottom: 36px;
+    padding-left: 22px;
+}
+.chk-login p {
+    margin-bottom: 8px;
+}
+.chk-panel .theme-btn {
+    padding: 0 20px;
+    min-width: auto;
+}
+.chk-login-form .gray-clr {
+    margin-left: 15px;
+    text-decoration: underline;
+}
+.chk-login-form .form-control, .gray-control .form-control, .gray-control .bootstrap-select .btn {
+    border: 2px solid #e0e0e0;
+}
+
+/******************************* 
+    11 - CHECKOUT CSS ENDS 
+********************************/
+
+
+/******************************* 
+    12 - BLOG CSS STARTS 
+********************************/
+.read-more {
+    margin-bottom: 10px;
+}
+.read-more .theme-btn {
+    line-height: 42px;
+    min-width: auto;
+    padding: 0 20px;
+    margin-right: 8px;
+}
+.media-box {
+    position: relative;
+    width: 45%;
+}
+.media-box, .media-box > ul li {
+    display: inline-block;
+    vertical-align: middle;    
+}
+.media-box ul {
+    border: 2px solid #000000;
+    border-left: 0;
+    display: inline-block;
+    height: 45px;
+    line-height: 40px;   
+    margin: 0;
+    padding: 0 7px;    
+    vertical-align: middle;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;  
+    width: 120px;
+
+    transition: all 0.4s ease 0s;
+    -webkit-transition: all 0.4s ease 0s;
+}
+.media-box:hover ul{
+    opacity: 1;
+    visibility: visible;   
+}
+.media-box ul li a {
+    margin: 0 5px;
+}
+.blog-page-wrap .blog-heading .blog-title {
+    vertical-align: middle;
+}
+.blog-page-wrap .blog-detail > p:first-child {
+    text-indent: 68px;
+}
+.post-wrap .pagination-wrap { margin-top: 0; }
+
+
+.blog-detail blockquote {
+    border: medium none;
+    font-size: inherit;
+    font-style: italic;
+    padding: 0;
+}
+.single-post .blog-detail p {
+    margin-bottom: 25px;
+}
+.blog-detail blockquote span {
+    border: 2px solid #000000;
+    display: inline-block;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    width: 45px;
+}
+.blog-detail blockquote > p {
+    display: inline-block;
+    margin: 0 0 0 20px !important;
+    vertical-align: middle;
+    width: calc(100% - 75px);
+}
+.blog-page-wrap .tag-cloud {
+    border-left: 1px solid #000000;
+    padding-left: 35px;
+}
+.blog-page-wrap .tag-cloud ul, .blog-page-wrap .tag-cloud ul a{
+    margin-bottom: 0;
+}
+.auther-wrap {
+    border: 1px solid #dadada;
+    background-image: url(../img/banner/feature-bg.jpg);    
+    margin: 35px 0;
+}
+.auther-detail {
+    border-left: 1px solid #dadada;
+}
+.auther-detail .title-2 {margin-bottom: 20px;}
+.auther-detail ul {
+    margin-bottom: 10px;
+    margin-right: -10px;
+    text-align: right;
+}
+.auther-detail ul li { padding: 0 5px; }
+.auther-detail ul li a { padding: 10px 5px; border-bottom: 1px solid transparent; }
+.auther-detail p {margin-bottom: 0;}
+.auther-detail ul li a:hover {
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+.rel-blog-slider .owl-controls {
+    position: absolute;
+    right: -5px;
+    top: -55px;
+}
+
+.comments .comment-avatar { padding-right: 35px; }
+.comment-meta {
+    display: inline-block;
+    margin: 10px 0 20px;
+    width: 100%;
+}
+.comment-meta .admin, .comment-meta .reply {
+    border: 2px solid #000000;
+    display: inline-block;
+    height: 30px;
+    line-height: 28px;
+    margin-right: 15px;
+    padding: 0 10px;
+    text-transform: capitalize;
+    vertical-align: middle;
+    font-weight: 600;
+}
+.comment-meta .admin:hover, .comment-meta .reply:hover {
+    background-color: #000; color: #fff;
+}
+.comment-meta .title-2 {
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.comment-meta .reply {
+    float: right;
+    margin-right: 0;
+}
+.comment-meta .reply i {
+    margin-right: 8px;
+}
+.comment-text {
+    clear: both;
+}
+.media.comment {
+    margin-top: 30px;
+    border-bottom: 1px dotted #a3a3a3;
+}
+
+.media.comment-child {
+    border-left: 2px solid #000000;
+    border-top: 1px dotted #a3a3a3;
+    margin-top: 0;
+    padding-left: 35px;
+    padding-top: 30px;
+}
+.reply-form .theme-btn {
+    margin-right: 15px;
+    min-width: auto;
+    padding: 0 20px;
+}
+
+.form-icon .form-control {
+    border: 2px solid #e0e0e0;
+    text-transform: capitalize;
+}
+.form-icon  .form-group {
+    margin-bottom: 25px; position: relative;
+}
+.form-group .fa {
+    position: absolute;
+    right: 35px;
+    top: 40px;
+}
+.form-group.no-label  .fa{
+    top: 15px;
+}
+/******************************* 
+    12 - BLOG CSS ENDS 
+********************************/
+
+/******************************* 
+    13 - CONTACT CSS STARTS 
+********************************/
+.contact-detail > li {
+    padding: 5px 0;
+}
+.contact-form .theme-btn {
+    width: 100%;
+}
+.contact-form .theme-btn:hover {
+    background-color: #000000;
+}
+.google-map, .map-canvas, #map-canvas2 {
+    max-height: 500px;
+    min-height: 500px;
+}
+/******************************* 
+    13 - CONTACT CSS ENDS 
+********************************/
+
+/******************************* 
+    14 - ABOUT US CSS STARTS 
+********************************/
+.about-info {
+    border: 1px solid #dadada;
+    background-image: url(../img/banner/about-info-bg.jpg);    
+    background-repeat: no-repeat;
+}
+.about-testimonial {
+    background-image: url("../img/testimonials/about-testimonial.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+/******************************* 
+    14 - ABOUT US CSS ENDS 
+********************************/
+
+/******************************* 
+    15 - 404 CSS STARTS 
+********************************/
+
+/*-------- 15.1 - 404 Light Starts ------------- */
+.err-msg {
+    border-bottom: 1px solid #000000;
+    border-top: 1px solid #000000;
+    font-size: 16px;
+    margin: 85px 0 25px;
+    padding: 13px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.error-wrap .theme-btn {
+    width: 100%;
+}
+.error-wrap::after {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+.error-wrap {
+    background-image: url(../img/banner/404-light.jpg);
+    background-size: cover;
+    position: relative;
+    border-radius: 0;
+    padding: 5.5% 0;
+}
+.error-wrap .form-control {
+    border: 2px solid #000000;
+}
+/*-------- 15.1 - 404 Light Ends ------------- */
+
+/*-------- 15.2 - 404 Dark Starts ------------- */
+.error-wrap.error-dark::after {
+    background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+}
+.error-wrap.error-dark {
+    background-image: url(../img/banner/404-dark.jpg);
+}
+.error-dark .err-msg {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+.error-wrap.error-dark .form-control {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+.error-wrap.error-dark .widget-search > button {
+    color: #fff;
+}
+/*-------- 15.2 - 404 Dark Ends ------------- */
+
+/******************************* 
+    15 - 404 CSS ENDS 
+********************************/
+
+
+/******************************* 
+    16 - COMINGSOON CSS STARTS 
+********************************/
+.countdown-section {
+    display: inline-block;
+    margin: 0 15px;
+    text-align: center;
+}
+.countdown-amount { 
+    display: inline-block;
+    font-size: 86px;
+    height: 100px;
+    line-height: normal;
+    margin: 0;
+    text-align: center;
+    text-transform: capitalize;
+}
+.countdown-period {
+    clear: both;
+    color: #a3a3a3;
+    display: block;
+    font-size: 16px;
+    line-height: normal;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+}
+.coming-wrap::after {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+.coming-wrap {
+    background-image: url(../img/banner/404-light.jpg);
+    background-size: cover;
+    position: relative;
+    border-radius: 0;
+    padding: 5.5% 0;
+}
+.coming-wrap .logo-title {
+    color: #a3a3a3;
+    display: block;
+    text-transform: uppercase;
+}
+.coming-wrap .logo {
+    display: inline-block;
+    text-align: left;
+}
+
+/*-------- Comingsoon Dark Starts ------------- */
+.coming-wrap.coming-dark::after {
+    background: rgba(0, 0, 0, 0.9) none repeat scroll 0 0;
+}
+.coming-wrap.coming-dark {
+    background-image: url(../img/banner/404-dark.jpg);
+}
+/*-------- Comingsoon Dark Ends ------------- */
+
+/******************************* 
+    16 - COMINGSOON CSS ENDS 
+********************************/
+
+/******************************* 
+    17 - ACCOUNT PAGE CSS STARTS 
+********************************/
+.acnt-list {
+    margin: 10px 0;
+}
+.acnt-list li {
+    padding: 5px 0;
+}
+.account-wrap.cart-box {
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+.account-wrap .form-group {
+    margin-bottom: 20px;
+}
+.subscribe-group > label {
+    padding-right: 15px;
+}
+.subscribe-group > .radio-inline {
+    margin-top: -10px;
+}
+.review-table .ratings, .review-table .reviews {
+    border-top: 1px solid #dbdbdb;
+}
+.review-table .ratings {
+    width: 40%;
+}
+/******************************* 
+    17 - ACCOUNT PAGE CSS ENDS 
+********************************/
+
+/******************************* 
+    18 - FOOTER STARTS 
+********************************/
+
+.footer-wrap {
+    background-color: #000;
+}
+.text-widget .footer-logo {
+    float: left;
+    margin-right: 40px;
+}
+.add-detail {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.add-detail li {
+    margin-top: 10px;
+}
+.social-media {margin-bottom: 0;}
+.social-media li a {
+    border: 2px solid #000;
+    display: inline-block;
+    height: 45px;
+    line-height: 40px;
+    margin-top: 15px;
+    text-align: center;
+    width: 45px;
+}
+.social-media li a:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+}
+.social-media.light-media li a {
+    border: 2px solid #ffffff;
+}
+.social-media.light-media li a:hover {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.flicker-feed li {
+    margin: 15px 0 0 ;
+}
+.post-widget {
+    margin-top: 15px;
+}
+.post-widget li + li {
+    margin-top: 30px;
+}
+
+.footer-1 {
+    color: #fff;
+}
+.footer-1 a {
+    color: #fff;
+}
+.footer-1 a:hover, .footer-1 a:focus {
+    color: #a3a3a3;
+    border-color: #a3a3a3;
+}
+.footer-banner {
+    background-image: url("../img/banner/footer-banner-bg.jpg");
+    border-bottom: 1px solid #a3a3a3;
+    border-top: 1px solid #a3a3a3;
+    padding: 20px 0;
+}
+
+.footer-2 a {
+    color: #a3a3a3;
+}
+.footer-2 a:hover, .footer-2 a:focus {
+    color: #fff;
+    border-color: #fff;
+}
+.footer-wrap ul {
+    margin-bottom: 0;
+}
+.footer-2 li {
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.copy-right {
+    text-align: right;
+}
+
+/******************************* 
+    18 - FOOTER ENDS 
+********************************/
+
+/******************************* 
+    19 - POPUPS STARTS 
+********************************/
+
+/*---------------- 19.1 -  Back To Top Starts -------------------------- */
+.to-top { 
+    -ms-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; 
+    background-color: #000000;
+    border: 1px solid #999999;
+    border-radius: 0;
+    bottom: -150px;
+    color: #ffffff;
+    cursor: pointer;    
+    font-size: 26px;
+    height: 30px;
+    line-height: 20px;
+    position: fixed;
+    right: 3%;
+    text-align: center;
+    width: 30px;
+    z-index: 999;
+}
+.to-top:hover {
+    opacity: 0.5;
+}
+/*---------------- 19.1 -  Back To Top Ends ------------------------ */
+
+/*-------- 19.2 - Popup Login css Starts ------------- */
+.popups-wrap .modal-content::after {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+}
+.popups-wrap .modal-content {
+    background-image: url(../img/popup/light-loging-bg.jpg);
+    background-size: cover;
+    position: relative;
+    border-radius: 0;
+}
+.login-wrap {
+    display: inline-block;
+    padding: 35px 0 50px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 1;
+}
+.popups-wrap .theme-btn {
+    width: 100%;
+}
+.popups-wrap .sub-detail {
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+.popup-cls:hover{
+    opacity: 0.7;
+}
+.popup-cls.close  {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: normal;
+    opacity: 1;
+    padding: 7px;
+    position: relative;
+    right: 0;
+    top: 0;
+    z-index: 5;
+}
+.popup-cls.close:before{    
+    border-color: rgba(0, 0, 0, 0) #000000;
+    border-style: solid;
+    border-width: 0 45px 45px 0;
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    z-index: -1;
+}
+.popup-cls.close:hover::before {
+    opacity: 0.5;
+}
+/*-------- 19.2 - Popup Login css Ends ------------- */
+
+/*-------- 19.3 - Popup Subscribe Starts ------------- */
+.subscribe-me {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    box-shadow: none;
+    height: auto;
+    left: 0;
+    margin: auto;
+    padding: 0;
+    right: 0;
+    top: 10%;
+    width: 770px;
+}
+.subscribe-me .form-group .form-control {
+    background: transparent;
+    width: 100%;
+    padding: 0 10px;
+    border: 2px solid;
+    border-color: inherit;
+    font-size: 14px;
+}
+.subscribe-wrap {
+    display: inline-block;
+    padding: 100px 30px 85px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 1;
+}
+.subscribe-me.popups-light .modal-content {
+    background-image: url(../img/popup/light-subscribe-bg.jpg);
+}
+.subscribe-me.popups-dark .modal-content {
+    background-image: url(../img/popup/dark-subscribe-bg.jpg);
+}
+/*-------- 19.3 - Popup Subscribe End ------------- */
+
+/*-------- 19.4 - Popup Light Starts ------- */
+.popups-light { color: #000; }
+.popups-light .modal-content::after {
+    background: rgba(255, 255, 255, 0.9) none repeat scroll 0 0;
+}
+.popups-light .modal-content {
+    background-image: url(../img/popup/light-loging-bg.jpg);
+}
+.popups-light .login-form .form-control {
+    border: 2px solid #000000;
+}
+.popups-light .popup-cls.close:before{    
+    border-color: rgba(0, 0, 0, 0) #000000;
+}
+.popups-light .popup-cls.close {
+    color: #ffffff;
+}
+/*-------- 19.4 - Popup Light Ends ------- */
+
+/*-------- 19.5 - Popup Dark Starts ------- */
+.popups-dark { color: #fff; }
+.popups-dark .modal-content::after {
+    background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+}
+.popups-dark .modal-content {
+    background-image: url(../img/popup/dark-loging-bg.jpg);
+}
+.popups-dark .login-form .form-control {
+    border: 2px solid #fff;
+}
+.popups-dark .popup-cls.close:before{    
+    border-color: rgba(0, 0, 0, 0) #fff;
+}
+.popups-dark .popup-cls.close {
+    color: #000;
+}
+/*-------- 19.5 - Popup Dark Ends ------- */
+
+.product-modal {
+    padding: 25px 15px 35px;
+}
+.product-modal .prod-details {
+    z-index: 1;
+    position: relative;
+}
+
+/******************************* 
+        19 - POPUPS ENDS 
+********************************/
+
+/******************************* 
+        20 - BREADCRUMBS STARTS 
+********************************/
+
+.light-breadcrumb{
+    background: #f2f2f2;
+    height: 350px;
+}
+.breadcrumb-bg {
+    background-image: url("../img/banner/breadcrumb-bg.jpg"); 
+    background-repeat: no-repeat;   
+    padding: 45px 0;
+}
+.breadcrumb-menubar{background:transparent none repeat scroll 0 0; margin:7px 0 0; padding:0}
+.breadcrumb-menubar > li{text-transform:uppercase;  font-weight: 500; color: #fff; width: 100%; }
+.breadcrumb-menubar > li > a {color: #fff;}
+.breadcrumb-menubar > li > a:after{
+    content: "\f105";
+    font-family: FontAwesome;
+    color: #fff;
+    padding: 0 3px;
+}
+/******************************* 
+    20 - BREADCRUMBS ENDS 
+********************************/
+
+/******************************* 
+    21 - SIDEBAR STARTS 
+********************************/
+.nav-2.widget-best-seller .owl-nav {
+    top: -70px;
+}
+.widget-best-seller .prod-wrap {
+    margin-bottom: 30px;
+}
+.widget-banner-content {
+    padding: 5% ;
+}
+
+.plus-icon {
+    border: 2px solid #000000;
+    float: right;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    width: 25px;
+}
+.plus-icon img {
+    display: block;
+    padding: 5px;
+}
+
+.widget-box .title-1 {
+    margin: 0 0 20px;
+}
+.widget-box ul {
+    display: inline-block;
+    width: 100%;
+}
+.widget-box li {
+    line-height: 0;
+    margin-bottom: 10px;
+    vertical-align: middle; 
+}
+
+.with-border > li {
+    border-bottom: 1px dotted #a3a3a3;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+.with-border > li a {
+    color: #a3a3a3;
+}
+.with-border > li a:hover, .with-border > li a:focus {
+    color: #000;
+}
+
+#price-range {
+    background-color: #e0e0e0;
+    background-image: none;
+    border: 0 none;
+    border-radius: 0;
+    height: 3px;
+    margin: 30px 0;
+}
+#price-range .ui-widget-header {
+    background-color: #d5292c;
+    background-image: none;
+}
+#price-range .ui-slider-handle{
+    background-color: #d5292c;
+    background-image: none;
+    border: 2px solid #ffffff;
+    border-radius: 1em;
+    height: 12px;
+    top: -5px;
+    width: 12px;
+}
+#price-range .ui-slider-handle::before {
+    border: 2px solid #d5292c;
+    border-radius: 1em;
+    bottom: -4px;
+    content: "";
+    height: 16px;
+    left: -4px;
+    margin: auto;
+    position: absolute;
+    right: -4px;
+    top: -4px;
+    width: 16px;
+}
+
+.range-wrap span {
+    border: 2px solid #e0e0e0;
+    color: #a3a3a3;
+    display: inline-block;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    width: 120px;
+}
+
+.range-wrap #price-max {
+    float: right;
+}
+.range-wrap #price-min {
+    float: left;
+}
+.range-wrap {
+    line-height: 45px;
+    text-align: center;
+}
+
+.widget-search > button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    position: absolute;
+    right: 25px;
+    top: 13px;
+}
+
+.cate-panel {
+    margin-bottom: 25px;
+}
+.cate-panel .accordion-toggle {
+    line-height: 25px;
+    display: inline-block;
+    padding-bottom: 20px;
+    width: 100%;
+}
+.cate-panel .panel {
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0;
+    border-bottom: 1px dotted #a3a3a3;
+    margin-bottom: 18px;
+}
+.cate-panel .panel-collapse ul {
+    display: inline-block;
+    margin: 5px 0;
+    padding-left: 20px;
+    width: 100%;
+}
+.cate-panel .panel-collapse li {
+    margin-bottom: 15px;
+}
+.tweet-icn {
+    display: inline-block;
+    font-size: 18px;
+    vertical-align: top;
+    width: 35px;
+}
+.tweet-info {
+    display: inline-block;
+    width: calc(100% - 40px);
+}
+.tweet-info a {
+    font-size: 12px;
+    display: block;
+}
+.tweet-wrap > li {
+    border-bottom: 1px dotted #a3a3a3;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+.tweet-info > p {
+    margin-bottom: 10px;
+}
+.widget-wrap .tag-cloud { margin-bottom: 25px; }
+.tag-cloud a {
+    border: 2px solid #000000;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 40px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+    text-transform: uppercase;
+}
+.tag-cloud a:hover {
+    background-color: #000;
+    color: #fff;
+}
+/******************************* 
+    21 - SIDEBAR ENDS 
+********************************/
+
+
+/******************************* 
+    22 - RESPONSIVE STARTS 
+********************************/
+
+@media (max-width:1200px) {
+    .theme-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }  
+}
+
+@media (min-width:992px)and (max-width:1199px) {
+    /*-- Sidebar --*/
+    .range-wrap span {width: 100px;}
+    .widget-wrap .left-box { width: 35%; }
+
+    /*-- single blog --*/
+    .blog-page-wrap .tag-cloud ul a {
+        margin-bottom: 15px;
+    }
+
+    /*-- Footer-1 --*/
+    .footer-1 .blog-heading .blog-title {
+        width: 75%;
+    }
+
+    /*-- Footer-2 --*/ 
+    .footer-2 .col-md-3:nth-child(4n+1) {
+        clear: both;
+    }
+    .footer-2 .col-md-3:nth-child(-n+4) {
+        margin-bottom: 35px;
+    }
+
+    /*--- Shopping Cart --- */
+    .total-box-2 { width: 26.8%; }
+    .total-box { width: 16.2%;}
+}
+@media (min-width:768px) {
+    /*-- Popup --*/    
+    .subscribe-wrap {
+        width: 60%;
+        margin-left: 20%;
+    }
+}
+@media (max-width:991px) {
+    /*-- Subscribe Popup --*/
+    .subscribe-me {
+        width: auto;
+        margin: auto 25px;
+        top: 10%;
+    }
+
+    /*-- single blog --*/
+    .blog-page-wrap .tag-cloud {
+        border-left: 0;
+        padding-left: 15px;
+    }
+    .blog-page-wrap .tag-cloud ul a {
+        margin-bottom: 15px;
+    }
+    .auther-detail {
+        border-left: 0;
+    }
+    .auther-detail ul { text-align: left; }
+}
+@media (min-width:992px) {
+    /*-- Popup --*/    
+    .modal-dialog {      
+        margin: 40px auto;
+    }
+    #login-popup .modal-dialog {   width: 770px; }
+    /*-- / Popup --*/   
+}
+@media (min-width:768px)and (max-width:991px) {
+
+    /*-- Common CSS --*/
+    .fsz-8 { font-size: 6px; }
+    .fsz-10 { font-size: 8px; }
+    .fsz-12 { font-size: 10px; }
+    .fsz-14 { font-size: 12px; }
+    .fsz-15 { font-size: 13px; }
+    .fsz-16 { font-size: 14px; }
+    .fsz-18 { font-size: 14px; }
+    .fsz-24 { font-size: 18px; }
+    .fsz-36 { font-size: 24px; }
+    .fsz-48 { font-size: 28px; }
+    .fsz-56 { font-size: 40px; }
+    .fsz-86 { font-size: 50px; }    
+    .sub-detail { font-size: 16px; }
+
+    .box-hover:hover h2 {
+        margin-bottom: 0;
+    }
+    .prod-wrap .block-inline {
+        display: table;
+    }
+    .prod-wrap {
+        display: table;
+        margin: auto;
+    }
+    .theme-tabs > li {
+        padding: 0 20px;
+    }
+
+    /*-- Footer-1 --*/   
+    .footer-1 .col-md-4:nth-child(-n+2) {
+        margin-bottom: 35px;
+    }
+    .footer-2 .col-md-3:nth-child(-n+3) {
+        margin-bottom: 35px;
+    }
+
+    /*-- Sidebar --*/
+    .widget-best-seller .left-box {
+        width: 35%;
+    }
+    .range-wrap span {width: 100px;}
+
+
+    /*--- Product Category --- */
+    .form-sorter > .search-selectpicker {
+        width: 120px;
+    }
+    #grid-view .prod-meta .theme-btn {
+        min-width: 120px;
+    }
+    #grid-view .prod-meta li { padding-right: 2px; }
+
+
+    /*--- Shopping Cart --- */
+    .total-box-2 { width: 34%; }
+    .total-box { width: 20.2%;}
+    .product-table .image { padding: 20px 10px; }
+}
+@media (max-width:767px) {
+
+    /*-- Common CSS --*/
+    .fsz-8 { font-size: 6px; }
+    .fsz-10 { font-size: 8px; }
+    .fsz-12 { font-size: 10px; }
+    .fsz-14 { font-size: 12px; }
+    .fsz-15 { font-size: 12px; }
+    .fsz-16 { font-size: 12px; }
+    .fsz-18 { font-size: 14px; }
+    .fsz-24 { font-size: 16px; }
+    .fsz-36 { font-size: 20px; }
+    .fsz-48 { font-size: 22px; }
+    .fsz-56 { font-size: 30px; }
+    .fsz-86 { font-size: 30px; }
+    .section-title, .widget-title { font-size: 18px; }
+    .prod-title, .blog-title { font-size: 14px; }
+    .sub-detail { font-size: 14px; }
+    .prod-content .prod-price, .prod-details .prod-price ins { font-size: 14px; }
+
+    .sec-space {
+        padding-bottom: 48px;
+        padding-top: 48px;
+    }
+    .ptb-15 {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .pb-15 { padding-bottom: 10px; }
+    .pt-15 { padding-top: 10px;}
+    .ptb-20 {
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .pb-20 {padding-bottom: 10px;}
+    .pt-20 {padding-top: 10px;}
+    .ptb-25 {
+        padding-bottom: 15px;
+        padding-top: 15px;
+    }
+    .pb-25 { padding-bottom: 15px;}
+    .pt-25 {padding-top: 15px;}
+    .ptb-30 {
+        padding-bottom: 20px;
+        padding-top: 20px;
+    }
+    .pb-30 {padding-bottom: 20px;}
+    .pt-30 {padding-top: 20px;}
+    .ptb-40 {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .pb-40 {padding-bottom: 30px;}
+    .pt-40 {padding-top: 30px;}
+    .ptb-35 {
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+    .pb-35 { padding-bottom: 25px;}
+    .pt-35 {padding-top: 25px;}
+    .ptb-50 {
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+    .pb-50 {padding-bottom: 30px;}
+    .pt-50 { padding-top: 30px;}
+    .ptb-60 {
+        padding-bottom: 40px;
+        padding-top: 40px;
+    }
+    .pb-60 {padding-bottom: 40px;}
+    .pt-60 {padding-top: 40px;}
+    .ptb-70 {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    .pb-70 {padding-bottom: 50px;}
+    .pt-70 { padding-top: 50px;}
+
+    .mb-30 { margin-bottom: 20px;}
+
+    .theme-btn .fa {
+        line-height: 38px;
+    }
+    .theme-btn {
+        height: 40px;
+        min-width: 130px;
+        font-size: 14px;
+        line-height: 38px;
+    }
+    .form-control {
+        height: 40px;
+        line-height: 40px;
+    }
+    .theme-tabs > li {   
+        font-size: 14px;   
+        padding: 0 10px;
+    }
+
+    .box-hover:hover h2 {
+        margin-bottom: 0;
+    }
+
+    .prod-wrap .block-inline {
+        display: table;
+    }
+    .prod-wrap {
+        display: table;
+        margin: auto;
+    }
+
+    /*-- Footer-1 --*/
+    .footer-banner ul, .copy-right {
+        text-align: center;
+    }
+    .copy-right { margin-top: 10px; }
+    .footer-1 .col-md-4:nth-child(-n+2) {
+        margin-bottom: 35px;
+    }
+    .footer-2 .col-md-3:nth-child(-n+5) {
+        margin-bottom: 35px;
+    }
+
+    /*-- Popups --*/
+    .login-wrap {
+        padding: 20px 30px 30px;
+    }
+    .login-wrap .col-sm-6 .theme-btn {
+        width: 200px;
+    }
+    .subscribe-wrap {
+        padding: 50px 30px 45px;
+    }
+
+    /*-- Single Product --*/
+    .nav-2.widget-best-seller .owl-nav {
+        top: -65px;
+    }
+
+    /*-- Product Category --*/
+    .form-sorter > .search-selectpicker {
+        width: 130px;
+    }
+
+    /*-- 404 --*/
+    .error-wrap .theme-btn {
+        margin-bottom: 20px;
+    }
+
+    .countdown-amount {
+        font-size: 50px;
+        height: auto;
+    }
+    .countdown-period {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+
+    /*--- Shopping Cart --- */
+    .total-box-2 { width: 55%; border-left: 0 none;}
+    .total-box { width: 45%; }
+    .product-table th {font-size: 12px;}
+    .product-table tbody td {  padding: 20px 10px; }
+    .product-table { display: block; }
+    .product-table .choose-size {margin: 10px 0;}
+    .product-table .mCSB_horizontal.mCSB_inside > .mCSB_container { margin-bottom: 0; }
+}
+
+@media (min-width:568px) and (max-width:767px) {
+    .sorter-date {
+        float: left;
+    }
+
+}
+
+@media (max-width:567px) {  
+    .show-result { 
+        float: left;
+        margin-top: 20px;
+    }
+
+    .comments .comment-avatar {
+        float: none !important;
+    }
+}
+@media (max-width:479px) {  
+    /*-- Single Product --*/
+    .prod-btns.prod-meta li:nth-child(-n+2) {
+        clear: both;
+        display: table-cell;
+        padding-bottom: 15px;
+    }
+    .prod-btns .theme-btn {
+        min-width: 150px;
+    }
+
+    /*-- Popup Product Preview --*/
+    .product-modal {
+        padding: 25px 0 35px;
+    }
+    .continue-shopping .btn-black {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:380px) { }
+
+/******************************* 
+    22 - RESPONSIVE ENDS 
+********************************/

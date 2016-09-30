@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+import json
+import sys
+
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,8 +23,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
+#JSON Based Secret module
+with open("secrets.json") as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting,secrets=secrets):
+    '''
+    This will get the secret variable or return an exception
+    '''
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg="Set {0} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')c+5$ow2+$$u^b9(8vb#%gje-lfo0fmm=s9qgfe8)24s77!*h1'
+SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,10 +96,20 @@ WSGI_APPLICATION = 'hhockey.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+DB_NAME = get_secret("DATABASE_NAME")
+DB_USER = get_secret("DATABASE_USERNAME")
+DB_PASSWORD = get_secret("DATABASE_PASSWORD")
+DB_HOST = get_secret("DATABASE_HOST")
+DB_PORT = get_secret("PORT")
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
 
@@ -119,7 +148,7 @@ USE_TZ = True
 
 # Bower Config
 
-BOWER_COMPONENTS_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static/bower_components'))
+BOWER_COMPONENTS_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 
 # Static files (CSS, JavaScript, Images)
@@ -145,5 +174,6 @@ BOWER_INSTALLED_APPS = (
     'underscore',
     "font-awesome#4.3.0",
     'jquery',
+    'bootstrap'
 
 )
