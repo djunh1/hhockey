@@ -1,7 +1,261 @@
-h1{
-   font-size:40px;
-   }
+/* GLOBAL */
 
-.test{
-    color:#0000ff;
+/* NAVBAR */
+
+.primary-navbar > li.logo{
+ padding-left:60px;
+ padding-right:30px;
+}
+
+.nav-mobile {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 3px solid #000000;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 45px;
+    line-height: 2.8;
+    margin: 8px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 45px;
+    z-index: 1;
+    }
+
+.top-elements-edit > li > a {
+    color: #000000;
+    display: inline-block;
+    height: 40px;
+    line-height: 22px;
+    width: 74px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.top-right ul{
+    margin-top:10px;
+
+}
+
+
+@media (max-width: 1199px) and (min-width: 768px){
+
+.pop-up-box {
+    position: absolute;
+    top: 40px;
+
+}
+
+.top-right ul{
+    margin-top:59px;
+}
+
+
+
+.primary-navbar > li {
+
+    display: inline-block;
+    float: none;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.primary-navbar > li.logo{
+ padding-left:16px;
+ padding-right:19px;
+}
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+  .nav {
+    width:100%;
+  }
+
+  .nav-list {
+    display:none;
+  }
+  .nav-item {
+    width:100%;
+    float:none;
+  }
+
+  .nav-mobile{
+     display:block;
+  }
+}
+
+
+
+
+/* HOME PAGE */
+
+.hh-intro span{
+    display:block;
+}
+
+.hh-intro h1 {
+    font-size: 2em;
+    text-align:center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.hh-intro h1 .md{
+    font-size: 1.15em;
+    line-height: .95em;
+    letter-spacing: 1px;
+}
+
+.hh-intro h1 .lg{
+    font-size: 1.8em;
+    line-height: 1.1em;
+    letter-spacing: 1px;
+}
+
+.hh-intro h1 span{
+    font-size: 0.9 em;
+    line-height:45px;
+}
+
+.btn .eligable{
+    display:inline-block;
+}
+
+.hh-intro .btn{
+    font-size: 22px;
+    line-height: 50px;
+    margin-bottom: 1em;
+}
+
+.hh-intro .btn{
+    max-width:180px;
+}
+
+.btn{
+    font-weight: 700;
+    transition: all .25s ease;
+    line-height: 40px;
+    -webkit-appearance: none;
+    background: #e61f2e;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    min-width: 115px;
+    text-transform: uppercase;
+}
+
+.btn:hover, btn:focus{
+    color:#fff;
+    background:#ef6d77;
+}
+
+
+.container-sticks{
+    padding:50px 15px;
+}
+.sticks{
+    background: #F0EAE7;
+    color: #554740;
+    padding-top: 0;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.stick-image{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 0 0 0;
+    display: block;
+
+}
+
+.callouts{
+    padding-top:90px;
+}
+
+.callout{
+    position: relative;
+    margin: 0 auto;
+    min-height: 195px;
+    text-align:center;
+}
+
+.callout > div{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.callout img {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 100%;
+    max-height: 80px;
+}
+
+.callout a {
+    color: #554740;
+}
+
+.callout strong{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.callout p {
+    font-size: .9em;
+    margin-bottom: 0;
+    min-height: 50px;
+
+}
+.sticks-aside img{
+    opacity: .5;
+    max-height: 110px;
+}
+
+.last-sticks{
+    font-size:1.1em;
+}
+.last-sticks h1{
+    font-size: 3em;
+    text-align:center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.last-sticks p {
+    font-size:1.4em;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.last-sticks a{
+    font-size:1.4em;
+    min-width:25%;
+}
+
+.about-hh p{
+    text-align:left;
+}
+
+.about-hh a{
+    background:#000;
+    min-width:60%;
+    text-transform: uppercase;
+    text-size:1.3em;
+}
+
+
+/* FOOTER */
+
+.social-media.light-media li a {
+    border: 2px solid #d0d0d0;
+    color: #d0d0d0;
+    border-radius:4px;
+}
+
+.copy-right {
+    padding-top:25px;
 }
