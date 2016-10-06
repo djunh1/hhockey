@@ -8,19 +8,21 @@
     </head>
     <body id="home" class="wide">
 
-        <!-- PRELOADER TO DO, Fix jQuery that isnt loading so this loads-->
-        <div id="loading">
+         <!--div id="loading">
             <div class="loader">
                 <div class="image">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
                 <span class="title-1"></span>
             </div>
-        </div>
+        </div-->
         <!-- /PRELOADER -->
+
         <main class="wrapper home-page2">
+            {% include 'layout/navbar.html' %}
             {% block content %}
             {% endblock %}
+            {% include 'layout/footer.html' %}
         </main>
 
         {% include 'layout/scripts.html' %}

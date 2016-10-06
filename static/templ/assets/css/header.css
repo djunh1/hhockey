@@ -468,12 +468,13 @@
     color: #000000;
     display: inline-block;
     height: 40px;
-    line-height: 40px;
-    text-align: center;
-    width: 25px;
+    line-height: 22px;
+
+    width: 80px;
     vertical-align: middle;
     position: relative;
 }
+
 .items-count {   
     border-radius: 1em; 
     color: #ffffff;
