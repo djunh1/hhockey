@@ -1,5 +1,85 @@
 {% extends "layout/app.html" %}
 
 {% block content %}
+<article>
 
+                <!--Breadcrumb Section Start-->
+                <section class="aboutPage-bg">
+                    <div class="theme-container container ">
+                        <div class="site-breadcumb aboutPage-hh">
+                            <h1 class=""> The Heritage Hockey Story</h1>
+                            <ol class="breadcrumb breadcrumb-menubar">
+                                <li> <a href="{% url 'home_page' %}"> Home </a> -- About Us </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <!--Breadcrumb Section End-->
+
+
+                <!-- About Info Start -->
+                <section class="ptb-30">
+                    <div class="container theme-container">
+                        <div class="aboutPage-info col-xs-12">
+                            <div class="col-md-6 blog-detail-picture">
+
+                            </div>
+                            <div class="col-md-6 pull-right ptb-35">
+                                <h2 class="section-title"> A little about us</h2>
+                                <hr class="divider-solid">
+                                <div class="blog-detail">
+                                    <p> Heritage Hockey was borne on the idea that the equipment we use is expensive.
+                                    We keep our gear for as long as we can, and replace sticks only when they loose their
+                                    pop or if they break.  Why?  Because sticks run anywhere from $200 to $300 at the local
+                                    pro shop.  Whats worse is that the improvement year over year isn't really noticable.
+                                    Wouldn't it be nice to be able to try different sticks at a price that won't cut into our
+                                    budgets?  </p>
+                                    <blockquote>
+                                        <span class="fa fa-quote-right"></span>
+                                        <p> I love this idea
+                                        -- Jeff Bezos</p>
+
+                                    </blockquote>
+                                    <p>Heritage Hockey isn't just an online store to buy quality products at reasonable
+                                    prices.  No.  We offer a membership to get sticks on a regular basis at a cost that
+                                    won't bankrupt you.  We source high quality, battle tested sticks and are able to
+                                    offer them to you at a reasonable price.   No more worrying about breaking your favorite
+                                    twig and having to drop another month's rent on a new one.  Browse our selection of sticks,
+                                    check what other members are using, and select what you want.  Your new Heritage Hockey
+                                    stick will be shipped to you or to your local rink in no time.  For real.  </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- / About Info Ends -->
+
+                <!-- About Info Start -->
+                <section class="black-mask about-testimonial ptb-50 mb-30">
+                    <div class="container theme-container">
+                        <h2 class="section-title wht pb-40 text-center rel-div"> What Others are saying </h2>
+                        <div id="testimonial-1" class="testimonial-1 dots-white white-clr">
+                            <div class="item text-center">
+                                <div class="testimonial-wrap">
+                                    <div class="testimonial-content fsz-18">
+                                        <p> <i> « I am all for anything that makes hockey equipment less expensive » </i> </p>
+                                        <b> Dave Stockdale - head coach </b>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="item text-center">
+                                <div class="testimonial-wrap">
+                                    <div class="testimonial-content fsz-18">
+                                        <p> <i> « I love Heritage Hockey » </i> </p>
+                                        <b> Jack Eichel - Buffalo Sabres Forward </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- / About Info Ends -->
+
+            </article>
+            <!-- / CONTENT AREA -->
 {% endblock %}

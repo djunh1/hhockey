@@ -90,6 +90,12 @@
 
 /* HOME PAGE */
 
+.hhome-bg{
+   /*  background-image: url("../img/home-bg.jpg"); */
+
+
+}
+
 .hh-intro span{
     display:block;
 }
@@ -220,7 +226,7 @@
 .last-sticks{
     font-size:1.1em;
 }
-.last-sticks h1{
+.last-sticks h1, .aboutPage-hh h1{
     font-size: 3em;
     text-align:center;
     font-family: 'Architects Daughter', cursive;
@@ -246,6 +252,41 @@
     text-transform: uppercase;
     text-size:1.3em;
 }
+
+/*  ABOUT US  */
+
+.aboutPage-hh h1{
+    text-align:left;
+}
+
+.breadcrumb-menubar > li > a, .breadcrumb-menubar > li  {
+    text-transform: uppercase;
+    text-size:1.3em;
+    color:#000;
+}
+
+.aboutPage-bg{
+       /* background-image: url("../img/banner/breadcrumb-bg.jpg"); */
+       background-color: #00edb2;
+        background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+        /* background-repeat: no-repeat; */
+        padding: 45px 0;
+}
+
+.aboutPage-info{
+        border: 1px solid #fff;
+    /* background-image: url(../img/banner/about-info-bg.jpg); */
+    /* background-repeat: no-repeat; */
+}
+
+.blog-detail-picture{
+
+        background-image: url("http://placehold.it/550x600");
+        background-repeat: no-repeat;
+        width:50%;
+        height:600px;
+}
+
 
 
 /* FOOTER */

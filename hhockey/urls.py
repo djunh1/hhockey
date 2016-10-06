@@ -22,7 +22,8 @@ from django.contrib import admin
 from staticContent import views as staticViews
 
 urlpatterns = [
-    url(r'^$', staticViews.home, name='site'),
+    url(r'^$', staticViews.home, name='home_page'),
+    url(r'^about/$', staticViews.about, name='about_page'),
     url(r'^admin/', admin.site.urls),
 ]
 
