@@ -1,5 +1,17 @@
 /* GLOBAL */
 
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: normal;
+    background: #fcfcfc;
+    color: #000;
+    font-size: 14px;
+    -webkit-font-kerning: auto;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: visible !important;
+    overflow-x: hidden;
+}
+
 /* NAVBAR */
 
 .primary-navbar > li.logo{
@@ -259,7 +271,7 @@
     text-align:left;
 }
 
-.breadcrumb-menubar > li > a, .breadcrumb-menubar > li  {
+.breadcrumb-menubar > li > a, .breadcrumb-menubar > li, .breadcrumb-menubar > li > a:after   {
     text-transform: uppercase;
     text-size:1.3em;
     color:#000;
@@ -285,6 +297,22 @@
         background-repeat: no-repeat;
         width:50%;
         height:600px;
+}
+
+/* CONTACT PAGE */
+
+.contactPage-bg{
+       /* background-image: url("../img/banner/breadcrumb-bg.jpg"); */
+       background-color: #fff;
+       padding: 45px 0;
+}
+
+.contactForm .form-control{
+        background-color: rgba(0, 0, 0, 0);
+        border-color: #000;
+        border-radius: 5px;
+        border:1px solid #757474;
+
 }
 
 

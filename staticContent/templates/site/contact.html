@@ -1,5 +1,90 @@
 {% extends "layout/app.html" %}
 
 {% block content %}
+<!-- CONTENT AREA -->
+            <article>
 
+                <!--Breadcrumb Section Start-->
+                <section class="contactPage-bg">
+                    <div class="theme-container container ">
+                        <div class="site-breadcumb aboutPage-hh">
+                            <h1 class=""> CONTACT US</h1>
+                            <ol class="breadcrumb breadcrumb-menubar">
+                                <li> <a href="{% url 'home_page' %}"> Home </a>  Contact </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+                <!--Breadcrumb Section End-->
+
+
+
+                <!-- Page Starts-->
+                <div class="container theme-container sec-space">
+                    <!-- Cart Details Starts-->
+                    <div class="title-wrap">
+                        <h2 class="section-title fsz-36 pb-30"> <b> We want to hear from you</b> </h2>
+                        <p> Phasellus tempus. Proin viverra, ligula sit amet ultrices semper.
+                            Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.
+                            Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+                            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                            Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.  </p>
+                    </div>
+
+                    <div class="row  pt-70">
+
+                        <div class="col-md-6 contactForm">
+                            <!-- Contact Form Starts -->
+                            <form class="form-icon contact-form">
+                                <div class="row">
+                                    <div class="form-group no-label col-sm-12">
+                                        <input type="text" placeholder="Name" required="" title="" data-placement="bottom" data-toggle="tooltip" value="" name="cf_name" class="form-control name input-your-name">
+                                        <span class="fa fa-user"></span>
+                                    </div>
+                                    <div class="form-group no-label col-sm-12">
+                                        <input type="email" placeholder="Email" required="" title="" data-placement="bottom" data-toggle="tooltip" value="" name="cf_name" class="form-control name input-your-name">
+                                        <span class="fa fa-envelope"></span>
+                                    </div>
+                                    <div class="form-group no-label col-sm-12">
+                                        <textarea data-original-title="Message"
+                                                  class="form-control message input-message"
+                                                  rows="7" cols="10"
+                                                  placeholder="Message"
+                                                  name="cf_message"
+                                                  id="cf_message"
+                                                  data-toggle="tooltip"
+                                                  data-placement="top"
+                                                  title=""></textarea>
+                                        <span class="fa fa-pencil"></span>
+                                    </div>
+                                    <div class="form-group col-sm-12">
+                                        <button class="theme-btn btn-black small-btn" type="submit"> <b> Send Message To Us </b> </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- Contact Form Ends -->
+                        </div>
+                        <div class="col-md-6">
+                            <h2 class="section-title"> Heritage Hockey </h2>
+                            <hr class="divider-solid">
+                            <p> Phasellus tempus. Proin viverra, ligula sit
+                                amet ultrices semper. Vivamus elementum semper nisi.
+                                Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor
+                                eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+                                dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra
+                                nulla ut metus varius laoreet. Quisque rutrum. </p>
+                            <hr class="divider-dotted">
+                            <ul class="upper-text contact-detail">
+                                <li> <strong>Address:</strong><br> Portsmouth, NH 03801 </li>
+                                <li><strong>Phone:</strong><br> +66 123 456 789  </li>
+                                <li><strong>Email:</strong><br> info@heritagehockey.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Cart Details Ends -->
+                </div>
+                <!-- / Page Ends -->
+
+            </article>
+            <!-- / CONTENT AREA -->
 {% endblock %}

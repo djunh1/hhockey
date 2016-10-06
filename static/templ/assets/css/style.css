@@ -198,17 +198,7 @@
 
 /*---------------- 1.2 Global properties (body, common classes, structure etc) Starts ----------------------*/
 
-body {
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-    background: #fcfcfc;
-    color: #000;
-    font-size: 14px;
-    -webkit-font-kerning: auto;
-    -webkit-font-smoothing: antialiased;
-    -webkit-backface-visibility: visible !important;  
-    overflow-x: hidden; 
-}
+
 
 .boxed .wrapper {
     background-color: #ffffff;

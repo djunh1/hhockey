@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def home(request):
     return render(request, 'site/home.html')
 
@@ -10,4 +11,8 @@ def about(request):
 
 def contact(request):
     return render(request, 'site/contact.html')
+
+
+def faq(request):
+    return render(request, 'site/faq.html')
 
