@@ -16,3 +16,11 @@ def contact(request):
 def faq(request):
     return render(request, 'site/freqQuest.html')
 
+
+def toc(request):
+    return render(request, 'site/toc.html')
+
+
+def privacy(request):
+    return render(request, 'site/privacyPolicy.html')
+

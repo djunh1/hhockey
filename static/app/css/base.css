@@ -325,7 +325,57 @@ body {
 }
 
 
+/* TOC and PRIVACY POLICY */
 
+.toc h3{
+    text-align:center;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.toc p {
+    font-size:16px;
+}
+
+.anchor{
+    padding-top:90px;
+}
+
+.article-content ol li{
+    margin-left:20px;
+    margin-bottom:10px;
+    list-style: outside decimal;
+    font-size:18px;
+
+}
+
+.article-content ul li{
+    margin-left:20px;
+    margin-bottom:10px;
+    list-style: disc;
+    font-size:16px;
+
+}
+
+.article-content ol li a{
+    font-size:18px;
+    font-weight:bold;
+    color:#ff9933
+}
+
+.tocFont{
+    text-transform: uppercase;
+    font-size:20px;
+    font-weight:bold;
+    font-family: 'Titillium Web', sans-serif;
+
+}
+
+.tocsubhead{
+    font-size:16px;
+    font-weight:bold;
+    font-family: 'Titillium Web', sans-serif;
+}
 
 /* FOOTER */
 
