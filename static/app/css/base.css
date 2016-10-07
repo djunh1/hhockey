@@ -315,6 +315,16 @@ body {
 
 }
 
+/*  FAQ  */
+
+.faqtext {
+    color: #000;
+    font-family: 'Titillium Web', sans-serif;
+    text-transform:none;
+    font-size:18px;
+}
+
+
 
 
 /* FOOTER */

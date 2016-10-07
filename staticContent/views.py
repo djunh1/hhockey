@@ -14,5 +14,5 @@ def contact(request):
 
 
 def faq(request):
-    return render(request, 'site/faq.html')
+    return render(request, 'site/freqQuest.html')
 
