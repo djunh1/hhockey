@@ -1,10 +1,12 @@
 {% load staticfiles %}
 
+
 <!-- Header -->
             <header class="header-1">
                   <section  class="main-header">
                     <div  class="header-wrap upper-text">
-                        <div class="container theme-container rel-div">
+                        <div class="container theme-container rel-div" >
+
                             <div class="row">
                                 <div class="col-lg-2 col-md-2 col-sm-12 co-xs-12">
                                     <div class="header-logo">
@@ -32,8 +34,12 @@
 
                                                 <li><a href="{% url 'about_page' %}">About Us</a></li>
                                              	<li><a href="{% url 'faq_page' %}">How it works</a></li>
-												<li><a href="about-us.html">Login</a></li>
-												<li><a href="about-us.html">Sign Up</a></li>
+                                                {% if request.user.is_authenticated %}
+                                                    <li><a href="{% url 'account:edit' %}">{{ request.user }}'s Account</a></li>
+                                                {% else %}
+                                                    <li><a href="{% url 'account:login' %}">Login</a></li>
+                                                    <li><a href="{% url 'home_page' %}">Sign Up</a></li>
+                                                {% endif %}
 
                                             <li class="cart-hover">
                                                 <a href="#">Bag &nbsp;&nbsp;<span class="fa fa-shopping-cart"></span> <span class="items-count font-1"> 2 </span> </a>
@@ -80,9 +86,6 @@
                                         </div>
                                     </nav>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>

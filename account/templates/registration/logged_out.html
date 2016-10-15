@@ -1,0 +1,15 @@
+{% extends "layout/app.html" %}
+
+{% block content %}
+<div class="section login-section">
+      <div class="container">
+       <div class="row">
+           <div class="well-welcome">
+                 <h1>Logged out</h1>
+               <hr>
+             <p>You have logged out of your account. You can <a href="{% url 'account:login' %}">log-in again</a>.</p>
+            </div>
+           </div>
+          </div>
+</div>
+{% endblock %}

@@ -3,7 +3,7 @@
 
 """
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^faq/$', staticViews.faq, name='faq_page'),
     url(r'^terms/$', staticViews.toc, name='toc_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
+    url(r'account/',  include('account.urls',  namespace='account')),
     url(r'^admin/', admin.site.urls),
 ]
 

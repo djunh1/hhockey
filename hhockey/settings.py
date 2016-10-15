@@ -15,6 +15,7 @@ import json
 import sys
 
 from django.core.exceptions import ImproperlyConfigured
+from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,14 +24,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-#JSON Based Secret module
+#JSON Secret module
 with open("secrets.json") as f:
     secrets = json.loads(f.read())
 
 
 def get_secret(setting,secrets=secrets):
     '''
-    This will get the secret variable or return an exception
+    Get secret variable or return an exception
     '''
     try:
         return secrets[setting]
@@ -59,6 +60,8 @@ INSTALLED_APPS = [
     'djangobower',
     'functional_tests',
     'staticContent',
+    'webpack_loader',
+    'account',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -73,6 +76,11 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'hhockey.urls'
+
+LOGIN_REDIRECT_URL = reverse_lazy('home_page')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_URL = reverse_lazy('logout')
+
 
 TEMPLATES = [
     {
@@ -178,3 +186,11 @@ BOWER_INSTALLED_APPS = (
     'bootstrap'
 
 )
+
+#Webpack for ReactJS
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'dist/',
+        'STATS_FILE': os.path.join(BASE_DIR + '/static/app/js', 'webpack-stats.json'),
+    }
+}

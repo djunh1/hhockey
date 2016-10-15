@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.core.urlresolvers import resolve
-from staticContent import views as staticViews
+import staticContent.views as staticViews
 
 
 class ViewStaticPageTests(TestCase):
-'''
-Tests only the static pages are returning correctly.
-'''
+    '''
+    Tests only the static pages are returning correctly.
+    '''
 
     def test_home_page(self):
         found = resolve('/')
