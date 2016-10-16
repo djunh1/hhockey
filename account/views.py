@@ -7,6 +7,7 @@ from django.contrib import messages
 
 from account.forms import LoginForm
 
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -28,3 +29,8 @@ def user_login(request):
 
 def edit(request):
     return HttpResponse('Unassisted')
+
+
+def logged_out(request):
+    logout(request)
+    return render(request, 'registration/logged_out.html')

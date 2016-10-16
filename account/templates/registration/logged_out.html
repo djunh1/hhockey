@@ -1,15 +1,16 @@
 {% extends "layout/app.html" %}
 
 {% block content %}
-<div class="section login-section">
-      <div class="container">
-       <div class="row">
-           <div class="well-welcome">
-                 <h1>Logged out</h1>
-               <hr>
-             <p>You have logged out of your account. You can <a href="{% url 'account:login' %}">log-in again</a>.</p>
-            </div>
-           </div>
-          </div>
+<div class="login-wrap">
+      <div class="col-sm-5 col-sm-offset-4">
+        <h2 class="fsz-36 section-title"> The Buzzer</h2>
+        <p class="sub-detail fsz-18"> You have logged out.</p>
+
+        <p class="fsz-16"> You are Logged out of your account you can
+            <a href="{% url 'account:login' %}"><strong>log-in again</strong></a>.</p>
+
+        <p class="fsz-16"> Otherwise you may
+            <a href="{% url 'home_page' %}"><strong>Return Home</strong></a>.</p>
+       </div>
 </div>
 {% endblock %}
