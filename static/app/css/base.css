@@ -388,3 +388,157 @@ body {
 .copy-right {
     padding-top:25px;
 }
+
+/* Login */
+
+.login p label{
+    display:none;
+}
+
+.login p input{
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #635353;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 45px;
+    padding: 10px 20px;
+
+}
+
+/*-- Black Button CSS --*/
+.btn-login {
+    border: 2px solid #000;
+    border-radius:2px;
+    color: #000;
+    background-color: #b9f5e2;
+}
+.btn-login:after {
+    background: #fff;
+}
+.btn-login:hover,
+.btn-login:active {
+    color: #000;
+}
+
+.fancy {
+    position: relative;
+    font-size: 18px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+.fancy:before, .fancy:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 48%;
+    height: 1px;
+    content: '\a0';
+    background-color: #000;
+}
+.fancy:before {
+    margin-left: -50%;
+    text-align: right;
+}
+
+.fancy:after {
+    margin-left: 2%;
+}
+.color {
+    background-color: #ccc;
+}
+
+.password-change ul li{
+    display:none;
+}
+form ul.errorlist {
+    margin-bottom:8px;
+}
+
+form ul.errorlist li{
+    display:block;
+    color:#ef460f;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.aui-message{
+    background: #fff;
+    border-top: 1px solid #3572b0;
+    border-right: 1px solid #3572b0;
+    border-bottom: 1px solid #3572b0;
+    border-left: 1px solid #3572b0;
+    border-radius: 3px;
+    color: #333;
+    line-height: 20px;
+    margin: 20px 0 ;
+    overflow-wrap: break-word;
+    position: relative;
+    word-wrap: break-word;
+    word-break: break-word;
+    padding: 20px 40px 20px 60px;
+}
+
+.aui-message p{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.aui-message-error{
+    background: #fff;
+    border-color: #d04437;
+    color: #333;
+}
+
+.aui-message:before{
+    bottom: 0;
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 40px;
+    background-color: #d04437;
+}
+
+
+.aui-message:after{
+    font-weight: 400;
+    left: 12px;
+    line-height: 1;
+    margin-top: -8px;
+    position: absolute;
+    speak: none;
+    top: 50%;
+    content: "\f05a";
+    color: #fff;
+}
+
+.aui-message-error:after{
+    content: "\f05a";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    font-size:20px;
+    text-decoration: inherit;
+    color: #fff;
+}
+

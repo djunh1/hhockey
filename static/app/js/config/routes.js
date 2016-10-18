@@ -4,13 +4,13 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 var hashHistory = ReactRouter.hashHistory;
-var NavbarContainer = require('../containers/navbarContainer');
+var LoginContainer = require('../containers/LoginContainer');
 
 
 var routes = (
 
     <Router history={hashHistory}>
-        <Route path='/' component={NavbarContainer}>
+        <Route path='/account/login' component={LoginContainer}>
         </Route>
     </Router>
 );

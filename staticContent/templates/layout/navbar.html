@@ -41,13 +41,13 @@
                                                            role="button"
                                                            aria-haspopup="true" > {{request.user}} </a>
                                                         <ul class="dropdown-menu">
-                                                            <li><a href="{% url 'account:logout' %}"> My Account </a></li>
+                                                            <li><a href="{% url 'account:edit' %}"> My Account </a></li>
                                                             <li><a href="{% url 'account:logout' %}"> Log Off</a></li>
                                                         </ul>
                                                     </li>
                                                 {% else %}
                                                     <li><a href="{% url 'account:login' %}">Login</a></li>
-                                                    <li><a href="{% url 'home_page' %}">Sign Up</a></li>
+                                                    <li><a href="{% url 'account:register' %}">Sign Up</a></li>
                                                 {% endif %}
 
                                             <li class="cart-hover">
@@ -58,7 +58,7 @@
                                                     </div>
                                                     <div class="cart-item">
                                                         <div class="cart-list">
-                                                            <div class="cart-img"> <img src="assets/img/product/cart-thumb-1.png" alt=""> </div>
+                                                            <div class="cart-img"> <img src="#" alt=""> </div>
                                                             <div class="cart-detail">
                                                                 <a class="prod-title block-inline" href="#"> some shop item title </a>
                                                                 <p class="fsz-16 font-2 no-margin">
@@ -67,7 +67,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="cart-list">
-                                                            <div class="cart-img"> <img src="assets/img/product/cart-thumb-2.png" alt=""> </div>
+                                                            <div class="cart-img"> <img src="#" alt=""> </div>
                                                             <div class="cart-detail">
                                                                 <a class="prod-title block-inline" href="#"> some shop item title </a>
                                                                 <p class="fsz-16 font-2 no-margin">

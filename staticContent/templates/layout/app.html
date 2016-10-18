@@ -26,5 +26,12 @@
         </main>
 
         {% include 'layout/scripts.html' %}
+            <script>
+				$(document).ready(function(){
+				 {% block domready %}
+				 {% endblock %}
+				});
+			</script>
+
     </body>
 </html>

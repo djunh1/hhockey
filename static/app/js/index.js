@@ -37,3 +37,7 @@ ReactDOM.render(
     document.getElementById('navapp')
 );
 
+
+/* jQUERY */
+
+

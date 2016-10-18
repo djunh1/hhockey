@@ -122,6 +122,24 @@ DATABASES = {
     }
 }
 
+# Email settings
+
+email_host = get_secret("EMAIL_HOST")
+email_host_user = get_secret("EMAIL_HOST_USER")
+email_to_user = get_secret("EMAIL_TO_USER")
+email_host_password = get_secret("EMAIL_HOST_PASSWORD")
+
+# Can change the stmp part to console in order to simply test the email output.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = email_host
+EMAIL_HOST_USER = email_host_user
+EMAIL_HOST_PASSWORD = email_host_password
+DEFAULT_FROM_EMAIL = email_host_user
+DEFAULT_TO_EMAIL = email_to_user
+SERVER_EMAIL = email_host_user
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -194,4 +212,28 @@ WEBPACK_LOADER = {
         'BUNDLE_DIR_NAME': 'dist/',
         'STATS_FILE': os.path.join(BASE_DIR + '/static/app/js', 'webpack-stats.json'),
     }
+}
+
+# LOGGING
+LOGGING = {
+   'version': 1,
+   'disable_existing_loggers': False,
+   'handlers': {
+       'console': {
+           'level': 'DEBUG',
+           'class': 'logging.StreamHandler',
+       },
+   },
+   'loggers': {
+        'django': {
+            'handlers': ['console'],
+        },
+        'account': {
+            'handlers': ['console'],
+        },
+        'staticContent': {
+            'handlers': ['console'],
+        },
+    },
+    'root': {'level': 'INFO'},
 }

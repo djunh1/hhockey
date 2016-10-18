@@ -1,7 +1,11 @@
 {% extends "layout/app.html" %}
 
+{% block title %}Register {% endblock %}
+
 {% block content %}
-<div class="login-wrap">
+
+<article>
+    <div class="login-wrap">
     <div class="col-sm-4 text-center">
         <div class="pb-30">
             <a href="index.html"> <img alt="Our Logo" src="http://placehold.it/150X100">
@@ -15,19 +19,18 @@
             {% if form.errors %}
             <div class="aui-message aui-message-error">
                 <p>
-                    The email address or password you entered is incorrect.
+                    Something went wrong.  Please check all the fields and try again
                 </p>
 
             </div>
             {% else %}
-            <p>Enter Login information.</p>
+            <p>Enter New Account Information.</p>
             {% endif %}
-            <form class="login" action="{% url 'account:login' %}" method="POST">
-                {{ form.as_p}}
+            <form class="login" action="{% url 'account:register' %}" method="POST">
+                {{ user_form.as_p}}
                 {% csrf_token %}
-                <input type="hidden" name="next" value=" {{ next }}" />
                 <div class="form-group">
-                    <button class="theme-btn btn-login small-btn btn-block" type="submit"> Login </button>
+                    <button class="theme-btn btn-login small-btn btn-block" type="submit"> Create Account </button>
                 </div>
             </form>
             <h5 class="fancy">or</h5>
@@ -45,13 +48,12 @@
                <a href="{% url 'account:password_reset' %}"><strong>Forgot Password?</strong></a>
              </p>
             <p class="fsz-16">
-               <a href="{% url 'account:register' %}"><strong>Not a member?  Sign up!</strong></a>
+               <a href="{% url 'account:login' %}"><strong>Already a member?  Sign In!</strong></a>
              </p>
         </div>
     </div>
 </div>
 </div>
-
+</article>
 
 {% endblock %}
-
