@@ -51,7 +51,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -61,6 +60,7 @@ INSTALLED_APPS = [
     'staticContent',
     'webpack_loader',
     'account',
+    'django.contrib.auth',
     'django.contrib.admin',
 ]
 
@@ -78,8 +78,8 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'hhockey.urls'
 
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
-LOGIN_URL = reverse_lazy('login')
-LOGOUT_URL = reverse_lazy('logout')
+LOGIN_URL = reverse_lazy('account:login')
+LOGOUT_URL = reverse_lazy('account:logout')
 
 
 

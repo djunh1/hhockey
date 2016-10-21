@@ -395,6 +395,13 @@ body {
     display:none;
 }
 
+div.visible-labels p label{
+    display:block;
+    color:#0055b3;
+    font-weight:100;
+    font-size:16px;
+}
+
 .login p input{
     display: block;
     width: 100%;
@@ -470,6 +477,9 @@ body {
 .password-change ul li{
     display:none;
 }
+
+/* Error CSS */
+
 form ul.errorlist {
     margin-bottom:8px;
 }
@@ -481,7 +491,7 @@ form ul.errorlist li{
     font-weight:bold;
 }
 
-.aui-message{
+.aui-message, .success{
     background: #fff;
     border-top: 1px solid #3572b0;
     border-right: 1px solid #3572b0;
@@ -498,18 +508,19 @@ form ul.errorlist li{
     padding: 20px 40px 20px 60px;
 }
 
-.aui-message p{
+.aui-message p, .success p{
     font-size:16px;
     font-weight:bold;
+    margin-top:14px;
 }
 
-.aui-message-error{
+.aui-message-error, .success{
     background: #fff;
     border-color: #d04437;
     color: #333;
 }
 
-.aui-message:before{
+.aui-message:before, .success:before{
     bottom: 0;
     content: '';
     left: 0;
@@ -520,7 +531,7 @@ form ul.errorlist li{
 }
 
 
-.aui-message:after{
+.aui-message:after, .success:after{
     font-weight: 400;
     left: 12px;
     line-height: 1;
@@ -532,7 +543,7 @@ form ul.errorlist li{
     color: #fff;
 }
 
-.aui-message-error:after{
+.aui-message-error:after, .success:after{
     content: "\f05a";
     font-family: FontAwesome;
     font-style: normal;
@@ -540,5 +551,41 @@ form ul.errorlist li{
     font-size:20px;
     text-decoration: inherit;
     color: #fff;
+}
+
+.success:before{
+    background-color:#00880c;
+}
+
+.success:after{
+    content: "\f05d";
+}
+
+.select-options form select{
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #635353;
+    border-radius: 4px;
+    box-shadow: none;
+    color: #a3a3a3;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 45px;
+    padding: 10px 20px;
 }
 

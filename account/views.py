@@ -5,7 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
-from account.forms import LoginForm, UserRegistrationForm
+from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
+from .models import Profile
 
 
 def user_login(request):
@@ -44,6 +45,7 @@ def register(request):
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
+            profile = Profile.objects.create(user=new_user)
             #profile = Profile.objects.create(user=new_user)
             new_user = authenticate(username=user_form.cleaned_data['username'],
                                         password=user_form.cleaned_data['password'])
@@ -54,3 +56,23 @@ def register(request):
         user_form = UserRegistrationForm()
     return render(request, 'account/register.html',
                   {'user_form': user_form})
+
+
+@login_required
+def editprofile(request):
+    if request.method == 'POST':
+        user_form = UserEditForm(instance=request.user,
+                                 data=request.POST)
+        profile_form = ProfileEditForm(instance=request.user.profile,
+                                       data=request.POST,
+                                       files=request.FILES)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated')
+        else:
+            messages.error(request, 'There was a problem updating your profile')
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user)
+    return render(request, 'account/editProfile.html', {'user_form': user_form, 'profile_form': profile_form})

@@ -35,7 +35,7 @@
                                         <a href="{% url 'account:password_change' %}"> Change Password</a>
                                     </li>
                                     <li>
-                                        <a href="address-book.html"> Modify your address book entries</a>
+                                        <a href="{% url 'account:edit_profile' %}"> Modify Account</a>
                                     </li>
                                 </ul>
                             </div>
@@ -44,7 +44,8 @@
 
                     <div class="panel">
                         <div class="accordion-heading">
-                            <a class="title-2 fsz-14" data-toggle="collapse" data-parent="#accordion" href="#accordion-2"> <span class="number">02</span>  Order And Review </a>
+                            <a class="title-2 fsz-14" data-toggle="collapse" data-parent="#accordion"
+                               href="#accordion-2"> <span class="number">02</span>  My Account Info </a>
                         </div>
                         <div id="accordion-2" class="panel-collapse collapse">
                             <div class="cart-box title-1 fsz-14">

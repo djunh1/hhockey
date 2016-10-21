@@ -1,0 +1,38 @@
+{% extends "layout/app.html" %}
+
+{% block title %}Edit Profile {% endblock %}
+
+{% block content %}
+
+<article class="password-change">
+ <div class="login-wrap">
+    <div class="col-sm-4 col-sm-offset-4">
+        <h2 class="fsz-36 section-title"> EDIT INFO.</h2>
+        <p>Update Information Here.</p>
+        {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <a href="{% url 'account:edit_profile' %}">
+                    <div class="{{message.tags}}">
+                        <p>
+                            {{ message|safe }}
+                        </p>
+                    </div>
+                    </a>
+                    {% endfor %}
+                </ul>
+        {% endif %}
+        <div class="login-form visible-labels select-options">
+            <form class="login" action="" method="POST" enctype="multipart/form-data">
+                {{ user_form.as_p}}
+                {{ profile_form.as_p}}
+                {% csrf_token %}
+                <div class="form-group">
+                    <button class="theme-btn btn-login small-btn btn-block" type="submit"> Save Changes</button>
+                </div>
+            </form>
+        </div>
+</div>
+</article>
+
+{% endblock %}
