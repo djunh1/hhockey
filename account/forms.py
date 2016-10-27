@@ -24,6 +24,18 @@ class UserRegistrationForm(forms.ModelForm):
         return cd['password2']
 
 
+class SignupForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ()
+
+    def signup(self, request, user):
+        user.save()
+        profile = Profile()
+        profile.user = user
+        profile.save()
+
+
 class UserEditForm(forms.ModelForm):
     class Meta:
         model = User

@@ -1,4 +1,5 @@
 {% extends "layout/app.html" %}
+{% load socialaccount %}
 
 {% block content %}
 <div class="login-wrap">
@@ -34,10 +35,13 @@
         </div>
         <div class="row">
             <div class="col-xs-6 pb-25">
-                <a href="#" class="theme-btn btn-black small-btn"> <i class="fa fa-facebook"></i> <span>via Facebook</span> </a>
+                <a href="{% provider_login_url 'facebook' %}" class="theme-btn btn-black small-btn"> <i
+                        class="fa fa-facebook"></i>
+                    <span>Facebook</span> </a>
             </div>
             <div class="col-xs-6 pb-25">
-                <a href="#" class="theme-btn btn-black small-btn"> <i class="fa fa-twitter"></i> <span>via Twitter</span> </a>
+                <a href="{% provider_login_url 'twitter' %}" class="theme-btn btn-black small-btn"> <i
+                    class="fa fa-twitter"></i> <span>Twitter</span> </a>
             </div>
         </div>
         <div class="text-center">
@@ -47,6 +51,7 @@
             <p class="fsz-16">
                <a href="{% url 'account:register' %}"><strong>Not a member?  Sign up!</strong></a>
              </p>
+
         </div>
     </div>
 </div>

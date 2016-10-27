@@ -7,6 +7,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+
 from staticContent import views as staticViews
 
 
@@ -18,7 +19,8 @@ urlpatterns = [
     url(r'^terms/$', staticViews.toc, name='toc_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'account/',  include('account.urls', namespace='account')),
-    #url(r'^admin/', admin.site.urls),
+    url(r'accounts/', include('allauth.urls')),
+    url(r'^admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:

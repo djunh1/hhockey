@@ -17,17 +17,12 @@ import sys
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse_lazy
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 #JSON Secret module
 with open("secrets.json") as f:
     secrets = json.loads(f.read())
-
 
 def get_secret(setting,secrets=secrets):
     '''
@@ -36,10 +31,9 @@ def get_secret(setting,secrets=secrets):
     try:
         return secrets[setting]
     except KeyError:
-        error_msg="Set {0} environment variable".format(setting)
+        error_msg = "Set {0} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -47,8 +41,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
+# Heritage Hockey App definition
 
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
@@ -59,10 +52,18 @@ INSTALLED_APPS = [
     'functional_tests',
     'staticContent',
     'webpack_loader',
-    'account',
+    'account.apps.AccountConfig',
     'django.contrib.auth',
     'django.contrib.admin',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -77,9 +78,38 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'hhockey.urls'
 
+#AllAuth values
+SOCIALACCOUNT_QUERY_EMAIL = True
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': ['email'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'oauth2',
+        'VERIFIED_EMAIL': False
+    }
+}
+
+
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 LOGIN_URL = reverse_lazy('account:login')
 LOGOUT_URL = reverse_lazy('account:logout')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'account.forms.SignupForm'
+
+SOCIAL_AUTH_FACEBOOK_KEY = get_secret("SOCIAL_AUTH_FACEBOOK_KEY")
+SOCIAL_AUTH_FACEBOOK_SECRET = get_secret("SOCIAL_AUTH_FACEBOOK_SECRET")
+
+SOCIAL_AUTH_TWITTER_KEY = get_secret("SOCIAL_AUTH_TWITTER_KEY")
+SOCIAL_AUTH_TWITTER_SECRET = get_secret("SOCIAL_AUTH_TWITTER_SECRET")
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('home_page')
+SOCIAL_AUTH_LOGIN_URL = reverse_lazy('account:login')
 
 
 
@@ -102,9 +132,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'hhockey.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
 DB_NAME = get_secret("DATABASE_NAME")
 DB_USER = get_secret("DATABASE_USERNAME")
 DB_PASSWORD = get_secret("DATABASE_PASSWORD")
@@ -123,13 +150,12 @@ DATABASES = {
 }
 
 # Email settings
-
 email_host = get_secret("EMAIL_HOST")
 email_host_user = get_secret("EMAIL_HOST_USER")
 email_to_user = get_secret("EMAIL_TO_USER")
 email_host_password = get_secret("EMAIL_HOST_PASSWORD")
 
-# Can change the stmp part to console in order to simply test the email output.
+# Can change the stmp part to console in order to test the email output.
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = email_host
 EMAIL_HOST_USER = email_host_user
@@ -138,11 +164,7 @@ DEFAULT_FROM_EMAIL = email_host_user
 DEFAULT_TO_EMAIL = email_to_user
 SERVER_EMAIL = email_host_user
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-
-
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
+#EMAIL_USE_TLS = True
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -161,8 +183,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.9/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -174,13 +194,10 @@ USE_L10N = True
 USE_TZ = True
 
 # Bower Config
-
 BOWER_COMPONENTS_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'static'))
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
 STATIC_URL = '/static/'
 
 #TODO Eventually use a static CDN to serve static from another server
