@@ -149,6 +149,9 @@ DATABASES = {
     }
 }
 
+if 'test' in sys.argv or 'test_coverage' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+
 # Email settings
 email_host = get_secret("EMAIL_HOST")
 email_host_user = get_secret("EMAIL_HOST_USER")

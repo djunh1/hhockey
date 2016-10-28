@@ -6,3 +6,5 @@ secrets.json
 static/app/img
 static/app/js/node_modules/
 .DS_Store
+htmlcov/
+.coverage
