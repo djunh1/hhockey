@@ -17,6 +17,9 @@ import sys
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse_lazy
 
+from oscar.defaults import *
+from oscar import OSCAR_MAIN_TEMPLATE_DIR
+from oscar import get_core_apps
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,7 +42,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['heritage-hockey.com']
 
 # Heritage Hockey App definition
 
@@ -56,12 +59,15 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.flatpages',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
-]
+    'compressor',
+    'widget_tweaks',
+] + get_core_apps()
 
 SITE_ID = 1
 
@@ -74,6 +80,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'oscar.apps.basket.middleware.BasketMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'hhockey.urls'
@@ -116,7 +124,11 @@ SOCIAL_AUTH_LOGIN_URL = reverse_lazy('account:login')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            OSCAR_MAIN_TEMPLATE_DIR
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,6 +136,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                'oscar.apps.search.context_processors.search_form',
+                'oscar.apps.promotions.context_processors.promotions',
+                'oscar.apps.checkout.context_processors.checkout',
+                'oscar.apps.customer.notifications.context_processors.notifications',
+                'oscar.core.context_processors.metadata',
             ],
         },
     },
@@ -168,6 +186,14 @@ DEFAULT_TO_EMAIL = email_to_user
 SERVER_EMAIL = email_host_user
 EMAIL_PORT = 587
 #EMAIL_USE_TLS = True
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr',
+        'INCLUDE_SPELLING': True,
+    },
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -256,4 +282,13 @@ LOGGING = {
         },
     },
     'root': {'level': 'INFO'},
+}
+
+#Oscar Order Pipeline
+OSCAR_INITIAL_ORDER_STATUS = 'Pending'
+OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Pending': ('Being processed', 'Cancelled',),
+    'Being processed': ('Processed', 'Cancelled',),
+    'Cancelled': (),
 }

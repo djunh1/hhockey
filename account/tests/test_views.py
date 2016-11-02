@@ -109,5 +109,5 @@ class EditProfileTest(TestCase):
         '''
         Currently, none of these forms require input thus will always pass as valid
         upon submission.  If any new fields are added and are required, write this test
-        to invalid forms are handled properly. 
+        to invalid forms are handled properly.
         '''
