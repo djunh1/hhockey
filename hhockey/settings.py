@@ -67,7 +67,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitter',
     'compressor',
     'widget_tweaks',
-] + get_core_apps()
+] + get_core_apps(['oscarFork.order'])
 
 SITE_ID = 1
 
