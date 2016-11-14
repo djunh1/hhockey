@@ -1,12 +1,12 @@
 {% load staticfiles %}
 
+
  <!-- Favicon  TO DO, MAKE OWN-->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href='{% static "ico/apple-touch-icon-144-precomposed.png" %}'>
 <link rel="shortcut icon" href='{% static "ico/favicon.ico" %}'>
 
-<!-- Font Icon -->
+<!-- FA -->
 <link href='{% static "bower_components/font-awesome/css/font-awesome.min.css" %}' rel="stylesheet" type="text/css">
-
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Skranji" rel="stylesheet">
@@ -31,3 +31,14 @@
 <!-- Base Style Sheet -->
 
 <link rel="stylesheet" href='{% static "app/css/base.css" %}'  type="text/css">
+
+
+<!-- Oscar styles -->
+    {% if use_less %}
+        <link rel="stylesheet/less" type="text/css" href="{% static "oscar/less/styles.less" %}" />
+    {% else %}
+        <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+    {% endif %}
+<link rel="stylesheet" href="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.css" %}" />
+<link rel="stylesheet" type="text/css" href="{% static "oscar/css/datetimepicker.css" %}" />
+
