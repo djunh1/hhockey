@@ -1,7 +1,6 @@
 {% extends "oscar/layout_2_col.html" %}
 {% load i18n %}
 {% load currency_filters %}
-{% load category_tags %}
 
 {% block navigation %}
     {% include "oscar/partials/nav_primary.html" %}
@@ -10,49 +9,15 @@
 {% block header %}{% endblock %}
 
 {% block column_left %}
+
 {% endblock %}
 
 {% block content_wrapper %}
-<div class="container theme-container">
+<div class="container theme-container sec-space">
     <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12 cate-wrap">
-            <nav>
-                <div class="navbar-collapse no-padding">
-                    <ul class="nav navbar-nav cate-navbar font-2">
-                        {% category_tree depth=2 as tree_categories %}
-                        {% if tree_categories %}
-                            {% for tree_category, info in tree_categories %}
-                             {% if info.has_children %}
-                              <li class="dropdown active">
-                                <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"> {{
-                                        tree_category.name }} </a>
-                                <ul class="dropdown-menu">
-                                    <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{
-                                        tree_category.name }} </a></li>
-                                    <li class="dropdown">
-                                        <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Sub Menu</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Sub Menu 1</a></li>
-                                            <li><a href="#">Sub Menu 2</a></li>
-                                            <li class="dropdown">
-                                                <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Sub Menu 3</a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="#">Sub Menu 4</a></li>
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            {% else %}
-                                    <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{ tree_category.name }}</a></li>
-                                    {% endif %}
-                        {% endfor %}
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
+            {% include "oscar/partials/nav_side.html" %}
+        <div class="col-md-9">
+            {% include "oscar/promotions/welcome.html" %}
         </div>
     </div>
 </div>

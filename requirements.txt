@@ -45,3 +45,4 @@ selenium==2.53.6
 six==1.10.0
 sorl-thumbnail==12.4a1
 Unidecode==0.4.19
+Whoosh==2.7.4

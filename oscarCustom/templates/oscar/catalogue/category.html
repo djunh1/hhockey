@@ -1,4 +1,4 @@
-{% extends "catalogue/browse.html" %}
+{% extends "oscar/catalogue/browse.html" %}
 
 {% load i18n %}
 
@@ -13,27 +13,23 @@
 {% block headertext %}{{ category.name }}{% endblock %}
 
 {% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-        </li>
-        {% for category in category.get_ancestors %}
-            <li>
-                <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
-            </li>
-        {% endfor %}
-        <li class="active">{{ category.name }}</li>
-    </ul>
 {% endblock breadcrumbs %}
 
-{% block content %}
+{% block contentShop %}
     {% if category.description %}
+<div id="grid-view" class="tab-pane fade active in" role="tabpanel">
         <div class="row">
-            <div class="col-sm-9"><p>{{ category.description|safe }}</p></div>
+            {% include "oscar/partials/nav_side.html" %}
+
+            <div class="col-sm-9"><p>{{ category.description|safe }}</p>
+            </div>
             {% if category.image %}
-                <div class="col-sm-3"><img src="{{ category.image.url }}" alt="{{ category.name }}" class="img-responsive" /></div>
+                <div class="col-sm-3">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}" class="img-responsive" />
+                </div>
             {% endif %}
         </div>
+    </div>
     {% endif %}
     {{ block.super }}
-{% endblock %}
+{% endblock contentShop%}

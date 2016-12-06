@@ -3,42 +3,74 @@
 {% load i18n %}
 {% load display_tags %}
 {% load staticfiles %}
+{% load currency_filters %}
+{% load purchase_info_tags %}
 
 {% block product %}
-    <article class="product_pod">
+<div class="prod-wrap pt-50">
+    <figure>
         {% block product_image %}
-            <div class="image_container">
-                {% with image=product.primary_image %}
-                    {% thumbnail image.original "x155" upscale=False as thumb %}
-                    <a href="{{ product.get_absolute_url }}"><img src="{{ thumb.url }}" alt="{{ product.get_title }}" class="thumbnail"></a>
-                    {% endthumbnail %}
-                {% endwith %}
-            </div>
+        <div class="prod-img">
+            {% with image=product.primary_image %}
+            {% thumbnail image.original "x155" upscale=False as thumb %}
+            <a href="{{ product.get_absolute_url }}"><img
+                    src="http://placehold.it/250x300"
+                    alt="{{ product.get_title }}"
+                    class="img-hover"></a>
+            <a class="caption-link meta-icon"
+               data-toggle="modal"
+               href="{{ product.get_absolute_url }}"> <span class="fa fa-eye"> </span> </a>
+            <!--src="{{ thumb.url }}"-->
+            <span class="prod-cat">{{product}}</span>
+            {% endthumbnail %}
+            {% endwith %}
+        </div>
         {% endblock %}
+        <figcaption class="prod-content">
 
-        {% block product_review %}
+
+            {% block product_title %}
+            <h2 class="prod-title">
+                <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
+                    {{ product.get_title|truncatewords:4 }}</a>
+            </h2>
+            {% endblock %}
+            {% block product_review %}
             {% iffeature "reviews" %}
-                <p class="star-rating {{ product.rating|as_stars }}">
+            <div class="block-inline">
+                <div class="rating {{ product.rating|as_stars }}">
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
-                </p>
+                </div>
+                <div class="prod-price font-2">
+                    {% purchase_info_for_product request product as session %}
+                    {% if session.price.exists %}
+                    {% if session.price.excl_tax == 0 %}
+                    <ins>{% trans "Free" %}</ins>
+                    {% elif session.price.is_tax_known %}
+                    <ins>{{ session.price.incl_tax|currency:session.price.currency }}</ins>
+                    {% else %}
+                    <ins>{{ session.price.excl_tax|currency:session.price.currency }}</ins>
+                    {% endif %}
+                    {% else %}
+                    <ins>&nbsp;</ins>
+                    {% endif %}
+                </div>
+            </div>
             {% endiffeature %}
-        {% endblock %}
-
-        {% block product_title %}
-            <h3><a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">{{ product.get_title|truncatewords:4 }}</a></h3>
-        {% endblock %}
-
-        {% block product_price %}
+            {% endblock %}
+            {% block product_price %}
             <div class="product_price">
-                {% include "catalogue/partials/stock_record.html" %}
+                {% include "oscar/catalogue/partials/stock_record.html" %}
                 {% if not product.is_parent %}
-                    {% include "catalogue/partials/add_to_basket_form_compact.html" %}
+                {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
                 {% endif %}
             </div>
-        {% endblock %}
-    </article>
+            {% endblock %}
+        </figcaption>
+    </figure>
+</div>
 {% endblock %}
