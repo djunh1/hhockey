@@ -299,7 +299,7 @@ INSTALLED_APPS += [
     'compressor',
     'widget_tweaks',
     'oscarCustom',
-] + get_core_apps(['oscarCustom.promotions', 'oscarCustom.catalogue'])
+] + get_core_apps(['oscarCustom.promotions', 'oscarCustom.catalogue', 'oscarCustom.customer'])
 
 
 
@@ -325,4 +325,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Cancelled': (),
 }
 
-OSCAR_DEFAULT_CURRENCY = "ILS"
+OSCAR_DEFAULT_CURRENCY = 'USD'
+OSCAR_CURRENCY_LOCALE = 'da'
+OSCAR_CURRENCY_FORMAT = '$ ###'
+
+OSCAR_SHOP_NAME = 'Hopewell Hockey'

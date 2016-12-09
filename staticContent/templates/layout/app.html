@@ -5,43 +5,43 @@
 <!--[if IE 7]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="{{ LANGUAGE_CODE|default:"en-gb" }}" class="no-js"> <!--<![endif]-->
-    <head>
-        <title>{% block title %}Heritage Hockey{% endblock %}</title>
-        {% include 'layout/head.html' %}
-        {% block extrastyles %}{% endblock %}
-        {% block extrahead %}{% endblock %}
-        {% block tracking %}
-            {# Default to using Google analytics #}
-            {% include "oscar/partials/google_analytics.html" %}
-        {% endblock %}
+<head>
+    <title>{% block title %}Hopewell Hockey{% endblock %}</title>
+    {% include 'layout/head.html' %}
+    {% block extrastyles %}{% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% block tracking %}
+    {# Default to using Google analytics #}
+    {% include "oscar/partials/google_analytics.html" %}
+    {% endblock %}
 
 
-    </head>
-    <body id="home" class="wide">
-        <main class="wrapper home-page2">
-            {% include 'layout/navbar.html' %}
-            {% block content %}
-            {% endblock %}
-            {% block contentshop %}
-            {% endblock %}
+</head>
+<body id="home" class="wide">
+<main class="wrapper home-page2">
+    {% include 'layout/navbar.html' %}
+    {% block content %}
+    {% endblock %}
+    {% block contentshop %}
+    {% endblock %}
 
-            {% include 'layout/footer.html' %}
-        </main>
-        {% include 'layout/scripts.html' %}
-            {% block cdn_scripts %}
-            <!-- jQuery -->
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-                <script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
-            {% endblock %}
-            <!-- Local Scripts -->
-            {% block scripts %}
-            {% endblock %}
+    {% include 'layout/footer.html' %}
+</main>
+{% include 'layout/scripts.html' %}
+{% block cdn_scripts %}
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="{% static "oscar/js/jquery/jquery-1.9.1.min.js" %}"><\/script>')</script>
+{% endblock %}
+<!-- Local Scripts -->
+{% block scripts %}
+{% endblock %}
 
-              <script>
+<script>
 				$(document).ready(function(){
 				 {% block domready %}
 				 {% endblock %}
 				});
 			</script>
-    </body>
+</body>
 </html>

@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% if product.rating != None %}
-    <p class="star-rating {{ product.rating|as_stars }}">
+    <p class="star-rating {{ product.rating|as_stars }} pull-right">
         <i class="icon-star"></i>
         <i class="icon-star"></i>
         <i class="icon-star"></i>
@@ -22,7 +22,9 @@
 {% endif %}
 
 {% if product|is_review_permitted:user %}
-    <a id="write_review" href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview" class="btn btn-success btn-sm">
+    <a id="write_review"
+       href="{% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id %}#addreview"
+       class="btn btn-success btn-sm">
         {% trans "Write a review" %}
     </a>
 {% endif %}

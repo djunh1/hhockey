@@ -2,7 +2,8 @@
 
 {% if form.is_bound and not form.is_valid %}
     <div class="alert alert-danger">
-        <strong>{% trans "Oops! We found some errors" %}</strong> - {% trans "please check the error messages below and try again" %}
+        <strong>{% trans "Oops! We found some errors" %}</strong>
+        - {% trans "please check the error messages below and try again" %}
     </div>
 {% endif %}
 
@@ -15,5 +16,5 @@
 {% endif %}
 
 {% for field in form %}
-    {% include 'partials/form_field.html' with field=field style=style %}
+    {% include 'oscar/partials/form_field.html' with field=field style=style %}
 {% endfor %}
