@@ -19,11 +19,11 @@
 </head>
 <body id="home" class="wide">
 <main class="wrapper home-page2">
-    {% include 'layout/navbar.html' %}
-    {% block content %}
+    {% block navigation %}
+        {% include 'layout/navigation.html' %}
     {% endblock %}
-    {% block contentshop %}
-    {% endblock %}
+    {% block content %}{% endblock %}
+    {% block contentshop %}{% endblock %}
 
     {% include 'layout/footer.html' %}
 </main>

@@ -59,8 +59,8 @@
                 {% block basket_total %}
                     {% if offer_discounts or voucher_discounts %}
                         <tr>
-                            <th class="total">{% trans "Basket total (after discounts)" %}</th>
-                            <th class="total align-right">
+                            <th class="total-custom">{% trans "Basket total (after discounts)" %}</th>
+                            <th class="total-custom align-right">
                                 {% if not show_tax_separately and basket.is_tax_known %}
                                     {{ basket.total_incl_tax|currency:basket.currency }}
                                 {% else %}
@@ -71,8 +71,8 @@
                     {% else %}
                         {# No discounts to basket #}
                         <tr>
-                            <th class="total">{% trans "Basket total" %}</th>
-                            <th class="total align-right">
+                            <th class="total-custom">{% trans "Basket total" %}</th>
+                            <th class="total-custom align-right">
                                 {% if not show_tax_separately and basket.is_tax_known %}
                                     {{ basket.total_incl_tax|currency:basket.currency }}
                                 {% else %}
@@ -100,10 +100,10 @@
                 </tr>
                 {% if not shipping_method.is_discounted %}
                     <tr>
-                        <th class="total">
+                        <th class="total-custom">
                             {{ shipping_method.name }}
                         </th>
-                        <th class="total align-right">
+                        <th class="total-custom align-right">
                             {% if not show_tax_separately and shipping_charge.is_tax_known %}
                                 {{ shipping_charge.incl_tax|currency:basket.currency }}
                             {% else %}
@@ -116,8 +116,8 @@
                     {% shipping_charge_excl_discount shipping_method basket as shipping_charge_excl_discount %}
                     {# As shipping is discounted, we break it down into its original charge and a discount #}
                     <tr>
-                        <th class="total">{% trans "Shipping method" %}</th>
-                        <td class="total align-right">{{ shipping_method.name }}</td>
+                        <th class="total-custom">{% trans "Shipping method" %}</th>
+                        <td class="total-custom align-right">{{ shipping_method.name }}</td>
                     </tr>
                     <tr>
                         <td>{% trans "Shipping total (before discounts)" %}</td>
@@ -135,10 +135,10 @@
                         <td class="align-right">-{{ shipping_discount|currency:basket.currency }}</td>
                     </tr>
                     <tr>
-                        <th class="total">
+                        <th class="total-custom">
                             {% trans "Shipping total (after discounts)" %}
                         </th>
-                        <th class="total align-right">
+                        <th class="total-custom align-right">
                             {% if not show_tax_separately and shipping_charge.is_tax_known %}
                                 {{ shipping_charge.incl_tax|currency:basket.currency }}
                             {% else %}
@@ -161,14 +161,14 @@
                         </th>
                     </tr>
                     <tr>
-                        <th class="total">{% trans "Basket" %}</th>
-                        <th class="total align-right">
+                        <th class="total-custom">{% trans "Basket" %}</th>
+                        <th class="total-custom align-right">
                             {{ basket.total_tax|currency:basket.currency }}
                         </th>
                     </tr>
                     <tr>
-                        <th class="total">{% trans "Shipping" %}</th>
-                        <th class="total align-right">
+                        <th class="total-custom">{% trans "Shipping" %}</th>
+                        <th class="total-custom align-right">
                             {{ shipping_charge.tax|currency:basket.currency }}
                         </th>
                     </tr>
@@ -202,8 +202,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <th class="total"><h3>{% trans "Order total" %}</h3></th>
-                    <td class="total align-right">
+                    <th class="total-custom"><h3>{% trans "Order total" %}</h3></th>
+                    <td class="total-custom align-right">
                         <h3 class="price_color">
                             {% if order_total.is_tax_known %}
                                 {{ order_total.incl_tax|currency:basket.currency }}

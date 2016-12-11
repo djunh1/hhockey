@@ -1,78 +1,43 @@
 {% load staticfiles %}
 
-
 <!-- Header -->
-<header class="header-1 header container-fluid">
-    <section  class="main-header">
-        <div  class="header-wrap upper-text">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-2">
-                        <div class="header-logo">
-                            <a href="index.html"> <img src="http://placehold.it/100x75" alt="logo" />
-                            </a>
-                             <span class="nav-trigger toggle-hover visible-xs">
-                               <a class="toggle-icon fa fa-bars" href="#"> </a>
-                             </span>
-                        </div>
-                    </div>
-                    <div class="col-xs-10 navigation font-2">
-                        <nav>
-                            <div class="navbar-collapse no-padding" id="primary-navigation">
+<div class="row">
+    <div class="col-lg-8 col-md-9 col-sm-9 col-sm-offset-3 navigation font-2">
+        <nav>
+            <div class="navbar-collapse no-padding" id="primary-navigation">
                                             <span class="nav-trigger toggle-hover visible-xs">
                                                 <a class="toggle-icon fa fa-times" href="#"> </a>
                                             </span>
-                                <ul class="nav navbar-nav primary-navbar pull-right">
-                                    <li class="cart-hover">
-                                        {% block mini_basket %}{% include "oscar/partials/mini_basket.html" %}
-                                        {%endblock %}
-
-
-                                    </li>
-                </div>
-            </div>
-            <div class="container theme-container rel-div" >
-                <div class="row">
-                    <div class="col-lg-8 col-md-9 col-sm-9 col-sm-offset-2 navigation font-2">
-                        <nav>
-                            <div class="navbar-collapse no-padding" id="primary-navigation">
-                                            <span class="nav-trigger toggle-hover visible-xs">
-                                                <a class="toggle-icon fa fa-times" href="#"> </a>
-                                            </span>
-                                <ul class="nav navbar-nav primary-navbar">
-                                    <li>
-                                        <a href="{% url 'home_page' %}"  aria-haspopup="true" >Home</a>
-                                    </li>
-                                    <li><a href="/shop">Our Products <sup class="bubble font-1"> <span
-                                            class="hot-tag">New
+                <ul class="nav navbar-nav primary-navbar">
+                    <li>
+                        <a href="{% url 'home_page' %}"  aria-haspopup="true" >Home</a>
+                    </li>
+                    <li><a href="/shop">Our Products <sup class="bubble font-1"> <span
+                            class="hot-tag">New
                                     </span> </sup></a></li>
 
-                                    <li><a href="{% url 'about_page' %}">About Us</a></li>
-                                    <li><a href="{% url 'faq_page' %}">How it works</a></li>
-                                    {% if request.user.is_authenticated %}
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle"
-                                           data-toggle="dropdown"
-                                           role="button"
-                                           aria-haspopup="true" > {{request.user}} </a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="{% url 'account:edit' %}"> My Account </a></li>
-                                            <li><a href="{% url 'account:logout' %}"> Log Off</a></li>
-                                        </ul>
-                                    </li>
-                                    {% else %}
-                                    <li><a href="{% url 'account:login' %}">Login</a></li>
-                                    <li><a href="{% url 'account:register' %}">Sign Up</a></li>
-                                    {% endif %}
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+                    <li><a href="{% url 'about_page' %}">About Us</a></li>
+                    <li><a href="{% url 'faq_page' %}">How it works</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           role="button"
+                           aria-haspopup="true" > {{request.user}} </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'account:edit' %}"> My Account </a></li>
+                            <li><a href="{% url 'account:logout' %}"> Log Off</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'account:login' %}">Login</a></li>
+                    <li><a href="{% url 'account:register' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
             </div>
-        </div>
-            </div>
-        </div>
-    </section>
-</header>
+        </nav>
+    </div>
+</div>
+
+
 <!-- /Header -->

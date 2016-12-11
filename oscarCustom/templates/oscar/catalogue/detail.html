@@ -24,14 +24,15 @@
 {% block header %}
 {% endblock header %}
 
+{% block navigation %}
+    {% include 'layout/navigation.html' %}
+    {% include "oscar/partials/nav_primary.html" %}
+{% endblock %}
+
 {% block contentshop %}
 <main class="wrapper">
     <article><!-- Start of product page -->
-        <header class="header">
-            {% block navigation %}
-            {% include "oscar/partials/nav_primary.html" %}
-            {% endblock %}
-        </header>
+
         <div class="container theme-container ptb-70">
             <div class="row">
 

@@ -1,6 +1,10 @@
 {% extends "oscar/layout.html" %}
 {% load promotion_tags %}
 
+{% block navigation %}
+        {% include 'layout/navigation.html' %}
+     {% include "oscar/partials/nav_primary.html" %}
+{% endblock %}
 
 {% block content_wrapper %}
 <div class="container-fluid page">

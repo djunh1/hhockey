@@ -302,7 +302,8 @@ INSTALLED_APPS += [
 ] + get_core_apps(['oscarCustom.promotions',
                    'oscarCustom.catalogue',
                    'oscarCustom.customer',
-                   'oscarCustom.basket'])
+                   'oscarCustom.basket',
+                   'oscarCustom.checkout'])
 
 
 

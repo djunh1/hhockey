@@ -3,6 +3,7 @@
 {% load currency_filters %}
 
 {% block navigation %}
+    {% include 'layout/navigation.html' %}
     {% include "oscar/partials/nav_primary.html" %}
 {% endblock %}
 
@@ -15,7 +16,7 @@
 {% block content_wrapper %}
 <div class="container theme-container sec-space">
     <div class="row">
-            {% include "oscar/partials/nav_side.html" %}
+        {% include "oscar/partials/nav_side.html" %}
         <div class="col-md-9">
             {% include "oscar/promotions/welcome.html" %}
         </div>

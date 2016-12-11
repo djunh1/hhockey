@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "oscar/layout.html" %}
 {% load thumbnail %}
 {% load i18n %}
 
@@ -7,25 +7,20 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-        </li>
-        <li class="active">{% trans "Basket" %}</li>
-    </ul>
+
 {% endblock %}
 
 {# Hide mini-basket so we don't have two baskets to keep in sync #}
-{% block mini_basket %}{% endblock %}
+{% block mini_basket_header %}<p>None</p>{% endblock %}
 
 {% block headertext %}
     {% trans "Basket" %}
 {% endblock %}
 
-{% block content %}
+{% block contentshop %}
     {# Use a partial template so that AJAX can be used to re-render basket #}
-    {% include 'basket/partials/basket_content.html' %}
-{% endblock content %}
+    {% include 'oscar/basket/partials/basket_content.html' %}
+{% endblock contentshop %}
 
 {% block onbodyload %}
     {{ block.super }}

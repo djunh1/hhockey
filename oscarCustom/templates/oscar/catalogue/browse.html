@@ -10,22 +10,27 @@
 {% if summary %}{{ summary }} |{% endif %} {{ block.super }}
 {% endblock %}
 
-
-
 {% block headertext %}{{ summary }}{% endblock %}
 
 {% block breadcrumbs %}
+<ul class="breadcrumb">
+        <li>
+            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
+        </li>
+        <li class="active">{{ summary }}</li>
+    </ul>
 {% endblock breadcrumbs %}
 
 {% block column_left %}
 {% endblock %}
 
+{% block navigation %}
+        {% include 'layout/navigation.html' %}
+        {% include "oscar/partials/nav_primary.html" %}
+{% endblock %}
+
 {% block contentshop %}
-<header class="header">
-    {% block navigation %}
-    {% include "oscar/partials/nav_primary.html" %}
-    {% endblock %}
-</header>
+
 <div class="container theme-container ptb-70">
     <div class="wrapper">
         <!--div class="row">
