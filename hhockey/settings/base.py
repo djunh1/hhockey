@@ -299,7 +299,10 @@ INSTALLED_APPS += [
     'compressor',
     'widget_tweaks',
     'oscarCustom',
-] + get_core_apps(['oscarCustom.promotions', 'oscarCustom.catalogue', 'oscarCustom.customer'])
+] + get_core_apps(['oscarCustom.promotions',
+                   'oscarCustom.catalogue',
+                   'oscarCustom.customer',
+                   'oscarCustom.basket'])
 
 
 

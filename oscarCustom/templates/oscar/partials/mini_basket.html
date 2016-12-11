@@ -3,6 +3,7 @@
 
 <div class="basket-mini pull-right hidden-xs">
     <strong>{% trans "Basket total:" %}</strong>
+
     {% if request.basket.is_tax_known %}
         {{ request.basket.total_incl_tax|currency:request.basket.currency }}
     {% else %}
@@ -10,9 +11,10 @@
     {% endif %}
 
     <span class="btn-group">
-        <a class="btn btn-default" href="{% url 'basket:summary' %}">{% trans "View basket" %}</a>
+        <a class="btn btn-mini-cart" href="{% url 'basket:summary' %}">{% trans "View basket" %}</a>
         <button class="theme-btn btn-black btn-cart" id="nav-cart-toggle">
             <span class="caret"></span>
+
         </button>
         <ul class="dropdown-menu pull-right" id="nav-list">
             <li>{% include "oscar/basket/partials/basket_quick.html" %}</li>
