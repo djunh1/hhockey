@@ -1,8 +1,13 @@
-{% extends "layout.html" %}
+{% extends "oscar/layout.html" %}
 {% load i18n %}
 
 {% block title %}
     {{ review.title }} | {% trans "Reviews" %} | {{ product.title }} | {{ block.super }}
+{% endblock %}
+
+{% block navigation %}
+    {% include 'layout/navigation.html' %}
+    {% include "oscar/partials/nav_primary.html" %}
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -31,9 +36,11 @@
     {% trans "Customer reviews" %}
 {% endblock  %}
 
-{% block content %}
+{% block contentshop %}
+<div class="container theme-container ptb-70">
     <section>
-        {% include 'catalogue/reviews/review_product.html' %}
-        {% include 'catalogue/partials/review.html' %}
+        {% include 'oscar/catalogue/reviews/review_product.html' %}
+        {% include 'oscar/catalogue/partials/review.html' %}
     </section>
-{% endblock %}
+    </div>
+{% endblock contentshop%}

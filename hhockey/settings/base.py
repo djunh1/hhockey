@@ -303,7 +303,8 @@ INSTALLED_APPS += [
                    'oscarCustom.catalogue',
                    'oscarCustom.customer',
                    'oscarCustom.basket',
-                   'oscarCustom.checkout'])
+                   'oscarCustom.checkout',
+                   'oscarCustom.catalogue.reviews'])
 
 
 

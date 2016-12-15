@@ -1,16 +1,11 @@
-{% extends "layout.html" %}
+{% extends "oscar/layout.html" %}
 {% load i18n %}
 {% load promotion_tags %}
 {% load category_tags %}
 
-{% block layout %}
+{% block contentshop %}
 
-    <header class="header container-fluid">
-        <div class="page_inner">
-            <div class="row">
-                {% include "partials/brand.html" %}
-            </div><!-- /row -->
-        </div>
+    <header class="header">
         {% block checkout_nav %}{% endblock %}
     </header><!-- /header -->
 
@@ -41,7 +36,7 @@
                 {% endfor %}
             {% endblock %}
 
-            {% block content %}{% endblock %}
+            {% block contentcheckout %}{% endblock %}
 
             <div id="promotions">
                 {% for promotion in promotions_page %}
@@ -51,4 +46,4 @@
         </div><!-- /page_inner -->
     </div>
     {% include "partials/footer_checkout.html" %}
-{% endblock %}
+{% endblock contentshop %}

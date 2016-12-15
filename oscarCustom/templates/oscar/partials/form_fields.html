@@ -2,15 +2,17 @@
 
 {% if form.is_bound and not form.is_valid %}
     <div class="alert alert-danger">
-        <strong>{% trans "Oops! We found some errors" %}</strong>
+        <strong>{% trans "There were some errors in the form" %}</strong>
         - {% trans "please check the error messages below and try again" %}
     </div>
 {% endif %}
 
 {% if form.non_field_errors %}
     {% for error in form.non_field_errors %}
-        <div class="alert alert-danger">
-            <i class="icon-exclamation-sign"></i> {{ error }}
+        <div class="aui-message aui-message-error">
+                <p>
+             {{ error }}
+            </p>
         </div>
     {% endfor %}
 {% endif %}

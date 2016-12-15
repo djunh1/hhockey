@@ -1,4 +1,4 @@
-{% extends "catalogue/detail.html" %}
+{% extends "oscar/catalogue/detail.html" %}
 {% load i18n %}
 
 {% block product_review %}
@@ -8,7 +8,7 @@
                 <legend>{% trans "Leave a product review" %}</legend>
                 {% csrf_token %}
                 
-                {% include 'partials/form_field.html' with field=form.title %}
+                {% include 'oscar/partials/form_field.html' with field=form.title %}
 
                 <div class="reviewrating form-group {% if form.score.errors %}error{% endif %}">
                     <label for="{{ form.score.auto_id }}" class="control-label required">
@@ -30,7 +30,7 @@
                     </div>
 
                     {% comment %}
-                    {% include 'partials/form_field.html' with field=form.score %}
+                    {% include 'oscar/partials/form_field.html' with field=form.score %}
                     {% endcomment %}
                 </div>
 
@@ -43,7 +43,8 @@
                 {% endif %}
 
 
-                <button type="submit" class="btn btn-primary btn-lg" data-loading-text="{% trans 'Saving...' %}">{% trans "Save review" %}</button>
+                <button type="submit" class="btn btn-lg btn-checkout-submit" data-loading-text="{% trans 'Saving...' %}">
+                    {% trans "Save review" %}</button>
                 {% trans "or" %}
                 <a href="{{ product.get_absolute_url }}">{% trans "cancel" %}</a>
             </fieldset>

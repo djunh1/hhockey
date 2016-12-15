@@ -54,9 +54,12 @@
                         <div class="prod-title"> <h2>{{ product.get_title }}</h2></div>
 
                         <div class="block-inline">
-                            {% iffeature "reviews" %}
-                            {% include "oscar/catalogue/reviews/partials/review_stars.html" %}
-                            {% endiffeature %}
+                            <div class="pull-right">
+                                {% iffeature "reviews" %}
+                                      {% include "oscar/catalogue/reviews/partials/review_stars.html" %}
+                                {% endiffeature %}
+                            </div>
+
 
                             <div class="prod-price font-2 pull-left fsz-16">
                                 <ins>{% purchase_info_for_product request product as session %}
@@ -96,53 +99,52 @@
             <div class="tabs-wrap">
                 <div class="tabs">
                     <ul id="tabs" class="nav font-2 theme-tabs">
-                        <li class="active"><a href="#prod-tab-1" data-toggle="tab"> Description </a></li>
-                        <li class=""><a href="#prod-tab-2" data-toggle="tab"> Reviews </a></li>
+                        <li class="active"><a href="#prod-tab-2" data-toggle="tab"> Reviews </a></li>
+                        <li class=""><a href="#prod-tab-1" data-toggle="tab"> Description </a></li>
                         <li class=""><a href="#prod-tab-3" data-toggle="tab"> Info </a></li>
-
                     </ul>
                 </div>
                 <div class="tab-content prod-tab-content">
-                    <div id="prod-tab-1" class="tab-pane fade in active">
+                    <div id="prod-tab-1" class="tab-pane fade">
                         <p>{{ product.description|safe }}</p>
                     </div>
-                    <div id="prod-tab-2" class="tab-pane fade">
+                    <div id="prod-tab-2" class="tab-pane fade in active">
                         {% iffeature "reviews" %}
-                        {% block product_review %}
-                        <section>
-                            <div id="reviews" >
-                                {% if product.num_approved_reviews > 3 %}
-                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}"
-                                   class="btn pull-right">{% trans "See all reviews" %}</a>
-                                {% endif %}
-                            </div>
+                            {% block product_review %}
+                            <section>
+                                <div id="reviews" >
+                                    {% if product.num_approved_reviews > 3 %}
+                                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}"
+                                       class="btn pull-right">{% trans "See all reviews" %}</a>
+                                    {% endif %}
+                                </div>
 
-                            {% if product.num_approved_reviews == 0 %}
-                            <p>
-                                {% if product|is_review_permitted:user %}
-                                {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
-                                {% blocktrans %}This product does not have any reviews yet -
-                                <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
-                                {% endblocktrans %}
+                                {% if product.num_approved_reviews == 0 %}
+                                <p>
+                                    {% if product|is_review_permitted:user %}
+                                        {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                                            {% blocktrans %}This product does not have any reviews yet -
+                                            <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                                       {% endblocktrans %}
+                                    {% else %}
+                                        {% trans "This product does not have any reviews yet" %}.
+                                    {% endif %}
+                                </p>
                                 {% else %}
-                                {% trans "This product does not have any reviews yet" %}.
+                                <ol class="list-unstyled review-list">
+                                    {% for review in product.reviews.approved.all|slice:":3" %}
+                                    <li>
+                                        {% include 'oscar/catalogue/partials/review.html' %}
+                                    </li>
+                                    {% endfor %}
+                                </ol>
                                 {% endif %}
-                            </p>
-                            {% else %}
-                            <ol class="list-unstyled review-list">
-                                {% for review in product.reviews.approved.all|slice:":3" %}
-                                <li>
-                                    {% include 'oscar/catalogue/partials/review.html' %}
-                                </li>
-                                {% endfor %}
-                            </ol>
-                            {% endif %}
-                        </section>
-                        {% endblock product_review %}
+                            </section>
+                            {% endblock product_review %}
                         {% endiffeature %}
 
                     </div>
-                    <div id="prod-tab-3" class="tab-pane fade in active">
+                    <div id="prod-tab-3" class="tab-pane fade in ">
                         {% block product_info %}
 
                         <table class="table table-striped">

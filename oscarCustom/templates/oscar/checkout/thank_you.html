@@ -1,4 +1,4 @@
-{% extends "checkout/layout.html" %}
+{% extends "oscar/checkout/layout.html" %}
 {% load currency_filters %}
 {% load thumbnail %}
 {% load i18n %}
@@ -11,7 +11,7 @@
 {% endblock title %}
 
 {% block checkout_nav %}
-    {% include 'checkout/nav.html' with step=5 %}
+    {% include 'oscar/checkout/nav.html' with step=5 %}
 {% endblock %}
 
 {% block checkout_title %}
@@ -20,13 +20,14 @@
     {% endblocktrans %}
 {% endblock %}
 
-{% block content %}
+{% block contentcheckout %}
     <p class="lead">
         {% blocktrans with number=order.number %}
-        Your order has been placed and a confirmation email has been sent - your order number is
+        Thank you!  Your order has been placed and a confirmation email has been sent - your order number is
         <strong>{{ number }}</strong>.
         {% endblocktrans %}
-        {% trans "Please make a note of this reference or print this page and quote it in any communication with us regarding your order." %}</p>
+        {% trans "Please make a note of this reference or print this page and
+        quote it in any communication with us regarding your order." %}</p>
     </p>
 
     <div class="row shipping-payment">
@@ -314,12 +315,12 @@
                     <p><a onclick="window.print()" href="#" class="btn btn-primary btn-block btn-lg">{% trans "Print this page" %}</a></p>
                 </div>
                 <div class="col-sm-4 col-sm-offset-4">
-                    <p><a href="{{ homepage_url }}" class="btn btn-primary btn-block btn-lg">{% trans "Continue shopping" %}</a></p>
+                    <p><a href="{{ homepage_url }}" class="btn btn-lg btn-block btn-checkout-submit btn-block btn-lg">{% trans "Continue shopping" %}</a></p>
                 </div>
             </div>
         </div>
     {% endblock order_actions %}
-{% endblock content %}
+{% endblock contentcheckout %}
 
 {% block tracking %}
     {% include "partials/google_analytics_transaction.html" %}
