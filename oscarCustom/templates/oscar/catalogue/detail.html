@@ -31,12 +31,11 @@
 
 {% block contentshop %}
 <main class="wrapper">
-    <article><!-- Start of product page -->
+    <article class="product_page"><!-- Start of product page -->
 
         <div class="container theme-container ptb-70">
             <div class="row">
-
-                {% block product_gallery %}
+                 {% block product_gallery %}
                 <div class="col-md-6 col-sm-12 single-prod-slider sync-sliedr">
                     {% include "oscar/catalogue/partials/gallery.html" %}
                 </div>
@@ -54,13 +53,6 @@
                         <div class="prod-title"> <h2>{{ product.get_title }}</h2></div>
 
                         <div class="block-inline">
-                            <div class="pull-right">
-                                {% iffeature "reviews" %}
-                                      {% include "oscar/catalogue/reviews/partials/review_stars.html" %}
-                                {% endiffeature %}
-                            </div>
-
-
                             <div class="prod-price font-2 pull-left fsz-16">
                                 <ins>{% purchase_info_for_product request product as session %}
                                     {% if session.price.exists %}
@@ -77,6 +69,7 @@
 
                             </div>
                         </div>
+                       
 
                         {% block product_description %}
                         {% if product.description %}

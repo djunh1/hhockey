@@ -23,6 +23,10 @@ body {
  padding-right:30px;
 }
 
+.nav li a:hover{
+    background-color:transparent;
+}
+
 .nav-mobile {
     background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
     border: 3px solid #000000;
@@ -414,7 +418,7 @@ ul.theme-tabs li{
 }
 
 .theme-tabs  li.active a {
-    font-decoration:none;
+    text-decoration:none;
 }
 
 .blog-heading .blog-title-custom {
@@ -727,6 +731,7 @@ select{
     border: 2px solid #d0d0d0;
     color: #d0d0d0;
     border-radius:4px;
+    text-decoration:none;
 }
 
 .copy-right {
