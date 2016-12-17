@@ -525,7 +525,7 @@ div.navbar-shop .navbar-text{
     border-color: #bce8f1;
 }
 
-#new_shipping_address div label, #update_user_address div label, #add_review_form div label {
+#new_shipping_address div label, #update_user_address div label, #add_review_form div label{
     display:inherit;
 }
 

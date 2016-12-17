@@ -19,7 +19,6 @@ from django.core.urlresolvers import reverse_lazy
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 #JSON Secret module
 with open("secrets.json") as f:
@@ -53,7 +52,7 @@ INSTALLED_APPS = [
     'functional_tests',
     'staticContent',
     'webpack_loader',
-    'account.apps.AccountConfig',
+
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.sites',
@@ -79,7 +78,16 @@ MIDDLEWARE_CLASSES = [
 
 ROOT_URLCONF = 'hhockey.urls'
 
-#AllAuth values
+##################
+# AUTHENTICATION #
+##################
+
+
+LOGIN_REDIRECT_URL = reverse_lazy('home_page')
+LOGIN_URL = reverse_lazy('customer:login')
+LOGOUT_URL = reverse_lazy('customer:logout')
+
+'''
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -89,7 +97,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False
     }
 }
-
+'''
 
 CACHES = {
     'default': {
@@ -97,15 +105,14 @@ CACHES = {
     }
 }
 
-LOGIN_REDIRECT_URL = reverse_lazy('home_page')
-LOGIN_URL = reverse_lazy('account:login')
-LOGOUT_URL = reverse_lazy('account:logout')
+
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
+    'oscar.apps.customer.auth_backends.Emailbackend',
 
+)
+'''
 ACCOUNT_SIGNUP_FORM_CLASS = 'account.forms.SignupForm'
 
 SOCIAL_AUTH_FACEBOOK_KEY = get_secret("SOCIAL_AUTH_FACEBOOK_KEY")
@@ -117,7 +124,7 @@ SOCIAL_AUTH_TWITTER_SECRET = get_secret("SOCIAL_AUTH_TWITTER_SECRET")
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 SOCIAL_AUTH_LOGIN_URL = reverse_lazy('account:login')
-
+'''
 
 
 TEMPLATES = [

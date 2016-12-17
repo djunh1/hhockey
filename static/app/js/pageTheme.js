@@ -3,8 +3,8 @@ $(document).ready(function() {
         /*  FORM PLACEHOLDERS -  ENTIRE APPLICATION */
 
         /* Login Form Placeholders */
-        $("#id_username").attr('placeholder', 'User Name');
-        $("#id_password").attr('placeholder', 'Password');
+        $("#id_login-username").attr('placeholder', 'Email Address');
+        $("#id_login-password").attr('placeholder', 'Password');
 
         /* Password Change Form Placeholders */
         $("#id_old_password").attr('placeholder', 'Old Password');
@@ -15,8 +15,9 @@ $(document).ready(function() {
         $("#id_email").attr('placeholder', 'Email Address');
 
         /* Registration */
-        $("#id_first_name").attr('placeholder', 'Name');
-        $("#id_password2").attr('placeholder', 'Enter Password Again');
+        $("#id_registration-email").attr('placeholder', 'Email');
+        $("#id_registration-password1").attr('placeholder', 'Enter Password');
+        $("#id_registration-password2").attr('placeholder', 'Re Enter Password');
 
         /* NAVBAR MENU */
 
