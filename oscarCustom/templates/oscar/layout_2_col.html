@@ -2,8 +2,8 @@
 {% load promotion_tags %}
 
 {% block navigation %}
-        {% include 'layout/navigation.html' %}
-     {% include "oscar/partials/nav_primary.html" %}
+     {% include 'layout/navigation.html' %}
+
 {% endblock %}
 
 {% block content_wrapper %}
@@ -20,10 +20,10 @@
                 </div>
                 {% block column_left %}{% endblock %}
             </aside>
-            <div class="col-sm-8 col-md-9">
+            <div class="col-sm-8 col-md-9 section-account">
                 {% block header %}
-                <div class="page-header action">
-                    <h1>{% block headertext %}{% endblock %}</h1>
+                <div class="page-header action widget-wrap">
+                    <h1 class="widget-title">{% block headertext %}{% endblock %}</h1>
                 </div>
                 {% endblock %}
                 {% include "partials/alert_messages.html" %}
@@ -34,7 +34,7 @@
                     {% endfor %}
                 </div>
 
-                {% block content %}{% endblock %}
+                {% block contentaccount %}{% endblock %}
             </div>
 
         </div><!-- /row -->

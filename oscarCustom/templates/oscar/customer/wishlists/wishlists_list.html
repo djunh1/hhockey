@@ -1,4 +1,4 @@
-{% extends "customer/baseaccountpage.html" %}
+{% extends "oscar/customer/baseaccountpage.html" %}
 {% load i18n %}
 
 {% block tabcontent %}
@@ -46,7 +46,7 @@
     {% endif %}
 
     <p>
-        <a href="{% url 'customer:wishlists-create' %}" class="btn btn-primary">{% trans 'Create a new wish list' %}</a>
+        <a href="{% url 'customer:wishlists-create' %}" class="btn btn-success">{% trans 'Create a new wish list' %}</a>
     </p>
 
 {% endblock tabcontent %}

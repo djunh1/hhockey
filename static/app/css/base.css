@@ -525,7 +525,11 @@ div.navbar-shop .navbar-text{
     border-color: #bce8f1;
 }
 
-#new_shipping_address div label, #update_user_address div label, #add_review_form div label{
+#new_shipping_address div label,
+#update_user_address div label,
+ #add_review_form div label,
+ div.section-account form div label,
+ #profile_form div label{
     display:inherit;
 }
 
@@ -611,6 +615,33 @@ select{
     background-color: #ffffff;
     border: 2px solid #000000;
 }
+
+/* User Profile  */
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus{
+    font-size:20px;
+    font-weight:bold;
+    color: #fff;
+    background-color: #96dc8d;
+    Color:#000;
+    border-radius:0px;
+    border:2px solid #000;
+}
+
+.page-header h1, .page-header h2 {
+    font-size: 25.96px;
+    line-height: 31px;
+}
+
+.page-header {
+    padding-bottom: 9px;
+    margin: 40px 0 20px;
+    border-bottom: 0px;
+    margin: 0px 0 20px;
+}
+
 
 
 /*  ABOUT US  */

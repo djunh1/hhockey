@@ -1,4 +1,4 @@
-{% extends "customer/baseaccountpage.html" %}
+{% extends "oscar/customer/baseaccountpage.html" %}
 {% load i18n %}
 
 {% block tabcontent %}
@@ -27,8 +27,9 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                <a class="btn btn-default" href="{% url 'customer:address-detail' pk=address.id %}">{% trans 'Edit' %}</a>
-                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <a class="btn btn-success" href="{% url 'customer:address-detail' pk=address.id %}">{%
+                                    trans 'Edit' %}</a>
+                                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -64,7 +65,7 @@
         <p>{% trans 'There are no addresses in your address book.' %}</p>
     {% endif %}
     <p>
-        <a href="{% url 'customer:address-create' %}" class="btn btn-primary">{% trans 'Add a new address' %}</a>
+        <a href="{% url 'customer:address-create' %}" class="btn btn-success">{% trans 'Add a new address' %}</a>
     </p>
 {% endblock tabcontent %}
 

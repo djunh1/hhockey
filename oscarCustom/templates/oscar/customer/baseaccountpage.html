@@ -1,4 +1,4 @@
-{% extends "layout_2_col.html" %}
+{% extends "oscar/layout_2_col.html" %}
 
 {% load i18n %}
 
@@ -24,10 +24,12 @@
 {% block headertext %}{{ page_title }}{% endblock %}
 
 {% block column_left %}
-    <ul class="nav nav-pills nav-stacked">
+<div class="widget-wrap">
+     <h2 class="widget-title"> My Account </h2>
+     <ul class="nav nav-pills nav-stacked ">
         {% block standard_tabs %}
             <li{% if active_tab == 'profile' %} class="active"{% endif %}>
-                <a href="{% url 'customer:profile-view' %}">{% trans "Profile" %}</a>
+                <a href="{% url 'customer:profile-view' %}">{% trans "My Profile" %}</a>
             </li>
             <li{% if active_tab == 'orders' %} class="active"{% endif %}>
                 <a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
@@ -49,8 +51,9 @@
             </li>
         {% endblock %}
     </ul>
+</div>
 {% endblock %}
 
-{% block content %}
+{% block contentaccount %}
     {% block tabcontent %}{% endblock tabcontent %}
-{% endblock content %}
+{% endblock contentaccount %}
