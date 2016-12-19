@@ -9,6 +9,8 @@ from oscar.apps.customer.views import ProfileDeleteView as CoreProfileDeleteView
 from oscar.apps.customer.views import AddressCreateView as CoreAddressCreateView
 
 
+
+
 class AccountAuthView(CoreAccountAuthView):
     template_name = 'oscar/customer/login_registration.html'
 

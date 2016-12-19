@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'functional_tests',
     'staticContent',
     'webpack_loader',
-
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.sites',
@@ -87,7 +86,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 LOGIN_URL = reverse_lazy('customer:login')
 LOGOUT_URL = reverse_lazy('customer:logout')
 
-'''
+
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
     'facebook': {
@@ -97,7 +96,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'VERIFIED_EMAIL': False
     }
 }
-'''
+
 
 CACHES = {
     'default': {
@@ -112,7 +111,7 @@ AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.Emailbackend',
 
 )
-'''
+
 ACCOUNT_SIGNUP_FORM_CLASS = 'account.forms.SignupForm'
 
 SOCIAL_AUTH_FACEBOOK_KEY = get_secret("SOCIAL_AUTH_FACEBOOK_KEY")
@@ -124,7 +123,7 @@ SOCIAL_AUTH_TWITTER_SECRET = get_secret("SOCIAL_AUTH_TWITTER_SECRET")
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 SOCIAL_AUTH_LOGIN_URL = reverse_lazy('account:login')
-'''
+
 
 
 TEMPLATES = [

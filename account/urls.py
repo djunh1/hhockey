@@ -12,11 +12,13 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout,  name='logout'),
     url(r'^logout-then-login/$', logout_then_login, name='logout_then_login'),
+
     url(r'^password-change/$', password_change,
         {'template_name': 'registration/password_change_form.html',
          'post_change_redirect': 'account:password_change_done'}
         , name='password_change'),
     url(r'^password-change/done/$', password_change_done, name='password_change_done'),
+
 
     url(r'^password-reset/$',
         password_reset,
