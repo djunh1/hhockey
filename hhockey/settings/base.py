@@ -94,8 +94,11 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['email'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'METHOD': 'oauth2',
-        'VERIFIED_EMAIL': False
-    }
+        'VERIFIED_EMAIL': False,
+        'LOCALE_FUNC': lambda request: 'en_US',
+        'VERSION': 'v2.8'
+    },
+    'twitter': {}
 }
 
 
@@ -105,26 +108,11 @@ CACHES = {
     }
 }
 
-
-
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'oscar.apps.customer.auth_backends.Emailbackend',
-
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
-
-ACCOUNT_SIGNUP_FORM_CLASS = 'account.forms.SignupForm'
-
-SOCIAL_AUTH_FACEBOOK_KEY = get_secret("SOCIAL_AUTH_FACEBOOK_KEY")
-SOCIAL_AUTH_FACEBOOK_SECRET = get_secret("SOCIAL_AUTH_FACEBOOK_SECRET")
-
-SOCIAL_AUTH_TWITTER_KEY = get_secret("SOCIAL_AUTH_TWITTER_KEY")
-SOCIAL_AUTH_TWITTER_SECRET = get_secret("SOCIAL_AUTH_TWITTER_SECRET")
-
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = reverse_lazy('home_page')
-SOCIAL_AUTH_LOGIN_URL = reverse_lazy('account:login')
-
 
 
 TEMPLATES = [

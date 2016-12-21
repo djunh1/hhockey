@@ -29,15 +29,13 @@ urlpatterns = [
     url(r'^shop/password-reset/complete/$', password_reset_complete,
                                          {'template_name':'oscar/registration/password_reset_complete.html'},
                                          name='password_reset_complete'),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'shop/', include(oscarApp.urls)),
     url(r'^about/$', staticViews.about, name='about_page'),
     url(r'^contact/$', staticViews.contact, name='contact_page'),
     url(r'^faq/$', staticViews.faq, name='faq_page'),
     url(r'^terms/$', staticViews.toc, name='toc_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
-
-    #url(r'^account/',  include('account.urls', namespace='account')),
-    #url(r'accounts/', include('allauth.urls')),
 
     #paypal
     url(r'^checkout/paypal/', include('paypal.express.urls')),
