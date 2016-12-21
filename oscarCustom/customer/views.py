@@ -9,6 +9,10 @@ from oscar.apps.customer.views import ProfileDeleteView as CoreProfileDeleteView
 from oscar.apps.customer.views import AddressCreateView as CoreAddressCreateView
 
 
+from oscar.core.loading import (
+    get_class, get_classes, get_model, get_profile_class)
+
+CustomProfileForm = get_class('hhockeyUser.forms', 'UserForm')
 
 
 class AccountAuthView(CoreAccountAuthView):
@@ -44,4 +48,5 @@ class AddressCreateView(CoreAddressCreateView):
 
 
 class ProfileUpdateView(CoreProfileUpdateView):
+    form_class = CustomProfileForm
     template_name = 'oscar/customer/profile/profile_form.html'

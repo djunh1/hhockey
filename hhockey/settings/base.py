@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'djangobower',
     'functional_tests',
+    'hhockeyUser',
     'staticContent',
     'webpack_loader',
     'django.contrib.auth',
@@ -80,7 +81,7 @@ ROOT_URLCONF = 'hhockey.urls'
 ##################
 # AUTHENTICATION #
 ##################
-
+AUTH_USER_MODEL = "hhockeyUser.User"
 
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 LOGIN_URL = reverse_lazy('customer:login')
