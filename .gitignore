@@ -9,4 +9,3 @@ static/templ/
 .DS_Store
 htmlcov/
 .coverage
-override.py

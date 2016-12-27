@@ -1,3 +1,8 @@
+'''
+TO DO-
+Selenium Driver is out of date and doesnt work with the most recent firefox.  For functional testing, this will need
+to be fixed.  noqa
+
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import unittest
@@ -20,3 +25,4 @@ class GoogleTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
+'''
