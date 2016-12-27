@@ -39,7 +39,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['heritage-hockey.com, localhost ']
+ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost']
 
 # Heritage Hockey App definition
 
