@@ -204,15 +204,12 @@ BOWER_COMPONENTS_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
 
-#TODO Eventually use a static CDN to serve static from another server
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../static'))
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../../media'))
 
-
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "../static"),
     'static/',
 ]
 
