@@ -5,7 +5,6 @@ __pycache__
 secrets.json
 static/app/img
 static/app/js/node_modules/
-static/templ/
 .DS_Store
 htmlcov/
 .coverage
