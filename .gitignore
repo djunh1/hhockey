@@ -3,6 +3,7 @@ __pycache__
 *pyc
 .idea
 secrets.json
+secrets_deployment.json
 static/app/img
 static/app/js/node_modules/
 .DS_Store

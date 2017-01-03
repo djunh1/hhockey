@@ -9,7 +9,6 @@ NUM_WORKERS=3
 DJANGO_SETTINGS_MODULE=hhockey.settings.override
 DJANGO_WSGI_MODULE=hhockey.wsgi
 
-echo "Starting $NAME as `whoami`"
 
 # Activate the virtual environment
 cd $DJANGODIR

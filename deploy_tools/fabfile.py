@@ -14,11 +14,13 @@ env.key_filename = '/Users/djunh/.ssh/hopewell-hockey-kp.pem'
 def deploy():
     site_folder = '/home/%s/sites/%s' % (env.user, env.host)
     source_folder = site_folder + '/source'
+
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
     _copy_secrets_file(source_folder)
     _update_settings(source_folder, env.host)
     _update_virtualenv(site_folder, source_folder)
+
     _update_static_files(source_folder)
     _update_database(source_folder)
 
@@ -44,7 +46,7 @@ def _update_settings(source_folder, site_name):
         'ALLOWED_HOSTS =.+$',
         'ALLOWED_HOSTS = ["%s"]' % (site_name,)
     )
-    secret_key_file = source_folder + '/hhockey/secret_key.py'
+    secret_key_file = source_folder + '/hhockey/settings/secret_key.py'
     if not exists(secret_key_file):
         chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
         key = ''.join(random.SystemRandom().choice(chars) for _ in range(50))
@@ -56,9 +58,7 @@ def _update_virtualenv(site_folder, source_folder):
     virtualenv_folder = site_folder + '/virtualenv'
     if not exists(virtualenv_folder + '/bin/pip'):
         run('python3 -m venv --without-pip %s' % (virtualenv_folder,))
-        run('cd %s' % (virtualenv_folder +'/bin'))
-        run('source activate')
-        run('curl https://bootstrap.pypa.io/get-pip.py | python')
+        run('cd %s && curl https://bootstrap.pypa.io/get-pip.py | python' %(virtualenv_folder +'/bin'))
     run('%s/bin/pip install -r %s/requirements.txt' % (
             virtualenv_folder, source_folder
     ))
@@ -71,9 +71,10 @@ def _copy_secrets_file(source_folder):
         print("CREATING Secrets File")
         put(LOCAL_DIR+'/secrets.json', source_folder)
     elif 'TRUE' in status_stdout:
-        print('Update secrets if necessary, one already exists')
+        print('UPDATING Secrets file.  Check everything is correct')
+        put(LOCAL_DIR+'/secrets.json', source_folder)
 
-# Not working.
+
 def _update_static_files(source_folder):
     run('cd %s && ../virtualenv/bin/python manage.py collectstatic --noinput' % (
         source_folder,
