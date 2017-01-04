@@ -7,20 +7,18 @@ import random
 REPO_URL = 'https://github.com/djunh1/hhockey.git'
 LOCAL_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-env.hosts = ['ec2-35-166-188-189.us-west-2.compute.amazonaws.com']
+env.host = ['ec2-35-166-188-189.us-west-2.compute.amazonaws.com']
 env.user = 'ec2-user'
 env.key_filename = '/Users/djunh/.ssh/hopewell-hockey-kp.pem'
 
 def deploy():
     site_folder = '/home/%s/sites/%s' % (env.user, env.host)
     source_folder = site_folder + '/source'
-
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
     _copy_secrets_file(source_folder)
     _update_settings(source_folder, env.host)
     _update_virtualenv(site_folder, source_folder)
-
     _update_static_files(source_folder)
     _update_database(source_folder)
 

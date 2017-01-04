@@ -1,13 +1,15 @@
 Objective:  Provide basic overview for deploying this application onto AWS.
 
+
 Prerequisites:
 
-(1) Ensure EC2 and RDS instances are operating.  This is written to SSH into the EC2 instance using keys downloaded
-to a local machine.
+(1) Ensure EC2 and RDS instances are operating.  Make sure the EC2 instance can connect to the RDS, and that the RDS
+is private.  Both instances must be a part of the same VPC.
 
 (2) Supervisor is installed : sudo easy_install suypervisor.
 
 (3) Ensure ownership to run files is for user of EC2 instance.
+
 
 Precautions:
 
@@ -21,13 +23,14 @@ the Linux distro.
         (I) ../virtualenv/bin/pip install rjsmin --install-options="--without-c-extensions"
         (II) ../virtualenv/bin/pip install rcssmin --install-options="--without-c-extensions"
 
+
 Procedure:
 
-(1) Use FABRIC to deploy the application.
-    (a) fab deploy:host=ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com.  Modify host as needed.
+(1) Use FABRIC to deploy the application. (located in deploy_tools)
+    fab deploy:host=ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com.  Modify host as needed.
 
 (2) Log into EC2 instance.
-    Example ssh -i "$HOME/.ssh/hopewell-hockey-kp.pem" ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com
+    ssh -i "$HOME/.ssh/hopewell-hockey-kp.pem" ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com
 
 (3) Set up Environment
     (a) Ubuntu - sudo apt-get install nginx git python3 python3-pip
@@ -35,18 +38,19 @@ Procedure:
     (c) sudo pip3 install virtualenv
 
 (4)  MODIFY nginx.template.conf:
-    (a) sed "s/SITENAME/hopewellhockey.com/g" deploy_tools/nginx.template.conf | sudo tee /etc/nginx/nginx.conf
+    sed "s/SITENAME/hopewellhockey.com/g" deploy_tools/nginx.template.conf | sudo tee /etc/nginx/nginx.conf
 
 (5) Activate File:  sudo ln -s ../sites-available/hopewellhockey.com /etc/nginx/nginx.conf
 
 (6) Replace sitename script to run the server
-    sed "s/SITENAME/hopewellhockey.com/g" deploy_tools/gunicorn-start.sh
+    sed "s/SITENAME/hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
 
 (7) Reload nginx if required to update the settings: sudo service nginx restart
 
 (8) Run the application
     (a) Change permission of hhockey/deploy tools (if needed):
         sudo chmod 775 /home/ec2-user/sites/staging-hopewellhockey.com/source/deploy_tools
-    (b) MODIFY /deploy_tools/supervisord.conf , sed "s/SITENAME/hopewellhockey.com/g" deploy_tools/gunicorn-start.sh
+    (b) MODIFY /deploy_tools/supervisord.conf ,
+        sed "s/SITENAME/hopewellhockey.com/g" supervisord.conf | sudo tee supervisord.conf
     (c) Find supervisor bin and run it: /usr/local/bin/supervisord
-    (d) verify in logs that gunicorn script is running
+    (d) Verify in logs that gunicorn script is running

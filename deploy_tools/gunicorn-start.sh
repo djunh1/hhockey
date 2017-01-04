@@ -1,9 +1,8 @@
 #!/bin/bash
 
 NAME="hhockey"
-SITENAME = hopewellhockey
 DJANGODIR=/home/ec2-user/sites/SITENAME/source
-SOCKFILE=/tmp/staging-hopewellhockey.com.socket
+SOCKFILE=/tmp/SITENAME.socket
 USER=ec2-user
 GROUP=webapps
 NUM_WORKERS=3
