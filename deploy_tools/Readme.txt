@@ -10,6 +10,8 @@ is private.  Both instances must be a part of the same VPC.
 
 (3) Ensure ownership to run files is for user of EC2 instance.
 
+(4) Install superlance - sudo pip install superlance.  Ensure sendmail is installed ( sudo yum install sendmail)
+
 
 Precautions:
 
@@ -52,5 +54,4 @@ Procedure:
         sudo chmod 775 /home/ec2-user/sites/staging-hopewellhockey.com/source/deploy_tools
     (b) MODIFY /deploy_tools/supervisord.conf ,
         sed "s/SITENAME/hopewellhockey.com/g" supervisord.conf | sudo tee supervisord.conf
-    (c) Find supervisor bin and run it: /usr/local/bin/supervisord
-    (d) Verify in logs that gunicorn script is running
+    (c) Find supervisor bin and run it: supervisord -c supervisord.conf -n
