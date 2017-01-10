@@ -37,7 +37,7 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
 ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost', 'ec2-35-166-188-189.us-west-2.compute.amazonaws.com']

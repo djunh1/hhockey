@@ -32,3 +32,6 @@ class ViewStaticPageTests(TestCase):
         found = resolve('/privacy/')
         self.assertEqual(found.func, staticViews.privacy)
 
+
+
+
