@@ -1,28 +1,36 @@
-'''
-TO DO-
-Selenium Driver is out of date and doesnt work with the most recent firefox.  For functional testing, this will need
-to be fixed.  noqa
-
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 import unittest
-import os
+import sys, os
 
 os.environ["PATH"] += ":/Users/djunh/bin"
 
+class FunctionalTest(StaticLiveServerTestCase):
 
-class GoogleTestCase(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        for arg in sys.argv:
+            if 'liveserver' in arg:
+                cls.server_url = "http:// + arg.split('=')[1]"
+                return
+        super().setUpClass()
+        cls.server_url = cls.live_server_url
+
+    @classmethod
+    def tearDownClass(cls):
+        if cls.server_url == cls.live_server_url:
+            super().tearDownClass()
 
     def setUp(self):
         firefox_capabilities = DesiredCapabilities.FIREFOX
         firefox_capabilities['marionette'] = True
-        #firefox_capabilities['binary'] = '/Users/djunh/bin'
-        driver = webdriver.Firefox(capabilities=firefox_capabilities)
+        self.browser = webdriver.Firefox(capabilities=firefox_capabilities)
 
-    def testPageTitle(self):
-        self.browser.get('http://www.google.com')
-        self.assertIn('Google', self.browser.title)
+
+    def tearDown(self):
+        self.browser.quit()
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
-'''
+    unittest.main(warnings='ignore')
