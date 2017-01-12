@@ -28,6 +28,8 @@ the Linux distro.
 
 Procedure:
 
+SECTION 1 -  FABRIC DEPLOYMENT
+
 (1) Use FABRIC to deploy the application. (located in deploy_tools)
     fab deploy:host=ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com.  Modify host as needed.
 
@@ -55,3 +57,24 @@ Procedure:
     (b) MODIFY /deploy_tools/supervisord.conf ,
         sed "s/SITENAME/hopewellhockey.com/g" supervisord.conf | sudo tee supervisord.conf
     (c) Find supervisor bin and run it: supervisord -c supervisord.conf -n
+
+SECTION 2 - Installing Jenkins
+
+   Pre-req - As root ( sudo su -) update yum ( yum update)
+            yum install -y docker nginx git
+
+(1) Install java sudo yum -y install java
+
+(2) Download Jenkins via red hat repo
+    sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
+(3) Import a verification key using RPM :
+    sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+(4) Install Jenkins
+    sudo yum install jenkins
+
+(5) Find the service and start jenkins:
+    (a) To find the service : yum whatprovides service
+    (b) start Jenkins (as root) : service jenkins start
+
