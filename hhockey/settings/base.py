@@ -253,12 +253,16 @@ LOGGING = {
         'django': {
             'handlers': ['console'],
         },
-        'account': {
+        'hhockeyUser': {
             'handlers': ['console'],
         },
         'staticContent': {
             'handlers': ['console'],
         },
+        'oscarCustom': {
+            'handlers': ['console'],
+        },
+
     },
     'root': {'level': 'INFO'},
 }
