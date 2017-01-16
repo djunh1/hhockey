@@ -397,7 +397,7 @@ select option {
     color:#000;
 }
 
-div .form-control{
+div .form-control, p .form-control{
     color:#000;
     font-size: 16px;
 }
