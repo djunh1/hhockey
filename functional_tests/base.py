@@ -7,6 +7,11 @@ import sys, os
 
 os.environ["PATH"] += ":/Users/djunh/bin"
 
+DEFAULT_WAIT = 5
+SCREEN_DUMP_LOCATION = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'screendumps'
+)
+
 class FunctionalTest(StaticLiveServerTestCase):
 
     @classmethod
@@ -22,17 +27,16 @@ class FunctionalTest(StaticLiveServerTestCase):
 
     @classmethod
     def tearDownClass(cls):
-        if cls.server_url == cls.live_server_url:
+        if not cls.against_staging:
             super().tearDownClass()
 
     def setUp(self):
         firefox_capabilities = DesiredCapabilities.FIREFOX
         firefox_capabilities['marionette'] = True
         self.browser = webdriver.Firefox(capabilities=firefox_capabilities)
+        self.browser.implicitly_wait(DEFAULT_WAIT)
 
 
     def tearDown(self):
         self.browser.quit()
-
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+        super().tearDown()

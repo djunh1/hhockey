@@ -15,8 +15,12 @@ class ContactFormTest(TestCase):
         self.assertTrue(form.fields['content'])
 
     def test_display_contactform(self):
+        '''
+        Test if the correct form renders and the "sent" variable is set to false (ensures no success message exists)
+        '''
         response = self.client.get(reverse('contact_page'))
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['sent'], False)
         self.assertTrue(response.context['form'] == ContactForm) #hacky.  IsInstance did not work
 
     def test_form_validation_for_bad_submission(self):
@@ -37,7 +41,9 @@ class ContactFormTest(TestCase):
         form_data = {'contact_name': 'test', 'contact_email': 'test1235@gmail.com', 'content': 'Simple test message.'}
         response = self.client.post(reverse('contact_page'), data=form_data)
         self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['sent'], True)
         self.assertTemplateUsed(response, 'site/contact.html')
         html = response.content.decode('utf8')
         expected_html = '<div class="aui-message success">'
         self.assertIn( expected_html, html)
+
