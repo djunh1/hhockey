@@ -1,7 +1,7 @@
 /* GLOBAL */
 
 body {
-    font-family: 'Titillium Web', sans-serif;
+    font-family: 'Antic Slab', serif;
     font-weight: normal;
     background: #fcfcfc;
     color: #000;
@@ -14,9 +14,49 @@ body {
 
 /* NAVBAR */
 
+.navbar-nav > li > a{
+    padding-top:0px;
+}
+
+.nav > li > a {
+    padding: 8px;
+}
+
+.font-navbar-header{
+    font-weight:bold;
+    font-size:12px;
+}
+
+.font-navbar-primary a{
+    font-weight:100;
+    font-size:22px;
+    color:#000;
+    padding-top:10px;
+}
+
+ul.font-navbar-primary{
+    padding-top:25px;
+
+}
+
+.font-navbar-primary a:hover{
+    color:#0066cc;
+}
+
+.font-navbar-primary > li{
+    padding-left:8px;
+    padding-right:8px;
+}
+
+
+i #nav-cart-toggle{
+    font-size:25px;
+}
+
 #primary-navigation{
     z-index:-1;
 }
+
 
 .primary-navbar > li.logo{
  padding-left:60px;
@@ -57,18 +97,42 @@ body {
 
 }
 
+.navigation .dropdown-menu{
+
+}
+
 .navigation .dropdown-menu  li  a{
     color:#000;
 }
 
+.primary-navbar > li.dropdown, .primary-navbar > li{
+    padding:0px;
+}
+
+.fsz-40 {
+    font-size: 40px;
+    color:#7f7f7f;
+}
+
+i.fsz-40:hover{
+    color:#000066;
+
+}
 
 
 
 @media (max-width: 1199px) and (min-width: 768px){
 
+
+
+.primary-navbar > li.dropdown, .primary-navbar > li{
+    padding:0px;
+}
+
+.
 .pop-up-box {
     position: absolute;
-    top: 40px;
+    top: 60px;
 
 }
 
@@ -121,18 +185,18 @@ body {
 .menu-cart{
     opacity:100 !important;
     visibility: visible !important;
-    top: -35% !important;
+    top: -20% !important;
 }
 
 .navigation .primary-navbar li .dropdown-menu, .cate-navbar li{
         background-color: #fffcfc;
         color: #000;
         border:2px solid #000;
-
 }
 
+
 .dropdown-menu li{
-    position:relative;
+        position:relative;
     z-index:2;
 }
 
@@ -162,7 +226,6 @@ body {
 .hh-intro h1 {
     font-size: 2em;
     text-align:center;
-    font-family: 'Architects Daughter', cursive;
 }
 
 .hh-intro h1 .md{
@@ -231,6 +294,7 @@ body {
 .btn-mini-cart:hover, .btn-mini-cart:hover{
     background:
 }
+
 
 ul.basket-mini-item li a{
         color:#000;
@@ -325,12 +389,12 @@ ul.basket-mini-item li.container-basket-info a:hover {
 .last-sticks h1, .aboutPage-hh h1{
     font-size: 3em;
     text-align:center;
-    font-family: 'Architects Daughter', cursive;
+
 }
 
 .last-sticks p {
     font-size:1.4em;
-    font-family: 'Architects Daughter', cursive;
+
 }
 
 .last-sticks a{
@@ -362,7 +426,6 @@ div.navbar-collapse h2{
     color: #fff;
     margin: 14px 112px;
     float: left;
-    font-family: 'Oswald', sans-serif;
     font-variant: small-caps;
 }
 
@@ -698,7 +761,6 @@ select{
 
 .faqtext {
     color: #000;
-    font-family: 'Titillium Web', sans-serif;
     text-transform:none;
     font-size:18px;
 }
@@ -746,14 +808,14 @@ select{
     text-transform: uppercase;
     font-size:20px;
     font-weight:bold;
-    font-family: 'Titillium Web', sans-serif;
+
 
 }
 
 .tocsubhead{
     font-size:16px;
     font-weight:bold;
-    font-family: 'Titillium Web', sans-serif;
+
 }
 
 /* FOOTER */

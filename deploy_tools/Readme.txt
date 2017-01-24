@@ -47,16 +47,18 @@ SECTION 1 -  FABRIC DEPLOYMENT
 (5) Activate File:  sudo ln -s ../sites-available/hopewellhockey.com /etc/nginx/nginx.conf
 
 (6) Replace sitename script to run the server
-    sed "s/SITENAME/hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
+    sed "s/SITENAME/staging-hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
 
 (7) Reload nginx if required to update the settings: sudo service nginx restart
 
 (8) Run the application
     (a) Change permission of hhockey/deploy tools (if needed):
         sudo chmod 775 /home/ec2-user/sites/staging-hopewellhockey.com/source/deploy_tools
-    (b) MODIFY /deploy_tools/supervisord.conf ,
-        sed "s/SITENAME/hopewellhockey.com/g" supervisord.conf | sudo tee supervisord.conf
+    (b) MODIFY /deploy_tools/supervisord.conf :
+        sed "s/SITENAME/staging-hopewellhockey.com/g" supervisord.conf | sudo tee supervisord.conf
     (c) Find supervisor bin and run it: supervisord -c supervisord.conf -n
+
+
 
 SECTION 2 - Installing Jenkins
 
@@ -77,4 +79,25 @@ SECTION 2 - Installing Jenkins
 (5) Find the service and start jenkins:
     (a) To find the service : yum whatprovides service
     (b) start Jenkins (as root) : service jenkins start
+
+Section 3 -Covers various commands to restart services.  run as the default user (ec2-user)
+
+(1) To restart nginx:
+     sudo service nginx restart
+
+
+(2) To stop gunicorn script:
+      (a)  Stop the service : pkill gunicorn
+      (b) Check the file can be run : ls -l gunicorn-start.sh
+      (c) change ownership : chmod 777 gunicorn-start.sh
+      (d) Run it in the current directory: ./gunicorn-start/sh   (permission issues should be ok)
+
+(3) To Restart supervisord:  NOT WORKING!!
+    This file doesn't run yet.  Make sure the command works.  It likely needs sudo, or to change owner of the
+    gunicorn file
+
+
+
+
+
 

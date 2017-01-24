@@ -2,24 +2,47 @@
 <div class="row">
     <div class="col-xs-2">
         <div class="header-logo">
-            <a href="index.html"> <img src="http://placehold.it/100x75" alt="logo" />
+            <a href="{% url 'home_page' %}"> <img src="{% static 'app/img/hhockeylogo.png' %}"
+                                                  alt="Hopewell Hockey Logo" />
             </a>
-                             <span class="nav-trigger toggle-hover visible-xs">
-                               <a class="toggle-icon fa fa-bars" href="#"> </a>
-                             </span>
+                <span class="nav-trigger toggle-hover visible-xs">
+                    <a class="toggle-icon fa fa-bars" href="#"> </a>
+                </span>
         </div>
     </div>
-    <div class="col-xs-10 navigation font-2">
-        <nav>
-            <div class="navbar-collapse no-padding" id="primary-navigation">
+        <div class="col-xs-4 navigation">
+            <nav>
+              <div class=" navbar-collapse no-padding pull-left" id="primary-navigation">
                                             <span class="nav-trigger toggle-hover visible-xs">
                                                 <a class="toggle-icon fa fa-times" href="#"> </a>
                                             </span>
+                <ul class="nav navbar-nav font-navbar-primary">
+                    <li><a href="{% url 'about_page' %}">Heritage</a></li>
+                    <li><a href="/shop">Sticks <!--sup class="bubble font-1"> <span
+                            class="hot-tag">New
+                         </span> </sup--></a>
+                    </li>
+                 <li><a href="/shop">Plans </a>
+                    </li>
+
+                </ul>
+            </div>
+            </nav>
+        </div>
+
+
+    <div class="col-xs-6 navigation">
+        <nav>
+            <div class="navbar-collapse no-padding pull-right" id="primary-navigation">
+                  <span class="nav-trigger toggle-hover visible-xs">
+                        <a class="toggle-icon fa fa-times" href="#"> </a>
+                 </span>
                 <ul class="nav navbar-nav primary-navbar pull-right">
                     <li class="cart-hover">
                         {% block mini_basket %}{% include "oscar/partials/mini_basket.html" %}
                         {%endblock mini_basket%}
                     </li>
             </div>
+        </nav>
     </div>
 </div>

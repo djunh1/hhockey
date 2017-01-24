@@ -2,20 +2,41 @@
 {% load i18n %}
 
 <div class="basket-mini pull-right hidden-xs">
-    <strong>{% trans "Basket total:" %}</strong>
-
-    {% if request.basket.is_tax_known %}
-        {{ request.basket.total_incl_tax|currency:request.basket.currency }}
-    {% else %}
-        {{ request.basket.total_excl_tax|currency:request.basket.currency }}
-    {% endif %}
-
     <span class="btn-group">
-        <a class="btn btn-mini-cart" href="{% url 'basket:summary' %}">{% trans "View basket" %}</a>
-        <button class="theme-btn btn-black btn-cart" id="nav-cart-toggle">
-            <span class="caret"></span>
+        <ul class="nav navbar-nav font-navbar-header">
+           <li>
+               <a href="{% url 'faq_page' %}" >
+                   Help
+               </a>
+           </li>
+            {% if user.is_authenticated %}
+               <li class="dropdown">
+                   <a href="{% url 'customer:summary' %}">
+                       {{ user.get_full_name|default:'Hopewell Hockey Dangler' }}
+                   </a>
+                                    </li>
+              {% else %}
+                  <li><a href="{% url 'customer:login' %}">Account</a></li>
+              {% endif %}
+            <li>
+                <a href="{% url 'basket:summary' %}">{% trans "Cart" %}</a>
+            </li>
+            <li>
+                <a href="{% url 'basket:summary' %}">
+                    {% if request.basket.is_tax_known %}
+                            {{ request.basket.total_incl_tax|currency:request.basket.currency }}
+                        {% else %}
+                            {{ request.basket.total_excl_tax|currency:request.basket.currency }}
+                        {% endif %}
+                    </a>
+            </li>
+            <li>
+                    <i class="fa fa-shopping-cart fsz-40" aria-hidden="true" id="nav-cart-toggle"></i>
+            </li>
+        </ul>
 
-        </button>
+
+
         <ul class="dropdown-menu pull-right" id="nav-list">
             <li>{% include "oscar/basket/partials/basket_quick.html" %}</li>
         </ul>
