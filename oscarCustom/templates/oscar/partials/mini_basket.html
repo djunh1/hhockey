@@ -1,7 +1,7 @@
 {% load currency_filters %}
 {% load i18n %}
 
-<div class="basket-mini pull-right hidden-xs">
+<div class="basket-mini pull-right">
     <span class="btn-group">
         <ul class="nav navbar-nav font-navbar-header">
            <li>
@@ -21,7 +21,7 @@
             <li>
                 <a href="{% url 'basket:summary' %}">{% trans "Cart" %}</a>
             </li>
-            <li>
+            <li class="hidden-xs">
                 <a href="{% url 'basket:summary' %}">
                     {% if request.basket.is_tax_known %}
                             {{ request.basket.total_incl_tax|currency:request.basket.currency }}
@@ -30,14 +30,11 @@
                         {% endif %}
                     </a>
             </li>
-            <li>
+            <li class="hidden-xs">
                     <i class="fa fa-shopping-cart fsz-40" aria-hidden="true" id="nav-cart-toggle"></i>
             </li>
         </ul>
-
-
-
-        <ul class="dropdown-menu pull-right" id="nav-list">
+        <ul class="dropdown-menu pull-right hidden-xs" id="nav-list">
             <li>{% include "oscar/basket/partials/basket_quick.html" %}</li>
         </ul>
     </span>

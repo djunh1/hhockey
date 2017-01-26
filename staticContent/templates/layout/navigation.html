@@ -1,9 +1,6 @@
-<header class="header-1 header">
-    <section  class="main-header">
-        <div  class="header-wrap upper-text">
-            {% block cartnavigation %}
-                {% include "oscar/partials/nav_primary_minicart.html" %}
-            {% endblock %}
-        </div>
-    </section>
-</header>
+<nav class="navbar navbar-default navbar-fixed-top navbar-hhockey">
+    {% block cartnavigation %}
+        {% include "oscar/partials/nav_primary_minicart.html" %}
+    {% endblock %}
+</nav>
+
