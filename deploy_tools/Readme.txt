@@ -85,14 +85,16 @@ Section 3 -Covers various commands to restart services.  run as the default user
 (1) To restart nginx:
      sudo service nginx restart
 
+(2)  TEMP , to pull after changing the deploy tools, reset first than configure scripts:
+    git reset HEAD --hard
 
-(2) To stop gunicorn script:
+(3) To stop gunicorn script:
       (a)  Stop the service : pkill gunicorn
       (b) Check the file can be run : ls -l gunicorn-start.sh
       (c) change ownership : chmod 777 gunicorn-start.sh
-      (d) Run it in the current directory: ./gunicorn-start/sh   (permission issues should be ok)
+      (d) Run it in the current directory: ./gunicorn-start.sh   (permission issues should be ok)
 
-(3) To Restart supervisord:  NOT WORKING!!
+(4) To Restart supervisord:  NOT WORKING!!
     This file doesn't run yet.  Make sure the command works.  It likely needs sudo, or to change owner of the
     gunicorn file
 

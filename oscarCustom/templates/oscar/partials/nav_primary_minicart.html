@@ -1,4 +1,6 @@
 {% load staticfiles %}
+{% load currency_filters %}
+{% load i18n %}
 <div class="container-fluid">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="navbar-header">
@@ -23,6 +25,23 @@
                         </li>
                         <li role="presentation"><a href="/shop">Plans </a>
                         </li>
+                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
+                            <hr>
+                        </li>
+                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
+                            <a href="{% url 'customer:summary' %}">
+                                 {{ user.get_full_name|default:'Account' }}
+                             </a>
+                        </li>
+                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
+                            <a href="{% url 'faq_page' %}" >
+                               Help
+                           </a>
+                        </li>
+                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
+                            <a href="{% url 'basket:summary' %}">{% trans "Cart" %}</a>
+                        </li>
+
                     </ul>
                 </div>
                 <div class="col-navbar-right navigation">

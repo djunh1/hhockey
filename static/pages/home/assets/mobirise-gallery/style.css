@@ -174,7 +174,7 @@
   padding: 6rem;
 }
 .mbr-gallery .mbr-gallery-item--p6, .mbr-gallery .mbr-gallery-item--p5,.mbr-gallery .mbr-gallery-item--p4{
-    width:50%;
+    width:46%;
 }
 @media(max-width:992px){
      .mbr-gallery-item--p1 {
