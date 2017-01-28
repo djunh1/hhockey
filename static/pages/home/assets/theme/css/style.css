@@ -403,16 +403,16 @@
 
 .btn-black-outline {
   background: none;
-  border-color: #202020;
-  color: #202020; }
+  border-color: #000;
+  color: #000; }
   .btn-black-outline:focus, .btn-black-outline.focus, .btn-black-outline:active, .btn-black-outline.active {
     color: #fff;
-    background-color: #535353;
-    border-color: #535353; }
+    background-color: #000;
+    border-color: #000; }
   .btn-black-outline:hover {
     color: #fff;
-    background-color: #535353;
-    border-color: #535353; }
+    background-color: #000;
+    border-color: #000; }
   .btn-black-outline.disabled, .btn-black-outline:disabled {
     color: #fff !important;
     background-color: #535353 !important;

@@ -1,5 +1,6 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
+
 {% block extrastyles %}
 <link rel="stylesheet" href="{% static 'pages/home/assets/bootstrap-material-design-font/css/material.css' %}">
 <link rel="stylesheet" href="{% static 'pages/home/assets/et-line-font-plugin/style.css' %}"">
@@ -76,7 +77,7 @@
         <div class=" mbr-gallery-layout-default">
             <div>
                 <div>
-                    <div class="mbr-gallery-item mbr-gallery-item__mobirise3 mbr-gallery-item--p4"
+                    <div class="mbr-gallery-item mbr-gallery-item__mobirise3 mbr-gallery-item--p4 col-md-6"
                          data-tags="Creative" data-video-url="false">
                         <div href="#lb-gallery4-6" data-slide-to="0" data-toggle="modal">
                             <img alt="" src="http://placehold.it/250x200">
@@ -84,7 +85,7 @@
                             <span class="icon-focus"></span>
                             <span class="mbr-gallery-title">75 Flex <br>Dangler</span>
                         </div>
-                    </div><div class="mbr-gallery-item mbr-gallery-item__mobirise3 mbr-gallery-item--p4"
+                    </div><div class="mbr-gallery-item mbr-gallery-item__mobirise3 mbr-gallery-item--p4 col-md-6"
                          data-tags="Animated" data-video-url="false">
                     <div href="#lb-gallery4-6" data-slide-to="1" data-toggle="modal">
                         <img alt="" src="http://placehold.it/250x200">
@@ -98,11 +99,10 @@
             <div class="clearfix"></div>
         </div>
     </div>
-
     <div class="container">
         <div class="row">
-            <div class="col-xs-2 btn-offset">
-                <a class="btn btn-lg btn-black-outline btn-black"
+            <div class="col-xs-12 text-xs-center">
+                <a href="#"class="btn btn-lg btn-black-outline btn-black"
                                    href="#">Get started</a>
             </div>
         </div>
@@ -141,9 +141,10 @@
     </div>
 </section>
 
-<section class="mbr-cards mbr-section mbr-section-nopadding" id="features4-8" style="background-color: rgb(255, 255, 255);">
+<section class="mbr-cards mbr-section mbr-section-nopadding" id="features4-8" style="background-color: rgb(255, 255, 255);
+                                                                                     padding-bottom: 3rem">
     <div class="mbr-cards-row row">
-        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 60px;">
             <div >
                 <div class="card card-block">
                     <div class="card-img iconbox"><a href="https://mobirise.com"
@@ -159,7 +160,7 @@
                 </div>
             </div>
         </div>
-        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 60px;">
             <div >
                 <div class="card card-block">
                     <div class="card-img iconbox"><a href="https://mobirise.com"
@@ -174,7 +175,7 @@
                 </div>
             </div>
         </div>
-        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 80px;">
+        <div class="mbr-cards-col col-xs-12 col-lg-4" style="padding-top: 80px; padding-bottom: 60px;">
             <div">
                 <div class="card card-block">
                     <div class="card-img iconbox"><a href="https://mobirise.com" class="etl-icon  icon-global mbr-iconfont mbr-iconfont-features4" style="color: black;"></a></div>
@@ -189,6 +190,15 @@
             </div>
         </div>
 
+    </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-xs-center">
+                <a class="btn btn-lg btn-black-outline btn-black"
+                                   href="{% url 'faq_page' %}">Questions?</a>
+            </div>
+            <br>
+        </div>
     </div>
 </section>
 

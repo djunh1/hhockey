@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+a:hover, a:focus{
+    text-decoration:none;
+}
+
 /* NAVBAR */
 
 .col-navbar-left{
@@ -28,6 +32,13 @@ col-navbar-right{
     border-color:#fff;
 }
 
+.collapse.in{
+    padding-bottom:20px;
+}
+
+.basket-mini {
+    margin-right: -5px;
+}
 
 .navbar-default{
     background-color: #fff;
@@ -146,6 +157,17 @@ i.fsz-40:hover{
 
 
 @media (max-width: 1199px) and (min-width: 768px){
+
+.navbar-right{
+    display:inline;
+    top:5px;
+
+}
+
+.primary-navbar > li {
+    padding:0px;
+}
+
 
 .primary-navbar > li.dropdown, .primary-navbar > li{
     padding:0px;
@@ -276,7 +298,7 @@ z-index: 1;
 /* HOME PAGE */
 
 .mbr-gallery .mbr-gallery-item--p6, .mbr-gallery .mbr-gallery-item--p5, .mbr-gallery .mbr-gallery-item--p4 {
-    width: 50% !important;
+    width: 50%;
     padding:4em;
    display:inline-block
 }
@@ -293,6 +315,13 @@ z-index: 1;
 .mbr-gallery-title{
     text-align:center;
     font-weight:bold;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    mbr-gallery-item--p4{
+        width:100%;
+    }
+
 }
 
 .hh-intro .btn{
