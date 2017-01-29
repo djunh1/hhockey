@@ -23,6 +23,15 @@ label{
 
 /* NAVBAR */
 
+/* TEMP */
+
+.hh-logo-navbar{
+    font-weight:bold;
+    font-size:18px;
+    color:#000;
+    top:5%;
+}
+
 .col-navbar-left{
     width:36%;
     float:left;
