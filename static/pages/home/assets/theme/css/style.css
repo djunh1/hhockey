@@ -40,7 +40,7 @@
   padding: 0.75rem 2.1875rem;
   font-size: 0.75rem;
   line-height: 1.5;
-  border-radius: 3px;
+  border-radius: 1px;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out; }
@@ -53,13 +53,13 @@
   font-family: "Lora";
   font-style: italic;
   font-weight: 400;
-  letter-spacing: 0px; }
+  letter-spacing: 1px; }
 
 .btn-lg {
   padding: 0.75rem 2.1874rem;
   font-size: 0.9687rem;
   line-height: 1.33333;
-  border-radius: 3px; }
+  border-radius: 0px; }
 
 .btn-xlg {
   padding: 0.75rem 2.1874rem;
@@ -403,16 +403,14 @@
 
 .btn-black-outline {
   background: none;
-  border-color: #000;
-  color: #000; }
+  color: #183051;
+    border: 1px solid #183051;}
   .btn-black-outline:focus, .btn-black-outline.focus, .btn-black-outline:active, .btn-black-outline.active {
     color: #fff;
-    background-color: #000;
-    border-color: #000; }
+    background: #183051 }
   .btn-black-outline:hover {
     color: #fff;
-    background-color: #000;
-    border-color: #000; }
+    background: #183051 }
   .btn-black-outline.disabled, .btn-black-outline:disabled {
     color: #fff !important;
     background-color: #535353 !important;
@@ -529,7 +527,7 @@ p.lead,
   opacity: 0.94; }
 
 .form-control {
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-radius: 3px;
   box-shadow: none;
   color: #565656;
@@ -538,7 +536,7 @@ p.lead,
   min-height: 3.5em;
   padding: 0.5em 1.07em 0.5em; }
   .form-control, .form-control:focus {
-    border: 1px solid #e8e8e8; }
+    border: 1px solid #000; }
   .form-active .form-control:invalid {
     border-color: #f28281; }
 

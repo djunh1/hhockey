@@ -16,6 +16,11 @@ a:hover, a:focus{
     text-decoration:none;
 }
 
+label{
+    color:#232222;
+    font-weight:100;
+}
+
 /* NAVBAR */
 
 .col-navbar-left{
@@ -984,6 +989,35 @@ select{
 
 /* Login */
 
+.login_form{
+    margin-bottom:50px;
+}
+
+
+.hhockey-link{
+    font-size:16px;
+    font-weight:100;
+    text-decoration:none;
+    color:#183051;
+}
+
+.hhockey-link:hover{
+    font-size:16px;
+    font-weight:100;
+    text-decoration:underline;
+    color:#707fff;
+}
+
+.login-wrap {
+    display: inline-block;
+    padding: 125px 0 50px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 1;
+}
+
+
 .login p label{
     display:none;
 }
@@ -1023,6 +1057,13 @@ div.visible-labels p label{
     padding: 10px 20px;
 
 }
+
+@media (max-width: 767px){
+    .section-title, .widget-title {
+    font-size: 30px;}
+}
+
+
 
 /*-- Black Button CSS --*/
 .btn-login {
