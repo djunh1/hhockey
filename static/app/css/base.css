@@ -882,9 +882,18 @@ select{
     padding-bottom: 0px;
 }
 
+.widget-wrap ul li a {
+    color: #a3a3a3;
+    font-size:16px;
+}
+
 .with-border > li a:hover, .with-border > li a:focus{
     text-decoration:none;
     color:#000;
+}
+
+.panel{
+    background-color:transparent;
 }
 
 .accordion-heading .title-2 {
@@ -894,7 +903,7 @@ select{
     border-right:0px;
     display: inline-block;
     height: 48px;
-    line-height: 48px;
+    line-height: 51px;
     width: 100%;
 }
 
@@ -904,7 +913,7 @@ select{
 }
 
 .accordion-heading .title-2:hover, .accordion-heading .title-2[aria-expanded="true"] {
-    background-color: #fff;
+    background-color: transparent;
     color: #000;
 }
 
@@ -926,7 +935,7 @@ select{
 .faqtext {
     color: #000;
     text-transform:none;
-    font-size:1.0rem;
+    font-size:16px;
     font-weight:100;
 }
 
