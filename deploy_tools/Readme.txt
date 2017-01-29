@@ -80,6 +80,7 @@ SECTION 2 - Installing Jenkins
     (a) To find the service : yum whatprovides service
     (b) start Jenkins (as root) : service jenkins start
 
+
 Section 3 -Covers various commands to restart services.  run as the default user (ec2-user)
 
 (1) To restart nginx:

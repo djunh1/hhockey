@@ -1,103 +1,130 @@
 {% extends "layout/app.html" %}
+{% load staticfiles %}
+
+
+{% block extrastyles %}
+
+<link rel="stylesheet" href="{% static 'pages/home/assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/home/assets/animate.css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/home/assets/theme/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/home/assets/mobirise-gallery/style.css' %}">
+
+{% endblock %}
 
 {% block content %}
-<article>
-
-    <!--Breadcrumb Section Start-->
-    <section class="contactPage-bg">
-        <div class="theme-container container ">
-            <div class="site-breadcumb aboutPage-hh">
-                <h1 class=""> F.A.Q</h1>
-                <ol class="breadcrumb breadcrumb-menubar">
-                    <li> <a href="{% url 'home_page' %}"> Home </a>  Frequently Asked Questions </li>
-                </ol>
-            </div>
-        </div>
-    </section>
-    <!--Breadcrumb Section End-->
+<section class="hhockey-section">
+    <h2 class="hhockey-header">Frequently Asked Questions</h2><br>
 
     <!-- Sidebar Starts -->
     <aside class="col-md-3 col-sm-4 sidebar">
         <div class="widget-wrap">
             <h2 class="widget-title"> Topics </h2>
             <ul class="account-list with-border">
-                <li><a href="account-information.html"> Our Service</a></li>
-                <li class="active"><a href="my-account.html"> Our Sticks</a></li>
-                <li><a href="cng-pw.html"> Ordering </a></li>
-                <li><a href="address-book.html"> Warranty Service </a></li>
+                <li><a href="#genquest"> General</a></li>
+                <li><a href="#"> Membership</a></li>
+                <li><a href="#"> Our Sticks</a></li>
+                <li><a href="#"> Ordering </a></li>
+                <li><a href="#shipping"> Shipping </a></li>
+                <li><a href="#"> Warranty Service </a></li>
+                <li><a href="#"> Account Help</a></li>
             </ul>
         </div>
     </aside>
     <!-- Sidebar Ends -->
 
     <!-- Page Starts-->
-    <div class="container theme-container ptb-70">
+    <div class="container theme-container">
         <div class="row">
             <!-- Product Details Starts-->
             <aside class="col-md-9 col-sm-8">
                 <div class="panel-group chk-panel" id="accordion">
-
-
-
+                    <h3 id="genquest" class="hhockey-faq-header">General Questions</h3>
                     <div class="panel">
                         <div class="accordion-heading">
-                            <a class="title-2 fsz-18 " data-toggle="collapse" data-parent="#accordion"
+                            <a class="title-2 fsz-14 " data-toggle="collapse" data-parent="#accordion"
                                href="#accordion-2">
-                                <span class="number">01</span>  Our membership program </a>
+                                 Our membership program </a>
                         </div>
                         <div id="accordion-2" class="panel-collapse collapse">
                             <div class="cart-box title-1 fsz-14">
                                 <ul class="acnt-list">
-
-
                                     <li>
-                                        <p class="faqtext"> Your reviews and ratings</p>
+                                        <p class="faqtext"> Our membership program was built for hockey players.
+                                        We want to take the pain out of ordering sticks online, and make the process
+                                        simple.  Being a member means you get special discounts on our sticks so you
+                                        can save money. </p>
                                     </li>
 
                                 </ul>
                             </div>
                         </div>
                     </div> <!-- END QUESTION -->
-
                     <div class="panel">
                         <div class="accordion-heading">
-                            <a class="title-2 fsz-18 " data-toggle="collapse" data-parent="#accordion"
+                            <a class="title-2 fsz-14 " data-toggle="collapse" data-parent="#accordion"
                                href="#accordion-3">
-                                <span class="number">02</span>  Our Hockey sticks </a>
+                                 How do our sticks compare?</a>
                         </div>
                         <div id="accordion-3" class="panel-collapse collapse">
                             <div class="cart-box title-1 fsz-14">
                                 <ul class="acnt-list">
-
-
                                     <li>
-                                        <p class="faqtext"> Our sticks are made using high quality manufacturing methods. </p>
+                                        <p class="faqtext"> We source from the same vendors as name brand sticks
+                                            which are manufactured in the same manner, but without the added cost.
+                                            Our sticks our engineered to have the same reliability, same flex, and same
+                                            blade curves as the ones you already use.  The only different is price;  we
+                                            have worked with our vendors to get the most reasonable price available
+                                            in order to deliver you reasonable priced yet great quality sticks.
+                                        </p>
                                     </li>
 
                                 </ul>
                             </div>
                         </div>
                     </div> <!-- END QUESTION -->
-
+                    <h3 id="shipping" class="hhockey-faq-header">Shipping Questions</h3>
                     <div class="panel">
                         <div class="accordion-heading">
-                            <a class="title-2 fsz-18 " data-toggle="collapse" data-parent="#accordion"
+                            <a class="title-2 fsz-14 " data-toggle="collapse" data-parent="#accordion"
                                href="#accordion-4">
-                                <span class="number">03</span>  Returns </a>
+                                 Shipping</a>
                         </div>
                         <div id="accordion-4" class="panel-collapse collapse">
                             <div class="cart-box title-1 fsz-14">
                                 <ul class="acnt-list">
-
-
                                     <li>
-                                        <p class="faqtext"> If your stick breaks in 30 days, we will replace it. </p>
+                                        <p class="faqtext"> We have partnered with Amazon in order to ensure the most
+                                            reliable, fastest delivery of your sticks imaginable.
+                                        </p>
                                     </li>
 
                                 </ul>
                             </div>
                         </div>
                     </div> <!-- END QUESTION -->
+                                        <div class="panel">
+                        <div class="accordion-heading">
+                            <a class="title-2 fsz-14 " data-toggle="collapse" data-parent="#accordion"
+                               href="#accordion-5">
+                                 Returns</a>
+                        </div>
+                        <div id="accordion-5" class="panel-collapse collapse">
+                            <div class="cart-box title-1 fsz-14">
+                                <ul class="acnt-list">
+                                    <li>
+                                        <p class="faqtext"> Sometimes sticks break, or they are shipped to you in an
+                                            undesirable state.  We get that.  We make returns as painles as possible.
+                                            Simply log into your account, click the returns tab, and submit the order
+                                            number.  We will refund your account the shipping cost, and send you a
+                                            new stick at no cost to you.
+                                        </p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- END QUESTION -->
+
 
 
                 </div>
@@ -110,5 +137,6 @@
 
         </div>
     </div>
+</section>
     <!-- / Page Ends -->
     {% endblock %}
