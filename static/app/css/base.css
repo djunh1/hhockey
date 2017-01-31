@@ -63,7 +63,7 @@ col-navbar-right{
     height:75px;
 }
 .navbar-logo{
-    height:58px;
+    height:55px;
 }
 .navbar-nav > li > a{
     padding-top:0px;
@@ -798,37 +798,20 @@ select{
 
 /*  ABOUT US  */
 
-.aboutPage-hh h1{
-    text-align:left;
+
+.img-1{
+    background-image: url(../../pages/about/assets/images/rink.jpg);
 }
 
-.breadcrumb-menubar > li > a, .breadcrumb-menubar > li, .breadcrumb-menubar > li > a:after   {
-    text-transform: uppercase;
-    text-size:1.3em;
-    color:#000;
+.img-2{
+    background-image: url(/static/pages/about/assets/images/faceoff.jpeg);
 }
 
-.aboutPage-bg{
-       /* background-image: url("../img/banner/breadcrumb-bg.jpg"); */
-       background-color: #00edb2;
-        background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-        /* background-repeat: no-repeat; */
-        padding: 45px 0;
+.img-3{
+    background-image: url(/static/pages/about/assets/images/outside.jpeg);
 }
 
-.aboutPage-info{
-        border: 1px solid #fff;
-    /* background-image: url(../img/banner/about-info-bg.jpg); */
-    /* background-repeat: no-repeat; */
-}
 
-.blog-detail-picture{
-
-        background-image: url("http://placehold.it/550x600");
-        background-repeat: no-repeat;
-        width:50%;
-        height:600px;
-}
 
 /* CONTACT PAGE */
 

@@ -1,85 +1,209 @@
 {% extends "layout/app.html" %}
+{% load staticfiles %}
+
+{% block extrastyles %}
+  <link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap-material-design-font/css/material.css' %}">
+  <link rel="stylesheet" href="{% static 'pages/about/assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'pages/about/assets/animate.css/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'pages/about/assets/theme/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'pages/about/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+{% endblock %}
+
+{% block extrascripts %}
+  <script src="{% static 'pages/about/assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'pages/about/assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'pages/about/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'pages/about/assets/smooth-scroll/SmoothScroll.js' %}"></script>
+  <script src="{% static 'pages/about/assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js' %}"></script>
+  <script src="{% static 'pages/about/assets/jquery-mb-ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
+  <script src="{% static 'pages/about/assets/viewportChecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'pages/about/assets/theme/js/script.js' %}"></script>
+  <script src="{% static 'pages/about/assets/mobirise-slider-video/script.js' %}"></script>
+
+
+<input name="animation" type="hidden">
+{% endblock %}
+
+
 
 {% block content %}
-<article>
+<section class="mbr-slider mbr-section mbr-section__container carousel slide mbr-section-nopadding"
+         data-ride="carousel" data-keyboard="false" data-wrap="true" data-pause="false" data-interval="5000"
+         id="slider-b">
+    <div>
+        <div>
+            <div>
+                <ol class="carousel-indicators">
+                    <li data-app-prevent-settings="" data-target="#slider-b" class="active" data-slide-to="0"></li><li
+                        data-app-prevent-settings="" data-target="#slider-b" data-slide-to="1"></li>
+                    <li data-app-prevent-settings="" data-target="#slider-b" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                    <div class="mbr-section mbr-section-hero carousel-item dark center mbr-section-full active img-1"
+                         data-bg-video-slide="false">
+                        <div class="mbr-table-cell">
+                            <div class="mbr-overlay"></div>
+                            <div class="container-slide container">
 
-                <!--Breadcrumb Section Start-->
-                <section class="aboutPage-bg">
-                    <div class="theme-container container ">
-                        <div class="site-breadcumb aboutPage-hh">
-                            <h1 class=""> The Heritage Hockey Story</h1>
-                            <ol class="breadcrumb breadcrumb-menubar">
-                                <li> <a href="{% url 'home_page' %}"> Home </a> About Us </li>
-                            </ol>
-                        </div>
-                    </div>
-                </section>
-                <!--Breadcrumb Section End-->
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2 text-xs-center">
+                                        <h2 class="mbr-section-title display-1">Home</h2>
+                                        <p class="mbr-section-lead lead">Where memories are made.
+                                        </p>
 
 
-                <!-- About Info Start -->
-                <section class="ptb-30">
-                    <div class="container theme-container">
-                        <div class="aboutPage-info col-xs-12">
-                            <div class="col-md-6 blog-detail-picture">
-
-                            </div>
-                            <div class="col-md-6 pull-right ptb-35">
-                                <h2 class="section-title"> A little about us</h2>
-                                <hr class="divider-solid">
-                                <div class="blog-detail">
-                                    <p> Heritage Hockey was borne on the idea that the equipment we use is expensive.
-                                    We keep our gear for as long as we can, and replace sticks only when they loose their
-                                    pop or if they break.  Why?  Because sticks run anywhere from $200 to $300 at the local
-                                    pro shop.  Whats worse is that the improvement year over year isn't really noticable.
-                                    Wouldn't it be nice to be able to try different sticks at a price that won't cut into our
-                                    budgets?  </p>
-                                    <blockquote>
-                                        <span class="fa fa-quote-right"></span>
-                                        <p> I love this idea
-                                        -- Jeff Bezos</p>
-
-                                    </blockquote>
-                                    <p>Heritage Hockey isn't just an online store to buy quality products at reasonable
-                                    prices.  No.  We offer a membership to get sticks on a regular basis at a cost that
-                                    won't bankrupt you.  We source high quality, battle tested sticks and are able to
-                                    offer them to you at a reasonable price.   No more worrying about breaking your favorite
-                                    twig and having to drop another month's rent on a new one.  Browse our selection of sticks,
-                                    check what other members are using, and select what you want.  Your new Heritage Hockey
-                                    stick will be shipped to you or to your local rink in no time.  For real.  </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- / About Info Ends -->
-
-                <!-- About Info Start -->
-                <section class="black-mask about-testimonial ptb-50 mb-30">
-                    <div class="container theme-container">
-                        <h2 class="section-title wht pb-40 text-center rel-div"> What Others are saying </h2>
-                        <div id="testimonial-1" class="testimonial-1 dots-white white-clr">
-                            <div class="item text-center">
-                                <div class="testimonial-wrap">
-                                    <div class="testimonial-content fsz-18">
-                                        <p> <i> « I am all for anything that makes hockey equipment less expensive » </i> </p>
-                                        <b> Dave Stockdale - head coach </b>
                                     </div>
                                 </div>
                             </div>
-                             <div class="item text-center">
-                                <div class="testimonial-wrap">
-                                    <div class="testimonial-content fsz-18">
-                                        <p> <i> « I love Heritage Hockey » </i> </p>
-                                        <b> Jack Eichel - Buffalo Sabres Forward </b>
+                        </div>
+                    </div><div class="mbr-section mbr-section-hero carousel-item dark center
+                               mbr-section-full img-3"
+                               data-bg-video-slide="false">
+
+                        <div class="mbr-table-cell">
+                            <div class="mbr-overlay"></div>
+                            <div class="container-slide container">
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-1">
+                                        <h2 class="mbr-section-title display-1">Heritage</h2>
+                                        <p class="mbr-section-lead lead">For the love of the game.</p>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><div class="mbr-section mbr-section-hero carousel-item dark center mbr-section-full img-2"
+                               data-bg-video-slide="false">
+                        <div class="mbr-table-cell">
+                            <div class="mbr-overlay"></div>
+                            <div class="container-slide container">
+
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-3 text-xs-right">
+                                        <h2 class="mbr-section-title display-1">Game time</h2>
+                                        <p class="mbr-section-lead lead">Hit the ice.</p>
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
-                <!-- / About Info Ends -->
+                </div>
 
-            </article>
-            <!-- / CONTENT AREA -->
+                <a data-app-prevent-settings="" class="left carousel-control" role="button" data-slide="prev" href="#slider-b">
+                    <span class="icon-prev" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a data-app-prevent-settings="" class="right carousel-control" role="button" data-slide="next" href="#slider-b">
+                    <span class="icon-next" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="engine"><a rel="external" href="https://mobirise.com">https://mobirise.com/</a></section><section class="mbr-section mbr-section__container article" id="header3-c" style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3 class="mbr-section-title display-2">The Hopewell Hockey Company</h3>
+                <small class="mbr-section-subtitle">Who we are</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mbr-section article mbr-section__container" id="content1-d"
+         style="background-color: rgb(255, 255, 255); padding-top: 20px; padding-bottom: 20px;">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 lead"><p>The still morning air. &nbsp;The Crunch of ice below your skates.
+                &nbsp;Bus trips with the boys. &nbsp;Some of our fondest memories took place on
+                that eighty-five by two-hundred foot rectangular sheet. &nbsp;Hockey is our
+                Heritage.</p><p><br></p><p>Unfortunatly these days, hockey has become expensive. &nbsp;Each year -
+                &nbsp;the ice time, the team fees, the equipment - &nbsp;they all cost more. &nbsp;every year,
+                more and more familys are priced out of the game. &nbsp;It doesn't have to be this way.
+            </p><p><br></p><p>At Hopewell Hockey, we don't believe in comprimise. &nbsp;We beleive that
+                every player should have access to the best equipment. &nbsp;Our goal is to make the highest
+                performance products available to everyone. &nbsp;By doing things a little differently, we'll
+                make hockey affordable for every family.</p><p><br></p><p>We are starting by making superior
+                composite hockey sticks. &nbsp; This is only the beginning. &nbsp;It's going to be an exciting ride.
+                &nbsp;We hope you'll come along with us
+                .</p><p><br></p><p><strong>-The Hopewell Hockey Team</strong></p></div>
+        </div>
+    </div>
+
+</section>
+
+<section class="mbr-section" id="testimonials1-e"
+         style="background-color: rgb(255, 255, 255); padding-top: 120px; padding-bottom: 120px;">
+
+
+
+        <div class="mbr-section mbr-section__container mbr-section__container--middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-2">WHAT PLAYERS HAVE TO SAY</h3>
+                        <small class="mbr-section-subtitle">Real players using our sticks</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="mbr-testimonials mbr-section mbr-section-nopadding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-lg-4">
+
+                    <div class="mbr-testimonial card mbr-testimonial-lg">
+                        <div class="card-block"><p>“It feels better than my 200 dollar stick. &nbsp;”</p></div>
+                        <div class="mbr-author card-footer">
+                            <div class="mbr-author-img"><img
+                                    src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x140.png'%}"
+                                    class="img-circle"></div>
+                            <div class="mbr-author-name">Stephen Miller</div>
+                            <small class="mbr-author-desc">Rec. League Player</small>
+                        </div>
+                    </div>
+                </div><div class="col-xs-12 col-lg-4">
+
+                    <div class="mbr-testimonial card mbr-testimonial-lg">
+                        <div class="card-block"><p>“More great things to say. &nbsp;Where can I pick one up?”</p></div>
+                        <div class="mbr-author card-footer">
+                            <div class="mbr-author-img"><img
+                                    src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x153.png' %}" class="img-circle"></div>
+                            <div class="mbr-author-name">JVR</div>
+                            <small class="mbr-author-desc">Dangler</small>
+                        </div>
+                    </div>
+                </div><div class="col-xs-12 col-lg-4">
+
+                    <div class="mbr-testimonial card mbr-testimonial-lg">
+                        <div class="card-block"><p>“Unassisted”</p></div>
+                        <div class="mbr-author card-footer">
+                            <div class="mbr-author-img"><img
+                                    src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x126.png' %}" class="img-circle"></div>
+                            <div class="mbr-author-name">Eric S.</div>
+                            <small class="mbr-author-desc">Blue line down only</small>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
 {% endblock %}
+
