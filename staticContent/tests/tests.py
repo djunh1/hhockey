@@ -42,6 +42,12 @@ class ViewStaticPageTests(TestCase):
         request = self.client.get('/privacy/')
         self.assertTemplateUsed(request, 'site/privacyPolicy.html')
 
+    def test_plans_page(self):
+        found = resolve('/plans/')
+        self.assertEqual(found.func, staticViews.plans)
+        request = self.client.get('/plans/')
+        self.assertTemplateUsed(request, 'site/plans.html')
+
 
 
 

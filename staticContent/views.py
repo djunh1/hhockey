@@ -14,6 +14,8 @@ def home(request):
 def about(request):
     return render(request, 'site/about.html')
 
+def plans(request):
+    return render(request, 'site/plans.html')
 
 def contact(request):
     sent = False
