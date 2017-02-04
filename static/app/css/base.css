@@ -1,7 +1,7 @@
 /* GLOBAL */
 
 body {
-    font-family: 'Antic Slab', serif;
+    font-family: 'Antic Slab', serif !important;
     font-weight: normal;
     background: #fcfcfc;
     color: #000;
@@ -811,6 +811,23 @@ select{
     background-image: url(/static/pages/about/assets/images/outside.jpeg);
 }
 
+/* STICKS PAGE  */
+
+.card-text{
+    color:#000;
+}
+
+.btn-white-outline {
+    background: none;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-black-outline:hover {
+    color: #fff;
+    background-color: #183051;
+    border-color: #535353;
+}
 
 
 /* CONTACT PAGE */

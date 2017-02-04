@@ -51,3 +51,7 @@ def toc(request):
 def privacy(request):
     return render(request, 'site/privacyPolicy.html')
 
+
+def sticks(request):
+    return render(request, 'site/sticks.html')
+

@@ -1,59 +1,89 @@
 {% load staticfiles %}
 {% load currency_filters %}
 {% load i18n %}
-<div class="container-fluid">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="navbar-header">
-            <a href="{% url 'home_page' %}" class="navbar-brand navbar-link">
-                <img src="{% static 'app/img/hhockeylogo.png' %}" class="navbar-logo" alt="Hopewell Hockey Logo">
-            </a>
-            <span class="navbar-toggle collapsed"
-                    data-target="#navcol-1"
-                     data-toggle="collapse">
-                <a class="toggle-icon fa fa-bars" href="#"> </a>
 
-            </span>
-        </div>
-        <div id="navcol-1" class="collapse navbar-collapse">
-            <div class="row navbar-collapse-hh">
-                <div class="col-navbar-left">
-                    <ul class="nav navbar-nav font-navbar-primary navbar-hhockey-right">
-                        <li role="presentation"><a href="{% url 'about_page' %}">Heritage</a></li>
-                        <li role="presentation"><a href="/shop">Sticks <!--sup class="bubble font-1"> <span
-                                    class="hot-tag">New
-                                 </span> </sup--></a>
-                        </li>
-                        <li role="presentation"><a href="{% url 'plans_page' %}">Plans </a>
-                        </li>
-                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
-                            <a href="{% url 'customer:summary' %}">
-                                 {{ user.get_full_name|default:'Account' }}
-                             </a>
-                        </li>
-                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
-                            <a href="{% url 'faq_page' %}" >
-                               Help
-                           </a>
-                        </li>
-                        <li role="presentation" class="hidden-lg hidden-md hidden-sm">
-                            <a href="{% url 'basket:summary' %}">{% trans "Cart" %}</a>
-                        </li>
+{% block extrastyles %}
 
-                    </ul>
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/bootstrap-material-design-font/css/material.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/et-line-font-plugin/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/tether/tether.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/dropdown/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/animate.css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/theme/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/navbar/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
+{% endblock %}
+
+{% block extrascripts %}
+<script src="{% static 'pages/navbar/assets/web/assets/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/tether/tether.min.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/smooth-scroll/SmoothScroll.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/dropdown/js/script.min.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/viewportChecker/jquery.viewportchecker.js' %}"></script>
+<script src="{% static 'pages/navbar/assets/theme/js/script.js' %}"></script>
+
+
+<input name="animation" type="hidden">
+{% endblock %}
+
+<section id="ext_menu-10">
+    <nav class="navbar navbar-dropdown navbar-fixed-top">
+        <div class="container">
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+                    <div>
+                        <a href="{% url 'home_page' %}" class="navbar-logo"><img
+                                src="{% static 'pages/navbar/assets/images/hhockeylogo-321x128.png' %}"
+                                alt="Hopewell Hockey"></a>
+                    </div>
                 </div>
-                <div class="col-navbar-right navigation">
-                    <ul class="nav navbar-nav primary-navbar navbar-right">
-                        <li class="cart-hover" role="presentation">
-                            {% block mini_basket %}{% include "oscar/partials/mini_basket.html" %}
-                            {%endblock mini_basket%}
-                        </li>
+                <div class="mbr-table-cell">
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button"
+                            data-toggle="collapse"
+                            data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
+                    </button>
+
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm"
+                        id="exCollapsingNavbar">
+                        <li class="nav-item">
+                            <a class="nav-link link" href="{% url 'about_page' %}">HERITAGE</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="{% url 'sticks_page' %}">STICKS</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="{% url 'plans_page' %}">PLANS</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link link" href="{% url 'faq_page' %}">
+                                <span class="mbri-question mbr-iconfont mbr-iconfont-btn"></span></a></li>
+                        <li class="nav-item">
+                            {% if user.is_authenticated %}
+                            <a class="nav-link link" href="{% url 'customer:summary' %}">
+                            {% else %}
+                            <a class="nav-link link" href="{% url 'customer:login' %}">
+                            {% endif %}
+                                <span class="etl-icon icon-profile-male mbr-iconfont mbr-iconfont-btn"></span></a></li>
+
+                        <li class="nav-item"><a class="nav-link link" href="{% url 'basket:summary' %}" >
+                            <span class="mbri-shoping-cart mbr-iconfont mbr-iconfont-btn"></span></a></li>
                     </ul>
+
+
+                    <button hidden="" class="navbar-toggler navbar-close" type="button"
+                            data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="close-icon"></div>
+                    </button>
+
                 </div>
             </div>
+
         </div>
-</div>
-</div>
-</nav>
-</div>
+    </nav>
+
+</section>
+
 
 

@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^terms/$', staticViews.toc, name='toc_page'),
     url(r'^plans/$', staticViews.plans, name='plans_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
+    url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
 
     #paypal
     url(r'^checkout/paypal/', include('paypal.express.urls')),
