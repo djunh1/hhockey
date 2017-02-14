@@ -14,13 +14,12 @@
             {% with image=product.primary_image %}
             {% thumbnail image.original "x155" upscale=False as thumb %}
             <a href="{{ product.get_absolute_url }}"><img
-                    src="http://placehold.it/250x300"
+                    src="{{ thumb.url }}"
                     alt="{{ product.get_title }}"
                     class="img-hover"></a>
             <a class="caption-link meta-icon"
                data-toggle="modal"
                href="{{ product.get_absolute_url }}"> <span class="fa fa-eye"> </span> </a>
-            <!--src="{{ thumb.url }}"-->
             <span class="prod-cat">{{product}}</span>
             {% endthumbnail %}
             {% endwith %}
