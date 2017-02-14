@@ -45,7 +45,7 @@
                 <div class="col-md-6 col-sm-12 product_main">
 
                     {% if user.is_authenticated and user.is_staff %}
-                    <a class="pull-right hidden-xs"
+                    <a class="pull-right hidden-xs custom-link"
                        href="{% url 'dashboard:catalogue-product' pk=product.id %}"><small>
                         <i class="icon-edit"></i> {% trans "Edit this product" %}</small></a>
                     {% endif %}
@@ -108,7 +108,7 @@
                                 <div id="reviews" >
                                     {% if product.num_approved_reviews > 3 %}
                                     <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}"
-                                       class="btn pull-right">{% trans "See all reviews" %}</a>
+                                       class="btn pull-right custom-link">{% trans "See all reviews" %}</a>
                                     {% endif %}
                                 </div>
 
@@ -117,7 +117,9 @@
                                     {% if product|is_review_permitted:user %}
                                         {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
                                             {% blocktrans %}This product does not have any reviews yet -
-                                            <a href="{{ add_review_url }}#addreview">be the first to write one</a>.
+                                            <a href="{{ add_review_url }}#addreview" class="custom-link">be the first
+                                                to write
+                                                one</a>.
                                        {% endblocktrans %}
                                     {% else %}
                                         {% trans "This product does not have any reviews yet" %}.

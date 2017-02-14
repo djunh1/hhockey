@@ -11,7 +11,7 @@
           action="{% url 'basket:add' pk=product.pk  %}" method="post" class="add-to-basket">
         {% csrf_token %}
         {% include "oscar/partials/form_fields.html" with form=basket_form %}
-        <button type="submit" class="theme-btn btn-black buy-btn"
+        <button type="submit" class="btn btn-lg btn-black-outline btn-black"
                 value="{% trans "Add to basket" %}"
         data-loading-text="{% trans 'Adding...' %}">{% trans "Add to basket" %}</button>
     </form>
@@ -25,7 +25,7 @@
             {% csrf_token %}
             <p>{% trans "You can get an email alert when this product is back in stock." %}</p>
             {% include "partials/form_fields.html" with form=alert_form %}
-            <button type="submit" class="theme-btn btn-black buy-btn"
+            <button type="submit" class="btn btn-lg btn-black-outline btn-black"
                     data-loading-text="{% trans 'Submitting...' %}">{% trans "Notify me" %}</button>
         </form>
     {% endif %}

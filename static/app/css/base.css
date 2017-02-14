@@ -13,7 +13,7 @@ body {
 }
 
 a:hover, a:focus{
-    text-decoration:none;
+    text-decoration:none !important;
 }
 
 label{
@@ -478,7 +478,10 @@ ul.basket-mini-item li.container-basket-info a:hover {
 .last-sticks h1, .aboutPage-hh h1{
     font-size: 3em;
     text-align:center;
+}
 
+.aboutPage-hh{
+    padding-top:80px;
 }
 
 .last-sticks p {
@@ -726,6 +729,42 @@ select{
 
 /*   Reviews  */
 
+.theme-tabs > li a:before {
+    content: "";
+    position: absolute;
+    top: 75%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #000000;
+    opacity: 0;
+    transition: transform 0.3s ease 0s;
+    -webkit-transition: transform 0.3s ease 0s;
+    -ms-transition: transform 0.3s ease 0s;
+}
+
+div .custom-link{
+    color:#708004;
+}
+
+#id_sort_by{
+    width: 15%;
+    height: 46px;
+    padding: 6px 30px;
+    font-size: 18px;
+    line-height: 1.42857143;
+    color: #a3a3a3;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #000;
+    border-radius: 4px;
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    position:relative;
+    top:-3px;
+}
 .btn-success {
     color: #000;
     background-color: #fdf954;
@@ -1241,3 +1280,20 @@ form ul.errorlist li{
     padding: 10px 20px;
 }
 
+
+/* Product Override */
+
+div .product-carousel {
+    position: absolute;
+    bottom: 10px;
+    left: 0%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+}
+
+.prod-details{
+    padding-top:70px;
+}

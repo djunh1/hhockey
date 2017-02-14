@@ -9,7 +9,7 @@
 
 {% block navigation %}
     {% include 'layout/navigation.html' %}
-    {% include "oscar/partials/nav_primary.html" %}
+
 {% endblock %}
 
 {% block breadcrumbs %}
@@ -33,7 +33,7 @@
                     {{ field.label }}
                     {{ field }}
                     {% endfor %}
-                    <input type="submit" class="btn btn-lg btn-submit-small" value="{% trans "Go" %}" />
+                    <input type="submit" class="btn btn-lg btn-black-outline btn-black" value="{% trans "Go" %}" />
                 </form>
 
                 {% for review in reviews %}

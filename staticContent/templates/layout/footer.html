@@ -8,21 +8,21 @@
                         <div class="row">
                             <div class="col-sm-4 col-md-3 col-lg-2">
                                 <a href="{% url 'home_page' %}">
-                                    <img src="http://placehold.it/100x75" alt="logo" />
+                                    <img src="{% static 'pages/navbar/assets/images/hhockeylogo-321x128.png' %}" alt="logo" />
                                 </a>
                             </div>
                             <div class="col-sm-4 col-md-3 col-lg-2">
                                 <h2 class="section-title wht pb-30"> Product</h2>
                                 <ul>
-                                    <li> <a href="#"> Our Memberships</a> </li>
-                                    <li> <a href="#"> Sticks </a> </li>
+                                    <li> <a href="{% url 'plans_page' %}"> Our Memberships</a> </li>
+                                    <li> <a href="{% url 'sticks_page' %}"> Sticks </a> </li>
                                 </ul>
                             </div>
                             <div class="col-sm-4 col-md-3 col-lg-2">
                                 <h2 class="section-title wht pb-30"> Help Center </h2>
                                 <ul>
                                     <li> <a href="{% url 'about_page' %}"> Who we are</a> </li>
-                                    <li> <a href="#"> Questions</a> </li>
+                                    <li> <a href="{% url 'faq_page' %}"> Questions</a> </li>
                                     <li> <a href="{% url 'contact_page' %}"> Get in touch</a> </li>
                                 </ul>
                             </div>
@@ -45,16 +45,18 @@
                         <div class="row">
                             <div class="col-sm-6 hh-social-media">
                                 <ul class="list-inline social-media light-media">
-                                    <li> <a href="#" class="fa fa-twitter"> </a> </li>
-                                    <li> <a href="#" class="fa fa-facebook"> </a> </li>
-                                    <li> <a href="#" class="fa fa-google-plus"> </a> </li>
-                                    <li> <a href="#" class="fa fa-pinterest"> </a> </li>
-                                    <li> <a href="#" class="fa fa-instagram"> </a> </li>
-                                    <li> <a href="#" class="fa fa-envelope"> </a> </li>
+                                    <li> <a href="https://twitter.com/HopewellHockey" class="fa fa-twitter"
+                                    target="_blank"> </a> </li>
+                                    <li> <a href="https://www.facebook.com/hopewellhockey/" class="fa fa-facebook"
+                                    target="_blank"> </a> </li>
+                                    <li> <a href="https://www.instagram.com/hopewellhockey/"
+                                            class="fa fa-instagram"
+                                            target="_blank"> </a> </li>
+                                    <li> <a href="{% url 'contact_page' %}" class="fa fa-envelope"> </a> </li>
                                 </ul>
                             </div>
                             <div class="col-sm-6 gray-clr copy-right">
-                                © 2016 <a href="#" class="white-clr"> Heritage Hockey LLC. </a> ALL RIGHTS RESERVED.
+                                © 2017 <a href="#" class="white-clr"> Heritage Hockey LLC. </a> ALL RIGHTS RESERVED.
                             </div>
                         </div>
                     </div>
