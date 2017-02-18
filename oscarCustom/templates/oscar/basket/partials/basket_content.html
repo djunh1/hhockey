@@ -42,9 +42,9 @@
         <div class="basket-title hidden-xs">
             <div class="row">
                 <h2 class="col-sm-6 h3"></h2>
-                <p class="col-sm-3 h3">{% trans "Quantity" %}</p>
-                <p class="col-sm-1 h3 align-right">{% trans "Price" %}</p>
-                <p class="col-sm-2 h3 align-right">{% trans "Total" %}</p>
+                <p class="col-sm-3 ">{% trans "Quantity" %}</p>
+                <p class="col-sm-1 align-right">{% trans "Price" %}</p>
+                <p class="col-sm-2 align-right">{% trans "Total" %}</p>
             </div>
         </div>
         {% endblock %}
@@ -59,7 +59,7 @@
             {% purchase_info_for_line request line as session %}
             <div class="basket-items">
                 <div class="row">
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
                         {{ form.id }}
                         {% with image=product.primary_image %}
                         {% thumbnail image.original "100x100" upscale=False as thumb %}
@@ -69,13 +69,13 @@
                         {% endthumbnail %}
                         {% endwith %}
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-md-3">
                         <h3><a href="{{ product.get_absolute_url }}">{{ line.description }}</a></h3>
                         <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
                     </div>
-                    <div class="col-sm-3">
-                        <div class="checkout-quantity">
-                            <div class="input-group  {% if form.errors %}error{% endif %}">
+                    <div class="col-md-3 ">
+                        <div class="checkout-quantity center-child">
+                            <div class="input-group  {% if form.errors %}error{% endif %} center-element">
                                 {% render_field form.quantity class+="form-control basket-form" %}
                                     <span class="input-group-btn">
                                         <button class="btn btn-checkout" type="submit"
@@ -84,9 +84,11 @@
                             </div>
                         </div>
                         <div><br>
-                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove" class="inline">{% trans "Remove" %}</a>
+                            <a href="#" data-id="{{ forloop.counter0 }}"
+                               data-behaviours="remove" class="inline">{% trans "Remove" %}</a>
                             {% if user.is_authenticated %}
-                            | <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="save" class="inline">{% trans "Save for later" %}</a>
+                            | <a href="#" data-id="{{ forloop.counter0 }}"
+                                 data-behaviours="save" class="inline">{% trans "Save for later" %}</a>
                             {% endif %}
                             <div style="display:none">
                                 {{ form.save_for_later }}
@@ -101,8 +103,10 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
+
                         <p class="price_color align-right">
+                            <span class="align-right hidden-md hidden-lg hidden-sm">Price : </span>
                             {% if line.is_tax_known %}
                             {{ line.unit_price_incl_tax|currency:line.price_currency }}
                             {% else %}
@@ -110,8 +114,10 @@
                             {% endif %}
                         </p>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-md-2">
+
                         <p class="price_color align-right">
+                            <span class="align-right hidden-md hidden-lg hidden-sm">Total : </span>
                             {% if line.is_tax_known %}
                             {{ line.line_price_incl_tax|currency:line.price_currency }}
                             {% else %}
@@ -162,8 +168,9 @@
         {% block formactions %}
          <div class="form-group clearfix">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-8">
-                    <a href="{% url 'checkout:index' %}" class="btn btn-lg btn-checkout-submit btn-block">{% trans "Proceed to checkout" %}</a>
+                <div class="col-sm-6 col-sm-offset-6">
+                    <a href="{% url 'checkout:index' %}"
+                       class="btn btn-lg btn-black-outline btn-black btn-block">{% trans "Proceed to checkout" %}</a>
                 </div>
             </div>
         </div>

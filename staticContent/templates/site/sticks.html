@@ -1,5 +1,6 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
+{% load category_tags %}
 
 {% block extrastyles %}
 
@@ -13,10 +14,7 @@
 {% endblock %}
 
 {% block extrascripts %}
-  <script src="{% static 'pages/sticks/assets/theme/js/script.js' %}"></script>
 
-
-<input name="animation" type="hidden">
 {% endblock %}
 
 {% block content %}
@@ -31,8 +29,9 @@
         <h3 class="mbr-section-title display-2">NEW STICKS<br>ON THEIR WAY</h3>
          <div class="row">
             <div class="col-xs-12 text-xs-center">
+
                 <a class="btn btn-lg btn-white-outline btn-white"
-                                   href="{% url 'faq_page' %}">SHOP STICKS</a>
+                                   href="/shop/catalogue/category/hockey-stick_1/">SHOP STICKS</a>
             </div>
             <br>
         </div>

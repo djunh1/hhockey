@@ -13,12 +13,7 @@
 {% block headertext %}{{ summary }}{% endblock %}
 
 {% block breadcrumbs %}
-<ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans "Home" %}</a>
-        </li>
-        <li class="active">{{ summary }}</li>
-    </ul>
+
 {% endblock breadcrumbs %}
 
 {% block column_left %}
@@ -26,7 +21,6 @@
 
 {% block navigation %}
         {% include 'layout/navigation.html' %}
-        {% include "oscar/partials/nav_primary.html" %}
 {% endblock %}
 
 {% block contentshop %}

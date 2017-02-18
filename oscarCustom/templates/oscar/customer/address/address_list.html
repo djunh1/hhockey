@@ -26,19 +26,18 @@
                             </address>
                         </td>
                         <td>
-                            <div class="btn-group">
-                                <a class="btn btn-success" href="{% url 'customer:address-detail' pk=address.id %}">{%
-                                    trans 'Edit' %}</a>
-                                <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu">
+                            <div class="btn-group dropdown">
+                                <a  class="btn btn-success"
+                                    href="{% url 'customer:address-detail' pk=address.id %}">
+
+                                    {% trans 'Edit' %}</a>
+                            </div>
+                                <ul class="address-list">
                                     <li>
                                         <a href="{% url 'customer:address-delete' pk=address.id %}">
                                             {% trans 'Delete' %}
                                         </a>
                                     </li>
-
                                     {% if address.country.is_shipping_country and not address.is_default_for_shipping %}
                                         <li>
                                             <a href="{% url 'customer:address-change-status' pk=address.id action='default_for_shipping' %}">
@@ -54,7 +53,8 @@
                                         </li>
                                     {% endif %}
                                 </ul>
-                            </div>
+
+
                         </td>
                     </tr>
                 {% endfor %}

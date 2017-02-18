@@ -50,7 +50,11 @@
                 <a href="{% url 'customer:wishlists-list' %}">{% trans "Wish Lists" %}</a>
             </li>
         {% endblock %}
-    </ul>
+    </ul><br>
+                    <a class="btn btn-lg btn-black-outline btn-black"
+                    href="{% url 'customer:logout' %}">
+                    logout
+                </a>
 </div>
 {% endblock %}
 

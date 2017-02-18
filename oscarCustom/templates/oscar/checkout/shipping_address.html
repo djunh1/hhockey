@@ -45,18 +45,15 @@
                                                 {% trans "Ship to your default shipping address" %}</button>
                                         {% else %}
                                             <button type="submit"
-                                                    class="btn btn-lg btn-checkout-submit ship-address pull-right"
+                                                    class="btn btn-lg btn-black-outline btn-black pull-right"
                                                     data-loading-text="{% trans 'Saving...' %}">
                                                 {% trans "Ship to this address" %}</button>
                                         {% endif %}
 
                                         <div class="btn-group address-controls">
                                             <a href="{% url 'checkout:user-address-update' pk=address.id %}"
-                                               class="btn btn-mini-cart btn-sm">{% trans "Edit address" %}</a>
-                                            <button class="btn-address dropdown-toggle"
-                                                    data-toggle="dropdown">
-                                                <span class="caret"></span>
-                                            </button>
+                               class="btn btn-lg btn-black-outline btn-black pull-right">{% trans "Edit address" %}</a>
+
                                             <ul class="dropdown-menu">
                                                 <li><a href="{% url 'checkout:user-address-delete' pk=address.id %}"
                                                        class="btn-remove-address">{% trans "Delete" %}</a></li>

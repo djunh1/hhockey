@@ -7,7 +7,8 @@ from oscar.apps.customer.views import EmailHistoryView as CoreEmailHistoryView
 from oscar.apps.customer.views import ChangePasswordView as CoreChangePasswordView
 from oscar.apps.customer.views import ProfileDeleteView as CoreProfileDeleteView
 from oscar.apps.customer.views import AddressCreateView as CoreAddressCreateView
-
+from oscar.apps.customer.views import AddressUpdateView as CoreAddressUpdateView
+from oscar.apps.customer.views import EmailDetailView as CoreEmailDetailView
 
 from oscar.core.loading import (
     get_class, get_classes, get_model, get_profile_class)
@@ -45,6 +46,14 @@ class ProfileDeleteView(CoreProfileDeleteView):
 
 class AddressCreateView(CoreAddressCreateView):
     template_name = 'oscar/customer/address/address_form.html'
+
+
+class AddressUpdateView(CoreAddressUpdateView):
+    template_name = 'oscar/customer/address/address_form.html'
+
+
+class EmailDetailView(CoreEmailDetailView):
+    template_name = "oscar/customer/email/email_detail.html"
 
 
 class ProfileUpdateView(CoreProfileUpdateView):

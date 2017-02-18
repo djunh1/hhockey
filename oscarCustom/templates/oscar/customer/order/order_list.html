@@ -18,7 +18,7 @@
 {% block tabcontent %}
 
     {% if orders or form.is_bound %}
-        <div class="well">
+        <div class="well well-info">
             <h2>{% trans "Filter" %} </h2>
             <form action="." method="get" class="form-horizontal">
                 {% include "partials/form_fields.html" with form=form style='horizontal' %}
