@@ -1,7 +1,6 @@
 """hhockey URL Configuration
-
-
 """
+
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
@@ -9,7 +8,7 @@ from django.contrib import admin
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
 from oscar.app import application as oscarApp
-from paypal.express.dashboard.app import application as paypal_application
+from datacash.dashboard.app import application as dataCashApp
 from staticContent import views as staticViews
 
 
@@ -39,12 +38,9 @@ urlpatterns = [
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
 
-    #paypal
-    url(r'^checkout/paypal/', include('paypal.express.urls')),
-    url(r'^dashboard/paypal/express/', include(paypal_application.urls)),
-
-    #oscar App
-
+    #datacash
+    url(r'^dashboard/datacash/', include(dataCashApp.urls)),
+    url(r'^datacash/', include('datacash.urls')),
 
     #admin
     url(r'^admin/', admin.site.urls),

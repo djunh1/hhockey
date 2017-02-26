@@ -1,5 +1,6 @@
 {% extends "oscar/checkout/checkout.html" %}
 {% load i18n %}
+{% load currency_filters %}
 
 {% block title %}
     {% trans "Order preview" %} | {{ block.super }}
@@ -13,6 +14,33 @@
     {% trans "Preview your order" %}
 {% endblock %}
 
+{% block payment_method %}
+    <div class="span6">
+    <h3>{% trans "Payment" %}</h3>
+    <div class="well well-success" data-behaviours="match-height">
+
+        <h4>Bankcard</h4>
+        <p>{% blocktrans with amount=order_total.incl_tax|currency %}
+            {{ amount }} will be debited from your bankcard:
+        {% endblocktrans %}</p>
+        {% with bankcard=bankcard_form.bankcard %}
+            <p>
+            {% trans "Card type" %}: {{ bankcard.card_type }} <br/>
+            {% trans "Card number" %}: {{ bankcard.obfuscated_number }} <br/>
+            {% trans "Expiry month" %}: {{ bankcard.expiry_month }}</p>
+        {% endwith %}
+
+        <div class="alert-actions">
+            <a href="{% url 'checkout:payment-details' %}" class="btn">{% trans "Change payment details" %}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block hiddenforms %}
+    {{ bankcard_form.as_p }}
+{% endblock %}
+
 {% block place_order %}
     <form method="post" action="{% url 'checkout:preview' %}" id="place_order_form">
         {% csrf_token %}
@@ -24,9 +52,6 @@
             template and render it in a hidden div.  Then the payment information will
             get re-submitted when the user confirms the order.
         {% endcomment %}
-        <div style="display:none">
-            {% block hiddenforms %}{% endblock %}
-        </div>
 
         <div class="form-group clearfix">
             <div class="row">

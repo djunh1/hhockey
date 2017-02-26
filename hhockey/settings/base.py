@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = True
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
-ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost', 'ec2-35-166-188-189.us-west-2.compute.amazonaws.com']
+ALLOWED_HOSTS = [ 'localhost', '35.166.72.216']
 
 # Heritage Hockey App definition
 
@@ -303,6 +303,7 @@ INSTALLED_APPS += [
     'compressor',
     'widget_tweaks',
     'oscarCustom',
+    'datacash',
 ] + get_core_apps(['oscarCustom.promotions',
                    'oscarCustom.catalogue',
                    'oscarCustom.customer',
@@ -334,8 +335,42 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Cancelled': (),
 }
 
+OSCAR_ALLOW_ANON_CHECKOUT = False
 OSCAR_DEFAULT_CURRENCY = 'USD'
 OSCAR_CURRENCY_LOCALE = 'da'
 OSCAR_CURRENCY_FORMAT = '$ ###'
 
 OSCAR_SHOP_NAME = 'Hopewell Hockey'
+
+
+# =================
+# Datacash settings
+# =================
+
+DATACASH_HOST = 'testserver.datacash.com'
+DATACASH_CLIENT = '#'
+DATACASH_PASSWORD = '#'
+DATACASH_CURRENCY = 'USD'
+
+OSCAR_DASHBOARD_NAVIGATION.append(
+    {
+        'label': 'Datacash',
+        'icon': 'icon-globe',
+        'children': [
+            {
+                'label': 'Transactions',
+                'url_name': 'datacash-transaction-list',
+            },
+            {
+                'label': 'Fraud responses',
+                'url_name': 'datacash-fraud-response-list',
+            },
+        ]
+    })
+
+
+try:
+    from integration import *
+except ImportError:
+    pass
+
