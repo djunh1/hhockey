@@ -6,6 +6,8 @@
 {% load currency_filters %}
 {% load purchase_info_tags %}
 
+
+
 {% block product %}
 <div class="prod-wrap pt-50">
     <figure>
@@ -19,7 +21,11 @@
                     class="img-hover"></a>
             <a class="caption-link meta-icon"
                data-toggle="modal"
-               href="{{ product.get_absolute_url }}"> <span class="fa fa-eye"> </span> </a>
+               href="{{ product.get_absolute_url }}">
+                <span class="fa fa-eye">
+
+                 </span>
+            </a>
             <span class="prod-cat">{{product}}</span>
             {% endthumbnail %}
             {% endwith %}

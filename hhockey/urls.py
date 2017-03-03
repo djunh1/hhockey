@@ -38,7 +38,7 @@ urlpatterns = [
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
 
-    #datacash
+    #datacash/STRIPE  (TODO REPLACE)
     url(r'^dashboard/datacash/', include(dataCashApp.urls)),
     url(r'^datacash/', include('datacash.urls')),
 
