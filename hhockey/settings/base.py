@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = True
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
-ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost', 'hopewellhockey.com']
+ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost', 'www.hopewellhockey.com']
 
 # Heritage Hockey App definition
 
