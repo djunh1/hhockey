@@ -1,5 +1,6 @@
 {% extends "oscar/checkout/checkout.html" %}
 {% load i18n %}
+{% load currency_filters %}
 
 {% block title %}
     {% trans "Payment details" %} | {{ block.super }}
@@ -20,15 +21,15 @@
     {% block payment_details_content %}
         <form action="{% url 'checkout:preview' %}"
               class="form-stacked"
-              method="POST"
-              id="py-form">
-             {% csrf_token %}
-              {% include "partials/form_fields.html" with form=bankcard_form %}
-        <button id="view_preview"
-                href="{% url 'checkout:preview' %}"
-                class="btn btn-lg btn-checkout-submit"
-                type="submit">{% trans "Continue" %}
-        </button>
-         </form>
+              method="POST">
+            <script src="https://checkout.stripe.com/checkout.js"
+                    class="stripe-button"
+                    data-key="{{ stripe_publishable_key }}"
+                    data-amount="{{ order_total_incl_tax_cents }}"
+                    data-name="{{ shop_name }}"
+                    data-description="{{ basket.num_items }} items ({{ order_total.incl_tax|currency }})"
+                    data-zip-code="true">
+            </script>
+        </form>
     {% endblock payment_details_content %}
 {% endblock payment_details %}

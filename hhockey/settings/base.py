@@ -167,15 +167,15 @@ email_to_user = get_secret("EMAIL_TO_USER")
 email_host_password = get_secret("EMAIL_HOST_PASSWORD")
 
 # Can change the stmp part to console in order to test the email output.
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = email_host
 EMAIL_HOST_USER = email_host_user
 EMAIL_HOST_PASSWORD = email_host_password
 DEFAULT_FROM_EMAIL = email_host_user
 DEFAULT_TO_EMAIL = email_to_user
 SERVER_EMAIL = email_host_user
-EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -303,16 +303,12 @@ INSTALLED_APPS += [
     'compressor',
     'widget_tweaks',
     'oscarCustom',
-    'datacash',
 ] + get_core_apps(['oscarCustom.promotions',
                    'oscarCustom.catalogue',
                    'oscarCustom.customer',
                    'oscarCustom.basket',
                    'oscarCustom.checkout',
                    'oscarCustom.catalogue.reviews'])
-
-
-
 
 
 MIDDLEWARE_CLASSES += [
@@ -341,36 +337,17 @@ OSCAR_CURRENCY_LOCALE = 'da'
 OSCAR_CURRENCY_FORMAT = '$ ###'
 
 OSCAR_SHOP_NAME = 'Hopewell Hockey'
+OSCAR_ACCOUNTS_REDIRECT_URL = 'customer:profile-view'
 
+# Registration
+OSCAR_SEND_REGISTRATION_EMAIL = True
+OSCAR_FROM_EMAIL = 'info@hopewellhockey.com'
 
 # =================
-# Datacash settings
+# Stripe settings
 # =================
+STRIPE_SECRET_KEY = 'sk_test_AGMC3yWAvx3IWry5Oi5HH570'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_92D0vFfWdORetWWb9sPVLgBS'
+STRIPE_CURRENCY = 'USD'
 
-DATACASH_HOST = 'testserver.datacash.com'
-DATACASH_CLIENT = '#'
-DATACASH_PASSWORD = '#'
-DATACASH_CURRENCY = 'USD'
-
-OSCAR_DASHBOARD_NAVIGATION.append(
-    {
-        'label': 'Datacash',
-        'icon': 'icon-globe',
-        'children': [
-            {
-                'label': 'Transactions',
-                'url_name': 'datacash-transaction-list',
-            },
-            {
-                'label': 'Fraud responses',
-                'url_name': 'datacash-fraud-response-list',
-            },
-        ]
-    })
-
-
-try:
-    from integration import *
-except ImportError:
-    pass
 

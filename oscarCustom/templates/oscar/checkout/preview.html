@@ -1,9 +1,18 @@
 {% extends "oscar/checkout/checkout.html" %}
 {% load i18n %}
 {% load currency_filters %}
+{% load staticfiles %}
 
 {% block title %}
     {% trans "Order preview" %} | {{ block.super }}
+{% endblock %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block extrascripts %}
+
 {% endblock %}
 
 {% block checkout_nav %}
@@ -12,55 +21,43 @@
 
 {% block checkout_title %}
     {% trans "Preview your order" %}
+<p></p>
 {% endblock %}
 
 {% block payment_method %}
-    <div class="span6">
-    <h3>{% trans "Payment" %}</h3>
-    <div class="well well-success" data-behaviours="match-height">
+<div class="col-lg-6">
+    <div class="sub-header">
+		<h2>Payment</h2>
+	</div>
+	<div class="well well-success">
+		<p>{{ order_total.incl_tax|currency }} will be debited from your bankcard.</p>
+		<div class="alert-actions">
+			<a href="{% url 'checkout:payment-details' %}" class="btn">Change payment details</a>
+		</div>
 
-        <h4>Bankcard</h4>
-        <p>{% blocktrans with amount=order_total.incl_tax|currency %}
-            {{ amount }} will be debited from your bankcard:
-        {% endblocktrans %}</p>
-        {% with bankcard=bankcard_form.bankcard %}
-            <p>
-            {% trans "Card type" %}: {{ bankcard.card_type }} <br/>
-            {% trans "Card number" %}: {{ bankcard.obfuscated_number }} <br/>
-            {% trans "Expiry month" %}: {{ bankcard.expiry_month }}</p>
-        {% endwith %}
-
-        <div class="alert-actions">
-            <a href="{% url 'checkout:payment-details' %}" class="btn">{% trans "Change payment details" %}</a>
-        </div>
-    </div>
+</div>
 </div>
 {% endblock %}
 
 {% block hiddenforms %}
-    {{ bankcard_form.as_p }}
+
 {% endblock %}
 
 {% block place_order %}
-    <form method="post" action="{% url 'checkout:preview' %}" id="place_order_form">
-        {% csrf_token %}
-        <input type="hidden" name="action" value="place_order" />
+<form method="post" action="{% url 'checkout:preview' %}">
+	{% csrf_token %}
 
-        {% comment %}
-            When submitting sensitive data on the payment details page (eg a bankcard)
-            we don't want to save the data and so we pass the bound form to the preview
-            template and render it in a hidden div.  Then the payment information will
-            get re-submitted when the user confirms the order.
-        {% endcomment %}
+	<div style="display:none">
+		<input type="hidden" name="action" value="place_order" />
+		{{ stripe_token_form.as_p }}
+	</div>
 
-        <div class="form-group clearfix">
-            <div class="row">
-                <div class="col-sm-3 col-sm-offset-9">
-                     <button id='place-order' type="submit"
-                             class="btn btn-lg btn-checkout-submit btn-block"
-                             data-loading-text="{% trans 'Submitting...' %}">{% trans "Place order" %}</button>
-                </div>
-            </div>
-        </div>
-    </form>
+    <div>
+        <button id='place-order'
+				type="submit"
+				value="Place order"
+				class="btn btn-lg btn-black-outline btn-black pull-right js-disable-on-click">Place order
+		</button>
+    </div>
+</form>
 {% endblock place_order %}

@@ -75,7 +75,8 @@
 
     {% block new_address_form %}
         <div class="well well-checkout">
-            <form action="{% url 'checkout:shipping-address' %}" method="post" id="new_shipping_address" class="form form-horizontal">
+            <form action="{% url 'checkout:shipping-address' %}"
+                  method="post" id="new_shipping_address" class="form form-horizontal">
                 {% csrf_token %}
                 {% include "oscar/partials/form_fields.html" with form=form style='horizontal' %}
                 <div class="form-group">

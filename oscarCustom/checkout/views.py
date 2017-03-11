@@ -1,23 +1,31 @@
-from django import http
-from django.core.urlresolvers import reverse
-from django.contrib import messages
 from django.conf import settings
-from django.utils.translation import ugettext as _
+from django.shortcuts import redirect
+from oscar.core.loading import get_model
+from django import forms
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_exempt
+from oscar.apps.payment import models
 
 from oscar.apps.checkout.views import ShippingAddressView as CoreShippingAddressView
 from oscar.apps.checkout.views import IndexView as CoreIndexView
 from oscar.apps.checkout.views import PaymentDetailsView as CorePaymentDetailsView
 from oscar.apps.checkout.views import ThankYouView as CoreThankYouView
 from oscar.apps.checkout.views import UserAddressUpdateView as CoreUserAddressUpdateView
-
-
-from oscar.apps.payment.forms import BankcardForm
+from oscar.apps.checkout.views import ShippingMethodView as CoreShippingMethodView
 from oscar.apps.payment.models import SourceType, Source
 from oscar.apps.order.models import ShippingAddress
 from oscar.apps.address.models import UserAddress
 
-from datacash.facade import Facade
-from datacash import the3rdman
+from oscarCustom.checkout.forms import StripeTokenForm
+from oscarCustom.checkout.facade import Facade
+
+import pprint
+
+
+SourceType = get_model('payment', 'SourceType')
+Source = get_model('payment', 'Source')
+
+pp = pprint.PrettyPrinter(indent=4)
 
 class IndexView(CoreIndexView):
     template_name = 'oscar/checkout/gateway.html'
@@ -26,81 +34,60 @@ class IndexView(CoreIndexView):
 class ShippingAddressView(CoreShippingAddressView):
     template_name = 'oscar/checkout/shipping_address.html'
 
+class ShippingMethodView(CoreShippingMethodView):
+    pass
+    '''
+    def get_success_response(self):
+        #If different solution is needed, change this redirect to the payment details, and load a bankcard form.
+        return redirect('checkout:preview')
+    '''
 
 class PaymentDetailsView(CorePaymentDetailsView):
     template_name = 'oscar/checkout/payment_details.html'
     template_name_preview = 'oscar/checkout/preview.html'
 
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super(PaymentDetailsView, self).dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
-        # Add bankcard form to the template context
         ctx = super(PaymentDetailsView, self).get_context_data(**kwargs)
-        ctx['bankcard_form'] = kwargs.get('bankcard_form', BankcardForm())
+        if self.preview:
+            ctx['stripe_token_form'] = StripeTokenForm(self.request.POST)
+            ctx['order_total_incl_tax_cents'] = (ctx['order_total'].incl_tax * 100).to_integral_value()
+        else:
+            ctx['stripe_publishable_key'] = settings.STRIPE_PUBLISHABLE_KEY
         return ctx
 
-    def handle_payment_details_submission(self, request):
-        # Check bankcard form is valid
-        bankcard_form = BankcardForm(request.POST)
-        if bankcard_form.is_valid():
-            return self.render_preview(
-                request, bankcard_form=bankcard_form)
-
-        # Form invalid - re-render
-        return self.render_payment_details(
-            request, bankcard_form=bankcard_form)
-
-    def handle_place_order_submission(self, request):
-        bankcard_form = BankcardForm(request.POST)
-        if bankcard_form.is_valid():
-            submission = self.build_submission(
-                payment_kwargs={
-                    'bankcard_form': bankcard_form
-                })
-            return self.submit(**submission)
-
-        messages.error(request, _("Invalid submission"))
-        return http.HttpResponseRedirect(
-            reverse('checkout:payment-details'))
-
-    def build_submission(self, **kwargs):
-        # Ensure the shipping address is part of the payment keyword args
-        submission = super(PaymentDetailsView, self).build_submission(**kwargs)
-        submission['payment_kwargs']['shipping_address'] = submission[
-            'shipping_address']
-        return submission
-
     def handle_payment(self, order_number, total, **kwargs):
-        # Make request to DataCash - if there any problems (eg bankcard
-        # not valid / request refused by bank) then an exception would be
-        # raised and handled)
         facade = Facade()
+        stripe_ref = facade.charge(
+            order_number,
+            total,
+            card=self.request.POST['stripeToken'],
+            description=self.payment_description(order_number, total, **kwargs),
+            metadata=self.payment_metadata(order_number, total, **kwargs))
 
-        # Use The3rdMan - so build a dict of data to pass
-        # email = None
-        # if not self.request.user.is_authenticated():
-        #     email = self.checkout_session.get_guest_email()
-        # fraud_data = the3rdman.build_data_dict(
-        #     request=self.request,
-        #     email=email,
-        #     order_number=order_number,
-        #     shipping_address=kwargs['shipping_address'])
 
-        # We're not using 3rd-man by default
-        bankcard = kwargs['bankcard_form'].bankcard
-        datacash_ref = facade.pre_authorise(
-            order_number, total.incl_tax, bankcard)
 
-        # Request was successful - record the "payment source".  As this
-        # request was a 'pre-auth', we set the 'amount_allocated' - if we had
-        # performed an 'auth' request, then we would set 'amount_debited'.
-        source_type, _ = SourceType.objects.get_or_create(name='Datacash')
-        source = Source(source_type=source_type,
-                        currency=settings.DATACASH_CURRENCY,
-                        amount_allocated=total.incl_tax,
-                        reference=datacash_ref)
+        source_type, __ = models.SourceType.objects.get_or_create(name='PAYMENT_METHOD_STRIPE')
+        source = models.Source(
+            source_type=source_type,
+            currency=settings.STRIPE_CURRENCY,
+            amount_allocated=total.incl_tax,
+            amount_debited=total.incl_tax,
+            reference=stripe_ref)
         self.add_payment_source(source)
 
-        # Also record payment event
-        self.add_payment_event('pre-auth', total.incl_tax)
+        pp.pprint(source)
+
+        self.add_payment_event('PAYMENT_EVENT_PURCHASE', total.incl_tax)
+
+    def payment_description(self, order_number, total, **kwargs):
+        return self.request.POST['stripeEmail']
+
+    def payment_metadata(self, order_number, total, **kwargs):
+        return {'order_number': order_number}
 
 
 class ThankYouView(CoreThankYouView):

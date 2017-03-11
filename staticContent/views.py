@@ -28,8 +28,10 @@ def contact(request):
                         cd['contact_email'])
             message = 'HOPEWELL HOCKEY - message from our Application as follows: \n\n {}' \
                       '\n\n\nREPLY TO EMAIL: {}'.format(cd['content'], cd['contact_email'])
-            send_mail(subject, message, ['info@hopewellhockey.com'],
-                      ['douglas.jacobson@hopewellhockey.com', 'b.d.deangelis@hopewellhockey.com'],
+            send_mail(subject,
+                      message,
+                      'info@hopewellhockey.com',
+                      ['douglas.jacobson@hopewellhockey.com', 'brian.deangelis@hopewellhockey.com'],
                       fail_silently=False)
             sent = True
     else:

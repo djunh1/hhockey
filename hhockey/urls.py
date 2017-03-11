@@ -8,7 +8,6 @@ from django.contrib import admin
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
 
 from oscar.app import application as oscarApp
-from datacash.dashboard.app import application as dataCashApp
 from staticContent import views as staticViews
 
 
@@ -38,9 +37,8 @@ urlpatterns = [
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
 
-    #datacash/STRIPE  (TODO REPLACE)
-    url(r'^dashboard/datacash/', include(dataCashApp.urls)),
-    url(r'^datacash/', include('datacash.urls')),
+    #STRIPE
+
 
     #admin
     url(r'^admin/', admin.site.urls),
