@@ -232,64 +232,9 @@ i.fsz-40:hover{
 
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
 
 
-.toggle-icon:hover {
-    background-color: #000000;
-    color: #ffffff;
-    text-decoration:none;
-}
-
-.toggle-icon {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 3px solid #000000;
-    color: #000000;
-    cursor: pointer;
-    display: inline-block;
-    height: 45px;
-    line-height: 2.8;
-    margin: 8px 0;
-    text-align: center;
-    vertical-align: middle;
-    width: 45px;
-    z-index: 1;
-}
-
-.navbar-default .navbar-toggle{
-    border-color:#fff;
-}
-
-.navbar-default .navbar-toggle:hover{
-    background-color:#fff;
-}
-
-.toggle-icon{
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-border: 3px solid #000000;
-color: #000000;
-cursor: pointer;
-display: inline-block;
-height: 45px;
-line-height: 2.8;
-margin: 8px 0;
-text-align: center;
-vertical-align: middle;
-width: 45px;
-z-index: 1;
-}
-
-    #navcol-1 .navbar-hhockey-right > li > a{
-        padding-left:82px;
-    }
-
-    .font-navbar-header{
-        padding: 25px 28px 0 0;
-        color:#000;
-    }
-
-
-}
+/* END MEDIA QUERY */
 
 .btn-cart{
     min-width:44px;
@@ -350,12 +295,7 @@ z-index: 1;
     font-weight:bold;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 768px) {
-    mbr-gallery-item--p4{
-        width:100%;
-    }
 
-}
 
 .hh-intro .btn{
     font-size: 22px;
@@ -692,6 +632,89 @@ ul.theme-tabs li{
 
 }
 
+.widget-promo{
+    padding:25px 0px 25px 30px;
+}
+
+.section-promo{
+    background: rgba(42,166,223,0.85);
+    margin-left:1.66em;
+    max-width:21.664em;
+    padding:15px;
+    position:relative;
+    top:15px;
+
+}
+
+.promo-section {
+    position: relative;
+    padding-top: 26px;
+    padding-bottom: 114px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+div.section-promo h3{
+    font-weight:bold;
+    color:#fff;
+}
+
+div.section-promo p{
+    font-weight:bold;
+    color:#fff;
+}
+
+.shop-header-section{
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 75px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-header{
+    background: rgba(0, 0, 0, 0.85);
+    margin-left:1.66em;
+    max-width:21.664em;
+    padding:10px;
+    position:relative;
+    top:13px;
+    border-radius:2px;
+    border:1px solid #000;
+
+}
+
+.section-header p{
+    color:#fff;
+    font-weight:bold;
+    line-height:18px;
+    font-size:18px;
+    padding-top:13px;
+
+}
+
+div.section-breadcrumbs ul.breadcrumb{
+        background-color: #fff;
+        padding-top:29px;
+        font-size:24px;
+        max-height:50px;
+}
+
+div.results .pagination-results{
+    margin:0px;
+    padding-left:30px;
+}
+
+div.results p {
+    margin:0px;
+}
+div.row .results{
+    margin:0px;
+    padding:0px;
+}
 
 /*   Partials-  BASKET, CHECKOUT  */
 
@@ -1009,6 +1032,22 @@ ul.address-list li:before
     background-image: url(/static/pages/about/assets/images/outside.jpeg);
 }
 
+.img-4{
+    background-image: url(/static/pages/sticks/assets/images/sticksbg.jpeg);
+    opacity: 0.9;
+    border-radius:3px;
+    max-height:325px;
+}
+
+.img-5{
+    background-image: url(/static/pages/sticks/assets/images/landscape.jpg);
+    opacity: 0.6;
+    border-radius:3px;
+    max-height:110px;
+}
+
+
+
 /* STICKS PAGE  */
 
 .card-text{
@@ -1082,8 +1121,8 @@ ul.address-list li:before
 
 .widget-wrap ul li a {
     color: #183051;
-    font-size:20px;
-    font-weight:bold;
+    font-size:16px;
+    font-weight:100;
 }
 
 .widget-wrap ul li a:hover{
@@ -1460,4 +1499,92 @@ div .product-carousel {
 
 .prod-details{
     padding-top:70px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+
+div.section-breadcrumbs ul.breadcrumb{
+   display:inline-block;
+    padding-top: 36px;
+    font-size: 20px;
+    padding-left:0px;
+    margin-left:0px;
+}
+
+div.results p {
+    padding-left: 14px;
+    display:inline-block;
+
+}
+
+div.results .pagination-results{
+
+    padding-left:0px;
+}
+
+    mbr-gallery-item--p4{
+        width:100%;
+    }
+
+.section-promo{
+        max-width: 17em;
+
+}
+
+
+
+.toggle-icon:hover {
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration:none;
+}
+
+.toggle-icon {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 3px solid #000000;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 45px;
+    line-height: 2.8;
+    margin: 8px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 45px;
+    z-index: 1;
+}
+
+.navbar-default .navbar-toggle{
+    border-color:#fff;
+}
+
+.navbar-default .navbar-toggle:hover{
+    background-color:#fff;
+}
+
+.toggle-icon{
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 3px solid #000000;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 45px;
+    line-height: 2.8;
+    margin: 8px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 45px;
+    z-index: 1;
+}
+
+    #navcol-1 .navbar-hhockey-right > li > a{
+        padding-left:82px;
+    }
+
+    .font-navbar-header{
+        padding: 25px 28px 0 0;
+        color:#000;
+    }
+
+
 }

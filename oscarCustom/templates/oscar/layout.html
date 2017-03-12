@@ -11,32 +11,32 @@
 {% block contentshop %}
 
 
-{% block content_wrapper %}
-<div class="container-fluid page">
-    <div class="page_inner">
-        {% block breadcrumbs %}{% endblock %}
-        {% block header %}
-        <div class="page-header action">
-            <h1>{% block headertext %}{% endblock %}</h1>
-        </div>
-        {% endblock %}
-        {% include "partials/alert_messages.html" %}
-        {% block subnavigation %}{% endblock %}
-        <div class="content">
-            {% block subheader %}{% endblock subheader %}
+    {% block content_wrapper %}
+    <div class="container-fluid page">
+        <div class="page_inner">
 
-            {# Render promotions #}
-            <div id="promotions">
-                {% for promotion in promotions_page %}
-                {% render_promotion promotion %}
-                {% endfor %}
+            {% block header %}
+            <div class="page-header action">
+                <h1>{% block headertext %}{% endblock %}</h1>
             </div>
+            {% endblock %}
+            {% include "partials/alert_messages.html" %}
+            {% block subnavigation %}{% endblock %}
+            <div class="content">
+                {% block subheader %}{% endblock subheader %}
 
-            {# Div exists for AJAX updates to entire content section #}
-            <div id="content_inner">{% block content %}{% endblock %}</div>
+                {# Render promotions #}
+                <div id="promotions">
+                    {% for promotion in promotions_page %}
+                    {% render_promotion promotion %}
+                    {% endfor %}
+                </div>
+
+                {# Div exists for AJAX updates to entire content section #}
+                <div id="content_inner">{% block content %}{% endblock %}</div>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 

@@ -288,7 +288,7 @@ img {
 }
 .section-title, .title-1, .title-2, .prod-title, .blog-title, .widget-title {
     color: #000;  
-    text-transform: uppercase; 
+
 }
 
 .section-title.wht {
@@ -980,8 +980,8 @@ textarea:focus:-ms-input-placeholder {
 
 /*-------------------------- 1.9 Theme Fonts Starts ------------------- */
 
-.font-2, .section-title, .title-1, .widget-title { font-family: 'Oswald', sans-serif; }
-.font-1 { font-family: "Roboto",sans-serif; }
+
+
 .normal-font { font-weight: normal;}
 .bold-font { font-weight: bold; }
 .italic-font { font-style: italic; }
@@ -3327,7 +3327,7 @@ table {
     width: 100%;
 }
 .widget-box li {
-    line-height: 0;
+    line-height: 20px;;
     margin-bottom: 10px;
     vertical-align: middle; 
 }

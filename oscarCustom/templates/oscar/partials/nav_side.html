@@ -4,24 +4,47 @@
 
 {% block extrastyles %}
 
-<link rel="stylesheet" href="{% static 'pages/plans/assets/bootstrap-material-design-font/css/material.css' %}">
-<link rel="stylesheet" href="{% static 'pages/plans/assets/tether/tether.min.css' %}">
-<link rel="stylesheet" href="{% static 'pages/plans/assets/bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'pages/plans/assets/animate.css/animate.min.css' %}">
-<link rel="stylesheet" href="{% static 'pages/home/assets/theme/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'pages/plans/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+
 
 {% endblock %}
 
 {% block extrascripts %}
 {% endblock %}
 
-
-<aside class="col-md-3 col-sm-4 col-xs-12 cate-wrap">
+<aside class="col-md-3 col-sm-4 col-xs-12">
     <div class="widget-wrap">
-        <h2 class="widget-title"> Twigs </h2>
+        <h2 class="widget-title">My Account</h2>
         <div class="widget-box">
+            {% if user.is_authenticated %}
+            <ul>
+                <li ><a href="{% url 'customer:summary' %}">
+                    {{ user.get_full_name|default:'Hopewell Hockey Dangler' }}'s Account
+                </a>
+                </li>
+                <li ><a href="{% url 'customer:order-list' %}">
+                    My Order History
+                </a>
+                </li>
+                <li ><a href="{% url 'contact_page' %}">
+                    Get Help
+                </a>
+                </li>
+                <li >
+                    <a href="{% url 'customer:logout' %}">Logout</a>
+                </li>
+            </ul>
+            {% else %}
+            <ul>
+                <li ><a href="{% url 'customer:login' %}">
+                    Login
+                </a>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
 
+        <h2 class="widget-title"> Our Store </h2>
+        <div class="widget-box">
             <ul>
                 {% category_tree depth=2 as tree_categories %}
                 {% if tree_categories %}
@@ -51,11 +74,10 @@
                 </li>
                 {% else %}
 
-                <li><label class="checkbox-inline"><input type="checkbox" value="">
-
+                <li>
                     <a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{ tree_category.name }}
                     </a>
-                </label>
+                    </label>
                 </li>
                 {% endif %}
                 {% endfor %}

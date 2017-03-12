@@ -3,23 +3,29 @@
 {% load currency_filters %}
 
 {% block navigation %}
-    {% include 'layout/navigation.html' %}
+{% include 'layout/navigation.html' %}
 
 {% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block column_left %}
-
 {% endblock %}
 
 {% block content_wrapper %}
 <div class="container theme-container sec-space">
     <div class="row">
+        <div class="col-xs-12 ">
+            <div class="shop-header-section mbr-parallax-background img-5 ">
+                <div class="section-header">
+                    <p>Test Text here -  Promo?  Deal?</p>
+                </div>
+            </div>
+        </div>
         {% include "oscar/partials/nav_side.html" %}
-        <!--div class="col-md-9">
+        <div class="col-md-9 col-sm-8 col-xs-12">
             {% include "oscar/promotions/welcome.html" %}
-        </div-->
+        </div>
     </div>
 </div>
 {% endblock  %}
