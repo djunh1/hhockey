@@ -4194,8 +4194,9 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+  color: #aaa9af;
   background-color: transparent;
+
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -9285,9 +9286,10 @@ input[type="number"][id*="quantity"] {
 }
 .nav-checkout.navbar .nav {
   margin: 0;
+  padding-left:28%;
 }
-.nav-checkout .active .navbar-text {
-  color: #fff;
+.nav-checkout .navbar-text {
+  color: #000;
 }
 .well:before,
 .well:after {
