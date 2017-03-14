@@ -687,6 +687,11 @@ h2,h3,h4,h5,h6 {
     color: #fff;
 }
 
+
+
+
+
+
 .btn-black-1 {
     background-color: #000;
     border-color: #000;
@@ -1188,6 +1193,7 @@ textarea:focus:-ms-input-placeholder {
     display: inline-block;
     position: relative;
     width: 100%;
+
 }
 .img-hover {
     display: inline-block;
@@ -1226,15 +1232,17 @@ textarea:focus:-ms-input-placeholder {
     background-color: #d5292c;
 }
 .prod-cat {
-    background-color: #000000;
-    bottom: 0;
+    background-color: #183051;
     color: #ffffff;
     font-size: 11px;
     font-weight: 600;
+    top:0;
     left: 0;
     padding: 4px 10px 2px;
     position: absolute;
     text-transform: uppercase;
+    border-radius:2px;
+    border:1px solid #000;
 }
 .prod-title {
     border-bottom: 1px solid #000000;
@@ -1254,8 +1262,9 @@ textarea:focus:-ms-input-placeholder {
     float: left;
 }
 .prod-content .prod-price {
-    float: right;
-    font-size: 16px;
+    float:left;
+    font-size: 26px;
+    font-weight:100;
 }
 .prod-price ins, .prod-price del {
     text-decoration: none;
@@ -2723,6 +2732,11 @@ table {
     top: -55px;
 }
 
+.text-success{
+    font-size:22px;
+    font-weight:100;
+}
+
 .comments .comment-avatar { padding-right: 35px; }
 .comment-meta {
     display: inline-block;
@@ -3705,7 +3719,7 @@ table {
     }
     .theme-tabs > li {   
         font-size: 14px;   
-        padding: 0 10px;
+        padding: 0 7px;
     }
 
     .box-hover:hover h2 {

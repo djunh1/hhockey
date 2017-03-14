@@ -5,11 +5,11 @@
 {% purchase_info_for_product request product as session %}
 
 
-<p class="{{ session.availability.code }} availability">
+<span class="{{ session.availability.code }} availability">
     <i class="icon-{% if session.availability.is_available_to_buy %}ok{% else %}remove{% endif %}"></i>
     {% if verbose %}
         {{ session.availability.message }}
     {% else %}
         {{ session.availability.short_message }}
     {% endif %}
-</p>
+</span>

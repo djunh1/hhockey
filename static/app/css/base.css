@@ -26,7 +26,18 @@ label{
     font-weight:100;
 }
 
+
+/* Global */
+
+.left{
+    text-align:left;
+}
+
+
 /* NAVBAR */
+
+
+
 
 /* TEMP */
 
@@ -466,12 +477,23 @@ ul.basket-mini-item li.container-basket-info a:hover {
 
 /*  SHOP    */
 
+div.prod-img a .img-hover{
+    height:150px;
+}
+
+
 div p{
     color:#000;
 }
 
 p span{
     color:#000;
+}
+
+.prod-title a{
+    color:#183051;
+    font-weight:100;
+    font-size:20px;
 }
 
 .navbar-shop {
@@ -718,6 +740,26 @@ div.row .results{
 
 /*   Partials-  BASKET, CHECKOUT  */
 
+
+/* Success Button */
+
+.btn-successCustom {
+    background:#cdf9ae;
+    border: 1px solid #000;
+    color: #000;
+}
+.btn-successCustom:after {
+    background: #000;
+    border: 1px solid #000;
+}
+.btn-successCustom:hover,
+.btn-successCustom:active {
+    color: #000;
+    background:#e9f5e0;
+}
+
+
+
 #py-form select{
     display:inline;
     width:20%;
@@ -764,14 +806,15 @@ div .basket-form{
 
     padding: 0 0 0 13px;
     font-size: 20px;
-    border: 2px solid #000;
+    border: 1px solid #000;
 
 }
 
 .btn-checkout{
-    background:#0353ad;
-    color:#fff;
-    border:2px solid #000;
+    background:#c3ddfb;
+    font-size:18px;
+    color:#000;
+    border:1px solid #000 !important;
     border-radius:0px 5px 5px 0px !important;
     height:42px;
     line-height:12px;
@@ -795,7 +838,7 @@ div .basket-form{
 }
 
 .total-custom {
-    background-color: #FDF5D9!important;
+    background-color: #f7f7f7!important;
 }
 
 div.navbar-shop .navbar-text{
@@ -1501,6 +1544,11 @@ div .product-carousel {
     padding-top:70px;
 }
 
+.thumbnail{
+        border: 1px solid #fff;
+}
+
+
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 
 div.section-breadcrumbs ul.breadcrumb{
@@ -1531,7 +1579,16 @@ div.results .pagination-results{
 
 }
 
+.section-header {
+    max-height:50px;
+    max-width: 18em;
+    top: 30px;
 
+}
+
+.section-header p{
+    padding-top:7px;
+}
 
 .toggle-icon:hover {
     background-color: #000000;

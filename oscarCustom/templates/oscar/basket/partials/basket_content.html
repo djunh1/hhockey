@@ -8,7 +8,9 @@
 <div class="container theme-container ptb-70" id="content_inner">
     <section class="contactPage-bg">
         <div class="theme-container container ">
-                <h1 class="text-center"> Your Basket</h1>
+                <h3 class="text-center left"> Your order</h3>
+            <strong><span>Step 1: </span></strong><span>Complete your order</span>
+            <hr>
         </div>
     </section>
     <div class="wrapper">
@@ -76,7 +78,7 @@
                                     </span>
                             </div>
                         </div>
-                        <div>
+                        <div class="checkout-quantity center-child">
                             <a href="#"
                                data-id="{{ forloop.counter0 }}"
                                data-behaviours="remove"
@@ -137,13 +139,15 @@
                 <div class="sub-header">
                     <h2>{% trans "Voucher/promo code" %}</h2>
                 </div>
-                <p id="voucher_form_link"><a href="#voucher" class="btn btn-default btn-full">{% trans "I have a voucher code..." %}</a></p>
+                <p id="voucher_form_link"><a href="#voucher"
+                                             class="btn btn-lg btn-successCustom">
+                    {% trans "Input Coupon Code" %}</a></p>
 
                 <div id="voucher_form_container" style="display:none">
                     <form id="voucher_form" action="{% url 'basket:vouchers-add' %}" method="post">
                         {% csrf_token %}
                         {% include "partials/form_fields.html" with form=voucher_form %}
-                        <button type="submit" class="btn btn-info" data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
+                        <button type="submit" class="btn btn-lg btn-successCustom" data-loading-text="{% trans 'Adding...' %}">{% trans "Add voucher" %}</button>
                         {% trans "or" %} <a href="#" id="voucher_form_cancel">{% trans "cancel" %}</a>
                     </form>
                 </div>

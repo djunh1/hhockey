@@ -19,22 +19,18 @@
                     src="{{ thumb.url }}"
                     alt="{{ product.get_title }}"
                     class="img-hover"></a>
-            <a class="caption-link meta-icon"
-               data-toggle="modal"
-               href="{{ product.get_absolute_url }}">
-                <span class="fa fa-eye">
 
-                 </span>
-            </a>
-            <span class="prod-cat">{{product}}</span>
+
+
+            <span class="prod-cat">
+                {% include "oscar/catalogue/partials/stock_record.html" %}
+            </span>
             {% endthumbnail %}
             {% endwith %}
         </div>
         {% endblock %}
 
         <figcaption class="prod-content">
-
-
             {% block product_title %}
             <h2 class="prod-title">
                 <a href="{{ product.get_absolute_url }}" title="{{ product.get_title }}">
@@ -51,7 +47,9 @@
                     <i class="icon-star"></i>
                     <i class="icon-star"></i>
                 </div>
-                <div class="prod-price font-2">
+            </div>
+            <div class="block-inline">
+            <div class="prod-price font-2 ">
                     {% purchase_info_for_product request product as session %}
                     {% if session.price.exists %}
                     {% if session.price.excl_tax == 0 %}
@@ -72,7 +70,7 @@
             <div class="product_price">
                 {% include "oscar/catalogue/partials/stock_record.html" %}
                 {% if not product.is_parent %}
-                {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
+                    {% include "oscar/catalogue/partials/add_to_basket_form_compact.html" %}
                 {% endif %}
             </div>
             {% endblock %}

@@ -33,7 +33,7 @@
 <main class="wrapper">
     <article class="product_page"><!-- Start of product page -->
 
-        <div class="container theme-container ptb-70">
+        <div class="container theme-container">
             <div class="row">
                  {% block product_gallery %}
                 <div class="col-md-6 col-sm-12 single-prod-slider sync-sliedr">
@@ -65,24 +65,17 @@
                                     {% endif %}
                                     {% else %}
                                     <ins>&nbsp;</ins>
-                                    {% endif %}</ins> <del>$360.00</del>
-
+                                    {% endif %}</ins> <del>$299.00</del>
                             </div>
                         </div>
 
-
                         {% block product_description %}
-                        {% if product.description %}
-                        <div id="product_description" class="discriptions pt-20">
-                            <p>{{ product.description|safe }}</p>
-                        </div>
-                        {% endif %}
                         {% endblock %}
 
                     </div>
 
                     {% block product_basket_form %}
-                    {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
+                        {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
                     {% endblock %}
                 </div><!-- /col-sm-6 -->
             </div>
@@ -94,7 +87,7 @@
                     <ul id="tabs" class="nav font-2 theme-tabs">
                         <li class="active"><a href="#prod-tab-2" data-toggle="tab"> Reviews </a></li>
                         <li class=""><a href="#prod-tab-1" data-toggle="tab"> Description </a></li>
-                        <li class=""><a href="#prod-tab-3" data-toggle="tab"> Info </a></li>
+                        <li class=""><a href="#prod-tab-3" data-toggle="tab"> Price Info </a></li>
                     </ul>
                 </div>
                 <div class="tab-content prod-tab-content">
