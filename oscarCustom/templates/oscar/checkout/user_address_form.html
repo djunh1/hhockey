@@ -23,8 +23,9 @@
             {% include "partials/form_fields.html" with form=form style='horizontal' %}
             <div class="form-group">
                 <div class="col-sm-offset-4 col-sm-8">
-                    <button type="submit" class="btn btn-lg btn-checkout-submit" data-loading-text="{% trans 'Saving...' %}">{% trans "Save" %}</button>
-                    {% trans "or" %} <a href="{% url 'checkout:shipping-address' %}">{% trans "cancel" %}</a>.
+                    <button type="submit" class="btn btn-lg btn-black-outline btn-black" data-loading-text="{% trans 'Saving...' %}">{% trans "Save" %}</button>
+                    {% trans "or" %} <a class = "btn-linkCheckout"
+                                        href="{% url 'checkout:shipping-address' %}">{% trans "cancel" %}</a>.
                 </div>
             </div>
         </form>

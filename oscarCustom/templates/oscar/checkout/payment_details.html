@@ -19,8 +19,23 @@
 
 {% block payment_details %}
     {% block payment_details_content %}
-        <form action="{% url 'checkout:preview' %}"
-              class="form-stacked"
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 ">
+
+            <strong><span>The Process: </span></strong><span>  We have partnered with
+            <a href="https://stripe.com/" _target="blank">Stripe </a> in order to bring your the most reliable and
+            secure way to pay on the web.  Why Stripe?  Simply put, they have set the standard in collecting and
+            processing billing of credit cards.  </span>
+            <span>At Hopewell Hockey, we value your business and strive to ensure your personal data is secure.  We
+                will not collect or store any of your credit card information at this stage. </span>
+            <br><br><strong><span>Note: </span></strong><span>When you click the pay button, you will
+            still</span><strong><span> preview</span></strong>
+            <span>your
+            order in the next section.</span><br><br>
+
+            <form action="{% url 'checkout:preview' %}"
+              class="form-stacked text-center"
               method="POST">
             <script src="https://checkout.stripe.com/checkout.js"
                     class="stripe-button"
@@ -31,5 +46,10 @@
                     data-zip-code="true">
             </script>
         </form>
+        </div>
+
+    </div>
+</div>
+
     {% endblock payment_details_content %}
 {% endblock payment_details %}

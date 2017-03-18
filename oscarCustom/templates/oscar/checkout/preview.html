@@ -25,14 +25,15 @@
 {% endblock %}
 
 {% block payment_method %}
-<div class="col-lg-6">
+<div class="col-sm-6">
     <div class="sub-header">
 		<h2>Payment</h2>
 	</div>
-	<div class="well well-success">
-		<p>{{ order_total.incl_tax|currency }} will be debited from your bankcard.</p>
+	<div class="choose-block">
+		<strong><span class="fsz-24">{{ order_total.incl_tax|currency }}</span></strong><span></span> will be debited
+		from your Credit Card.</span><br>
 		<div class="alert-actions">
-			<a href="{% url 'checkout:payment-details' %}" class="btn">Change payment details</a>
+			<a href="{% url 'checkout:payment-details' %}" class="btn btn-info">Change payment details</a>
 		</div>
 
 </div>

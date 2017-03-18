@@ -4194,7 +4194,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #aaa9af;
+  color: #000;
   background-color: transparent;
 
 }
@@ -8688,7 +8688,7 @@ h5,
 }
 .sub-header {
   padding-bottom: 9px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: none;
 }
 .page-header h1,
 .page-header h2 {
@@ -9286,7 +9286,7 @@ input[type="number"][id*="quantity"] {
 }
 .nav-checkout.navbar .nav {
   margin: 0;
-  padding-left:28%;
+  padding-left:25%;
 }
 .nav-checkout .navbar-text {
   color: #000;

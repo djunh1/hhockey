@@ -1,7 +1,7 @@
 {% load i18n %}
 
-<div class="navbar navbar-inverse nav-checkout navbar-shop"><hr>
-    <ul class="nav navbar-nav nav-checkout">
+<div class="navbar navbar-inverse nav-checkout navbar-shop" ><hr>
+    <ul class="nav navbar-nav nav-checkout" id="navShop">
         {% spaceless %}
             <li class="step1 {% if step == 1 %}active{% else %}{% if step == 2 %}previous{% else %}{% if step > 1 %}visited{% else %}disabled{% endif %}{% endif %}{% endif %} ">
                 {% if step == 2 or step == 3 or step == 4 %}
@@ -13,7 +13,7 @@
                         </span>
                     </a>
                 {% else %}
-                    <span class="navbar-text">
+                    <span>
                         {%  trans "Shipping address" %}
                     </span>
                 {% endif %}
@@ -44,20 +44,20 @@
                         </span>
                     </a>
                 {% else %}
-                    <span class="navbar-text">
+                    <span>
                         {%  trans "Payment" %}
                     </span>
                 {% endif %}
             </li>
 
-            <li class="step4 {% if step == 4 %}active{% else %}disabled{% endif %} ">
-                <span class="navbar-text">
+            <li class="step4 {% if step == 4 %}active{% else %}visited{% endif %} ">
+                <span >
                     {% trans "Preview" %}
                 </span>
             </li>
 
             <li class="step5 {% if step == 5 %}active{% else %}disabled{% endif %} ">
-                <span class="navbar-text">
+                <span >
                     {% trans "Confirmation" %}
                 </span>
             </li>
