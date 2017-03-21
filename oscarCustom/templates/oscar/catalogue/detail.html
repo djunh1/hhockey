@@ -26,13 +26,12 @@
 
 {% block navigation %}
     {% include 'layout/navigation.html' %}
-    {% include "oscar/partials/nav_primary.html" %}
+
 {% endblock %}
 
 {% block contentshop %}
-<main class="wrapper">
+<div class="container theme-container pt-150 pb-50">
     <article class="product_page"><!-- Start of product page -->
-
         <div class="container theme-container">
             <div class="row">
                  {% block product_gallery %}
@@ -68,12 +67,9 @@
                                     {% endif %}</ins> <del>$299.00</del>
                             </div>
                         </div>
-
                         {% block product_description %}
                         {% endblock %}
-
                     </div>
-
                     {% block product_basket_form %}
                         {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
                     {% endblock %}
@@ -197,7 +193,7 @@
 
 
 
-</main>
+</div>
 {% endblock contentshop %}
 
 {% block extrascripts %}

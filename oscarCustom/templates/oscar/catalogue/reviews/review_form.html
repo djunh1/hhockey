@@ -46,7 +46,7 @@
                 <button type="submit" class="btn btn-lg btn-black-outline btn-black" data-loading-text="{% trans 'Saving...' %}">
                     {% trans "Save review" %}</button>
                 {% trans "or" %}
-                <a href="{{ product.get_absolute_url }}">{% trans "cancel" %}</a>
+                <a class="btn-linkCheckout" href="{{ product.get_absolute_url }}">{% trans "cancel" %}</a>
             </fieldset>
         </form>
     </div>

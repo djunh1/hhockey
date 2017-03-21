@@ -348,18 +348,8 @@ h6,
 .text-danger {
   color: #f28281 !important;
 }
-.alert-success {
-  background-color: #90a878;
-}
-.alert-info {
-  background-color: #f7f7f7;
-}
-.alert-warning {
-  background-color: #f3c649;
-}
-.alert-danger {
-  background-color: #f28281;
-}
+
+
 .btn-social {
   border-color: #f7da64;
 }

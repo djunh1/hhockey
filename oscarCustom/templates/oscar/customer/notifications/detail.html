@@ -1,4 +1,4 @@
-{% extends "customer/baseaccountpage.html" %}
+{% extends "oscar/customer/baseaccountpage.html" %}
 {% load i18n %}
 
 {% block extra_breadcrumbs %}
@@ -35,6 +35,9 @@
             </tr>
         {% endif %}
     </table>
-    <div class="form-group form-actions"><a href="{% url 'customer:notifications-inbox' %}" class="btn btn-default">{% trans 'Return to notifications inbox' %}</a></div>
+    <div class="form-group form-actions">
+        <a href="{% url 'customer:notifications-inbox' %}" class="btn btn-success btn-large">
+            {% trans 'Return to notifications inbox' %}</a>
+    </div>
 {% endblock tabcontent %}
 

@@ -2,22 +2,27 @@
 {% load staticfiles %}
 
 {% block extrastyles %}
-  <link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap-material-design-font/css/material.css' %}">
-  <link rel="stylesheet" href="{% static 'pages/about/assets/tether/tether.min.css' %}">
-  <link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap/css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'pages/about/assets/animate.css/animate.min.css' %}">
-  <link rel="stylesheet" href="{% static 'pages/about/assets/theme/css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'pages/about/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+<link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap-material-design-font/css/material.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/tether/tether.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/animate.css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/theme/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/mobirise/css/mbr-additional.css' %}" type="text/css">
 {% endblock %}
 
 {% block extrascripts %}
 
-
-  <script src="{% static 'pages/about/assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js' %}"></script>
-  <script src="{% static 'pages/about/assets/jquery-mb-ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
-  <script src="{% static 'pages/about/assets/viewportChecker/jquery.viewportchecker.js' %}"></script>
-  <script src="{% static 'pages/about/assets/theme/js/script.js' %}"></script>
-  <script src="{% static 'pages/about/assets/mobirise-slider-video/script.js' %}"></script>
+<script src="{% static 'pages/about/assets/web/assets/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/tether/tether.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/smooth-scroll/SmoothScroll.js' %}"></script>
+<script src="{% static 'pages/about/assets/bootstrap-carousel-swipe/bootstrap-carousel-swipe.js' %}"></script>
+<script src="{% static 'pages/about/assets/jquery-mb-ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/viewportChecker/jquery.viewportchecker.js' %}"></script>
+<script src="{% static 'pages/about/assets/dropdown/js/script.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/touchSwipe/jquery.touchSwipe.min.js' %}"></script>
+<script src="{% static 'pages/about/assets/theme/js/script.js' %}"></script>
+<script src="{% static 'pages/about/assets/mobirise-slider-video/script.js' %}"></script>
 
 
 <input name="animation" type="hidden">
@@ -27,7 +32,7 @@
 
 {% block content %}
 <section class="mbr-slider mbr-section mbr-section__container carousel slide mbr-section-nopadding"
-         data-ride="carousel" data-keyboard="false" data-wrap="true" data-pause="false" data-interval="5000"
+         data-ride="carousel" data-keyboard="false" data-wrap="true" data-pause="false" data-interval="50000"
          id="slider-b">
     <div>
         <div>
@@ -59,37 +64,37 @@
                                mbr-section-full img-3"
                                data-bg-video-slide="false">
 
-                        <div class="mbr-table-cell">
-                            <div class="mbr-overlay"></div>
-                            <div class="container-slide container">
+                    <div class="mbr-table-cell">
+                        <div class="mbr-overlay"></div>
+                        <div class="container-slide container">
 
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-1">
-                                        <h2 class="mbr-section-title display-1">Heritage</h2>
-                                        <p class="mbr-section-lead lead">For the love of the game.</p>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="mbr-section mbr-section-hero carousel-item dark center mbr-section-full img-2"
-                               data-bg-video-slide="false">
-                        <div class="mbr-table-cell">
-                            <div class="mbr-overlay"></div>
-                            <div class="container-slide container">
-
-                                <div class="row">
-                                    <div class="col-md-8 col-md-offset-3 text-xs-right">
-                                        <h2 class="mbr-section-title display-1">Game time</h2>
-                                        <p class="mbr-section-lead lead">Hit the ice.</p>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-1">
+                                    <h2 class="mbr-section-title display-1">Heritage</h2>
+                                    <p class="mbr-section-lead lead">For the love of the game.</p>
 
 
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div><div class="mbr-section mbr-section-hero carousel-item dark center mbr-section-full img-2"
+                           data-bg-video-slide="false">
+                    <div class="mbr-table-cell">
+                        <div class="mbr-overlay"></div>
+                        <div class="container-slide container">
+
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-3 text-xs-right">
+                                    <h2 class="mbr-section-title display-1">Game time</h2>
+                                    <p class="mbr-section-lead lead">Hit the ice.</p>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 </div>
 
                 <a data-app-prevent-settings="" class="left carousel-control" role="button" data-slide="prev" href="#slider-b">
@@ -145,16 +150,16 @@
 
 
 
-        <div class="mbr-section mbr-section__container mbr-section__container--middle">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-xs-center">
-                        <h3 class="mbr-section-title display-2">WHAT PLAYERS HAVE TO SAY</h3>
-                        <small class="mbr-section-subtitle">Real players using our sticks</small>
-                    </div>
+    <div class="mbr-section mbr-section__container mbr-section__container--middle">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">WHAT PLAYERS HAVE TO SAY</h3>
+                    <small class="mbr-section-subtitle">Real players using our sticks</small>
                 </div>
             </div>
         </div>
+    </div>
 
 
     <div class="mbr-testimonials mbr-section mbr-section-nopadding">
@@ -175,27 +180,27 @@
                     </div>
                 </div><div class="col-xs-12 col-lg-4">
 
-                    <div class="mbr-testimonial card mbr-testimonial-lg">
-                        <div class="card-block"><p>“More great things to say. &nbsp;Where can I pick one up?”</p></div>
-                        <div class="mbr-author card-footer">
-                            <div class="mbr-author-img"><img
-                                    src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x153.png' %}" class="img-circle"></div>
-                            <div class="mbr-author-name">JVR</div>
-                            <small class="mbr-author-desc">Dangler</small>
-                        </div>
-                    </div>
-                </div><div class="col-xs-12 col-lg-4">
-
-                    <div class="mbr-testimonial card mbr-testimonial-lg">
-                        <div class="card-block"><p>“Unassisted”</p></div>
-                        <div class="mbr-author card-footer">
-                            <div class="mbr-author-img"><img
-                                    src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x126.png' %}" class="img-circle"></div>
-                            <div class="mbr-author-name">Eric S.</div>
-                            <small class="mbr-author-desc">Blue line down only</small>
-                        </div>
+                <div class="mbr-testimonial card mbr-testimonial-lg">
+                    <div class="card-block"><p>“More great things to say. &nbsp;Where can I pick one up?”</p></div>
+                    <div class="mbr-author card-footer">
+                        <div class="mbr-author-img"><img
+                                src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x153.png' %}" class="img-circle"></div>
+                        <div class="mbr-author-name">JVR</div>
+                        <small class="mbr-author-desc">Dangler</small>
                     </div>
                 </div>
+            </div><div class="col-xs-12 col-lg-4">
+
+                <div class="mbr-testimonial card mbr-testimonial-lg">
+                    <div class="card-block"><p>“Unassisted”</p></div>
+                    <div class="mbr-author card-footer">
+                        <div class="mbr-author-img"><img
+                                src="{% static 'pages/about/assets/images/screen-shot-2017-01-30-at-5-160x126.png' %}" class="img-circle"></div>
+                        <div class="mbr-author-name">Eric S.</div>
+                        <small class="mbr-author-desc">Blue line down only</small>
+                    </div>
+                </div>
+            </div>
 
             </div>
 

@@ -8,8 +8,8 @@
 <div class="container theme-container ptb-70" id="content_inner">
     <section class="contactPage-bg">
         <div class="theme-container container ">
-                <h3 class="text-center left"> Your order</h3>
-            <strong><span>Step 1: </span></strong><span>Complete your order</span>
+                <h3 class="text-center left"> Your Basket</h3>
+
             <hr>
         </div>
     </section>
@@ -188,12 +188,12 @@
 
         {% block savedbasket %}
         {% if user.is_authenticated and saved_formset %}
-        <div class="well">
+        <div class="well well-info">
             <div class="sub-header">
                 <h2>{% trans "Items to buy later" %}</h2>
             </div>
             <div class="row basket-title hidden-xs">
-                <p class="col-sm-8 h4">{% trans "Items" %}</p>
+                <p class="col-sm-7 h4">{% trans "Items" %}</p>
                 <p class="col-sm-2 h4 align-center">{% trans "Price" %}</p>
                 <div class="col-sm-2">&nbsp;</div>
             </div>
@@ -214,10 +214,15 @@
                             {% endthumbnail %}
                             {% endwith %}
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                             <h3><a href="{{ form.instance.product.get_absolute_url }}">{{ form.instance.description }}</a></h3>
-                            <p class="availability {{ session.availability.code }}">{{ session.availability.message }}</p>
-                            <a href="#" data-id="{{ forloop.counter0 }}" data-behaviours="remove">{% trans "Remove" %}</a>
+                            <p class="availability {{ session.availability.code }} pull-left">
+
+                                {{session.availability.message }}</p><br><br><br>
+                            <a href="#"
+                               data-id="{{ forloop.counter0 }}"
+                               data-behaviours="remove"
+                               class="btn-linkCheckout">{% trans "Remove" %}</a>
                             <div style="display:none">
                                 {{ form.move_to_basket }}
                                 {{ form.DELETE }}
@@ -225,7 +230,9 @@
                         </div>
                         {% purchase_info_for_product request form.instance.product as saved %}
                         <div class="col-sm-2 align-center">
-                            <p class="price_color">
+
+                            <p class="price_color align-right">
+                                <span class="align-right hidden-md hidden-lg hidden-sm ">Total : </span>
                                 {% if saved.price.is_tax_known %}
                                 {{ saved.price.incl_tax|currency:saved.price.currency }}
                                 {% else %}
@@ -233,8 +240,10 @@
                                 {% endif %}
                             </p>
                         </div>
-                        <div class="col-sm-2">
-                            <a href="#" data-id="{{ forloop.counter0 }}" class="btn pull-right btn-block" data-behaviours="move">{% trans "Move to basket" %}</a>
+                        <div class="col-sm-3">
+                            <a href="#" data-id="{{ forloop.counter0 }}"
+                               class="btn btn-lg btn-black-outline btn-black btn-block"
+                               data-behaviours="move">{% trans "Move to basket" %}</a>
                         </div>
                     </div>
                 </div>

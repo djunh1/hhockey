@@ -3015,7 +3015,7 @@ table {
 ********************************/
 
 .footer-wrap {
-    background-color: #000;
+    background-color: #1d3a51;
 }
 .text-widget .footer-logo {
     float: left;
@@ -3701,6 +3701,7 @@ table {
     }
     .pb-70 {padding-bottom: 50px;}
     .pt-70 { padding-top: 50px;}
+
 
     .mb-30 { margin-bottom: 20px;}
 

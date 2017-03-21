@@ -15,23 +15,27 @@
                         <td><a href="{% url 'customer:wishlists-detail' key=wishlist.key %}">{{ wishlist.name }}</a></td>
                         <td>{{ wishlist.lines.count }}</td>
                         <td>
+
+
                             <div class="btn-group">
-                                <a class="btn btn-info"
+                              <button type="button" class="btn btn-info btn-lg btn-block dropdown-toggle"
+                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Action
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a
                                    href="{% url 'customer:wishlists-detail' key=wishlist.key %}">
                                     {% trans 'View' %}</a>
-                            </div>
-                                <ul class="address-list">
-                                    <li>
-                                        <a href="{% url 'customer:wishlists-update' key=wishlist.key %}">
+                                </li>
+                                  <li><a href="{% url 'customer:wishlists-update' key=wishlist.key %}">
                                             {% trans 'Wish list settings' %}
                                         </a>
-                                    </li>
-                                    <li>
-                                        <a href="{% url 'customer:wishlists-delete' key=wishlist.key %}">
-                                            {% trans 'Delete' %}
-                                        </a>
-                                    </li>
-                                </ul>
+                                </li>
+
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{% url 'customer:wishlists-delete' key=wishlist.key %}">{% trans 'Delete' %}</a></li>
+                              </ul>
+                            </div>
 
                         </td>
                     </tr>
@@ -46,7 +50,7 @@
     {% endif %}
 
     <p>
-        <a href="{% url 'customer:wishlists-create' %}" class="btn btn-success">{% trans 'Create a new wish list' %}</a>
+        <a href="{% url 'customer:wishlists-create' %}" class="btn-linkCheckout">{% trans 'Create a new wish list' %}</a>
     </p>
 
 {% endblock tabcontent %}

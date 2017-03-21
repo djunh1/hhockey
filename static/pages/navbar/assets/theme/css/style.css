@@ -557,7 +557,7 @@ p.lead,
 .alert {
   border-radius: 0;
   border: 0;
-  font-family: 'Montserrat', sans-serif;
+
   font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.875rem;
@@ -574,22 +574,6 @@ p.lead,
     position: absolute;
     transform: rotate(45deg);
     width: 14px; }
-
-.alert-success {
-  background-color: #90a878;
-  color: #fff; }
-
-.alert-info {
-  background-color: #7e9b9f;
-  color: #fff; }
-
-.alert-warning {
-  background-color: #f3c649;
-  color: #fff; }
-
-.alert-danger {
-  background-color: #f28281;
-  color: #fff; }
 
 /**
  * TYPOGRAPHY

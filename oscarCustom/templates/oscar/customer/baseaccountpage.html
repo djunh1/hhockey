@@ -9,23 +9,13 @@
 {% block body_class %}account-profile{% endblock %}
 
 {% block breadcrumbs %}
-    <ul class="breadcrumb">
-        <li>
-            <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
-        </li>
-        <li>
-            <a href="{% url 'customer:summary' %}">{% trans 'Account' %}</a>
-        </li>
-        {% block extra_breadcrumbs %}{% endblock %}
-        <li class="active">{{ page_title }}</li>
-    </ul>
+
 {% endblock %}
 
-{% block headertext %}{{ page_title }}{% endblock %}
+{% block headertext %}{% endblock %}
 
 {% block column_left %}
-<div class="widget-wrap">
-     <h2 class="widget-title"> My Account </h2>
+<div class="widget-wrap account-wrap">
      <ul class="nav nav-pills nav-stacked ">
         {% block standard_tabs %}
             <li{% if active_tab == 'profile' %} class="active"{% endif %}>

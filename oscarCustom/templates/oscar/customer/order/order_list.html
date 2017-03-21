@@ -24,8 +24,10 @@
                 {% include "partials/form_fields.html" with form=form style='horizontal' %}
                 <div class="form-group">
                     <div class="col-sm-offset-4 col-sm-8">
-                        <button type="submit" class="btn btn-primary" data-loading-text="{% trans 'Filtering...' %}">{% trans 'Filter results' %}</button>
-                        <a href="{% url 'customer:order-list' %}" class="btn btn-default">{% trans 'Reset' %}</a>
+                        <button type="submit" class="btn btn-success btn-lg"
+                                data-loading-text="{% trans 'Filtering...' %}">{% trans 'Filter results' %}</button>
+                        <a href="{% url 'customer:order-list' %}" class="btn btn-warning btn-lg">
+                            {% trans 'Reset' %}</a>
                     </div>
                 </div>
             </form>

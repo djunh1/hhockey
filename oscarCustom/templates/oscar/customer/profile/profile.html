@@ -27,9 +27,10 @@
             </tr>
         </tbody>
     </table>
+    <a href="{% url 'customer:profile-update' %}" class="btn-linkCheckout">{% trans 'Edit profile' %}</a><br><br>
+    <a href="{% url 'customer:change-password' %}" class="btn btn-lg btn-successCustom">{% trans 'Change password' %}</a>
 
-    <a href="{% url 'customer:change-password' %}" class="btn btn-warning btn-large">{% trans 'Change password' %}</a>
-    <a href="{% url 'customer:profile-update' %}" class="btn btn-info">{% trans 'Edit profile' %}</a>
-    <a id="delete_profile" href="{% url 'customer:profile-delete' %}" class="btn btn-danger">{% trans 'Delete profile' %}</a>
+    <a id="delete_profile" href="{% url 'customer:profile-delete' %}" class="btn btn-lg btn-danger">
+        {% trans 'Delete  profile' %}</a>
 
 {% endblock %}
