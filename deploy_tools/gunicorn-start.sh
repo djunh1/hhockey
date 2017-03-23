@@ -6,7 +6,7 @@ SOCKFILE=/tmp/SITENAME.socket
 USER=ec2-user
 GROUP=webapps
 NUM_WORKERS=3
-DJANGO_SETTINGS_MODULE=hhockey.settings.override
+DJANGO_SETTINGS_MODULE=hhockey.settings.base
 DJANGO_WSGI_MODULE=hhockey.wsgi
 
 
