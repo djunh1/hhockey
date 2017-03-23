@@ -37,8 +37,9 @@
         {% endblock %}
 
         {# Additional JS scripts #}
-        {% block extrascripts %}{% endblock %}
+
         {% include 'layout/scripts.html' %}
+        {% block extrascripts %}{% endblock %}
         <script type="text/javascript">
                     $(function() {
                         {% block onbodyload %}{% endblock %}

@@ -15,7 +15,6 @@
 <!-- Global Sheet -->
 
 <link rel="stylesheet" href='{% static "templ/assets/css/normalize.css" %}'  type="text/css">
-<link rel="stylesheet" href='{% static "bower_components/bootstrap/dist/css/bootstrap.min.css" %}'  type="text/css">
 <link rel="stylesheet" href='{% static "templ/assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css"  %}' rel="stylesheet"  type="text/css">
 <link rel="stylesheet" href='{% static "templ/assets/plugins/owl.carousel.2/assets/owl.carousel.css" %}'  type="text/css">
 <link rel="stylesheet" href='{% static "templ/assets/plugins/animate.css-master/animate.min.css" %}'  type="text/css">
@@ -24,11 +23,15 @@
 <link rel="stylesheet" href='{% static "templ/assets/plugins/prettyphoto-master/css/prettyPhoto.css" %}'  type="text/css">
 
 <!-- Mobalrise Styles.  Make sure they do not override custom -->
+<link rel="stylesheet" href="{% static 'pages/about/assets/web/assets/mobirise-icons/mobirise-icons.css' %}">
 
-<link rel="stylesheet" href="{% static 'pages/home/assets/bootstrap/css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'pages/home/assets/animate.css/animate.min.css' %}">
-<link rel="stylesheet" href="{% static 'pages/home/assets/theme/css/style.css' %}">
-<link rel="stylesheet" href="{% static 'pages/home/assets/mobirise-gallery/style.css' %}">
+
+<link rel="stylesheet" href="{% static 'pages/about/assets/animate.css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/mobirise-gallery/style.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/bootstrap-material-design-font/css/material.css' %}">
+<link rel="stylesheet" href="{% static 'pages/about/assets/tether/tether.min.css' %}">
+
+
 
 <!-- Index css from templ -->
 <link rel="stylesheet" href='{% static "templ/assets/css/header.css" %}'  type="text/css">
@@ -37,16 +40,14 @@
 
 
 <!-- Oscar styles -->
-    {% if use_less %}
-        <link rel="stylesheet/less" type="text/css" href="{% static "oscar/less/styles.less" %}" />
-    {% else %}
-        <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
-    {% endif %}
+{% if use_less %}
+    <link rel="stylesheet/less" type="text/css" href="{% static "oscar/less/styles.less" %}" />
+{% else %}
+    <link rel="stylesheet" type="text/css" href="{% static "oscar/css/styles.css" %}" />
+{% endif %}
 <link rel="stylesheet" href="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.css" %}" />
 <link rel="stylesheet" type="text/css" href="{% static "oscar/css/datetimepicker.css" %}" />
 
 <!-- Base Style Sheet -->
 
 <link rel="stylesheet" href='{% static "app/css/base.css" %}'  type="text/css">
-
-

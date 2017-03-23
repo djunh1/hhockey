@@ -56,7 +56,7 @@
 {% endblock %}
 
 {% block extrascripts %}
-<script type="text/javascript" src="{% static "oscar/js/bootstrap3/bootstrap.min.js" %}"></script>
+
 <script src="{% static "oscar/js/oscar/ui.js" %}" type="text/javascript" charset="utf-8"></script>
 <script src="{% static "oscar/js/bootstrap-datetimepicker/bootstrap-datetimepicker.js" %}" type="text/javascript" charset="utf-8"></script>
 <script src="{% static "oscar/js/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.all.js" %}" type="text/javascript" charset="utf-8"></script>
@@ -64,7 +64,6 @@
 <!--script src='{% static "app/js/dist/index_bundle.js" %}'></script-->
 <script src='{% static "app/js/pageTheme.js" %}'></script>
 {% include "partials/extrascripts.html" %}
-
 {% endblock %}
 
 {% block onbodyload %}

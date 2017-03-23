@@ -10,7 +10,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-backface-visibility: visible !important;
     overflow-x: hidden;
+    z-index:-1;
 }
+
 
 a{
     color: #0b0d8c;
@@ -26,6 +28,12 @@ label{
     font-weight:100;
 }
 
+
+.dropdown-menu-hh {
+    top: 81% !important;
+    left:-1px;
+
+}
 
 /* Helpers */
 
@@ -47,7 +55,10 @@ label{
 
 /* NAVBAR */
 
-
+.navbar .opened{
+    min-height:355px;
+    padding:20px;
+}
 
 
 /* TEMP */
@@ -502,9 +513,12 @@ select option {
 
 div .form-control, p .form-control{
     color:#000;
-    font-size: 20px;
+    font-size: 16px;
     padding:5px 5px 5px 17px;
+    background:none;
 }
+
+
 
 div form.add-to-basket{
     width:100%;
@@ -895,13 +909,13 @@ h3 a{
 
 div .basket-form{
      color: #000;
-    height: 32px;
-
+    height: 42px;
     padding: 0 0 0 13px;
     font-size: 20px;
     border: 1px solid #000;
 
 }
+
 
 .btn-checkout{
     background:#c3ddfb;
@@ -1096,6 +1110,19 @@ div .custom-link{
 }
 
 /* User Profile  */
+
+.btn-clear{
+    background:#fff;
+    border-color: #000 !important;
+    color:#000;
+}
+
+.btn-clear:hover{
+    background:#ead2a3;
+    color:#000;
+
+}
+
 
 
 .account-wrap {

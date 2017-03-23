@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = True
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
-ALLOWED_HOSTS = ['heritage-hockey.com', 'localhost', 'www.hopewellhockey.com']
+ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1']
 
 # Heritage Hockey App definition
 
@@ -171,7 +171,7 @@ EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
 EMAIL_HOST = email_host
 EMAIL_HOST_USER = email_host_user
 EMAIL_HOST_PASSWORD = email_host_password
-DEFAULT_FROM_EMAIL = email_host_user
+DEFAULT_FROM_EMAIL = email_to_user
 DEFAULT_TO_EMAIL = email_to_user
 SERVER_EMAIL = email_host_user
 EMAIL_PORT = 465
