@@ -47,7 +47,7 @@ SECTION 1 -  FABRIC DEPLOYMENT
 (5) Activate File:  sudo ln -s ../sites-available/hopewellhockey.com /etc/nginx/nginx.conf
 
 (6) Replace sitename script to run the server
-    sed "s/SITENAME/staging-hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
+    sed "s/SITENAME/staging.hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
 
 (7) Reload nginx if required to update the settings: sudo service nginx restart
 

@@ -41,7 +41,7 @@ DEBUG = False
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
-ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
 # Heritage Hockey App definition
 
@@ -347,8 +347,12 @@ OSCAR_FROM_EMAIL = 'info@hopewellhockey.com'
 # =================
 # Stripe settings
 # =================
-STRIPE_SECRET_KEY = 'sk_test_AGMC3yWAvx3IWry5Oi5HH570'
-STRIPE_PUBLISHABLE_KEY = 'pk_test_92D0vFfWdORetWWb9sPVLgBS'
+
+LSK = get_secret("LIVE_SECRET_KEY")
+LPK = get_secret("LIVE_PUBLISH_KEY")
+
+STRIPE_SECRET_KEY = 'todo'
+STRIPE_PUBLISHABLE_KEY = 'todo'
 STRIPE_CURRENCY = 'USD'
 
 
