@@ -2,6 +2,8 @@ db.sqlite3
 __pycache__
 *pyc
 .idea
+.tox
+.cache
 secrets.json
 secrets_deployment.json
 static/app/js/node_modules/

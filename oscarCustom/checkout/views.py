@@ -45,7 +45,6 @@ class ShippingMethodView(CoreShippingMethodView):
 class PaymentDetailsView(CorePaymentDetailsView):
     template_name = 'oscar/checkout/payment_details.html'
     template_name_preview = 'oscar/checkout/preview.html'
-
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super(PaymentDetailsView, self).dispatch(request, *args, **kwargs)

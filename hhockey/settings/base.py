@@ -36,8 +36,8 @@ def get_secret(setting,secrets=secrets):
 
 SECRET_KEY = get_secret("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
+DEBUG = True
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.sites',
+    'django_nose',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -76,7 +77,6 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hhockeyUser.middleware.LoginRequiredMiddleware',
 ]
 
 LOGIN_EXEMPT_URLS = (
@@ -160,6 +160,9 @@ DATABASES = {
 
 if 'test' in sys.argv or 'test_coverage' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+
 
 # Email settings
 email_host = get_secret("EMAIL_HOST")
@@ -351,8 +354,8 @@ OSCAR_FROM_EMAIL = 'info@hopewellhockey.com'
 LSK = get_secret("LIVE_SECRET_KEY")
 LPK = get_secret("LIVE_PUBLISH_KEY")
 
-STRIPE_SECRET_KEY = 'todo'
-STRIPE_PUBLISHABLE_KEY = 'todo'
+STRIPE_SECRET_KEY = LSK
+STRIPE_PUBLISHABLE_KEY = LPK
 STRIPE_CURRENCY = 'USD'
 
 
