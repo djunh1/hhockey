@@ -13,7 +13,7 @@
             <hr>
         </div>
     </section>
-    <div class="wrapper">
+    <div class="wrapper wrapper-basket">
         {% if basket_warnings %}
             <h5>{% trans "Your Basket is Updated!" %}</h5>
             {% for warning in basket_warnings %}
@@ -26,7 +26,8 @@
             <h3>{% trans "You could be missing out on offers!" %}</h3>
             {% for upsell in upsell_messages %}
             {% blocktrans with message=upsell.message url=upsell.offer.get_absolute_url offer_name=upsell.offer.name %}
-            <div class="warning">{{ message }} to qualify for the <a href="{{ url }}">{{ offer_name }}</a> special offer</div>
+            <div class="warning">{{ message }} to qualify for the <a class="btn-linkCheckout" href="{{ url }}">{{ offer_name }}</a>
+                special offer</div>
             {% endblocktrans %}
             {% endfor %}
         </div>

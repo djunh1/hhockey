@@ -26,11 +26,11 @@
 
 {% block navigation %}
     {% include 'layout/navigation.html' %}
-
 {% endblock %}
 
 {% block contentshop %}
 <div class="container theme-container pt-150 pb-50">
+    {% include "partials/alert_messages.html" %}
     <article class="product_page"><!-- Start of product page -->
         <div class="container theme-container">
             <div class="row">

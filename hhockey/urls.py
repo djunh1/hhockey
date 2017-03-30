@@ -33,7 +33,6 @@ urlpatterns = [
     url(r'^contact/$', staticViews.contact, name='contact_page'),
     url(r'^faq/$', staticViews.faq, name='faq_page'),
     url(r'^terms/$', staticViews.toc, name='toc_page'),
-    url(r'^plans/$', staticViews.plans, name='plans_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
 

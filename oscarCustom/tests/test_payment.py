@@ -1,11 +1,8 @@
 from django.test import TestCase, RequestFactory
 from django.contrib.auth import authenticate
-from django.conf import settings
 
-from oscarCustom.checkout.views import PaymentDetailsView
-from oscarCustom.checkout.facade import Facade
+from . import CheckoutMixin
 
-import stripe
 
 from hhockeyUser.models import User
 
@@ -24,6 +21,6 @@ class AppPaymentTest(TestCase):
         login = self.client.login(username='testuser', password='hello')
         return login
 
-    def test_payment_gateway_renders(self):
-        pass
+
+
 

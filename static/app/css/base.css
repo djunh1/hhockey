@@ -52,6 +52,20 @@ label{
     text-align:left;
 }
 
+a.close{
+    position:relative;
+    z-index:9999;
+    color: #fff;
+    opacity:1;
+    display:inline;
+}
+
+div .alertinner{
+    position:relative;
+    z-index:1;
+}
+
+
 
 /* NAVBAR */
 
@@ -348,9 +362,15 @@ ul.basket-mini-item li.container-basket-info a:hover {
     background-color:#fff;
 }
 
+.wrapper-basket{
+    padding-left:13px;
+}
+
 .container-sticks{
     padding:50px 15px;
 }
+
+
 .sticks{
     background: #F0EAE7;
     color: #554740;
@@ -855,12 +875,13 @@ div.basket-text {
     border: 1px solid #000;
     color: #000;
 }
-.btn-successCustom:after {
+.btn-successCustom:after{
     background: #000;
     border: 1px solid #000;
 }
 .btn-successCustom:hover,
-.btn-successCustom:active {
+.btn-successCustom:active,
+{
     color: #000;
     background:#e9f5e0;
 }
@@ -980,7 +1001,7 @@ div.navbar-shop .navbar-text{
 
 .well-info {
     background-color: #fff;
-    border-color: #000;
+    border:1px dashed #42d4b2;
 }
 
 #new_shipping_address div label,
@@ -1106,7 +1127,7 @@ div .custom-link{
 
 .review_add{
     background-color: #ffffff;
-    border: 2px solid #000000;
+    border: none;
 }
 
 /* User Profile  */
@@ -1361,6 +1382,10 @@ ul.address-list li:before
 
 
 /* TOC and PRIVACY POLICY */
+
+#privacyPolicy li{
+    list-style-type: none;
+  }
 
 .toc h3{
     text-align:center;
@@ -1779,10 +1804,46 @@ div.navbar-shop .navbar-text {
     .section-title, .widget-title {
     font-size: 30px;
     }
+
+    #add_review_form #id_title, #add_review_form #id_body, #add_review_form #id_name, #add_review_form #id_email
+     {
+        width: 420px;
+    }
 }/* END MEDIA QUERY */
 
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
+
+
+#add_review_form #id_title,
+#add_review_form #id_body,
+#add_review_form #id_name,
+#add_review_form #id_email
+ {
+  width: 326%;
+}
+
+
+
+div .controls{
+    width:326%;
+}
+
+.accordion-heading .title-2 {
+    font-size:18px;
+}
+
+.section-promo{
+    margin-left:9px;
+}
+
+ul#tabs li a{
+    padding:10px 9px;
+}
+
+#write_review{
+    margin-top:22px;
+}
 
 .sub-header{
     padding-top:30px;
