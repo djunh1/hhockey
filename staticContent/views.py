@@ -57,3 +57,7 @@ def privacy(request):
 def sticks(request):
     return render(request, 'site/sticks.html')
 
+
+def warranty(request):
+    return render(request, 'site/warranty.html')
+

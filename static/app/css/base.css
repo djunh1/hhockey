@@ -1364,7 +1364,7 @@ ul.address-list li:before
     border-right:none;
     border-left:none;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 0 30px;
     width: 100%;
 }
@@ -1382,6 +1382,11 @@ ul.address-list li:before
 
 
 /* TOC and PRIVACY POLICY */
+
+#privacyPolicy h2{
+    font-size:21px;
+    margin-top:30px;
+}
 
 #privacyPolicy li{
     list-style-type: none;

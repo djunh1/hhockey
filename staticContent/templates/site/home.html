@@ -25,9 +25,11 @@
                     <div class="mbr-table-md-up">
 
                         <div class="mbr-table-cell mbr-right-padding-md-up mbr-valign-top col-md-7 image-size" style="width: 61%;">
-                            <div class="mbr-figure"><iframe class="mbr-embedded-video"
-                                  src="https://www.youtube.com/embed/j_wWDWjiqbs?rel=0&amp;amp;showinfo=0&amp;autoplay=0&amp;loop=0"
-                                   width="1280" height="720" frameborder="0" allowfullscreen></iframe></div>
+                            <!-- TODO: PICTURE -->
+                            <img class="mbr-figure" src="/static/pages/home/assets/images/home-stick.jpg" alt="Our Hockey Sticks">
+
+
+                                   </img>
                         </div>
                         <div class="mbr-table-cell col-md-5 text-xs-center text-md-left content-size">
 
@@ -35,11 +37,11 @@
 
                             <div class="mbr-section-text lead">
                                 <p>Superior performance<br>
-                                    Starting at $9 a month.</p>
+                                    Starting at $149.</p>
                             </div>
                             <div class="mbr-section-btn">
                                 <a class="btn btn-lg btn-black-outline btn-black"
-                                   href="{% url 'sticks_page' %}">Get started</a>
+                                   href="{{ homepage_url }}">Shop Sticks</a>
                             </div>
                         </div>
                     </div>
@@ -58,12 +60,13 @@
         <div class="mbr-cards-col col-xs-12 col-lg-6" style="padding-top: 80px; padding-bottom: 80px;">
             <div>
                 <div class="card card-block">
+                    <!-- TOTO: PICTURE -->
                     <div class="card-img"><img src="/static/pages/sticks/assets/images/screen-shot-2017-02-02-at-5-600x598.png" class="card-img-top"></div>
                     <div class="card-block">
-                        <h4 class="card-title">66<br>VRX</h4>
-                        <h5 class="card-subtitle">$300&nbsp;</h5>
-                        <p class="card-text">Step it up with the VRX model. &nbsp;This slick twig clocks in at 400g -
-                            as light as the Bauer Vapor XV and just as strong. &nbsp; &nbsp;</p>
+                        <h4 class="card-title">The Heritage<br></h4>
+                        <h5 class="card-subtitle">$149&nbsp;</h5>
+                        <p class="card-text">Our flagship model. &nbsp;The Heritage clocks in at 415g -
+                            as light as the leading brands and just as strong. &nbsp;</p>
 
                     </div>
                 </div>
@@ -74,8 +77,8 @@
                 <div class="card card-block">
                     <div class="card-img"><img src="/static/pages/sticks/assets/images/screen-shot-2017-02-02-at-5-600x598.png" class="card-img-top"></div>
                     <div class="card-block">
-                        <h4 class="card-title">66<br>VRX</h4>
-                        <h5 class="card-subtitle">$300&nbsp;</h5>
+                        <h4 class="card-title"></h4>
+                        <h5 class="card-subtitle">$149&nbsp;</h5>
                         <p class="card-text">Step it up with the VRX model. &nbsp;This slick twig clocks in at 400g -
                             as light as the Bauer Vapor XV and just as strong. &nbsp; &nbsp;</p>
 
@@ -88,7 +91,7 @@
         <div class="row">
             <div class="col-xs-12 text-xs-center">
                 <a class="btn btn-lg btn-black-outline btn-black"
-                                   href="{{ homepage_url }}">LETS GO!</a><br><br><br>
+                                   href="{% url 'sticks_page' %}">Check out Sticks</a><br><br><br>
             </div>
 
         </div>
@@ -106,10 +109,10 @@
                                                      class="etl-icon icon-magnifying-glass mbr-iconfont mbr-iconfont-features4"
                                                      style="color: black;"></a></div>
                     <div class="card-block">
-                        <h4 class="card-title">Plan</h4>
-                        <h5 class="card-subtitle">Pick the plan that works for you</h5>
-                        <p class="card-text">Check out what we have to offer.  Our memberships are flexible and
-                            allow you to get replacement twigs for you or your lads.</p>
+                        <h4 class="card-title">Shop</h4>
+                        <h5 class="card-subtitle">Browse the store</h5>
+                        <p class="card-text">Check out what we have to offer.  Our sticks feel every bit as light
+                            and responsive as a $300 stick, but are half the cost. </p>
 
                     </div>
                 </div>
@@ -121,10 +124,11 @@
                     <div class="card-img iconbox"><a href="https://mobirise.com"
                                                      class="etl-icon  icon-basket mbr-iconfont mbr-iconfont-features4" style="color: black;"></a></div>
                     <div class="card-block">
-                        <h4 class="card-title">Select</h4>
+                        <h4 class="card-title">Checkout</h4>
                         <h5 class="card-subtitle">Chose your twig</h5>
-                        <p class="card-text">Select what stick you want shipped.  We offer all the flexes and
-                        blade curves you are used to.</p>
+                        <p class="card-text">Our easy to use, no frills platform makes it easy to pick out exactly
+                            what you want. Sign up, check out.  It takes 5 minutes.
+                            .</p>
 
                     </div>
                 </div>
@@ -137,9 +141,9 @@
                     <div class="card-block">
                         <h4 class="card-title">Deliver</h4>
                         <h5 class="card-subtitle">Sit back and relax</h5>
-                        <p class="card-text">Our store will be hard at work to get you your new stick
-                            in the mail in no time.  Sit back, crack a cold one and know that your new stick
-                            will be at your doorstep in no time!</p>
+                        <p class="card-text">Our fulfillment center will be hard at work shipping your stick.
+                            Satisfaction is guaranteed.
+                            .</p>
                     </div>
                 </div>
             </div>

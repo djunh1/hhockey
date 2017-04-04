@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     url(r'shop/', include(oscarApp.urls)),
     url(r'^about/$', staticViews.about, name='about_page'),
+    url(r'^warranty/$', staticViews.warranty, name='warranty_page'),
     url(r'^contact/$', staticViews.contact, name='contact_page'),
     url(r'^faq/$', staticViews.faq, name='faq_page'),
     url(r'^terms/$', staticViews.toc, name='toc_page'),
