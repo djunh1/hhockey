@@ -20,6 +20,5 @@ POSITION_CHOICES = (
 
 class User(CoreAbstractUser):
     username = models.CharField(max_length=45, blank=True)
-    birth_date = models.DateField(null=True, blank=True)
     league = models.CharField(max_length=15, choices=LEAGUE_CHOICES, blank=True)
     position = models.CharField(max_length=8, choices=POSITION_CHOICES, blank=True)
