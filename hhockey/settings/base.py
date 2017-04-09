@@ -82,12 +82,14 @@ MIDDLEWARE_CLASSES = [
 ]
 
 #https - change hsts to 31536000 once tested
+'''
 if DEBUG == False:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+'''
 
 #Axes config
 AXES_LOGIN_FAILURE_LIMIT = 2

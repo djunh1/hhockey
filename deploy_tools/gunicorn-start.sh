@@ -1,4 +1,4 @@
-#!/bin/bash
+nano#!/bin/bash
 
 NAME="hhockey"
 DJANGODIR=/home/ec2-user/sites/SITENAME/source
