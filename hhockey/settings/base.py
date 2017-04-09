@@ -37,7 +37,7 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = True
+DEBUG = False
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'axes',
     'djangobower',
     'functional_tests',
     'hhockeyUser',
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
+    'django_jenkins',
 ]
 
 SITE_ID = 1
@@ -78,6 +80,18 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+#https - change hsts to 31536000 once tested
+if DEBUG == False:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+#Axes config
+AXES_LOGIN_FAILURE_LIMIT = 2
+AXES_COOLOFF_TIME = 1
 
 LOGIN_EXEMPT_URLS = (
 
@@ -346,6 +360,9 @@ OSCAR_ACCOUNTS_REDIRECT_URL = 'customer:profile-view'
 # Registration
 OSCAR_SEND_REGISTRATION_EMAIL = True
 OSCAR_FROM_EMAIL = 'info@hopewellhockey.com'
+
+#other settings
+OSCAR_ALLOW_ANON_REVIEWS = False
 
 # =================
 # Stripe settings

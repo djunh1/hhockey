@@ -81,9 +81,8 @@
                         <p>
                         {% if source.reference %}
                             {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name reference=source.reference %}
-                                Your card has been billed for {{ amount }}. <br> Your Stripe reference number is: {{
-                            reference
-                            }}
+                                Your card has been billed for {{ amount }}. <br>
+
                             {% endblocktrans %}
                         {% else %}
                             {% blocktrans with amount=source.amount_allocated|currency:source.currency type=source.source_type.name %}

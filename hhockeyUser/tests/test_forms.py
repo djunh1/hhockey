@@ -21,7 +21,6 @@ class AppUserFormTest(TestCase):
         self.assertTrue(form.fields['first_name'])
         self.assertTrue(form.fields['last_name'])
         self.assertTrue(form.fields['email'])
-        self.assertTrue(form.fields['birth_date'])
         self.assertTrue(form.fields['league'])
         self.assertTrue(form.fields['position'])
 
@@ -29,13 +28,12 @@ class AppUserFormTest(TestCase):
         form_data = {'first_name': 'Dory',
                      'last_name': 'M.',
                      'email': 'd@test.com',
-                     'birth_date': '1/1/1990',
                      'league': 'COLLEGE',
                      'position': 'WING'}
         form = UserForm(self.user, data=form_data)
         self.assertEqual(form.is_valid(), True)
 
     def test_form_not_valid_for_date(self):
-        form_data = {'first_name': 'Dory', 'birth_date': 'drystrbry'}
+        form_data = {'first_name': 'Dory',}
         form = UserForm(self.user, data=form_data)
         self.assertEqual(form.is_valid(), False)

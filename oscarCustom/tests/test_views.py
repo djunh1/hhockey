@@ -36,12 +36,12 @@ class AppCustomViews(TestCase):
         self.assertEqual(HomeView.template_name, 'oscar/promotions/home.html')
 
     def test_basket_view_template(self):
-        request = self.client.get('/shop/basket/')
-        self.assertTemplateUsed(request, 'oscar/basket/basket.html')
-
+        r
     def test_catalogue_view_templates(self):
         request = self.client.get('/shop/catalogue/')
-        self.assertEqual(request.status_code, 200)
+        self.assertEqual(request.status_cequest = self.client.get('/shop/basket/')
+        self.assertTemplateUsed(request, 'oscar/basket/basket.html')
+ode, 200)
         self.assertTemplateUsed(request, 'oscar/catalogue/browse.html')
         self.assertEqual(ProductCategoryView.template_name, 'oscar/catalogue/category.html')
         self.assertEqual(ProductDetailView.template_folder, 'oscar/catalogue')

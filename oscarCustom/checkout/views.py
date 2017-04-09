@@ -37,9 +37,7 @@ class ShippingAddressView(CoreShippingAddressView):
 class ShippingMethodView(CoreShippingMethodView):
     pass
     '''
-    def get_success_response(self):
-        #If different solution is needed, change this redirect to the payment details, and load a bankcard form.
-        return redirect('checkout:preview')
+    Will not implement in this application due to compliance issues.
     '''
 
 class PaymentDetailsView(CorePaymentDetailsView):

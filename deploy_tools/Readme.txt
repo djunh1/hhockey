@@ -31,7 +31,7 @@ Procedure:
 SECTION 1 -  FABRIC DEPLOYMENT
 
 (1) Use FABRIC to deploy the application. (located in deploy_tools)
-    fab deploy:host=ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com.  Modify host as needed.
+    fab deploy:host=hopewellhockey.com.  Modify host as needed.
 
 (2) Log into EC2 instance.
     ssh -i "$HOME/.ssh/hopewell-hockey-kp.pem" ec2-user@ec2-35-166-188-189.us-west-2.compute.amazonaws.com
@@ -60,25 +60,33 @@ SECTION 1 -  FABRIC DEPLOYMENT
 
 
 
-SECTION 2 - Installing Jenkins
+SECTION 2 - Installing Jenkins - Mac OS
 
    Pre-req - As root ( sudo su -) update yum ( yum update)
             yum install -y docker nginx git
 
-(1) Install java sudo yum -y install java
+(1) Install and update jenkins on dev machine:
+    brew update && brew install jenkins
 
-(2) Download Jenkins via red hat repo
-    sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+(2) Install Java if needed: (time of writing, JDK 8 Update 121)
+    brew cask install java
 
-(3) Import a verification key using RPM :
-    sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+(3) Start Jenkins upon login:
+    ln -sfv /usr/local/opt/jenkins/*.plist ~/Library/LaunchAgents
 
-(4) Install Jenkins
-    sudo yum install jenkins
+(4) Configure Jenkins to start on system startup.
+    sudo cp -fv /usr/local/opt/jenkins/*.plist /Library/LaunchDaemons
+    sudo chown `whoami` /Library/LaunchDaemons/homebrew.mxcl.jenkins.plist
 
 (5) Find the service and start jenkins:
     (a) To find the service : yum whatprovides service
-    (b) start Jenkins (as root) : service jenkins start
+    (b) start Jenkins (as root) : /usr/local/bin/jenkins, or jenkins ( if homebrew is correctly configured)
+
+(6) To restart Jenkins (Optional):
+    launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.jenkins.plist
+
+(7) check the homebrew.mxcl.jenkins,plist file -  change the IP or port as needed.  Default will be 8080 for now.
 
 
 Section 3 -Covers various commands to restart services.  run as the default user (ec2-user)
@@ -98,6 +106,7 @@ Section 3 -Covers various commands to restart services.  run as the default user
 (4) To Restart supervisord:  NOT WORKING!!
     This file doesn't run yet.  Make sure the command works.  It likely needs sudo, or to change owner of the
     gunicorn file
+
 
 
 
