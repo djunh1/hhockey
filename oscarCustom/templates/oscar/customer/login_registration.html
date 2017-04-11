@@ -47,12 +47,12 @@
                     {% csrf_token %}
                     {% include "partials/form_fields.html" with form=registration_form %}
                     <p > By creating an account, you agree to our
-                        <a class="hhockey-link" href="{% url 'toc_page' %}">terms</a>.
+                        <a class="btn-linkCheckout" href="{% url 'toc_page' %}">terms</a>.
                     </p>
                     <button name="registration_submit"
                             type="submit"
                             value="Register"
-                            class="btn btn-lg btn-black-outline btn-black disabled"
+                            class="btn btn-lg btn-black-outline btn-black"
                             data-loading-text="{% trans 'Registering...' %}"
                             >{% trans 'Register' %}</button>
                 </form>

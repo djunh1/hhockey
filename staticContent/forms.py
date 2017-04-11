@@ -1,4 +1,5 @@
 from django import forms
+from captcha.fields import CaptchaField
 
 class ContactForm(forms.Form):
     contact_name = forms.CharField(required=True)
@@ -14,6 +15,10 @@ class ContactForm(forms.Form):
         self.fields['contact_email'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Contact Email'})
         self.fields['content'].widget.attrs.update({'class': 'form-control message input-message',
                                                     'placeholder': 'Get in touch with us.'})
+
+
+class AxesCaptchaForm(forms.Form):
+    captcha = CaptchaField()
 
 
 

@@ -10,10 +10,8 @@ from django.contrib.auth.views import password_reset, password_reset_done, passw
 from oscar.app import application as oscarApp
 from staticContent import views as staticViews
 
+from oscarCustom.customer.views import AccountAuthView
 from axes.decorators import watch_login
-from allauth.account.views import login
-
-
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -30,7 +28,7 @@ urlpatterns = [
     url(r'^shop/password-reset/complete/$', password_reset_complete,
                                          {'template_name':'oscar/registration/password_reset_complete.html'},
                                          name='password_reset_complete'),
-    url(r'^accounts/login/$', watch_login(login)),
+    url(r'shop/accounts/login', watch_login(AccountAuthView.as_view())),
     url(r'^accounts/', include('allauth.urls')),
     url(r'shop/', include(oscarApp.urls)),
     url(r'^about/$', staticViews.about, name='about_page'),
@@ -40,7 +38,9 @@ urlpatterns = [
     url(r'^terms/$', staticViews.toc, name='toc_page'),
     url(r'^privacy/$', staticViews.privacy, name='privacyPolicy_page'),
     url(r'^sticks/$', staticViews.sticks, name='sticks_page'),
+    url(r'^locked/$', staticViews.locked, name='locked_page'),
     url(r'^hhadmin/', admin.site.urls),
+    url(r'^captcha/', include('captcha.urls')),
 ]
 
 if settings.DEBUG:

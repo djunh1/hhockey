@@ -1,11 +1,21 @@
 from django.contrib import messages
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.template import Context
 from django.template.loader import get_template
+from django.template import RequestContext
+from django.shortcuts import render_to_response
+from django.core.urlresolvers import reverse_lazy
 
-from staticContent.forms import ContactForm
+from easy_timezones.utils import get_ip_address_from_request
+from axes.utils import reset
+
+
+from staticContent.forms import ContactForm, AxesCaptchaForm
+
+
 
 def home(request):
     return render(request, 'site/home.html')
@@ -44,6 +54,19 @@ def contact(request):
 
 def faq(request):
     return render(request, 'site/freqQuest.html')
+
+
+def locked(request):
+    if request.POST:
+        form = AxesCaptchaForm(request.POST)
+        if form.is_valid():
+            ip = get_ip_address_from_request(request)
+            reset(ip=ip)
+            return HttpResponseRedirect(reverse_lazy('customer:login'))
+    else:
+        form = AxesCaptchaForm()
+
+    return render_to_response('site/locked.html', dict(form=form), context_instance=RequestContext(request))
 
 
 def toc(request):

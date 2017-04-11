@@ -1,0 +1,36 @@
+{% extends "layout/app.html" %}
+
+{% block title %}Terms and Conditions of Use{% endblock %}
+
+{% block content %}
+<article>
+
+    <section class="article-content">
+        <div class="container theme-container sec-space toc">
+            <div class="row  pt-15">
+                <div class="col-md-12"><br>
+                    <h1 class="section-title"> Login Locked</h1><br>
+                    <hr class="divider-dotted">
+                    <div id="privacyPolicy">
+                        <p class="tocFont">We have detected too many login attempts.  Please try again later.
+                        </p>
+                        <p>If you feel this was an error, please contact us at info@hopewellhockey.com</p>
+                        <p>To attempt to log back in, please complete the form below:</p>
+                        <form action="" method="post">
+                        {% csrf_token %}
+
+                        {{ form.captcha.errors }}
+                        {{ form.captcha }}
+
+                        <div class="form-actions">
+                            <input class="btn btn-lg btn-info" type="submit" value="Submit" />
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</article>
+{% endblock %}

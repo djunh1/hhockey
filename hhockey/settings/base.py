@@ -37,7 +37,7 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = False
+DEBUG = True
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'axes',
+    'captcha',
+    'easy_timezones',
     'djangobower',
     'functional_tests',
     'hhockeyUser',
@@ -79,6 +81,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 #https - change hsts to 31536000 once tested
@@ -92,8 +95,9 @@ if DEBUG == False:
 '''
 
 #Axes config
-AXES_LOGIN_FAILURE_LIMIT = 2
-AXES_COOLOFF_TIME = 1
+AXES_LOGIN_FAILURE_LIMIT = 7
+AXES_COOLOFF_TIME = 2
+AXES_LOCKOUT_URL = reverse_lazy('locked_page')
 
 LOGIN_EXEMPT_URLS = (
 

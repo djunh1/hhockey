@@ -12,6 +12,8 @@ from oscar.apps.customer.views import AddressCreateView as CoreAddressCreateView
 from oscar.apps.customer.views import AddressUpdateView as CoreAddressUpdateView
 from oscar.apps.customer.views import EmailDetailView as CoreEmailDetailView
 
+
+
 from oscar.core.loading import (
     get_class, get_classes, get_model, get_profile_class)
 

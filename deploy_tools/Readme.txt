@@ -47,7 +47,7 @@ SECTION 1 -  FABRIC DEPLOYMENT
 (5) Activate File:  sudo ln -s ../sites-available/hopewellhockey.com /etc/nginx/nginx.conf
 
 (6) Replace sitename script to run the server
-    sed "s/SITENAME/staging.hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
+    sed "s/SITENAME/staging-hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
 
 (7) Reload nginx if required to update the settings: sudo service nginx restart
 
@@ -99,6 +99,7 @@ Section 3 -Covers various commands to restart services.  run as the default user
 
 (3) To stop gunicorn script:
       (a)  Stop the service : pkill gunicorn
+      (b) sed "s/SITENAME/staging-hopewellhockey.com/g" gunicorn-start.sh | sudo tee gunicorn-start.sh
       (b) Check the file can be run : ls -l gunicorn-start.sh
       (c) change ownership : chmod 777 gunicorn-start.sh
       (d) Run it in the current directory: ./gunicorn-start.sh   (permission issues should be ok)
