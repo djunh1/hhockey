@@ -7,7 +7,8 @@ import random
 REPO_URL = 'https://github.com/djunh1/hhockey.git'
 LOCAL_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-env.host = ['staging.hopewellhockey.com']
+#staging-hopewellhockey.com or hopewellhockey.com  (need to configure unix socket if using another)
+env.host = ['hopewellhockey.com']
 env.user = 'ec2-user'
 env.key_filename = '/Users/djunh/.ssh/hopewell-hockey-kp.pem'
 

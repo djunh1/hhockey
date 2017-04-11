@@ -37,7 +37,7 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = True
+DEBUG = False
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.
