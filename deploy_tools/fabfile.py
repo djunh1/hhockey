@@ -8,12 +8,12 @@ REPO_URL = 'https://github.com/djunh1/hhockey.git'
 LOCAL_DIR =os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 #staging-hopewellhockey.com or hopewellhockey.com  (need to configure unix socket if using another)
-env.host = ['hopewellhockey.com']
+siteName = 'hopewellhockey.com'
 env.user = 'ec2-user'
 env.key_filename = '/Users/djunh/.ssh/hopewell-hockey-kp.pem'
 
 def deploy():
-    site_folder = '/home/%s/sites/%s' % (env.user, env.host)
+    site_folder = '/home/%s/sites/%s' % (env.user, siteName)
     source_folder = site_folder + '/source'
     _create_directory_structure_if_necessary(site_folder)
     _get_latest_source(source_folder)
@@ -55,9 +55,13 @@ def _update_settings(source_folder, site_name):
 
 def _update_virtualenv(site_folder, source_folder):
     virtualenv_folder = site_folder + '/virtualenv'
-    if not exists(virtualenv_folder + '/bin/pip'):
-        run('python3 -m venv --without-pip %s' % (virtualenv_folder,))
-        run('cd %s && curl https://bootstrap.pypa.io/get-pip.py | python' %(virtualenv_folder +'/bin'))
+    if not os.path.exists('ls %s/bin/pip' % (virtualenv_folder)):
+        #run('python3 -m venv --without-pip %s' % (virtualenv_folder,))
+        run('cd %s && curl -O https://bootstrap.pypa.io/get-pip.py ' %(virtualenv_folder +'/bin'))
+        run('python3 %s/bin/get-pip.py --user' % (virtualenv_folder))
+        run('cd %s && virtualenv virtualenv -p python3 ' % (site_folder))
+
+
     run('%s/bin/pip install -r %s/requirements.txt' % (
             virtualenv_folder, source_folder
     ))
@@ -79,7 +83,7 @@ def _update_static_files(source_folder):
         source_folder,
     ))
 
-
+#Cannot connect to mysql, TODO fix connection.
 def _update_database(source_folder):
     run('cd %s && ../virtualenv/bin/python manage.py migrate --noinput' % (
         source_folder,
