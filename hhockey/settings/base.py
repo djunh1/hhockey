@@ -40,7 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = False
 
 
-#TO DO, want to have actual URLs not the AWS long address for allowed hosts.
+#TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
 ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
 # Heritage Hockey App definition
@@ -108,6 +108,8 @@ ROOT_URLCONF = 'hhockey.urls'
 ##################
 # AUTHENTICATION #
 ##################
+
+
 AUTH_USER_MODEL = "hhockeyUser.User"
 
 LOGIN_REDIRECT_URL = reverse_lazy('home_page')
