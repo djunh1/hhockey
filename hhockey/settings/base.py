@@ -43,7 +43,7 @@ DEBUG = False
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
 ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
-# Heritage Hockey App definition
+# Hopewell Hockey App definition
 
 INSTALLED_APPS = [
     'django.contrib.contenttypes',
@@ -90,7 +90,7 @@ if DEBUG == False:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 '''
 
@@ -116,6 +116,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('home_page')
 LOGIN_URL = reverse_lazy('customer:login')
 LOGOUT_URL = reverse_lazy('customer:logout')
 
+ACCOUNT_SIGNUP_FORM_CLASS = 'oscar.apps.customer.forms.EmailUserCreationForm'
 
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = {
