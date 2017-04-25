@@ -37,7 +37,7 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = False
+DEBUG = True
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
@@ -70,7 +70,7 @@ INSTALLED_APPS = [
     'django_jenkins',
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
