@@ -542,6 +542,7 @@ div .form-control, p .form-control{
 
 div form.add-to-basket{
     width:100%;
+    margin-top:10%;
 }
 
 .buy-btn{
@@ -1793,8 +1794,16 @@ div .product-carousel {
 
 @media (max-width: 991px){
 
+
+
+    #id_sort_by{
+    width:25%;
+    padding:5px 5px;;
+}
+
+
    .nav-checkout.navbar .nav {
-    padding-left: 6%;
+    padding-left: 18%;
 }
 
 div.navbar-shop .navbar-text {
@@ -1819,6 +1828,18 @@ div.navbar-shop .navbar-text {
 
 @media only screen and (min-width: 320px) and (max-width: 768px) {
 
+#id_sort_by{
+    width:30%;
+    padding:5px 5px;;
+}
+
+.blog-heading .date {
+
+    height: 55px;
+}
+.blog-text {
+      padding-left: 0px;
+     }
 
 #add_review_form #id_title,
 #add_review_form #id_body,

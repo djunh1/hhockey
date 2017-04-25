@@ -17,14 +17,14 @@
                 {% csrf_token %}
                 {{ basket_form.as_p }}
                 <button type="submit"
-                        class="btn btn-lg btn-black-outline btn-black"
+                        class="btn btn-lg btn-black-outline btn-black btn-block"
                         data-loading-text="{% trans 'Adding...' %}">
-                    {% trans "Add to basket" %}
+                    {% trans "Add to Cart" %}
                 </button>
             </form>
         </li>
     </ul>
 </div>
 {% else %}
-<span class="btn btn-lg btn-black-outline btn-black">{% trans "Add to basket" %}</span>
+<span class="btn btn-lg btn-black-outline btn-black btn-block">{% trans "Add to Cart" %}</span>
 {% endif %}

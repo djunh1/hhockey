@@ -33,7 +33,7 @@
 		<strong><span class="fsz-24">{{ order_total.incl_tax|currency }}</span></strong><span></span> will be debited
 		from your Credit Card.</span><br>
 		<div class="alert-actions">
-			<a href="{% url 'checkout:payment-details' %}" class="btn btn-info">Change payment details</a>
+			<a href="{% url 'checkout:payment-details' %}" class="btn btn-lg btn-black-outline btn-black">Change payment details</a>
 		</div>
 
 </div>
@@ -61,9 +61,7 @@
 				class="btn btn-lg btn-black-outline btn-black pull-right js-disable-on-click">Place order
 		</button>
 
-			$('form').submit(function() {
-				$(this).find("button[id='place-order']").prop('disabled',true);
-			});
+
 
     </div>
 </form>

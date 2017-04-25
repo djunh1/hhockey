@@ -52,7 +52,7 @@
                         <div class="prod-title"> <h2>{{ product.get_title }}</h2></div>
 
                         <div class="block-inline">
-                            <div class="prod-price font-2 pull-left fsz-16">
+                            <div class="prod-price font-2 pull-left fsz-20">
                                 <ins>{% purchase_info_for_product request product as session %}
                                     {% if session.price.exists %}
                                     {% if session.price.excl_tax == 0 %}
