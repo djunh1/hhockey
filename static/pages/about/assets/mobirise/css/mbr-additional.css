@@ -8,11 +8,11 @@ body,
 input,
 textarea,
 .mbr-company .list-group-text {
-  font-family: 'Raleway', sans-serif;
+
 }
 .mbr-footer-content li,
 .mbr-footer .mbr-contacts li {
-  font-family: 'Raleway', sans-serif;
+
 }
 .btn,
 .alert,
@@ -36,7 +36,7 @@ h6,
 .mbr-gallery-title,
 .mbr-map [data-state-details],
 .mbr-price {
-  font-family: 'Slabo 27px', serif;
+
 }
 .mbr-footer-content h1,
 .mbr-footer .mbr-contacts h1,
@@ -50,7 +50,7 @@ h6,
 .mbr-footer .mbr-contacts p strong,
 .mbr-footer-content strong,
 .mbr-footer .mbr-contacts strong {
-  font-family: 'Slabo 27px', serif;
+
 }
 .btn-sm,
 .lead a,
@@ -59,22 +59,22 @@ h6,
 .mbr-section-hero .mbr-section-lead,
 .mbr-cards .card-subtitle,
 .mbr-testimonial .card-block {
-  font-family: 'Open Sans', sans-serif;
+
   font-style: normal;
 }
 .mbr-author-name {
-  font-family: 'Slabo 27px', serif;
+
 }
 .mbr-author-desc {
-  font-family: 'Open Sans', sans-serif;
+
   font-style: normal;
 }
 .mbr-plan-title {
-  font-family: 'Slabo 27px', serif;
+
 }
 .mbr-plan-subtitle,
 .mbr-plan-price-desc {
-  font-family: 'Open Sans', sans-serif;
+
   font-style: normal;
 }
 .bg-primary {
@@ -620,7 +620,7 @@ h6,
 #ext_menu-10 .link,
 #ext_menu-10 .dropdown-item {
   color: #000000;
-  font-family: 'Slabo 27px', serif;
+
 }
 #ext_menu-10 .link {
   font-size: 1rem;

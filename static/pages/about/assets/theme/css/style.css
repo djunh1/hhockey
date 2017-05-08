@@ -553,7 +553,6 @@ p.lead,
 .alert {
   border-radius: 0;
   border: 0;
-  font-family: 'Montserrat', sans-serif;
   font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.875rem;
@@ -591,18 +590,18 @@ p.lead,
  * TYPOGRAPHY
  */
 body {
-  font-family: 'Raleway', sans-serif;
+
   color: #232323; }
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6,
 .display-1, .display-2, .display-3, .display-4 {
-  font-family: 'Montserrat', sans-serif;
+
   word-break: break-word;
   word-wrap: break-word; }
 
 input, textarea {
-  font-family: "Raleway"; }
+   }
 
 input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
   transition-delay: 9999s;
