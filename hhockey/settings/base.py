@@ -40,6 +40,7 @@ SECRET_KEY = get_secret("SECRET_KEY")
 DEBUG = False
 
 
+
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
 ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
@@ -81,7 +82,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'hhockeyUser.middleware.LoginRequiredMiddleware',
 ]
 
 #https - change hsts to 31536000 once tested
@@ -100,7 +101,7 @@ AXES_COOLOFF_TIME = 2
 AXES_LOCKOUT_URL = reverse_lazy('locked_page')
 
 LOGIN_EXEMPT_URLS = (
-
+    r'^$',
 )
 
 ROOT_URLCONF = 'hhockey.urls'
