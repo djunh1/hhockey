@@ -103,7 +103,7 @@ AXES_LOCKOUT_URL = reverse_lazy('locked_page')
 LOGIN_EXEMPT_URLS = (
     r'^$',
 )
-
+#
 ROOT_URLCONF = 'hhockey.urls'
 
 ##################
