@@ -82,8 +82,10 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'hhockeyUser.middleware.LoginRequiredMiddleware',
+
 ]
+
+#'hhockeyUser.middleware.LoginRequiredMiddleware',
 
 #https - change hsts to 31536000 once tested
 '''
@@ -101,9 +103,9 @@ AXES_COOLOFF_TIME = 2
 AXES_LOCKOUT_URL = reverse_lazy('locked_page')
 
 LOGIN_EXEMPT_URLS = (
-    r'^$',
+
 )
-#
+#r'^$',
 ROOT_URLCONF = 'hhockey.urls'
 
 ##################

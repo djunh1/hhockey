@@ -35,7 +35,7 @@
                 {% endif %}
             </li-->
             {% endcomment %}
-            <li class="step3 {% if step == 3 %}active{% else %}{% if step == 4 %}previous{% else %}{% if step > 3 %}visited{% else %}previous{% endif %}{% endif %}{% endif %} ">
+            <li class="step3 {% if step == 3 %}active{% else %}{% if step == 4 %}previous{% else %}{% if step == 3 %}previous{% else %}{% if step == 5 %}visited{% else %}disabled{% endif %}{% endif %}{% endif %}{% endif %}">
                 {% if step == 4 %}
                     <a href="{% url 'checkout:payment-details' %}">
                         <span class="visible-inline-sm icon-ok"></span>
@@ -50,7 +50,8 @@
                 {% endif %}
             </li>
 
-            <li class="step4 {% if step == 4 %}active{% else %}disabled{% endif %} ">
+            <li
+                    class="step4 {% if step == 4 %}active{% else %}{% if step == 5 %}visited{% else %}previous{% endif %}{% endif %} ">
                 <span >
                     {% trans "Preview" %}
                 </span>

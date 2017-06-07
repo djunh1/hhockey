@@ -100,9 +100,8 @@
 
 .nav-dropdown {
   display: table !important;
-  font-family: "Montserrat";
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 100;
   height: auto !important; }
   .nav-dropdown .nav-item {
     display: table-cell;
