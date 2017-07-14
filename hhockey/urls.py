@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^locked/$', staticViews.locked, name='locked_page'),
     url(r'^hhadmin/', admin.site.urls),
     url(r'^captcha/', include('captcha.urls')),
+
 ]
 
 if settings.DEBUG:

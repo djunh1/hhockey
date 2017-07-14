@@ -18,7 +18,7 @@
             {% if user.is_authenticated %}
             <ul>
                 <li ><a href="{% url 'customer:summary' %}">
-                    {{ user.get_full_name|default:'Hopewell Hockey Dangler' }}'s Account
+                    {{ user.get_full_name|default:'New User' }}'s Account
                 </a>
                 </li>
                 <li ><a href="{% url 'customer:order-list' %}">
