@@ -1241,12 +1241,6 @@ ul.address-list li:before
     background-image: url(/static/pages/about/assets/images/outside.jpeg);
 }
 
-.img-4{
-    background-image: url(/static/pages/sticks/assets/images/sticksbg.jpeg);
-    opacity: 0.9;
-    border-radius:3px;
-    max-height:325px;
-}
 
 .img-5{
     background-image: url(/static/pages/sticks/assets/images/landscape.jpg);

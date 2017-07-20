@@ -8,6 +8,7 @@ class Facade(object):
     def __init__(self):
         stripe.api_key = settings.STRIPE_SECRET_KEY
 
+
     @staticmethod
     def get_decline_message(error):
         return 'The transaction was declined by the bank -  Please check your card details and try again'
