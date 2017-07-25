@@ -476,6 +476,12 @@ ul.basket-mini-item li.container-basket-info a:hover {
 
 /*  SHOP    */
 
+.col-shopbrowse{
+    margin:0px 10px 0px 10px;
+}
+
+
+
 div.prod-img a .img-hover{
     height:150px;
 }
@@ -703,11 +709,11 @@ div.section-promo p{
 
 .section-header{
     background: rgba(0, 0, 0, 0.85);
-    margin-left:1.66em;
-    max-width:21.664em;
-    padding:10px;
+    margin-left:2.66em;
+    max-width:64em;
+    padding:10px 10px 2px 10px;
     position:relative;
-    top:13px;
+    top:16px;
     border-radius:2px;
     border:1px solid #000;
 
@@ -1241,6 +1247,12 @@ ul.address-list li:before
     background-image: url(/static/pages/about/assets/images/outside.jpeg);
 }
 
+.img-4{
+    background-image: url(/static/pages/sticks/assets/images/sticksbg.jpeg);
+    opacity: 0.9;
+    border-radius:3px;
+    min-height
+}
 
 .img-5{
     background-image: url(/static/pages/sticks/assets/images/landscape.jpg);
@@ -1748,11 +1760,22 @@ div .product-carousel {
     .input-group-btn {
         width:70%;
 }
+
+.section-header{
+    margin-left:2.66em;
+    max-width:52em;
+    padding:6px 10px 2px 10px;
+    top:10px;
+
+
+}
 }/* END MEDIA QUERY */
 
 
 
 @media (max-width: 1199px) and (min-width: 768px){
+
+
 
 .navbar-right{
     display:inline;
@@ -1797,7 +1820,12 @@ div .product-carousel {
 
 @media (max-width: 991px){
 
-
+.section-header{
+    margin-left:1.66em;
+    max-width:40em;
+    padding:6px 10px 2px 10px;
+    top:10px;
+}
 
     #id_sort_by{
     width:25%;
@@ -1818,7 +1846,12 @@ div.navbar-shop .navbar-text {
 
 @media (max-width: 767px){
 
-    .section-title, .widget-title {
+
+  .btn-sm-checkout{
+    padding: 0.625rem 1.1874rem;
+  }
+
+  .section-title, .widget-title {
     font-size: 30px;
     }
 
@@ -1826,6 +1859,9 @@ div.navbar-shop .navbar-text {
      {
         width: 420px;
     }
+
+
+
 }/* END MEDIA QUERY */
 
 
@@ -1929,15 +1965,15 @@ div.results .pagination-results{
 
 }
 
-.section-header {
-    max-height:50px;
-    max-width: 18em;
-    top: 30px;
-
+.section-header{
+    margin-left:0.66em;
+    max-width:32em;
+    padding:9px 10px 0px 10px;
+    top:13px;
 }
-
 .section-header p{
     padding-top:7px;
+    font-size:14px;
 }
 
 .toggle-icon:hover {
@@ -1992,6 +2028,30 @@ div.results .pagination-results{
         padding: 25px 28px 0 0;
         color:#000;
     }
+
+
+}/* END MEDIA QUERY */
+
+@media (max-width: 486px){
+
+.btn-sm-checkout{
+    padding: 0.625rem .7rem !important;
+}
+
+.prod-cat{
+   padding: 4px 3px 2px;
+}
+
+.section-header{
+    margin-left:.66em;
+    max-width:32em;
+    padding:9px 10px 0px 10px;
+    top:20px;
+}
+.section-header p{
+    padding-top:7px;
+    font-size:11px;
+}
 
 
 }/* END MEDIA QUERY */

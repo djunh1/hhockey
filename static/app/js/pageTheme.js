@@ -15,7 +15,7 @@ $(document).ready(function() {
         $("#id_email").attr('placeholder', 'Email Address');
 
         /* Registration */
-        $("#id_registration-email").attr('placeholder', 'Email');
+        $("#id_registration-email").attr('placeholder', 'Email Address');
         $("#id_registration-password1").attr('placeholder', 'Enter Password');
         $("#id_registration-password2").attr('placeholder', 'Re Enter Password');
 
