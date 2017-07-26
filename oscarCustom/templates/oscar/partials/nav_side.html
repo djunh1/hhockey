@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load currency_filters %}
 {% load category_tags %}
 {% load staticfiles %}
 
@@ -45,30 +46,18 @@
 
         <h2 class="widget-title"> Our Store </h2>
         <div class="widget-box">
-            <ul>
+            <!--ul>
                 {% category_tree depth=2 as tree_categories %}
-                {% if tree_categories %}
-                {% for tree_category, info in tree_categories %}
-                {% if info.has_children %}
+                    {% if tree_categories %}
+                        {% for tree_category, info in tree_categories %}
+                            {% if info.has_children %}
                 <li class="dropdown active">
                     <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"> {{
                         tree_category.name }} </a>
                     <ul class="dropdown-menu">
                         <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{
                             tree_category.name }} </a></li>
-                        <li class="dropdown">
-                            <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Sub Menu</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Sub Menu 1</a></li>
-                                <li><a href="#">Sub Menu 2</a></li>
-                                <li class="dropdown">
-                                    <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#">Sub Menu 3</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Sub Menu 4</a></li>
 
-                                    </ul>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -82,7 +71,32 @@
                 {% endif %}
                 {% endfor %}
                 {% endif %}
-            </ul>
+            </ul-->
+
+            <ul data-navigation="dropdown-menu">
+
+                            {% category_tree depth=2 as tree_categories %}
+                            <li class="shopProducts-all"><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All Sticks" %}</a></li><hr>
+                            {% if tree_categories %}
+                                <li class="divider"></li>
+                                {% for tree_category, info in tree_categories %}
+                                    {% if info.has_children %}
+                                        <li class="dropdown-submenu">
+                                            <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                                            <ul class="shopNav-subMenu">
+                                            {% else %}
+                                                <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
+                                            {% endif %}
+
+                                            {% for close in info.num_to_close %}
+                                                </ul></li>
+                                            {% endfor %}
+                                {% endfor %}
+                            {% endif %}
+                            <li class="divider"></li>
+
+                        </ul>
+
         </div>
     </div>
 </aside>

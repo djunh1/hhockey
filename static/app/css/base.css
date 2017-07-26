@@ -480,10 +480,20 @@ ul.basket-mini-item li.container-basket-info a:hover {
     margin:0px 10px 0px 10px;
 }
 
+.shopProducts-all{
+    font-size:18px;
+    font-weight:bold;
+}
+
+
+.shopNav-subMenu{
+    padding:10px 0 0 52px;
+ }
+
 
 
 div.prod-img a .img-hover{
-    height:150px;
+
 }
 
 
@@ -1340,6 +1350,11 @@ ul.address-list li:before
     font-weight:100;
 }
 
+ .widget-wrap ul.shopNav-subMenu li a{
+    font-size:15px;
+    font-weight:bold;
+ }
+
 .widget-wrap ul li a:hover{
     color: #F1C050;
 }
@@ -2033,6 +2048,10 @@ div.results .pagination-results{
 }/* END MEDIA QUERY */
 
 @media (max-width: 486px){
+
+ul#tabs li a {
+    padding: 10px 0px;
+}
 
 .btn-sm-checkout{
     padding: 0.625rem .7rem !important;
