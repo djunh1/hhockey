@@ -25,7 +25,7 @@
 {% endblock header %}
 
 {% block navigation %}
-    {% include 'layout/navigation.html' %}
+{% include 'layout/navigation.html' %}
 {% endblock %}
 
 {% block contentshop %}
@@ -34,7 +34,7 @@
     <article class="product_page"><!-- Start of product page -->
         <div class="container theme-container">
             <div class="row">
-                 {% block product_gallery %}
+                {% block product_gallery %}
                 <div class="col-md-6 col-sm-12 single-prod-slider sync-sliedr">
                     {% include "oscar/catalogue/partials/gallery.html" %}
                 </div>
@@ -68,10 +68,11 @@
                             </div>
                         </div>
                         {% block product_description %}
+                        <p>{{ product.description|safe }}</p>
                         {% endblock %}
                     </div>
                     {% block product_basket_form %}
-                        {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
+                    {% include "oscar/catalogue/partials/add_to_basket_form.html" %}
                     {% endblock %}
                 </div><!-- /col-sm-6 -->
             </div>
@@ -79,58 +80,72 @@
             <br>
             <!-- Products Description Tabination Starts -->
             <div class="tabs-wrap">
-                <div class="tabs">
-                    <ul id="tabs" class="nav font-2 theme-tabs">
-                        <li class="active"><a href="#prod-tab-2" data-toggle="tab"> Reviews </a></li>
-                        <li class=""><a href="#prod-tab-1" data-toggle="tab"> Description </a></li>
-                        <li class=""><a href="#prod-tab-3" data-toggle="tab"> Price Info </a></li>
-                    </ul>
-                </div>
-                <div class="tab-content prod-tab-content">
-                    <div id="prod-tab-1" class="tab-pane fade">
+
+                <!-- Nav tabs -->
+                <ul id="product-tabs" class="nav nav-tabs md-pills pills-default font-2" role="tablist">
+                    <li class="nav-item active">
+                        <a class="nav-link text-center" data-toggle="tab" href="#panel31" role="tab">
+                            <i class="fa fa-globe fa-2x"></i><br> Description</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-center" data-toggle="tab" href="#panel32" role="tab">
+                            <i class="fa fa-thumbs-o-up fa-2x"></i><br> Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-center" data-toggle="tab" href="#panel33" role="tab"><i class="fa fa-money fa-2x"></i><br> Price Info</a>
+                    </li>
+                </ul>
+                <!-- Tab panels -->
+                <div id="product-tab-content" class="tab-content">
+                    <div class="tab-pane fade in show active" id="panel31" role="tabpanel">
+                        <br>
                         <p>{{ product.description|safe }}</p>
                     </div>
-                    <div id="prod-tab-2" class="tab-pane fade in active">
+                    <!--Panel 2-->
+                    <div class="tab-pane fade in show" id="panel32" role="tabpanel">
+                        <br>
                         {% iffeature "reviews" %}
-                            {% block product_review %}
-                            <section>
-                                <div id="reviews" >
-                                    {% if product.num_approved_reviews > 3 %}
-                                    <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}"
-                                       class="btn pull-right custom-link">{% trans "See all reviews" %}</a>
-                                    {% endif %}
-                                </div>
-
-                                {% if product.num_approved_reviews == 0 %}
-                                <p>
-                                    {% if product|is_review_permitted:user %}
-                                        {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
-                                            {% blocktrans %}This product does not have any reviews yet -
-                                            <a href="{{ add_review_url }}#addreview" class="custom-link">be the first
-                                                to write
-                                                one</a>.
-                                       {% endblocktrans %}
-                                    {% else %}
-                                        {% trans "This product does not have any reviews yet" %}.
-                                    {% endif %}
-                                </p>
-                                {% else %}
-                                <ol class="list-unstyled review-list">
-                                    {% for review in product.reviews.approved.all|slice:":3" %}
-                                    <li>
-                                        {% include 'oscar/catalogue/partials/review.html' %}
-                                    </li>
-                                    {% endfor %}
-                                </ol>
+                        {% block product_review %}
+                        <section>
+                            <div id="reviews">
+                                {% if product.num_approved_reviews > 3 %}
+                                <a href="{% url 'catalogue:reviews-list' product_slug=product.slug product_pk=product.id %}"
+                                   class="btn pull-right custom-link">{% trans "See all reviews" %}</a>
                                 {% endif %}
-                            </section>
-                            {% endblock product_review %}
+                            </div>
+
+                            {% if product.num_approved_reviews == 0 %}
+                            <p>
+                                {% if product|is_review_permitted:user %}
+                                {% url 'catalogue:reviews-add' product_slug=product.slug product_pk=product.id as add_review_url %}
+                                {% blocktrans %}This product does not have any reviews yet -
+                                <a href="{{ add_review_url }}#addreview" class="custom-link">be the first
+                                    to write
+                                    one</a>.
+                                {% endblocktrans %}
+                                {% else %}
+                                {% trans "This product does not have any reviews yet" %}.
+                                {% endif %}
+                            </p>
+                            {% else %}
+                            <ol class="list-unstyled review-list">
+                                {% for review in product.reviews.approved.all|slice:":3" %}
+                                <li>
+                                    {% include 'oscar/catalogue/partials/review.html' %}
+                                </li>
+                                {% endfor %}
+                            </ol>
+                            {% endif %}
+                        </section>
+                        {% endblock product_review %}
                         {% endiffeature %}
 
                     </div>
-                    <div id="prod-tab-3" class="tab-pane fade in ">
-                        {% block product_info %}
-
+                    <!--/.Panel 2-->
+                    <!--Panel 3-->
+                    <div class="tab-pane fade" id="panel33" role="tabpanel">
+                        {% block product_info %}<br>
                         <table class="table table-striped">
                             <th>{% trans "Product Type" %}</th><td>{{ product.get_product_class.name }}</td>
                             </tr>
@@ -166,9 +181,12 @@
                             </tr>
                             {% endiffeature %}
                         </table>
-                        {% endblock %}
+                        {% endblock %}<br><br>
                     </div>
+                    <!--/.Panel 3-->
                 </div>
+
+
             </div>
             <!-- Products Description Tabination Ends -->
             {% with recommended_products=product.recommended_products.all|slice:":6" %}
@@ -189,7 +207,7 @@
             {% recently_viewed_products current_product=product %}
         </div>
     </article><!-- End of product page -->
-    </div><!-- /row -->
+</div><!-- /row -->
 
 
 

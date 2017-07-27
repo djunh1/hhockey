@@ -37,7 +37,7 @@
     <div id="grid-view" class="tab-pane fade active in" role="tabpanel">
         <div class="row">
             {% include "oscar/partials/nav_side.html" %}
-            <div class="col-md-9">
+            <div id="inner2"class="col-md-9 col-sm-8">
                 <div class="tab-content">
                     <div id="grid-view" class="tab-pane fade active in" role="tabpanel">
                             <div class="section-breadcrumbs">
@@ -97,7 +97,8 @@
                             </div><hr>
                             <div class="row">
                                 {% for product in products %}
-                                <div class="col-lg-3 col-sm-4 col-shopbrowse" >
+                                <!-- Explore this before final commit -->
+                                <div class="col-md-4 col-sm-4 col-shopbrowse" >
                                     {% render_product product %}
                                 </div>
                                 {% endfor %}

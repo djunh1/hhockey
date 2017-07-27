@@ -12,7 +12,7 @@
 {% block extrascripts %}
 {% endblock %}
 
-<aside class="col-md-3 col-sm-4 col-xs-12">
+<aside id="inner1" class="col-md-3 col-sm-4 col-xs-12">
     <div class="widget-wrap">
         <h2 class="widget-title">My Account</h2>
         <div class="widget-box">
@@ -46,56 +46,31 @@
 
         <h2 class="widget-title"> Our Store </h2>
         <div class="widget-box">
-            <!--ul>
-                {% category_tree depth=2 as tree_categories %}
-                    {% if tree_categories %}
-                        {% for tree_category, info in tree_categories %}
-                            {% if info.has_children %}
-                <li class="dropdown active">
-                    <a aria-haspopup="true" role="button" data-toggle="dropdown" class="dropdown-toggle" href="#"> {{
-                        tree_category.name }} </a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{
-                            tree_category.name }} </a></li>
 
-                        </li>
-                    </ul>
-                </li>
-                {% else %}
-
-                <li>
-                    <a tabindex="-1" href="{{ tree_category.get_absolute_url }}"> {{ tree_category.name }}
-                    </a>
-                    </label>
-                </li>
-                {% endif %}
-                {% endfor %}
-                {% endif %}
-            </ul-->
 
             <ul data-navigation="dropdown-menu">
 
-                            {% category_tree depth=2 as tree_categories %}
-                            <li class="shopProducts-all"><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All Sticks" %}</a></li><hr>
-                            {% if tree_categories %}
-                                <li class="divider"></li>
-                                {% for tree_category, info in tree_categories %}
-                                    {% if info.has_children %}
-                                        <li class="dropdown-submenu">
-                                            <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
-                                            <ul class="shopNav-subMenu">
-                                            {% else %}
-                                                <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
-                                            {% endif %}
+                {% category_tree depth=2 as tree_categories %}
+                <li class="shopProducts-all"><a tabindex="-1" href="{% url 'catalogue:index' %}">{% trans "All Sticks" %}</a></li><hr>
+                {% if tree_categories %}
+                <li class="divider"></li>
+                {% for tree_category, info in tree_categories %}
+                {% if info.has_children %}
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a>
+                    <ul class="shopNav-subMenu">
+                        {% else %}
+                        <li><a tabindex="-1" href="{{ tree_category.get_absolute_url }}">{{ tree_category.name }}</a></li>
+                        {% endif %}
 
-                                            {% for close in info.num_to_close %}
-                                                </ul></li>
-                                            {% endfor %}
-                                {% endfor %}
-                            {% endif %}
-                            <li class="divider"></li>
+                        {% for close in info.num_to_close %}
+                    </ul></li>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+                <li class="divider"></li>
 
-                        </ul>
+            </ul>
 
         </div>
     </div>
