@@ -64,6 +64,7 @@
 <!--script src='{% static "app/js/dist/index_bundle.js" %}'></script-->
 <script src='{% static "app/js/pageTheme.js" %}'></script>
 {% include "partials/extrascripts.html" %}
+    {{ block.super }}
 {% endblock %}
 
 {% block onbodyload %}

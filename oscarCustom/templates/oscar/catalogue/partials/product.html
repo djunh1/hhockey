@@ -17,10 +17,7 @@
             {% thumbnail image.original "x155" upscale=False as thumb %}
             <a href="{{ product.get_absolute_url }}"><img
                     src="{{ thumb.url }}"
-                    alt="{{ product.get_title }}"
-                    class="img-hover"></a>
-
-
+                    alt="{{ product.get_title }}"></a>
 
             <span class="prod-cat">
                 {% include "oscar/catalogue/partials/stock_record.html" %}

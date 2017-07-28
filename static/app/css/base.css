@@ -823,7 +823,6 @@ ul.nav-checkout li.disabled::before  {
 
 li.visited, li.previous, li.active, li.disabled{
 
-    padding-right:20px;
     z-index:1;
 
 }
@@ -1872,10 +1871,26 @@ div.navbar-shop .navbar-text {
 }
 
 #product-tabs a:visited{
-    color:000;
+    color:#000;
     background-color: yellow;
 }
 
+.nav-tabs .nav-link {
+
+    padding: .5em .5em !important;
+
+}
+
+
+
+/*------------------------------------*\
+    $CAROUSEL
+\*------------------------------------*/
+
+.shop-carousel-fa{
+    background:#fff;
+    color:#000;
+}
 
 }/* END MEDIA QUERY */
 

@@ -9386,7 +9386,7 @@ input[type="number"][id*="quantity"] {
   height: auto;
   display: block;
   float: left;
-  margin: 5px;
+  margin: 7px;
   text-indent: 0;
   background-color: #fff;
   opacity: 50;
@@ -9400,7 +9400,7 @@ input[type="number"][id*="quantity"] {
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
-  position: relative;
+
 }
 .clearfix:before,
 .clearfix:after,
