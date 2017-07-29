@@ -516,10 +516,16 @@ p span{
     font-size:20px;
 }
 
+/*  NAVBAR SHOP  */
+
 .navbar-shop {
     background-color: #fff;
     border-color: #fff;
     margin-top:90px;
+}
+
+#navShop li {
+    padding-right:25px;
 }
 
 div.navbar-collapse h2{
@@ -1970,12 +1976,12 @@ div.sub-header h1{
 }
 
 ul.nav-checkout li.active::before, ul.nav-checkout li.disabled::before  {
-        content: None;
+
         }
 
 
 .nav-checkout.navbar .nav {
-    padding-left: 0%;
+    padding-left: 10%;
 }
 
 div.navbar-shop .navbar-text {
@@ -2084,6 +2090,19 @@ div.results .pagination-results{
 }/* END MEDIA QUERY */
 
 @media (max-width: 486px){
+
+/* Shopping navbar */
+
+ul.nav-checkout li.active::before, ul.nav-checkout li.disabled::before  {
+
+        }
+
+
+.nav-checkout.navbar .nav {
+    padding-left: 15%;
+}
+
+
 
 .img-5{
     max-height:140px;

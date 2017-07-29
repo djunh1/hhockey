@@ -51,7 +51,7 @@
             </li>
 
             <li
-                    class="step4 {% if step == 4 %}active{% else %}{% if step == 5 %}visited{% else %}previous{% endif %}{% endif %} ">
+                    class="step4 {% if step == 1 %}disabled{% else %}{% if step == 3 %}disabled{% else %}{% if step == 4 %}active{% else %}{% if step == 5 %}visited{% else %}previous{% endif %}{% endif %}{% endif %}{% endif %} ">
                 <span >
                     {% trans "Preview" %}
                 </span>
