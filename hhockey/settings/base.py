@@ -42,7 +42,7 @@ DEBUG = False
 
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
-ALLOWED_HOSTS = ['localhost', 'www.hopewellhockey.com', '127.0.0.1', '35.166.72.216']
+ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
 # Hopewell Hockey App definition
 
