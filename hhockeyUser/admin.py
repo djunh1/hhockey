@@ -1,3 +1,8 @@
 from django.contrib import admin
+from hhockeyUser.models import User
 
-# Register your models here.
+class UserAdmin(admin.ModelAdmin):
+    list_display = ('email', 'is_active', 'date_joined')
+    list_filter = ('date_joined', )
+
+admin.site.register(User, UserAdmin)

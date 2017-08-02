@@ -39,8 +39,6 @@ SECRET_KEY = get_secret("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
 DEBUG = False
 
-
-
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
 ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216']
 
