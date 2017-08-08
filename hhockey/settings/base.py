@@ -37,10 +37,10 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = False
+DEBUG = True
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
-ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216']
+ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216', 'www.hopewellhockey.com']
 
 # Hopewell Hockey App definition
 
@@ -67,11 +67,13 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
     'django_jenkins',
+    'django_markdown',
+    'hhblog',
 
 
 ]
 
-SITE_ID = 2
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -388,4 +390,9 @@ STRIPE_SECRET_KEY = LSK
 STRIPE_PUBLISHABLE_KEY = LPK
 STRIPE_CURRENCY = 'USD'
 
+# =================
+# Blog and Markdown settings
+# =================
 
+
+MARKDOWN_EDITOR_SKIN = 'simple'
