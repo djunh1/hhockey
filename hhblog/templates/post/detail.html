@@ -1,0 +1,22 @@
+{% extends "layout/app.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block title%}
+    {{ post.title }}
+{% endblock %}
+
+
+{% block content %}
+<section class="mbr-cards mbr-section mbr-section-nopadding" id="features1-t" style="background-color: rgb(255, 255, 255);
+padding: 40px;">
+    <h1 class="text-center logo-font">{{ post.title }}</h1>
+    <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+    <p>{{ post.body|linebreaks }}</p>
+
+    </section>
+{% endblock %}

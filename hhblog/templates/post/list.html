@@ -1,0 +1,53 @@
+{% extends "layout/app.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block extrahead %}
+
+{% endblock  %}
+
+{% block title%}
+    Hopewell Blog
+{% endblock %}
+
+
+{% block content %}
+<section class="mbr-section mbr-parallax-background img-1" id="content5-x"
+         style="background-image: url(/static/pages/sticks/assets/images/screen-shot-2017-02-02-at-5-2000x1022.png); padding-top: 120px; padding-bottom: 120px;">
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
+    </div>
+    <div class="container">
+        <h3 class="mbr-section-title display-2 logo-font">Hockey starts here</h3>
+         <div class="row">
+            <div class="col-xs-12 text-xs-center">
+
+            </div>
+            <br>
+        </div>
+        <div class="lead"></div>
+    </div>
+</section>
+
+<section class="mbr-cards mbr-section mbr-section-nopadding" id="features1-t" style="background-color: rgb(255, 255, 255);
+padding: 40px;">
+    <h1 class="text-center logo-font">The Blog</h1>
+
+    <small class="mbr-section-subtitle text-center">Great discussions on hockey</small>
+    {% for post in posts %}
+        <h2>
+            <a href="{{ post.get_absolute_url }}">
+                {{ post.title }}
+            </a>
+        </h2>
+    <p class="date">
+        Published {{post.publish }} by {{ post.author }}
+    </p>
+    <p> {{ post.body|truncatewords:100|linebreaks }}</p>
+    {% endfor %}
+    {% include "pagination.html" with page=page_obj %}
+    </section>
+{% endblock %}
