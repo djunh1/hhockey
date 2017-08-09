@@ -1,0 +1,86 @@
+{% extends "layout/app.html" %}
+
+{% block title %}Hopewell Blog | Share{% endblock %}
+
+{% block content %}
+<!-- CONTENT AREA -->
+<article>
+    <!--Breadcrumb Section Start-->
+    <section class="contactPage-bg">
+        <div class="theme-container container ">
+            <div class="site-breadcumb aboutPage-hh">
+                <h1 class=""> CONTACT US</h1>
+            </div>
+        </div>
+    </section>
+    <!--Breadcrumb Section End-->
+    <!-- Page Starts-->
+    <div class="container theme-container">
+        <!-- Cart Details Starts-->
+        <div class="title-wrap">
+            <h2 class="section-title fsz-36 pb-30"> We want to hear from you </h2>
+            <p> Your satisfaction with our products and service is important to us. If you have questions, concerns, or problems with our offerings, we want to know. Please use the form below to reach out to us. We will get in touch shortly to assist you.
+
+            </p>
+        </div>
+        <div class="row  pt-70">
+            <div class="col-md-6 contactForm">
+                <div class="row">
+                    {% if form.errors %}
+                    <div class="col-sm-12">
+                    <div class="aui-message aui-message-error">
+                        <p>
+                            There was an error while submitting the form.  Please check the errors and submit the
+                            form again.
+                        </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                <!-- Contact Form Starts -->
+                 {% if sent %}
+                    <div class="col-sm-12">
+                        <div class="aui-message success">
+                        <p>
+                            You message has been sent.  Thanks for contacting
+                            Hopewell Hockey.  We will be in touch.
+                        </p>
+                    </div>
+                    </div>
+                 {% else %}
+                <form role="form" action="" method="POST" class="form-icon contact-form">
+                       {% csrf_token %}
+                        {% for field in form %}
+                        <div class="form-group no-label col-sm-12">
+                            {{ field }}
+                            <p>{{ field.errors }}</p>
+                        </div>
+                        {% endfor %}
+                        <div class="form-group col-sm-12">
+                            <button class="btn btn-lg btn-black-outline btn-black btn-block" type="submit"> <b> Send
+                                Message </b> </button>
+                        </div>
+                </form>
+                {% endif %}
+            </div>
+            </div>      <!-- Contact Form Ends -->
+        <div class="col-md-6">
+            <h2 class="section-title logo-font"> Hopewell Hockey </h2>
+            <hr class="divider-solid">
+            <p> Please provide a contact name, your email, and a brief message.
+            </p>
+            <hr class="divider-dotted">
+            <ul class="upper-text contact-detail">
+                <li> <strong>Address:</strong><br> 909 State St (Apt C), Portsmouth, NH 03801 </li>
+                <!--li><strong>Phone:</strong><br> </li-->
+                <li><strong>Email:</strong><br> info@hopewellhockey.com </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <!-- Cart Details Ends -->
+    </div>
+    <!-- / Page Ends -->
+
+</article>
+<!-- / CONTENT AREA -->
+{% endblock %}
