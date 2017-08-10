@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 
+from taggit.managers import TaggableManager
+
 from hhockeyUser.models import User
 
 class PublishedManager(models.Manager):
@@ -40,6 +42,7 @@ class Post(models.Model):
 
     objects = models.Manager()
     published = PublishedManager()
+    tags = TaggableManager()
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, related_name='comments')

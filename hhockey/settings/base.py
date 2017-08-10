@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'django_jenkins',
     'django_markdown',
     'hhblog',
+    'taggit',
 
 
 ]
