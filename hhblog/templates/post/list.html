@@ -34,31 +34,39 @@ Hopewell Blog
 
 <section class="mbr-cards mbr-section mbr-section-nopadding" id="features1-t" style="background-color: rgb(255, 255, 255);
 padding: 40px;">
-    <h1 class="text-center logo-font">The Blog</h1>
+    <div class="container">
+        <div class="row">
+               <h1 class="text-center logo-font">The Blog</h1>
+                <small class="mbr-section-subtitle text-center">Great discussions on hockey</small>
 
-    <small class="mbr-section-subtitle text-center">Great discussions on hockey</small>
+                {% if tag %}
+                <h2>Posts tagged with "{{ tag.name }}"</h2>
+                {% endif %}
+            <div class="col-md-9">
 
-    {% if tag %}
-    <h2>Posts tagged with "{{ tag.name }}"</h2>
-    {% endif %}
-    {% for post in posts %}
-    <h2>
-        <a href="{{ post.get_absolute_url }}">
-            {{ post.title }}
-        </a>
-        <p class="tags">
-            Tags:
-            {% for tag in post.tags.all %}
-            <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
-            {% if not forloop.last %}, {% endif %}
-            {% endfor %}
-        </p>
-    </h2>
-    <p class="date">
-        Published {{post.publish }} by {{ post.author }}
-    </p>
-    <p> {{ post.body|truncatewords:100|linebreaks }}</p>
-    {% endfor %}
-    {% include "pagination.html" with page=posts %}
+
+                {% for post in posts %}
+                <h2>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                    <p class="tags">
+                        Tags:
+                        {% for tag in post.tags.all %}
+                        <a href="{% url 'blog:post_list_by_tag' tag.slug %}">{{ tag.name }}</a>
+                        {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </p>
+                </h2>
+                <p class="date">
+                    Published {{post.publish }} by {{ post.author }}
+                </p>
+                <p> {{ post.body|truncatewords:100|linebreaks }}</p>
+                {% endfor %}
+                {% include "pagination.html" with page=posts %}
+                </div>
+                {% include "post/sidebar.html" %}
+         </div>
+    </div>
 </section>
 {% endblock %}
