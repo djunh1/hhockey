@@ -6,12 +6,18 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.auth.views import password_reset, password_reset_done, password_reset_confirm, password_reset_complete
+from django.contrib.sitemaps.views import sitemap
+from hhblog.sitemaps import PostSitemap
 
 from oscar.app import application as oscarApp
 from staticContent import views as staticViews
 
 from oscarCustom.customer.views import AccountAuthView
 from axes.decorators import watch_login
+
+sitemaps = {
+    'posts': PostSitemap,
+}
 
 urlpatterns = [
     url(r'^i18n/', include('django.conf.urls.i18n')),
@@ -43,6 +49,8 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^blog/', include('hhblog.urls', namespace='blog', app_name='blog')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 ]
 
 if settings.DEBUG:

@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.admin',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django_nose',
     'allauth',
     'allauth.account',

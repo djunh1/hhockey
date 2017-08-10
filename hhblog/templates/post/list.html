@@ -1,6 +1,7 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
 {% load django_markdown %}
+{% load blog_tags %}
 
 {% block extrastyles %}
 
@@ -61,7 +62,7 @@ padding: 40px;">
                 <p class="date">
                     Published {{post.publish }} by {{ post.author }}
                 </p>
-                <p> {{ post.body|truncatewords:100|linebreaks }}</p>
+                <p> {{ post.body|markdown|truncatewords_html:50 }}</p>
                 {% endfor %}
                 {% include "pagination.html" with page=posts %}
                 </div>

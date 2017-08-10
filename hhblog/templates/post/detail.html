@@ -1,6 +1,7 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
 {% load django_markdown %}
+{% load blog_tags %}
 
 {% block extrastyles %}
 
@@ -16,7 +17,7 @@
 padding: 40px;">
     <h1 class="text-center logo-font">{{ post.title }}</h1>
     <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
-    <p>{{ post.body|linebreaks }}</p>
+    <p>{{ post.body|markdown }}</p>
     <p>
         <a href='{% url "blog:post_share" post.id %}'>
             Share this post.
@@ -47,4 +48,6 @@ padding: 40px;">
             <p><input type="submit" value="Add comment"></p>
         </form>
 {% endif %}
+
+
 {% endblock %}
