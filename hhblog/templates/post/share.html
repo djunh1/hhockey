@@ -1,5 +1,5 @@
 {% extends "layout/app.html" %}
-
+{% load django_markdown %}
 {% block title %}Hopewell Blog | Share{% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     <section class="contactPage-bg">
         <div class="theme-container container ">
             <div class="site-breadcumb aboutPage-hh">
-                <h1 class=""> CONTACT US</h1>
+                <h1 class=""> Share Blog Post</h1>
             </div>
         </div>
     </section>
@@ -18,9 +18,8 @@
     <div class="container theme-container">
         <!-- Cart Details Starts-->
         <div class="title-wrap">
-            <h2 class="section-title fsz-36 pb-30"> We want to hear from you </h2>
-            <p> Your satisfaction with our products and service is important to us. If you have questions, concerns, or problems with our offerings, we want to know. Please use the form below to reach out to us. We will get in touch shortly to assist you.
-
+            <p>
+                Share our blog post with friends.  Its easy to do.  Fill out the form below!
             </p>
         </div>
         <div class="row  pt-70">
@@ -41,8 +40,7 @@
                     <div class="col-sm-12">
                         <div class="aui-message success">
                         <p>
-                            You message has been sent.  Thanks for contacting
-                            Hopewell Hockey.  We will be in touch.
+                            Thanks for sharing our post with your friends!
                         </p>
                     </div>
                     </div>
@@ -64,16 +62,12 @@
             </div>
             </div>      <!-- Contact Form Ends -->
         <div class="col-md-6">
-            <h2 class="section-title logo-font"> Hopewell Hockey </h2>
-            <hr class="divider-solid">
-            <p> Please provide a contact name, your email, and a brief message.
-            </p>
+            <h2 class="section-title logo-font"> Post "{{ post.title }}" preview</h2>
             <hr class="divider-dotted">
-            <ul class="upper-text contact-detail">
-                <li> <strong>Address:</strong><br> 909 State St (Apt C), Portsmouth, NH 03801 </li>
-                <!--li><strong>Phone:</strong><br> </li-->
-                <li><strong>Email:</strong><br> info@hopewellhockey.com </li>
-            </ul>
+            <p> {{ post.body|markdown|truncatewords_html:30 }}</p>
+
+            <hr class="divider-dotted">
+
         </div>
         </div>
     </div>

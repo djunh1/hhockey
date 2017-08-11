@@ -56,7 +56,7 @@ def post_detail(request, year, month, day, post):
 
 def post_share(request, post_id):
     """
-    Shares a post with email.
+    Shares a post via email.
     """
     post = get_object_or_404(Post, id=post_id, status='published')
     sent = False
@@ -66,16 +66,16 @@ def post_share(request, post_id):
         if form.is_valid():
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
-            subject = '{} ({}) recommends you check out "{}"'.format(cd['name'], cd['email'], post.title)
+            subject = 'HOPEWELL HOCKEY user - {} ({}) recommends you check out "{}"'.format(cd['name'], cd['email'],
+                                                                                     post.title)
             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
             send_mail(subject,
                       message,
                       'info@hopewellhockey.com',
                       [cd['to']],
                       fail_silently=False)
-            recipient=cd['to']
+
             sent = True
     else:
         form = EmailPostForm()
-        recipient = False
-    return render(request, 'post/share.html', {'post': post, 'form': form, 'sent': sent, 'recipient': recipient} )
+    return render(request, 'post/share.html', {'post': post, 'form': form, 'sent': sent})

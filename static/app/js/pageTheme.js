@@ -19,6 +19,8 @@ $(document).ready(function() {
         $("#id_registration-password1").attr('placeholder', 'Enter Password');
         $("#id_registration-password2").attr('placeholder', 'Re Enter Password');
 
+
+
         /* NAVBAR MENU */
 
         $('#nav-cart-toggle').on('click', function (e) {

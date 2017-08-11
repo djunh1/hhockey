@@ -271,7 +271,63 @@ i.fsz-40:hover{
     z-index:1;
 }
 
+/************/
+/*  BLOG    */
+/************/
 
+h2 a.blog-title, h1.hhblog-title, .hhcomment{
+    font-weight:100;
+    color:#21759b;
+    font-size:36px;
+    text-decoration:none;
+    border-bottom:none;
+}
+
+h1.hhblog-title{
+    padding-bottom:20px;
+}
+.blog-post{
+    padding:30px;
+}
+div p.blog-date{
+    font-size:14px;
+    font-weight:100;
+    color:#5f5f5f;
+}
+
+span.comment-body-text p{
+    font-size:16px;
+    margin:10px;
+    padding-bottom:20px;
+}
+.hhcomment{
+   margin:10px;
+}
+
+.comment, comment-date{
+    font-size:12px;
+    color:#5f5f5f;
+    text-decoration:underline;
+    font-style: italic;
+    line-height:12px;
+    margin:10px;
+}
+
+.comment-date{
+    font-size:12px;
+    color:#000;
+    font-style: bold;
+    margin:10px;
+}
+
+.grit{
+    background-image: url(../../app/img/grit.png);
+    -webkit-mask-image: url(../../app/img/grit.png);
+    mask-image: url(../../app/img/grit.png);
+    padding:20px;
+    margin-bottom:25px;
+    border-radius:3px;
+}
 
 /* HOME PAGE */
 
@@ -473,11 +529,6 @@ ul.basket-mini-item li.container-basket-info a:hover {
     text-transform: uppercase;
     text-size:1.3em;
 }
-
-/************/
-/*  BLOG    */
-/************/
-
 
 
 
