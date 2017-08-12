@@ -9,7 +9,7 @@
     <section class="contactPage-bg">
         <div class="theme-container container ">
             <div class="site-breadcumb aboutPage-hh">
-                <h1 class=""> Share Blog Post</h1>
+                <h1 class=""> Share This Post</h1>
             </div>
         </div>
     </section>
@@ -19,7 +19,7 @@
         <!-- Cart Details Starts-->
         <div class="title-wrap">
             <p>
-                Share our blog post with friends.  Its easy to do.  Fill out the form below!
+                Share our blog post with friends.  Its easy to do.  Fill out the form below and we will send them an email.
             </p>
         </div>
         <div class="row  pt-70">
@@ -48,7 +48,7 @@
                 <form role="form" action="" method="POST" class="form-icon contact-form">
                        {% csrf_token %}
                         {% for field in form %}
-                        <div class="form-group no-label col-sm-12">
+                        <div class="form-group no-label col-sm-12 text-normalTrans">
                             {{ field }}
                             <p>{{ field.errors }}</p>
                         </div>

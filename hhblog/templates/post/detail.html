@@ -21,11 +21,17 @@ padding: 100px;">
                 <h1 class="hhblog-title">{{ post.title }}</h1>
                 <p class="blog-date">Posted {{ post.publish }} by {{ post.author }}.</p>
                 <p>{{ post.body|markdown }}</p>
-                <p>
+                <hr>
+                <span>
                     <a href='{% url "blog:post_share" post.id %}' class="btn-linkCheckout">
-                        Share this post.
+                        Share this post
                     </a>
-                </p>
+                </span><span> &nbsp|&nbsp </span>
+                <span>
+                    <a href='{% url "blog:post_list" %}' class="btn-linkCheckout">
+                          Back
+                    </a>
+                </span>
             </div>
         </div>
     </div>

@@ -49,6 +49,11 @@ label{
     padding-bottom:150px;
 }
 
+div.text-normalTrans input, div.text-normalTrans textarea{
+    text-transform:none !important;
+}
+
+
 
 /* Global */
 
@@ -327,6 +332,7 @@ span.comment-body-text p{
     padding:20px;
     margin-bottom:25px;
     border-radius:3px;
+    border:1px solid black;
 }
 
 /* HOME PAGE */

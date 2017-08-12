@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 import os
 import json
 import sys
+import socket
 
 from django.core.exceptions import ImproperlyConfigured
 from django.core.urlresolvers import reverse_lazy
@@ -37,7 +38,10 @@ def get_secret(setting,secrets=secrets):
 SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!  Turning this off disables my static content.
-DEBUG = False
+if socket.gethostname() == 'Douglass-MacBook-Pro.local':
+    DEBUG = True
+else:
+    DEBUG = False
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
 ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216', 'www.hopewellhockey.com']
@@ -75,7 +79,7 @@ INSTALLED_APPS = [
 
 ]
 
-SITE_ID = 1
+SITE_ID = 2
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

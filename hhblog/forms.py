@@ -16,6 +16,7 @@ class EmailPostForm(forms.Form):
                                             'placeholder': 'Message'})
 
 
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
