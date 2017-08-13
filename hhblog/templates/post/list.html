@@ -63,7 +63,7 @@ padding-top: 40px;">
 
 
                     <p> {{ post.body|markdown|truncatewords_html:50 }}</p>
-                    <p><a href="{% url 'blog:post_list" class="btn-linkCheckout">Continue reading...</a></p><br>
+                    <p><a href="{{ post.get_absolute_url }}" class="btn-linkCheckout">Continue reading...</a></p><br>
                 </div>
                 {% endfor %}
                 <div class="blog-post">
