@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post, Comment
-from django_markdown.admin import MarkdownModelAdmin
+
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'publish', 'status')

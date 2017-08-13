@@ -2221,5 +2221,11 @@ ul#tabs li a {
     line-height:32px;
 }
 
+/* Blog */
+
+.hhcomment{
+    font-size:32px;
+}
+
 
 }/* END MEDIA QUERY */

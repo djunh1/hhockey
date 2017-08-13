@@ -50,6 +50,7 @@ urlpatterns = [
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^blog/', include('hhblog.urls', namespace='blog', app_name='blog')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
 ]
 

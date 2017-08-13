@@ -1,5 +1,6 @@
 from django import forms
-from . models import Comment
+from . models import Comment, Post
+
 
 class EmailPostForm(forms.Form):
     name = forms.CharField(max_length=25)
@@ -14,8 +15,6 @@ class EmailPostForm(forms.Form):
         self.fields['to'].widget.attrs.update({'class': 'form-control', 'placeholder': 'Friends Email'})
         self.fields['comments'].widget.attrs.update({'class': 'form-control message input-message',
                                             'placeholder': 'Message'})
-
-
 
 class CommentForm(forms.ModelForm):
     class Meta:
