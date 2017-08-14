@@ -304,7 +304,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler',
         },
@@ -335,8 +335,23 @@ LOGGING = {
             'handlers': ['console'],
         },
         'hhockey': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'hhockeyUser': {
             'handlers': ['console'],
-            'level': 'INFO',
+        },
+        'staticContent': {
+            'handlers': ['console'],
+        },
+        'oscarCustom': {
+            'handlers': ['console', 'mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'hhblog': {
+            'handlers': ['console'],
         },
     }
 }
