@@ -44,7 +44,7 @@ else:
     DEBUG = False
 
 #TO DO, want to have actual URLs not the AWS long address for allowed hosts.  When live, remove the local IPs
-ALLOWED_HOSTS = ['localhost', 'hopewellhockey.com', '127.0.0.1', '35.166.72.216', 'www.hopewellhockey.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'hopewellhockey.com', 'localhost', '35.166.72.216', 'www.hopewellhockey.com']
 
 # Hopewell Hockey App definition
 
@@ -214,7 +214,7 @@ EMAIL_HOST_USER = email_host_user
 EMAIL_HOST_PASSWORD = email_host_password
 DEFAULT_FROM_EMAIL = email_to_user
 DEFAULT_TO_EMAIL = email_to_user
-SERVER_EMAIL = email_host_user
+SERVER_EMAIL = email_to_user
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 
@@ -288,31 +288,57 @@ WEBPACK_LOADER = {
 # LOGGING               #
 #########################
 
+ADMINS = [('Doug', 'djunh1@gmail.com'), ('Brian', 'b.d.deangelis@gmail.com'), ('dj2',
+                                                                              'douglas.jacobson@hopewellhockey.com')]
+
 LOGGING = {
-   'version': 1,
-   'disable_existing_loggers': False,
-   'handlers': {
-       'console': {
-           'level': 'DEBUG',
-           'class': 'logging.StreamHandler',
-       },
-   },
-   'loggers': {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'null': {
+            'class': 'logging.NullHandler',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler'
+        }
+    },
+    'loggers': {
         'django': {
             'handlers': ['console'],
         },
-        'hhockeyUser': {
+        'django.request': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'django.security': {
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+        'py.warnings': {
             'handlers': ['console'],
         },
-        'staticContent': {
+        'hhockey': {
             'handlers': ['console'],
+            'level': 'INFO',
         },
-        'oscarCustom': {
-            'handlers': ['console'],
-        },
-
-    },
-    'root': {'level': 'INFO'},
+    }
 }
 
 #########################
