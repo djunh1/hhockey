@@ -1,0 +1,26 @@
+{% extends "layout/app.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% load blog_tags %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block extrahead %}
+
+{% endblock  %}
+
+{% block title%}
+Game Time
+{% endblock %}
+
+
+{% block content %}
+    <br><br><br><br><br>
+    <h1>Welcome to game time</h1>
+    {% for game in games %}
+        <p>{{ game.name }}</p>
+<p>{{ game.starttime }}</p>
+    {% endfor %}
+{% endblock %}

@@ -8,12 +8,14 @@ LEAGUE_CHOICES = (
     ('COLLEGE', 'College'),
     ('MAJOR JUNIORS', 'Major Juniors'),
     ('PROFESSIONAL', 'Professional'),
+    ('REC LEAGUE', 'Rec League'),
 )
 
 POSITION_CHOICES = (
     ('WING', 'Wing'),
     ('CENTER', 'Center'),
     ('DEFENSE', 'Defense'),
+    ('GOALIE', 'Goalie'),
 )
 
 

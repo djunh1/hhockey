@@ -32,7 +32,7 @@ class Post(models.Model):
         ordering = ('-publish',)
         verbose_name = " post model"
 
-    def __str_(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
