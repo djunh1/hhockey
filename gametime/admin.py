@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rink, Game
+from .models import Rink, Game, RecurringGame
 
 
 class RinkAdmin(admin.ModelAdmin):
@@ -16,3 +16,10 @@ class GameAdmin(admin.ModelAdmin):
     search_fields = ('name', 'starttime')
     ordering = ['starttime',]
 admin.site.register(Game, GameAdmin)
+
+class RecGameAdmin(admin.ModelAdmin):
+    list_display = ('recgame', 'day')
+    list_filter= ('recgame', 'day')
+    search_fields = ('recgame', 'day')
+    ordering = ['day']
+admin.site.register(RecurringGame, RecGameAdmin)

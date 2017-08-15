@@ -52,7 +52,6 @@ class PaymentDetailsView(CorePaymentDetailsView):
         if self.preview:
             ctx['stripe_token_form'] = StripeTokenForm(self.request.POST)
             ctx['order_total_incl_tax_cents'] = (ctx['order_total'].incl_tax * 100).to_integral_value()
-            print(ctx['order_total'])
         else:
             ctx['stripe_publishable_key'] = settings.STRIPE_PUBLISHABLE_KEY
         return ctx
