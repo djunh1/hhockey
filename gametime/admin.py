@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rink, Game, RecurringGame
+from .models import Rink, Game
 
 
 class RinkAdmin(admin.ModelAdmin):
@@ -7,6 +7,7 @@ class RinkAdmin(admin.ModelAdmin):
     search_fields = ('name', 'post_code')
     list_filter = ('name', 'address', 'post_code', 'skatesharpen')
     ordering = ['name', 'post_code']
+    prepopulated_fields = {'slug': ('name','post_code')}
 
 admin.site.register(Rink, RinkAdmin)
 
@@ -15,11 +16,6 @@ class GameAdmin(admin.ModelAdmin):
     list_filter = ('name', 'starttime', 'cost')
     search_fields = ('name', 'starttime')
     ordering = ['starttime',]
+    prepopulated_fields = {'slug': ('name',) }
 admin.site.register(Game, GameAdmin)
 
-class RecGameAdmin(admin.ModelAdmin):
-    list_display = ('recgame', 'day')
-    list_filter= ('recgame', 'day')
-    search_fields = ('recgame', 'day')
-    ordering = ['day']
-admin.site.register(RecurringGame, RecGameAdmin)

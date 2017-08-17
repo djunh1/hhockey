@@ -17,10 +17,87 @@ Game Time
 
 
 {% block content %}
-    <br><br><br><br><br>
-    <h1>Welcome to game time</h1>
-    {% for game in games %}
-        <p>{{ game.name }}</p>
-<p>{{ game.starttime }}</p>
-    {% endfor %}
+
+<section class="mbr-section mbr-parallax-background img-1" id="content5-x"
+         style="background-image: url(/static/pages/sticks/assets/images/pondhockey.jpg); padding-top: 260px; padding-bottom: 120px;">
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
+    </div>
+    <div class="container">
+        <h3 class="mbr-section-title display-2 logo-font">Game Time</h3>
+        <div class="row">
+            <div class="col-xs-12 text-xs-center">
+
+            </div>
+            <br>
+        </div>
+        <div class="lead"></div>
+    </div>
+</section>
+
+<section class="mbr-cards mbr-section " id="features1-t" style="background-color: rgb(255, 255, 255);
+padding-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center logo-font">Welcome to Game Time</h1>
+            <small class="mbr-section-subtitle text-center">Lets drop the puck</small>
+
+
+            <div class="col-xs-11 col-sm-offset-1">
+                {% if request.user.is_authenticated %}
+                <a>Create a game</a>
+                {% else %}
+                <p>Please Log in to create a game</p>
+                {% endif %}
+                <hr><br>
+                <section>
+                    <div class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                            <tr>
+                                <th>Game Name</th>
+                                <th>Type</th>
+                                <th>Puck Drop</th>
+                                <th>Rink</th>
+                                <th>Players</th>
+                                 {% if request.user.is_authenticated %}
+                                <th>Action</th>
+                                {% endif %}
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                            {% for game in games %}
+                            <tr>
+
+                                <td><a href="{{ game.get_absolute_url }}" class="btn-linkCheckout">{{ game.name }}</a></td>
+                                <td>{{ game.type }}</td>
+                                <td>{{ game.starttime }}</td>
+                                <td><a href="{{ game.rink.get_absolute_url }}" class="btn-linkCheckout">{{ game.rink }}</a></td>
+                                <td>{{ game.players_count }}</td>
+
+
+                                    {% if request.user.is_authenticated %}
+                                    <td>
+                                    <a class="btn btn-sm btn-black-outline btn-black">Join</a>
+                                        </td>
+                                    {% endif %}
+                                    <!-- Add if statement to check if user owns the game -->
+
+                            </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

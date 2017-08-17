@@ -98,7 +98,7 @@ MIDDLEWARE_CLASSES = [
 
 #'hhockeyUser.middleware.LoginRequiredMiddleware',
 
-#https - change hsts to 31536000 once tested
+
 '''
 if DEBUG == False:
     SECURE_SSL_REDIRECT = True
