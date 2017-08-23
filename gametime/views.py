@@ -7,7 +7,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 
 from hhockeyUser.models import User
-from .models import Game, Rink
+from .models import Game, Rink, Comment
+from .forms import CommentForm
 
 
 class OwnerMixin(object):
@@ -60,7 +61,23 @@ class GameListView(ListView):
 
 def game_detail(request, slug):
     game = get_object_or_404(Game, slug=slug)
-    return render(request, 'games/game_detail.html', {'game': game})
+    comments = game.game_comments.filter(active=True)
+    new_comment_add = False
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post = game
+            new_comment.user = request.user
+            new_comment.save()
+            new_comment_add = True
+    else:
+        comment_form = CommentForm()
+
+    return render(request, 'games/game_detail.html', {'game': game,
+                                                      'comments': comments,
+                                                      'comment_form': comment_form,
+                                                      'new_comment_add': new_comment_add})
 
 def rink_detail(request, slug):
     rink = get_object_or_404(Rink, slug=slug)

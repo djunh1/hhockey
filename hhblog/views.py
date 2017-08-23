@@ -40,18 +40,21 @@ class PostListView(ListView):
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug=post, status='published', publish__year=year)
     comments = post.comments.filter(active=True)
+    new_comment_add = False
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.post = post
             new_comment.save()
+            new_comment_add = True
     else:
         comment_form = CommentForm()
-        new_comment = False
+
     return render(request, 'post/detail.html', {'post': post,
                                                 'comments': comments,
-                                                'comment_form': comment_form})
+                                                'comment_form': comment_form,
+                                                'new_comment_add': new_comment_add})
 
 
 def post_share(request, post_id):

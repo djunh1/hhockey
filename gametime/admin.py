@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Rink, Game
+from .models import Rink, Game, Comment
 
 
 class RinkAdmin(admin.ModelAdmin):
@@ -18,4 +18,11 @@ class GameAdmin(admin.ModelAdmin):
     ordering = ['starttime',]
     prepopulated_fields = {'slug': ('name',) }
 admin.site.register(Game, GameAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('user', 'post', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('user', 'body')
+
+admin.site.register(Comment, CommentAdmin)
 

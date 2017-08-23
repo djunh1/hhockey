@@ -12,12 +12,12 @@
             </div>
             {% else %}
             {% with comments.count as total_comments %}
-            <h2 class="hhcomment">{{ total_comments}} comment{{ total_comments|pluralize}} to "{{ post.title }}"</h2>
+            <h2 class="hhcomment">{{ total_comments}} post{{ total_comments|pluralize}} to "{{ game.name }}"</h2>
             {% endwith %}
             {% for comment in comments %}
             <div class="grit">
                 <ul>
-                    <li><p class="comment"> {{ comment.name }} </p></li>
+                    <li><p class="comment"> {{ comment.user.first_name|default:comment.user }} </p></li>
                     <li><p class="comment-date">{{ comment.created }}</p></li>
                 </ul>
                 <div>

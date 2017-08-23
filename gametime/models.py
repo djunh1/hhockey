@@ -59,6 +59,7 @@ class Game(models.Model):
     )
 
     owner = models.ForeignKey(User, related_name='games_created')
+    body = models.TextField(blank=True)
     name = models.CharField(max_length=40)
     type = models.CharField(max_length=15, choices=GAME_CHOICES, default='PICKUP')
     slug = models.SlugField(max_length=50, unique=True)
@@ -106,3 +107,19 @@ class Game(models.Model):
 
     objects = models.Manager()
     gamelist = GameListManager()
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Game, related_name='game_comments')
+    user = models.ForeignKey(User, related_name='user_comment')
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
+        verbose_name = " Game Comment model"
+
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
