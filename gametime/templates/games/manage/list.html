@@ -1,7 +1,7 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
 {% load django_markdown %}
-{% load game_tags %}
+{% load blog_tags %}
 
 {% block extrastyles %}
 
@@ -73,12 +73,7 @@ padding-top: 40px;">
                             <tr>
 
                                 <td><a href="{{ game.get_absolute_url }}" class="btn-linkCheckout">{{ game.name }}</a></td>
-                                <td>{%if request.user == game.owner %}
-                                    yes
-                                    {% else %}
-                                    no
-                                    {% endif %}
-                                </td>
+                                <td>{{ game.type }}</td>
                                 <td>{{ game.starttime }}</td>
                                 <td><a href="{{ game.rink.get_absolute_url }}" class="btn-linkCheckout">{{ game.rink }}</a></td>
                                 <td>{{ game.players_count }}</td>
@@ -86,24 +81,8 @@ padding-top: 40px;">
 
                                     {% if request.user.is_authenticated %}
                                     <td>
-
-                                        {%if request.user == game.owner %}
-                                        <a href="{% url 'game:game_edit' game.id %}"
-                                           class="btn btn-sm btn-black-outline btn-black">Edit
-                                    </a>
-                                        {% else %}
-                                                {% get_user_in_game request.user game.id as check_users_joined %}
-                                                   {% if check_users_joined %}
-                                                 <a href="{{ game.get_absolute_url }}"
-                                               class="btn btn-sm btn-black-outline btn-black">View</a>
-                                                        {% else %}
-                                                <a href="{% url 'game:game_join' game.id %}"
-                                               class="btn btn-sm btn-black-outline btn-black">Join</a>
-                                                        {% endif %}
-
-
-                                        {% endif %}
-                                    </td>
+                                    <a class="btn btn-sm btn-black-outline btn-black">Join</a>
+                                        </td>
                                     {% endif %}
                                     <!-- Add if statement to check if user owns the game -->
 

@@ -1,0 +1,69 @@
+{% extends "layout/app.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% load blog_tags %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block extrahead %}
+
+{% endblock  %}
+
+{% block title%}
+    {% if object %}
+        Edit Game "{{ object.name }}"
+    {% else %}
+        Create Game
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<section class="mbr-section mbr-parallax-background img-1" id="content5-x"
+         style="background-image: url(/static/pages/sticks/assets/images/pondhockey.jpg); padding-top: 260px; padding-bottom: 120px;">
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
+    </div>
+    <div class="container">
+        <h3 class="mbr-section-title display-2 logo-font">CREATE GAME</h3>
+        <div class="row">
+            <div class="col-xs-12 text-xs-center">
+
+            </div>
+            <br>
+        </div>
+        <div class="lead"></div>
+    </div>
+</section>
+
+<section class="mbr-cards mbr-section " id="features1-t" style="background-color: rgb(255, 255, 255); padding-top: 450px; padding-bottom: 120px;
+padding-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center logo-font">Create a game</h1>
+            <small class="mbr-section-subtitle text-center">You are in charge</small>
+
+
+            <div class="col-xs-11 col-sm-offset-1">
+                <h1>
+                {% if object %}
+                Edit Game "{{ object.name }}"</h1>
+                {% else %}
+                Create a new game
+                {% endif %}
+                </h1>
+                <hr>
+                <form action="" method="POST">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <p><input type="submit" value="Save Game"></p>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,18 +1,22 @@
 from django.db import models
 from django.utils import timezone
 from django.core.urlresolvers import reverse
+from django.utils.text import slugify
 
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from hhockeyUser.models import User
 
+
 class GameListManager(models.Manager):
     def get_queryset(self):
         return super(GameListManager, self).get_queryset().filter(starttime__gte=timezone.now())
 
+
 class RecurringListManager(models.Manager):
     def get_queryset(self):
         return super(RecurringListManager, self).get_queryset().filter()
+
 
 class Rink(models.Model):
     name = models.CharField(max_length=40)
@@ -35,6 +39,7 @@ class Rink(models.Model):
         return reverse('game:rink_detail', args=[self.slug])
 
     objects = models.Manager()
+
 
 class Game(models.Model):
     GAME_CHOICES = (
@@ -79,6 +84,25 @@ class Game(models.Model):
     def get_absolute_url(self):
         return reverse('game:game_detail',
                        args=[self.slug])
+
+    def _get_unique_slug(self):
+        slug = slugify(self.name)
+        unique_slug = slug
+        num = 1
+        while Game.objects.filter(slug=unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        '''
+        Auto generate a slug, and autoamtically put creator in game.
+        TODO make sure if they leave that there isn't a bug
+        '''
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save()
+        self.playerlist.add(self.owner)
 
     objects = models.Manager()
     gamelist = GameListManager()

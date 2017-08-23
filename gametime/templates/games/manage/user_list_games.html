@@ -1,7 +1,7 @@
 {% extends "layout/app.html" %}
 {% load staticfiles %}
 {% load django_markdown %}
-{% load game_tags %}
+{% load blog_tags %}
 
 {% block extrastyles %}
 
@@ -23,7 +23,7 @@ Game Time
     <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
     </div>
     <div class="container">
-        <h3 class="mbr-section-title display-2 logo-font">Game Time</h3>
+        <h3 class="mbr-section-title display-2 logo-font">My Games</h3>
         <div class="row">
             <div class="col-xs-12 text-xs-center">
 
@@ -38,8 +38,8 @@ Game Time
 padding-top: 40px;">
     <div class="container">
         <div class="row">
-            <h1 class="text-center logo-font">Welcome to Game Time</h1>
-            <small class="mbr-section-subtitle text-center">Lets drop the puck</small>
+            <h1 class="text-center logo-font">My Games</h1>
+            <small class="mbr-section-subtitle text-center">Edit your games</small>
 
 
             <div class="col-xs-11 col-sm-offset-1">
@@ -69,16 +69,11 @@ padding-top: 40px;">
                     <div class="tbl-content">
                         <table cellpadding="0" cellspacing="0" border="0">
                             <tbody>
-                            {% for game in games %}
+                            {% for game in object_list %}
                             <tr>
 
                                 <td><a href="{{ game.get_absolute_url }}" class="btn-linkCheckout">{{ game.name }}</a></td>
-                                <td>{%if request.user == game.owner %}
-                                    yes
-                                    {% else %}
-                                    no
-                                    {% endif %}
-                                </td>
+                                <td>{{ game.type }}</td>
                                 <td>{{ game.starttime }}</td>
                                 <td><a href="{{ game.rink.get_absolute_url }}" class="btn-linkCheckout">{{ game.rink }}</a></td>
                                 <td>{{ game.players_count }}</td>
@@ -86,24 +81,11 @@ padding-top: 40px;">
 
                                     {% if request.user.is_authenticated %}
                                     <td>
-
-                                        {%if request.user == game.owner %}
-                                        <a href="{% url 'game:game_edit' game.id %}"
-                                           class="btn btn-sm btn-black-outline btn-black">Edit
-                                    </a>
-                                        {% else %}
-                                                {% get_user_in_game request.user game.id as check_users_joined %}
-                                                   {% if check_users_joined %}
-                                                 <a href="{{ game.get_absolute_url }}"
-                                               class="btn btn-sm btn-black-outline btn-black">View</a>
-                                                        {% else %}
-                                                <a href="{% url 'game:game_join' game.id %}"
-                                               class="btn btn-sm btn-black-outline btn-black">Join</a>
-                                                        {% endif %}
-
-
-                                        {% endif %}
-                                    </td>
+                                    <a href="{% url 'game:game_edit' game.id %}" class="btn-linkCheckout">Edit
+                                    </a><span>|</span>
+                                        <a href="{% url 'game:game_delete' game.id %}" class="btn-linkCheckout">  Delete
+                                        </a>
+                                        </td>
                                     {% endif %}
                                     <!-- Add if statement to check if user owns the game -->
 

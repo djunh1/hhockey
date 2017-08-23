@@ -23,7 +23,7 @@ Game Time
     <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
     </div>
     <div class="container">
-        <h3 class="mbr-section-title display-2 logo-font">Game Information</h3>
+        <h3 class="mbr-section-title display-2 logo-font">Sorry to see you go</h3>
         <div class="row">
             <div class="col-xs-12 text-xs-center">
 
@@ -42,15 +42,8 @@ padding-top: 40px;">
             <small class="mbr-section-subtitle text-center">Unassisted</small>
             <hr>
             <div class="col-xs-9 col-sm-offset-1">
-                <h1 class="hhblog-title">Welcome to {{ game.name }}</h1>
+                <h1 class="hhblog-title">You left  {{ game.name }}</h1>
                 <p>game started by {{game.owner.first_name }}</p>
-                <span><strong>STATUS </strong></span><span> {{ game.status }}</span><br>
-                <span><strong>LOCATION </strong></span><span> {{ game.rink.address }}</span>
-                <p>Player List:</p>
-                {% for player in game.playerlist.all %}
-                <p>{{ player.first_name }} {{player.last_name }} ({{player.position}})
-                </p>
-                {% endfor %}
 
             </div>
             <div class="col-lg-2">
