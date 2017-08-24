@@ -21,6 +21,9 @@
             <li{% if active_tab == 'profile' %} class="active"{% endif %}>
                 <a href="{% url 'customer:profile-view' %}">{% trans "My Profile" %}</a>
             </li>
+            <li{% if active_tab == 'gametime' %} class="active"{% endif %}>
+                <a href="{% url 'usergt:game_created_list' %}">{% trans "Game Time" %}</a>
+            </li>
             <li{% if active_tab == 'orders' %} class="active"{% endif %}>
                 <a href="{% url 'customer:order-list' %}">{% trans "Order History" %}</a>
             </li>

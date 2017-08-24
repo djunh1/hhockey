@@ -36,6 +36,7 @@ urlpatterns = [
                                          name='password_reset_complete'),
     url(r'shop/accounts/login', watch_login(AccountAuthView.as_view())),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^usergt/', include('hhockeyUser.urls', namespace='usergt', app_name='usergt')),
     url(r'shop/', include(oscarApp.urls)),
     url(r'^about/$', staticViews.about, name='about_page'),
     url(r'^warranty/$', staticViews.warranty, name='warranty_page'),

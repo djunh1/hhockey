@@ -1,0 +1,17 @@
+{% extends "oscar/customer/baseaccountpage.html" %}
+
+{% block tabcontent %}
+<a href="{% url 'game:manage_game_list' %}">Manage your games</a>
+<h1>
+    Games You made
+</h1>
+
+<ul>
+    {% for game in games %}
+    <li><a href="{{ game.get_absolute_url }}" class="btn-linkCheckout">{{game.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'usergt:game_joined_list' %}">View games you joined</a>
+
+{% endblock tabcontent %}

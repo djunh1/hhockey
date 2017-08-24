@@ -70,7 +70,7 @@ class Game(models.Model):
     duration = models.DecimalField(max_digits=5, decimal_places=1, blank=True, null=True)
     rink = models.ForeignKey(Rink)
     recurring = models.BooleanField(default=False)
-    playerlist = models.ManyToManyField(User, blank=True, null=True)
+    playerlist = models.ManyToManyField(User, related_name='playerlists', blank=True, null=True)
 
     class Meta:
         ordering = ('starttime',)
