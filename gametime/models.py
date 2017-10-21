@@ -108,6 +108,40 @@ class Game(models.Model):
     objects = models.Manager()
     gamelist = GameListManager()
 
+class CustomPlayerList(models.Model):
+
+    owner = models.ForeignKey(User, related_name='list_created')
+    name = models.CharField(max_length=50)
+    created = models.DateTimeField(auto_now_add=True)
+    customlist = models.ManyToManyField(User, related_name='custom_list', blank=True, null=True)
+    slug = models.SlugField(max_length=50, unique=True)
+
+    class Meta:
+        ordering = ('-created',)
+        verbose_name = "Custom Player List"
+
+    def get_absolute_url(self):
+        return reverse('game:player_list_detail',
+                       args=[self.slug])
+
+    def _get_unique_slug(self):
+        slug = slugify(self.name)
+        unique_slug = slug
+        num = 1
+        while CustomPlayerList.objects.filter(slug=unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        '''
+        Auto generate slug, and add player to their own list
+        '''
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save()
+        self.customlist.add(self.owner)
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Game, related_name='game_comments')

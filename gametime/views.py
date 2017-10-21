@@ -7,9 +7,10 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 
 from hhockeyUser.models import User
-from .models import Game, Rink, Comment
+from .models import Game, Rink, Comment, CustomPlayerList
 from .forms import CommentForm
 
+#TODO: Move to mixin python module
 
 class OwnerMixin(object):
     def get_queryset(self):
@@ -37,7 +38,7 @@ class ManageGameListView(OwnerGameMixin, ListView):
     template_name = 'games/manage/list.html'
 
 
-class GameCreateView(PermissionRequiredMixin,OwnerGameEditMixin, CreateView):
+class GameCreateView(PermissionRequiredMixin, OwnerGameEditMixin, CreateView):
     permission_required = 'gametime.add_game'
 
 
@@ -52,6 +53,40 @@ class GameDeleteView(PermissionRequiredMixin, OwnerGameMixin, DeleteView):
     success_url = reverse_lazy('game:manage_game_list')
     permission_required = 'gametime.delete_game'
 
+#NEW
+
+class OwnerListMixin(OwnerMixin, LoginRequiredMixin):
+    model = CustomPlayerList
+
+
+class OwnerListEditMixin(OwnerListMixin, OwnerEditMixin):
+    fields = ['name', 'customlist',]
+    success_url = reverse_lazy('game:manage_player_list')
+    template_name = 'games/playerlists/form.html'
+
+
+class ManageCustomListView(OwnerListMixin, ListView):
+    template_name = 'games/playerlists/list.html'
+
+
+class CustomListCreateView(PermissionRequiredMixin, OwnerListEditMixin, CreateView):
+    permission_required = 'gametime.add_game'
+
+
+
+class CustomListUpdateView(PermissionRequiredMixin, OwnerListEditMixin, UpdateView):
+    template_name = 'games/playerlists/form.html'
+    permission_required = 'gametime.change_game'
+
+
+class PlayerListDeleteView(PermissionRequiredMixin, OwnerGameMixin, DeleteView):
+    template_name = 'games/playerlists/delete.html'
+    success_url = reverse_lazy('game:manage_player_list')
+    permission_required = 'gametime.delete_game'
+
+
+
+#
 
 class GameListView(ListView):
     queryset = Game.gamelist.all()
@@ -82,6 +117,10 @@ def game_detail(request, slug):
 def rink_detail(request, slug):
     rink = get_object_or_404(Rink, slug=slug)
     return render(request, 'rinks/rink_detail.html', {'rink': rink})
+
+def list_detail(request, slug):
+    list = get_object_or_404(CustomPlayerList, slug=slug)
+    return render(request, 'games/playerlists/list_detail.html', {'list': list})
 
 class ManageGameListView(ListView):
     model = Game

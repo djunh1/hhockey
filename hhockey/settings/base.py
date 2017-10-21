@@ -77,7 +77,6 @@ INSTALLED_APPS = [
     'taggit',
     'ckeditor',
     'ckeditor_uploader',
-    'gametime',
 
 
 ]

@@ -36,7 +36,6 @@ urlpatterns = [
                                          name='password_reset_complete'),
     url(r'shop/accounts/login', watch_login(AccountAuthView.as_view())),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^usergt/', include('hhockeyUser.urls', namespace='usergt', app_name='usergt')),
     url(r'shop/', include(oscarApp.urls)),
     url(r'^about/$', staticViews.about, name='about_page'),
     url(r'^warranty/$', staticViews.warranty, name='warranty_page'),
@@ -50,7 +49,6 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
     url(r'^markdown/', include('django_markdown.urls')),
     url(r'^blog/', include('hhblog.urls', namespace='blog', app_name='blog')),
-    url(r'^gametime/', include('gametime.urls', namespace='game', app_name='game')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 

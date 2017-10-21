@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Rink, Game, Comment
+from .models import Rink, Game, Comment, CustomPlayerList
 
-
+'''
 class RinkAdmin(admin.ModelAdmin):
     list_display = ('name', 'address', 'post_code', 'skatesharpen')
     search_fields = ('name', 'post_code')
@@ -26,3 +26,12 @@ class CommentAdmin(admin.ModelAdmin):
 
 admin.site.register(Comment, CommentAdmin)
 
+class CustomListAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created')
+    list_filter = ('name', 'created')
+    search_fields = ('name',)
+    prepopulated_fields = {'slug': ('name',) }
+
+admin.site.register(CustomPlayerList, CustomListAdmin)
+
+'''

@@ -1,0 +1,68 @@
+{% extends "layout/app.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+{% load game_tags %}
+
+{% block extrastyles %}
+
+{% endblock %}
+
+{% block extrahead %}
+
+{% endblock  %}
+
+{% block title%}
+Game Time
+{% endblock %}
+
+
+{% block content %}
+
+<section class="mbr-section mbr-parallax-background img-1" id="content5-x"
+         style="padding-top: 260px; padding-bottom: 120px;">
+    <div class="mbr-overlay" style="opacity: 0.6; background-color: rgb(0, 0, 0);">
+    </div>
+    <div class="container">
+        <h3 class="mbr-section-title display-2 logo-font"></h3>
+        <div class="row">
+            <div class="col-xs-12 text-xs-center">
+
+            </div>
+            <br>
+        </div>
+        <div class="lead"></div>
+    </div>
+</section>
+
+<section class="mbr-cards mbr-section " id="features1-t" style="background-color: rgb(255, 255, 255);
+padding-top: 40px;">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center logo-font">Team detail -  View your team here</h1>
+            <small class="mbr-section-subtitle text-center">Unassisted</small>
+            <hr>
+            <div class="col-xs-9 col-sm-offset-1">
+                <h1 class="hhblog-title">Team -{{ list.name }}</h1>
+                <p>Players in your list}</p>
+
+                <p>Player List:</p>
+                {% for player in list.customlist.all %}
+                <p>{{ player.first_name }} {{player.last_name }} ({{player.position}})
+                </p>
+                {% endfor %}
+
+
+
+            </div>
+            <div class="col-lg-2">
+                <p>Manage Team</p>
+                <a href="{% url 'game:player_list_edit' list.id %}" class="btn btn-sm btn-black-outline btn-black">Edit
+                </a>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
