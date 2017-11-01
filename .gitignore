@@ -11,3 +11,4 @@ static/app/js/node_modules/
 htmlcov/
 .coverage
 geckodriver.log
+readme.txt
