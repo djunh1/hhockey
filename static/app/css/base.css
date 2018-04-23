@@ -13,6 +13,9 @@ body {
     z-index:-1;
 }
 
+
+
+
 .logo-font{
     font-family: 'Playfair Display SC', serif !important;
 }
@@ -1396,6 +1399,7 @@ ul.address-list li:before
 
 .card-text{
     color:#000;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .btn-white-outline {
